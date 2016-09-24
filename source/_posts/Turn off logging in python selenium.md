@@ -1,6 +1,6 @@
 ---
 title: Turn off logging in python selenium
-tags:[python,selenium]
+tags: [python,selenium]
 date: 2016-09-24 22:14:44
 categories: tips
 ---
