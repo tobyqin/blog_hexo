@@ -276,9 +276,9 @@ duoshuo_shortname: tobyqin
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
   ua_enable: true
-  admin_enable: true
+  admin_enable: false
   user_id: 6333781332014925000
-  admin_nickname: 作者
+  # admin_nickname: 作者
 
 
 # Facebook SDK Support.
