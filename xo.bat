@@ -4,6 +4,10 @@ echo Start to generate blog...
 
 cmd /c "hexo clean"
 cmd /c "hexo g"
+cmd /c "hexo d"
+git add -A
+git commit -m "update and save blog."
+git push origin source
 
 echo Done!
 echo.
