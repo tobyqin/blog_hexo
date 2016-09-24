@@ -9,6 +9,7 @@ description:
 author: Toby Qin
 language: en
 timezone: Asia/Chongqing
+duoshuo_shortname: tobyqin
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -64,8 +65,6 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
-
-duoshuo_shortname: tobyqin
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
