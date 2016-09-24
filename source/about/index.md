@@ -6,7 +6,7 @@ Hi, my name is Toby. I am a software engineer in testing, usually called as QA e
 
 At spare time, I like to do a lot of things, reading, sports, photography, music. Be interesting in your life is the most important thing.
 
-我是中国人，我的名字叫顺溜。
+> 你好，我是一名中国人，我的名字叫顺溜。我是一个犯了严重网瘾的人，脾气也不是很好，长期需要电击治疗。如果长时间没有电击我就会在深夜写代码，刷题目，做各种勾当。如果你不巧在网上看见我，请礼貌相待，如果你对我恶言相加，我会顺着网线半夜过来掐死你的，怕了吗？
 
-<img src="./github-logo.png" width="150">
+<img src="./github-logo.png" align="left" width="80">
 Github: https://github.com/tobyqin
