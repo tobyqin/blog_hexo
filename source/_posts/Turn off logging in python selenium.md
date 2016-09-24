@@ -6,7 +6,7 @@ categories: tips
 ---
 Python selenium will print a lot of debug info on selenium driver, which will mess up important information for your testing.
 
-![](./images/selenium-debug-logging.png)
+![](/images/selenium-debug-logging.png)
 
 To turn it off, please add bellow code before test case.
 
