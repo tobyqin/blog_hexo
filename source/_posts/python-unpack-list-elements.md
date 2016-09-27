@@ -3,7 +3,7 @@ title: Python：将数组中的元素导出到变量中 (unpacking)
 tags:
   - python
 date: 2016-09-24 23:03:34
-categories: tips
+categories: Tips
 ---
 ## 问题
 > 你需要将数组（list）或元组（tuple）中的元素导出到N个变量中。
