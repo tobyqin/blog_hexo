@@ -1,6 +1,6 @@
 ---
 title: 从C#到Python - 语言特性和概览
-tags:[C#,python]
+tags: [C#,python]
 date: 2016-09-27 09:35:13
 categories:
 ---
