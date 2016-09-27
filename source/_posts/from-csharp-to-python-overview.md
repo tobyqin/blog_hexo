@@ -9,11 +9,11 @@ categories:
 
 ## 语言特性和特点
 
-###  C#
+###  `C#`
 
 C#是微软公司主推的编程语言，在Windows平台的首选开发语言，需要.net framework的支持，非微软平台支持目前并不完善。主要特点是语法简单，IDE强悍(VS是我用过最强悍和人性化的IDE，没有之一)，C#是强类型高级编程语言。
 
-### Python
+### `Python`
 
 是开源的动态解释型语言，由Guido van Rossum于1989年发明。它天生具有跨平台的能力，默认集成在MacOS和Linux系统中。Windows平台需要单独安装。主要特点是语法简洁，第三方类库丰富强大，数据处理能力异常优秀。
 
@@ -23,7 +23,10 @@ C#是微软公司主推的编程语言，在Windows平台的首选开发语言�
 
 注意我说C#是**简单**，但Python是**简洁**。两个不完全一样的概念，简洁之中蕴含了简单，但是简洁也意味着信息的省略和丢失。举一些具体的例子
 
-1. C#用花括号来标识语句块。
+#### 标识语句块
+
+C#用花括号，和大多数编程语言一样。
+
 ```csharp
 using System;
 
@@ -39,7 +42,7 @@ namespace csharp_example
 }
 ```
 
-  + 而Python用的是缩进。
+而Python用的是缩进。
 
 ```python
 def say_hello(name=None):
@@ -53,18 +56,22 @@ if __name__ == '__main__':
 
 ```
 
-2. C#对文件系统的命名空间是System.IO
+#### 命名规则 
+
+C#对文件系统的命名空间是System.IO。
 
 ```csharp
 using System.IO;
 ```
-  + Python只有io
+Python只有io，真的只有两个字母，还是小写的！
 
 ```python
 import os
 ```
 
-3. C#中for迭代是这样的，这是我认为最简洁的写法了。
+#### 迭代语句 
+
+C#中for迭代是这样的，这是我认为最简洁的写法了。
 
 ```csharp
 var list = new List<int>() { 1,, 3, 4, 5, 5, 5, 6 };
@@ -74,13 +81,15 @@ foreach (var item in list)
 }
 ```
 
-  + Python是这样的，真的不能再简洁了。
+Python是这样的，真的不能再简洁了。
 
 ```python
 list = [1, 2, 3, 4, 4, 5, 5, 6]
 for i in list:
     print i
 ```
+
+#### 其他
 
 还有不少细节的地方在你接触Python之后也一定深有体会。
 - 比如为了不切换大小写，Python推荐使用全小写的命名规范（类命名除外）
