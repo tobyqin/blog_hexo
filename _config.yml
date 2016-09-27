@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Toby's Blog
+title: BetaCat 喵喵喵
 subtitle:
 description:
 author: Toby Qin
@@ -18,7 +18,7 @@ avatar: https://avatars1.githubusercontent.com/u/6058661?v=3&s=200
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://tobyqin.github.io
+url: https://betacat.online
 root: /
 permalink: posts/:title/
 permalink_defaults:
