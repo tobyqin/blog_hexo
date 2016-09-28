@@ -5,7 +5,6 @@ IF not '%ERRORLEVEL%'=='0' GOTO bad
 echo "Setup Hexo..."
 cmd /c "npm install hexo-cli -g"
 cmd /c "npm install"
-cmd /c "npm install hexo-deployer-git --save"
 cmd /c xo.bat
 
 
