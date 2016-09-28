@@ -77,3 +77,8 @@ deploy:
   type: git
   repo: git@github.com:tobyqin/tobyqin.github.io.git
   branch: master
+
+#deploy:
+#  type: git
+#  repo: git@git.coding.net:tobyqin/tobyqin.git
+#  branch: coding-pages
