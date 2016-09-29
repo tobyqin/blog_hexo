@@ -4,11 +4,11 @@
 
 # Site
 title: BetaCat 喵喵喵
-subtitle:
-description:
+subtitle: BetaCat.Online
+description: 未上线的猫
 author: Toby Qin
 language: zh-Hans
-timezone: Asia/Chongqing
+timezone: Asia/Shanghai
 
 # comments
 duoshuo_shortname: tobyqin
