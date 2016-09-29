@@ -2,7 +2,7 @@
 title: coding 2**8
 date: 2016-09-29 15:23:01
 ---
-# Coding.NET 2**8
+# Coding.NET 2**8 Puzzle
 
 ![](https://dn-coding-net-production-static.qbox.me/512b2a62-956b-4ef8-8e84-b3c66e71468f.png)
 
@@ -111,7 +111,7 @@ To: https://coding.net/s/04a7aca2-a90d-4f8e-bfc0-e463cb830738
 
 ### Finally
 
-It is fun, I don't know how many people have solved your puzzle, I am also not sure if I reach the end or not.
+It is fun, I don't know how many people have solved your puzzle, I am also not sure if I reach to the end or not.
 
 However, have fun in work in life is the most important thing.
 
