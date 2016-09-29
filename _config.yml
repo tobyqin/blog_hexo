@@ -74,10 +74,10 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
+- type: git
   repo: git@github.com:tobyqin/tobyqin.github.io.git
   branch: master
   
-  type: git
+- type: git
   repo: git@git.coding.net:tobyqin/tobyqin.git
   branch: coding-pages
