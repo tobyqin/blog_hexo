@@ -7,7 +7,7 @@ categories: Tips
 
 ![](https://www.jetbrains.com/img/banners-home-page/product-card-resharper.jpg)
 
-如果你还有在校时的邮箱，比如`your_name@xxx.edu`或者`xxx@xxx.edu.cn`的邮箱，那么你可以免费激活JetBrains全家桶。
+如果你还有在校时的邮箱，比如`your_name@xxx.edu`或者`your_name@xxx.edu.cn`的邮箱，那么你可以免费激活JetBrains全家桶。
 
 ### JetBrains Toolbox 专业开发工具 学生免费授权计划
 
