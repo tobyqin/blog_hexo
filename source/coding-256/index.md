@@ -11,9 +11,9 @@ I click the [2**8 button](https://ide.coding.net/256) today, and it is my first 
 ## Hints
 
 1. I get tips by typing `help` everywhere, so I am able hack `gateway` via `jumper` very soon.
-2. I like to search internet by google, so I am able to find the password for all users.
+2. I like to search internet by [google](https://www.google.com), so I am able to find the password for all users.
 3. I found source code of your project at github - [hack_ide](https://github.com/vangie/hack_ide/tree/master/lib/hack_ide)
-4. I don't know you guys open sourc the repository is by design or by mistake :)
+4. I am not sure you guys open sourcing the project is by design or by mistake, so I can find passwords without too much efforts.
 
 ## Steps
 
@@ -114,6 +114,8 @@ To: https://coding.net/s/04a7aca2-a90d-4f8e-bfc0-e463cb830738
 It is fun, I don't know how many people have solved your puzzle, I am also not sure if I reach to the end or not.
 
 However, have fun in work in life is the most important thing.
+
+OK, I got to know this is a game started at 2016/9/12, I am quite late so missed a lot of fun :-(
 
 > Source code: https://coding.net/u/tobyqin/p/coding-256/git/tree/master/src
 
