@@ -7,7 +7,7 @@ categories: Reading
 
 <center>文/大橙子
 
-![Kite Runner](/images/never-told-you.jpg)
+![](/images/never-told-you.jpg)
 
 </center>
 

@@ -7,7 +7,7 @@ categories: Reading
 
 <center>文/大橙子
 
-![Kite Runner](/images/pride_prejudice.jpg)
+![](/images/pride_prejudice.jpg)
 
 </center>
 
