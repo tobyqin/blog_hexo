@@ -2,6 +2,7 @@
 
 echo Start to generate blog...
 git add -A
+git commit -m "update blog"
 git pull origin master
 git push origin master
 
