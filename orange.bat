@@ -2,8 +2,8 @@
 
 echo Start to generate blog...
 git add -A
-git commit -m "update and save blog."
-git push origin -u master
+git pull origin master
+git push origin master
 
 echo Done!
 echo.
