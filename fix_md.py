@@ -26,6 +26,8 @@ def fix_file(file_name):
     else:
         new_name = time_prefix + name
 
+    new_name = new_name.replace(' ', '-')
+
     new_name = os.path.join(folder, new_name)
     print "{}=>{}".format(file_name, new_name)
     os.rename(file_name, new_name)
