@@ -7,6 +7,7 @@ cmd /c "hexo g"
 cmd /c "hexo d"
 git add -A
 git commit -m "update and save blog."
+git pull origin master
 git push origin master
 
 echo Done!

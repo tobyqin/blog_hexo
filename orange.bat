@@ -1,16 +1,14 @@
 @echo off
 
-echo Start to generate blog...
+echo Start to publish blog...
 git add -A
 git commit -m "update blog"
+
+echo Pull and merge...
 git pull origin master
 git push origin master
 
-echo Done!
-echo.
-echo.
-echo To preview the blog, use "hexo s"
-echo To deploy the blog, use "hexo d"
+echo Well done!
 echo.
 echo.
 timeout /t 5
