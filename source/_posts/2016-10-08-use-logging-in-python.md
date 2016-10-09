@@ -93,7 +93,7 @@ except:
 #### GetLogger()
 这是最基本的入口，该方法参数可以为空，默认的logger名称是root，如果在同一个程序中一直都使用同名的logger，其实会拿到同一个实例，使用这个技巧就可以跨模块调用同样的logger来记录日志。
 
-另外你也可以通过名称来区分同一程序的不同模块，比如这个例子。
+另外你也可以通过日志名称来区分同一程序的不同模块，比如这个例子。
 
 ```python
 logger = logging.getLogger("App.UI")
@@ -106,21 +106,21 @@ Formatter对象定义了log信息的结构和内容，构造时需要带两个�
 - 一个是格式化的时间样式`datefmt`，默认为 `2003-07-08 16:49:45,896 (%Y-%m-%d %H:%M:%S)`
 
 `fmt`中允许使用的变量可以参考下表。
-- %(name)s       Logger的名字
-- %(levelno)s     数字形式的日志级别
-- %(levelname)s  文本形式的日志级别
-- %(pathname)s    调用日志输出函数的模块的完整路径名，可能没有
-- %(filename)s       调用日志输出函数的模块的文件名
-- %(module)s      调用日志输出函数的模块名|
-- %(funcName)s   调用日志输出函数的函数名|
-- %(lineno)d           调用日志输出函数的语句所在的代码行
-- %(created)f         当前时间，用UNIX标准的表示时间的浮点数表示|
-- %(relativeCreated)d  输出日志信息时的，自Logger创建以来的毫秒数|
-- %(asctime)s     字符串形式的当前时间。默认格式是“2003-07-08 16:49:45,896”。逗号后面的是毫秒
-- %(thread)d         线程ID。可能没有
-- %(threadName)s     线程名。可能没有
-- %(process)d        进程ID。可能没有
-- %(message)s        用户输出的消息
+- **%(name)s**       Logger的名字
+- **%(levelno)s**    数字形式的日志级别
+- **%(levelname)s**  文本形式的日志级别
+- **%(pathname)s**    调用日志输出函数的模块的完整路径名，可能没有
+- **%(filename)s**       调用日志输出函数的模块的文件名
+- **%(module)s**      调用日志输出函数的模块名|
+- **%(funcName)s**   调用日志输出函数的函数名|
+- **%(lineno)d**           调用日志输出函数的语句所在的代码行
+- **%(created)f**         当前时间，用UNIX标准的表示时间的浮点数表示|
+- **%(relativeCreated)d**  输出日志信息时的，自Logger创建以来的毫秒数|
+- **%(asctime)s**     字符串形式的当前时间。默认格式是“2003-07-08 16:49:45,896”。逗号后面的是毫秒
+- **%(thread)d**         线程ID。可能没有
+- **%(threadName)s**     线程名。可能没有
+- **%(process)d**        进程ID。可能没有
+- **%(message)s**        用户输出的消息
 
 #### SetLevel
 Logging有如下级别: DEBUG，INFO，WARNING，ERROR，CRITICAL
