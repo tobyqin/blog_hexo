@@ -121,5 +121,11 @@ print re.sub('python', match_case('money'), s, flags=re.IGNORECASE)
 # LOVE MONEY, love money, Love Money
 ```
 
+Oh, last but not least, do you want to do use `re.sub()` for wildcards, yes, you can do it! `fnmatch` provide a function to let you **translate** wildcards pattern into regelar expression pattern.
+
+```python
+>>> fnmatch.translate('C*and*D*')
+'C.*and.*D.*\\Z(?ms)'
+```
 
 
