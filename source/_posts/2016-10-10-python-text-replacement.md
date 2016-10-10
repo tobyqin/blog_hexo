@@ -112,7 +112,6 @@ def match_case(word):
             return word.capitalize()
         else:
             return word
-
     return replace
 
 
