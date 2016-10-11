@@ -31,6 +31,8 @@ To replace `Cat` to `Dog`, you can simply call `replace()` method.
 'Dog and Dog'
 ```
 
+### Wildcards matching　通配符匹配
+
 So how about searching string with wildcards pattern? You should try [fnmatch](https://docs.python.org/2/library/fnmatch.html) library, it is built-in python.
 
 当然，如果你觉得上面的功能还不能满足你，你想使用通配符来查找字符串？没问题！`fnmatch`这个库就能满足你的要求，看例子！
@@ -80,7 +82,11 @@ To replace string with pattern, hmm, it is an advanced feature, you might want t
 
 The `re.sub()` function is really powerful, in above example, `{color}` is a pattern that might be updated when string finally published. You can create pattern like this as a template. And `r'\3-\1-\2'` is the reference to regex matching groups.
 
+其实`re.sub()`远比你相像的强大的多。在上面的例子里你可以替换类似于`{color}`这样的模板字符，也可以把正则匹配到的所有分组调换顺序，例如把第3个分组放到最前面 `r'\3-\1-\2'`，看明白了吗？
+
 Let's see another example:
+
+接下来看另外一个例子。
 
 ```python
 s = "Tom is talking to Jerry."
@@ -93,6 +99,8 @@ print re.sub(pattern, r'\1\4\3\2\5', s)
 ```
 
 Let's see how to customize the replace function.
+
+其实你还可以自定义替换函数，也就是`re.sub()`的第二个参数。
 
 ```python
 def change_date(m):
@@ -107,6 +115,8 @@ print re.sub(pattern, change_date, s)
 ```
 
 OK, the ultimate example goes here. Hope you enjoy :)
+
+最后给大家一个终极版的例子，里面用到了函数的闭包，着酸爽，你懂的！
 
 ```python
 def match_case(word):
@@ -127,11 +137,15 @@ print re.sub('python', match_case('money'), s, flags=re.IGNORECASE)
 # LOVE MONEY, love money, Love Money
 ```
 
+### 写在最后
+
 Oh, last but not least, do you want to do use `re.sub()` for wildcards, yes, you can do it! `fnmatch` provide a function to let you **translate** wildcards pattern into regular expression pattern.
+
+其实正则表达式还有很多玩法，如果你想让正则和通配符混合着用，一点问题都没有，因为`fnmatch`还有一个`translate()`的方法，可以让你把通配符无痛转换成正则表达式，你爱怎么玩就怎么玩。
 
 ```python
 >>> fnmatch.translate('C*and*D*')
-'C.*and.*D.*\\Z(?ms)'
+'C.*and.*D.*'
 ```
 
 
