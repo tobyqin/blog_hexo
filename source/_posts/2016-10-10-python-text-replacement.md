@@ -5,9 +5,11 @@ tags: python
 categories: Coding
 ---
 
-### Basic find and replace
+### Basic find and replace 最简单的查找替换
 
 Search and replace text in Python is simple, you can find a specific string with `find()` or `index()` method, it will return the index of first match occasion.
+
+在Python中查找和替换非常简单，如果当前对象是一个字符串`str`时，你可以使用该类型提供的`find()`或者`index()`方法查找指定的字符，如果能找到则会返回字符第一次出现的索引，如果不存在则返回-1。
 
 ```python
 >>> s = 'Cat and Dog'
@@ -21,6 +23,8 @@ Search and replace text in Python is simple, you can find a specific string with
 
 To replace `Cat` to `Dog`, you can simply call `replace()` method.
 
+如果要替换目标字符串，用`replace()`方法就好了。
+
 ```python
 >>> s = 'Cat and Dog'
 >>> s.replace('Cat', 'Dog')
@@ -28,6 +32,8 @@ To replace `Cat` to `Dog`, you can simply call `replace()` method.
 ```
 
 So how about searching string with wildcards pattern? You should try [fnmatch](https://docs.python.org/2/library/fnmatch.html) library, it is built-in python.
+
+当然，如果你觉得上面的功能还不能满足你，你想使用通配符来查找字符串？没问题！`fnmatch`这个库就能满足你的要求，看例子！
 
 ```python
 >>> s = 'Cat and Dog'
@@ -40,11 +46,11 @@ False
 True
 ```
 
-### Regex find and replace
+### Regex find and replace 正则表达式查找替换
 
-To use advanced text search and replacement, regular expression is your best friend.
+To use advanced text search and replacement, regular expression is your best friend. To find string with pattern, here is an example:
 
-To find string with pattern, here is an example:
+如果你需要查找比较复杂的字符规则，正则表达式是你不二的选择。下面是查找的简单示例。
 
 ```python
 >>> import re
@@ -59,6 +65,8 @@ To find string with pattern, here is an example:
 ```
 
 To replace string with pattern, hmm, it is an advanced feature, you might want to try `re.sub()` function(sub => substitution).
+
+接下来你可能需要用正则表达式去替换某些字符，那么你需要了解`re.sub()`方法，看例子。
 
 ```python
 >>> s = "I like {color} car."
