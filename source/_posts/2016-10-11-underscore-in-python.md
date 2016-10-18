@@ -13,7 +13,7 @@ Underscore and double underscore are important in Python.
 
 There is a explaination at [stackoverflow.com](http://stackoverflow.com/questions/1301346/the-meaning-of-a-single-and-a-double-underscore-before-an-object-name-in-python).
 
-下划线在Python中有特殊的意义，简单来说，是这样的。
+下划线在Python中有特殊的意义，简单来说，可以总结成两点。
 
 1. 单下划线一般用于声明私有成员。
 2. 双下划线一般被用于Python内置的特殊方法或者属性。
