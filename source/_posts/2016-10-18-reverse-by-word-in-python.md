@@ -6,6 +6,8 @@ categories: Coding
 ---
 **Reverse string by word** is a very popular interview question. In python you can solve it easily with code like below.
 
+**按单词反转字符串**是一道很常见的面试题。在Python中实现起来非常简单。
+
 ```python
 def reverse_string_by_word(s):
     lst = s.split()  # split by blank space by default
@@ -21,6 +23,10 @@ print reverse_string_by_word(s)
 ```
 
 We can see above implementation is good but not enough, in 2nd string we are expecting the `!` symbol should be reversed as well, and keep original blank spaces between words. (multiple spaces between `Hello` and `World` in the example)
+
+上面的实现其实已经能满足一般情况，但是并不完美。比如第二个字符串中的感叹号并没有被翻转，而且原字符串中的空格数量也没有保留。。（在上面的例子里其实Hello和World之间不止一个空格）
+
+其实我们期望的结果应该是这样子的。
 
 ```python
 print reverse_string_by_word(s)
