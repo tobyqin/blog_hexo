@@ -20,6 +20,7 @@ categories: Tips
 - [Google Chrome Dev Version Offline Installer (32-bit)][7]
 - [Google Chrome Dev Version Offline Installer (64-bit)][8]
 
+> 以上安装包适用于Windows平台。
 
 [1]: http://www.google.com/chrome/eula.html?standalone=1
 [2]: http://www.google.com/chrome/eula.html?standalone=1&platform=win64
