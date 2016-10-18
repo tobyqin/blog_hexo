@@ -20,7 +20,7 @@ print reverse_string_by_word(s)
 s = 'Hello  World!'
 print reverse_string_by_word(s)
 # World! Hello
-``` 
+```
 
 We can see above implemtaion is good but not enough, in 2nd string we are expecting the `!` symbol should be reversed as well, and keep original blank spaces between words. (2 spaces between `Hello` and `World`)
 
