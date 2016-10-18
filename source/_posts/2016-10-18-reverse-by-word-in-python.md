@@ -29,11 +29,12 @@ print reverse_string_by_word(s)
 # Expected: !World  Hello
 ```
 
-To improve the solution, the best choice should be `re` module. You might want to have a look a [`re.split()`](https://docs.python.org/2/library/re.html#re.split) method.
+To improve the solution, the best choice should be `re` module. You might want to take a look at [`re.split()`](https://docs.python.org/2/library/re.html#re.split) method.
 
 ```python
 >>> import re
 >>> s = 'Hello  World!'
+
 >>> re.split(r'\s+', s)    # will discard blank spaces
 ['Hello', 'World!']
 
@@ -41,6 +42,7 @@ To improve the solution, the best choice should be `re` module. You might want t
 ['Hello', '  ', 'World!']
 
 >>> s = '< Welcome to EF.COM! >'
+
 >>> re.split(r'\s+', s)
 ['<', 'Welcome', 'to', 'EF.COM!', '>']
 
@@ -58,10 +60,9 @@ To improve the solution, the best choice should be `re` module. You might want t
 
 ```
 
-If you don't like to increase the readability a little, replacing slice to `reversed()` is a choice.
+If you would like to increase the readability a little, replacing list slicing to `reversed()` is a choice.
 
 ```python
->>> ''.join(reversed(re.split(r'(\w+)', s)))
-'! >COM.EF to Welcome< '
+>>> ''.join(reversed(re.split(r'(\s+|\w+)', s)))
+'> !COM.EF to Welcome <'
 ```
-
