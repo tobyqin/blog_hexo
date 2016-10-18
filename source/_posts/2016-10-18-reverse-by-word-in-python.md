@@ -4,9 +4,7 @@ date: 2016-10-18 09:46:00
 tags: Python
 categories: Coding
 ---
-**Reverse string by word** is a very popular interview question.
-
-In python you can solve it easily with code like below.
+**Reverse string by word** is a very popular interview question. In python you can solve it easily with code like below.
 
 ```python
 def reverse_string_by_word(s):
@@ -17,19 +15,19 @@ s = 'Power of Love'
 print reverse_string_by_word(s)
 # Love of Power
 
-s = 'Hello  World!'
+s = 'Hello    World!'
 print reverse_string_by_word(s)
 # World! Hello
 ```
 
-We can see above implemtaion is good but not enough, in 2nd string we are expecting the `!` symbol should be reversed as well, and keep original blank spaces between words. (2 spaces between `Hello` and `World`)
+We can see above implementation is good but not enough, in 2nd string we are expecting the `!` symbol should be reversed as well, and keep original blank spaces between words. (multiple spaces between `Hello` and `World` in the example)
 
 ```python
 print reverse_string_by_word(s)
 # Expected: !World  Hello
 ```
 
-To improve the solution, the best choice should be `re` module. You might want to take a look at [`re.split()`](https://docs.python.org/2/library/re.html#re.split) method.
+To improve the solution, a better choice should be `re` module. You might want to take a look at [`re.split()`](https://docs.python.org/2/library/re.html#re.split) method.
 
 ```python
 >>> import re
@@ -63,7 +61,7 @@ To improve the solution, the best choice should be `re` module. You might want t
 
 ```
 
-If you would like to increase the readability a little, replacing list slicing to `reversed()` is a choice.
+If you would like to increase the readability a little bit, replacing list slicing to `reversed()` is a choice.
 
 ```python
 >>> ''.join(reversed(re.split(r'(\s+|\w+)', s)))
