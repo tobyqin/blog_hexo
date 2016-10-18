@@ -43,8 +43,11 @@ To improve the solution, the best choice should be `re` module. You might want t
 
 >>> s = '< Welcome to EF.COM! >'
 
->>> re.split(r'\s+', s)
+>>> re.split(r'\s+', s)  # split by spaces
 ['<', 'Welcome', 'to', 'EF.COM!', '>']
+
+>>> re.split(r'(\w+)', s)  # exactly split by word
+['< ', 'Welcome', ' ', 'to', ' ', 'EF', '.', 'COM', '! >']
 
 >>> re.split(r'(\s+|\w+)', s)  # split by space and word
 ['<', ' ', '', 'Welcome', '', ' ', '', 'to', '', ' ', '', 'EF', '.', 'COM', '!', ' ', '>']
