@@ -24,9 +24,9 @@ print reverse_string_by_word(s)
 
 We can see above implementation is good but not enough, in 2nd string we are expecting the `!` symbol should be reversed as well, and keep original blank spaces between words. (multiple spaces between `Hello` and `World` in the example)
 
-上面的实现其实已经能满足一般情况，但是并不完美。比如第二个字符串中的感叹号并没有被翻转，而且原字符串中的空格数量也没有保留。。（在上面的例子里其实Hello和World之间不止一个空格）
+上面的实现其实已经能满足大多数情况，但是并不完美。比如第二个字符串中的感叹号并没有被翻转，而且原字符串中的空格数量也没有保留。（在上面的例子里其实Hello和World之间不止一个空格）
 
-其实我们期望的结果应该是这样子的。
+我们期望的结果应该是这样子的。
 
 ```python
 print reverse_string_by_word(s)
@@ -35,7 +35,7 @@ print reverse_string_by_word(s)
 
 To improve the solution, a better choice should be `re` module. You might want to take a look at [`re.split()`](https://docs.python.org/2/library/re.html#re.split) method.
 
-要改进上面的方案还不把问题复杂化，推荐还是使用`re`模块。你可以查阅一下[`re.split()`](https://docs.python.org/2/library/re.html#re.split) 的官方文档。我们看一下具体例子。
+要改进上面的方案还不把问题复杂化，推荐使用`re`模块。你可以查阅[`re.split()`](https://docs.python.org/2/library/re.html#re.split) 的官方文档。我们看一下具体例子。
 
 ```python
 >>> import re
@@ -71,7 +71,7 @@ To improve the solution, a better choice should be `re` module. You might want t
 
 If you would like to increase the readability a little bit, replacing list slicing to `reversed()` is a choice.
 
-如果你觉得切片翻转序列可读性不高，那么其实也可以这样写。
+如果你觉得用切片将序列倒序可读性不高，那么其实也可以这样写。
 
 ```python
 >>> ''.join(reversed(re.split(r'(\s+|\w+)', s)))
