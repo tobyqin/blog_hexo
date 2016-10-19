@@ -42,7 +42,7 @@ AssertionError: Key: 'nothing' is not in Target: 'nothin is impossible.'
 
 Well, it fixed the problem, but it not elegant.  If you are a QA engineer, you have to do a lot of assertions in thousands of test cases. With above solution, I would choose to die :-|
 
-看上去还行吧，但是写的很蛋疼其实。假如你是一名QA汪，你有成千上万的测试案例需要做断言做验证，相信你面对以上做法，心中一定有千万只马奔腾而过。
+看上去还行吧，但是写的很蛋疼其实。假如你是一名QA汪，你有成千上万的测试案例需要做断言做验证，相信你面对以上做法，心中一定有千万只那种马奔腾而过。
 
 ### Improved Solution #2 改进方案
 
@@ -90,6 +90,8 @@ assertion_in_python.py:7: AssertionError
 
 Python [unittest](https://docs.python.org/3/library/unittest.html) module provides assertion feature in itself, it recommends `self.assertXXX()` methods, but not `assert XXX` statements.
 
+Python自带的unittest单元测试框架就有了自己的断言方法，而且不推荐使用assert语句。
+
 ```python
 import unittest
 
@@ -116,6 +118,8 @@ AssertionError: 'FOO' != 'FoO'
 #### ptest
 
 I like [ptest](https://pypi.python.org/pypi/ptest) very much, its assertion feature is more readable and smart. Thanks its author Karl :-)
+
+我非常喜欢ptest，感谢Karl大神写了这么一个测试框架。ptest中的断言可读性很好，而且智能提示也很方便你通过IDE轻松完成各种断言语句。
 
 ```python
 from ptest.decorator import *
