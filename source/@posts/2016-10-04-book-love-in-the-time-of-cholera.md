@@ -7,7 +7,7 @@ categories: Reading
 
 <center>文/大橙子
 
-![](http://betacat.online/images/love-in-cholera.jpg)
+![](../images/love-in-cholera.jpg)
 
 </center>
 

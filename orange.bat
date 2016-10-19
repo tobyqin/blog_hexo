@@ -1,5 +1,8 @@
 @echo off
 
+echo convert posts...
+python convert_post.py
+
 echo Start to publish blog...
 git add -A
 git commit -m "update blog"
