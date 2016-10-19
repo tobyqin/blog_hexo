@@ -8,7 +8,6 @@ def fix_file(file_name):
     names = os.path.split(file_name)
     folder = names[0]
     name = names[-1]
-    new_name = name
     time_prefix = None
     with open(file_name) as f:
         for line in f:
@@ -29,12 +28,12 @@ def fix_file(file_name):
     new_name = new_name.replace(' ', '-')
 
     new_name = os.path.join(folder, new_name)
-    print "{}=>{}".format(file_name, new_name)
+    # print "{}=>{}".format(file_name, new_name)
     os.rename(file_name, new_name)
 
 
 if __name__ == '__main__':
     current_path = os.path.dirname(__file__)
-    post_path = os.path.join(current_path, 'source', '@posts')
+    post_path = os.path.join(current_path, '_posts')
     for f in glob.glob(os.path.join(post_path, "*.md")):
         fix_file(f)

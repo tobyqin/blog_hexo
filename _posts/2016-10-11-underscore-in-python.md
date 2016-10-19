@@ -22,7 +22,7 @@ There is a explaination at [stackoverflow.com](http://stackoverflow.com/question
 
 下面是思维导图的总结
 
-![](../images/underscore-in-Python.png)
+![](images/underscore-in-Python.png)
 
 ### 附录： 如何调用魔法方法
 

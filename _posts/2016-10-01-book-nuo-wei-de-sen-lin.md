@@ -7,7 +7,7 @@ categories: Reading
 
 <center>文/大橙子
 
-![](../images/nwdsl.jpg)
+![](images/nwdsl.jpg)
 
 </center>
 

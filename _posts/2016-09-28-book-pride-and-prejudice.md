@@ -7,7 +7,7 @@ categories: Reading
 
 <center>文/大橙子
 
-![](../images/pride_prejudice.jpg)
+![](images/pride_prejudice.jpg)
 
 </center>
 

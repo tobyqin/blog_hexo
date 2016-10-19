@@ -7,7 +7,7 @@ categories: Reading
 
 <center>文/大橙子
 
-![Kite Runner](../images/kiterunner.png)
+![Kite Runner](images/kiterunner.png)
 
 </center>
 
