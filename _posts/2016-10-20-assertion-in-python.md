@@ -208,3 +208,11 @@ Replacing all built-in assertion to 3rd party assertion in your code is not a go
 
 So my suggestion is, using more powerful assert functions in scenarios that you really want to verify something, keeping built-in assertion where you might fall in a pitfall, and with essential message. Keep It Simple and Stupid.
 
+断言在软件系统中有非常重要的作用，写的好可以让你的系统更稳定，也可以让你有更多真正面对对象的时间，而不是在调试代码。
+
+Python中默认的断言语句其实还有一个作用，如果你写了一个类型相关的断言，IDE会把这个对象当成这种类型，这时候智能提示就有如神助。
+
+要不要把内置的断言语句换成可读性更好功能更强大的第三方断言，完全取决于实际情况。比如你真的需要验证某个东西并且很关心验证结果，那么必须不能用简单的assert；如果你只是担心某个点可能有坑或者让IDE认识某个对象，用内置的assert既简单又方便。
+
+总之，你自己看着办。
+
