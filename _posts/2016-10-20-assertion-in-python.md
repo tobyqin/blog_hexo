@@ -147,6 +147,8 @@ AssertionError: Unexpectedly that the str <bar> is not equal to str <foo>.
 
 It is not only you and me are frustrating on python assertion, so people created packages to replace default assertion. I strongly recommend you should have a try for [assertpy](https://pypi.python.org/pypi/assertpy) package, which is high rating and powerful.
 
+不仅仅是你和我对Python中的断言表示不满足，所以大家都争相发明自己的assert包。在这里我强烈推荐assertpy这个包，它异常强大而且好评如潮。
+
 ```shell
 pip install assertpy
 ```
@@ -164,6 +166,8 @@ def test_something():
 
 From its [github home page](https://github.com/ActivisionGameScience/assertpy) you will see it spports assertion in most test scenarios.
 
+从它的github主页文档上你会发现它支持了几乎你能想到的所有测试场景，包括但不限于以下列表。
+
 - Strings
 - Numbers
 - Lists
@@ -176,6 +180,8 @@ From its [github home page](https://github.com/ActivisionGameScience/assertpy) y
 - Objects
 
 The assertion message is really helpful, they looks like:
+
+而且它的断言信息简洁明了，不多不少。
 
 ```
 Expected <foo> to be of length <4>, but was <3>.
@@ -192,6 +198,8 @@ Expected <foo> to be case-insensitive equal to <BAR>, but was not.
 
 Before I found this package I am thinking about writing common assertion package for Labs, but now, I don't think I should spend time to invent the wheel again.
 
+在发现assertpy之前我也想写一个类似的包，尽可能通用一些。但是现在，我为毛要重新去造轮子？完全没必要！
+
 ### Summary 总结
 
 Assertion is pretty important to a system, it can increase stability and save your time in debugging. 
@@ -199,3 +207,4 @@ Assertion is pretty important to a system, it can increase stability and save yo
 Replacing all built-in assertion to 3rd party assertion in your code is not a good idea, because IDE like PyCharm knows nothing about that, so it will not provide auto-completion for those assertion. 
 
 So my suggestion is, using more powerful assert functions in scenarios that you really want to verify something, keeping built-in assertion where you might fall in a pitfall, and with essential message. Keep It Simple and Stupid.
+
