@@ -4,9 +4,11 @@ date: 2016-10-20
 tags: Python
 categories: Coding
 ---
-### Why not Python Assert 为何不尽人意
+### Why not Python Assert 为何不尽如人意
 
 Assertion in Python is pretty simple, you can assert any condition by `assert` statement.
+
+Python中的断言用起来非常简单，你可以在assert后面跟上任意判断条件，如果断言失败则会抛出异常。
 
 ```python
 >>> assert 1 + 1 == 2
@@ -19,6 +21,8 @@ AssertionError
 ```
 
 It is great that `assert` can stop your application/tests when something goes wrong. However, it is not good enough that the **AssertionError** does not expose more information. In above example, we recieved the error message only with file name and line number, you have to start debugger to discover more. 
+
+其实assert看上去不错，然而用起来并不爽。就比如有人告诉你程序错了，但是不告诉哪里错了。很多时候这样的assert还不如不写，写了我就想骂娘。直接抛一个异常来得更痛快一些。
 
 ### Improved Solution #1 改进方案
 
