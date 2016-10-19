@@ -28,6 +28,8 @@ It is great that `assert` can stop your application/tests when something goes wr
 
 An improved solution is always appending message in your assertion.
 
+一个改进一丢丢的方案就是把必要的信息也放到assert语句后面，比如这样。
+
 ```python
 >>> s = "nothin is impossible."
 >>> key = "nothing"
@@ -40,13 +42,19 @@ AssertionError: Key: 'nothing' is not in Target: 'nothin is impossible.'
 
 Well, it fixed the problem, but it not elegant.  If you are a QA engineer, you have to do a lot of assertions in thousands of test cases. With above solution, I would choose to die :-|
 
+看上去还行吧，但是写的很蛋疼其实。假如你是一名QA汪，你有成千上万的测试案例需要做断言做验证，相信你面对以上做法，心中一定有千万只马奔腾而过。
+
 ### Improved Solution #2 改进方案
 
 You might know about test frameworks, how do they do assertion? Yes, using test framework assertion is a nice alternation. 
 
+既然你是搞测试的，相比听过不少测试框架。你猜到我要说什么了吧？对，不用测试框架里的断言机制，你是不是洒。
+
 #### py.test
 
 If you are running tests with [py.test](https://pypi.python.org/pypi/pytest), you can keep everthing unchanged in your code, the failure message will tell you what is going on in failed assertion.
+
+pytest是一个轻量级的测试框架，所以它压根就没写自己的断言系统，但是它对Python自带的断言做了强化处理，如果断言失败，那么框架本身会尽可能多地提供断言失败的原因。那么也就意味着，用pytest实现测试，你一行代码都不用改。
 
 ```python
 import pytest
