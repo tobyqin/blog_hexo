@@ -1,6 +1,6 @@
 ---
 title: Python中不尽如人意的断言Assertion
-date: 2000-10-19
+date: 2016-10-20
 tags: Python
 categories: Coding
 ---
