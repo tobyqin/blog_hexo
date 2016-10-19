@@ -35,6 +35,6 @@ def fix_file(file_name):
 
 if __name__ == '__main__':
     current_path = os.path.dirname(__file__)
-    post_path = os.path.join(current_path, 'source', '_posts')
+    post_path = os.path.join(current_path, 'source', '@posts')
     for f in glob.glob(os.path.join(post_path, "*.md")):
         fix_file(f)
