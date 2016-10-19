@@ -36,7 +36,7 @@ You should follow bellow steps to fix it.
     5. The "Manage Workspaces" window comes up. Click edit and you can add / remove / edit your workspace
 
 - From the command line
-    1. Call "tf workspace" from a developer command promt. It will bring up the "Manage Workspaces" directly!
+    1. Type "tf workspace" from a developer command promt. It will bring up the "Manage Workspaces" directly!
 
 **Step 2: Remove cache on this computer** 
 
@@ -55,9 +55,8 @@ Manually delete all the files in the TFS cache, they located at:
 - 从Visual Studo操作:
     1. 打开 Team Explorer
     2. 打开 Source Control Explorer
-    3. 从工具栏下拉列表中找到 "Workspaces".
-    4. 展开 "Workspaces..." 
-    5. 这时 "Manage Workspaces" 窗口会打开，在这里你可以编辑或者删除当前用户所有的 workspace
+    3. 从工具栏下拉列表中找到 "Workspaces"，展开 "Workspaces..." 
+    4. 这时 "Manage Workspaces" 窗口会打开，在这里你可以编辑或者删除当前用户所有的 workspace
 
 - 从命令提示符操作
     1. 在VS命令提示符中输入 "tf workspace" 可以看到相关命令，不行就查一下MSDN
