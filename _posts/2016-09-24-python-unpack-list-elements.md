@@ -41,7 +41,6 @@ Traceback (most recent call last):
   File "<pyshell#12>", line 1, in <module>
     x, y, z = p
 ValueError: not enough values to unpack (expected 3, got 2)
-
 ```
 
 其实这样的操作不限于元组和数组，在字符串中也是可以用的。Unpacking支持大多数我们常见的序列，比如文件迭代，各种生成器等等。
