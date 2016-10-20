@@ -5,10 +5,12 @@ tags:
 date: 2016-09-24 23:03:34
 categories: Tips
 ---
-## 问题
-> 你需要将数组（list）或元组（tuple）中的元素导出到N个变量中。
+## 问题描述
+
+你需要将数组（list）或元组（tuple）中的一些元素导出到``N``个变量中。可能你并不希望通过遍历的方式。
 
 ## 解决方案
+
 任何序列都可以通过简单的变量赋值方式将其元素分配到对应的变量中，唯一的要求就是变量的数量和结构需要和序列中的结构完全一致。
 
 ```python
@@ -41,7 +43,6 @@ Traceback (most recent call last):
   File "<pyshell#12>", line 1, in <module>
     x, y, z = p
 ValueError: not enough values to unpack (expected 3, got 2)
-
 ```
 
 其实这样的操作不限于元组和数组，在字符串中也是可以用的。Unpacking支持大多数我们常见的序列，比如文件迭代，各种生成器等等。
@@ -61,3 +62,5 @@ name, _, (_,month,_) = data
 # month = '5'
 # other fileds will be discarded
 ```
+
+本文主要是为了测试Markdown排版工具，微信公众号里的高亮代码一直是很麻烦的事情，让我头疼了很长一段时间。现在看起来不错哦。
