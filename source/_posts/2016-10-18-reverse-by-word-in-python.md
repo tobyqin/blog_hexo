@@ -4,8 +4,6 @@ date: 2016-10-18 09:46:00
 tags: Python
 categories: Coding
 ---
-**Reverse string by word** is a very popular interview question. In python you can solve it easily with code like below.
-
 **按单词反转字符串**是一道很常见的面试题。在Python中实现起来非常简单。
 
 ```python
@@ -22,8 +20,6 @@ print reverse_string_by_word(s)
 # World! Hello
 ```
 
-We can see above implementation is good but not enough, in 2nd string we are expecting the `!` symbol should be reversed as well, and keep original blank spaces between words. (multiple spaces between `Hello` and `World` in the example)
-
 上面的实现其实已经能满足大多数情况，但是并不完美。比如第二个字符串中的感叹号并没有被翻转，而且原字符串中的空格数量也没有保留。（在上面的例子里其实Hello和World之间不止一个空格）
 
 我们期望的结果应该是这样子的。
@@ -32,8 +28,6 @@ We can see above implementation is good but not enough, in 2nd string we are exp
 print reverse_string_by_word(s)
 # Expected: !World  Hello
 ```
-
-To improve the solution, a better choice should be `re` module. You might want to take a look at [`re.split()`](https://docs.python.org/2/library/re.html#re.split) method.
 
 要改进上面的方案还不把问题复杂化，推荐使用`re`模块。你可以查阅[`re.split()`](https://docs.python.org/2/library/re.html#re.split) 的官方文档。我们看一下具体例子。
 
@@ -68,8 +62,6 @@ To improve the solution, a better choice should be `re` module. You might want t
 '! >COM.EF to Welcome< '
 
 ```
-
-If you would like to increase the readability a little bit, replacing list slicing to `reversed()` is a choice.
 
 如果你觉得用切片将序列倒序可读性不高，那么其实也可以这样写。
 

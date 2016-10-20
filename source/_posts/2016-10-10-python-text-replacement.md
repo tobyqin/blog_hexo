@@ -1,13 +1,11 @@
 ---
-title: Python中的文本查找替换
+title: 在Python中查找和替换文本
 date: 2016-10-10 13:32:03
 tags: python
 categories: Coding
 ---
 
-### Basic find and replace 最简单的查找替换
-
-Search and replace text in Python is simple, you can find a specific string with `find()` or `index()` method, it will return the index of first match occasion.
+### 最简单的查找替换
 
 在Python中查找和替换非常简单，如果当前对象是一个字符串`str`时，你可以使用该类型提供的`find()`或者`index()`方法查找指定的字符，如果能找到则会返回字符第一次出现的索引，如果不存在则返回-1。
 
@@ -21,8 +19,6 @@ Search and replace text in Python is simple, you can find a specific string with
 -1
 ```
 
-To replace `Cat` to `Dog`, you can simply call `replace()` method.
-
 如果要替换目标字符串，用`replace()`方法就好了。
 
 ```python
@@ -31,11 +27,9 @@ To replace `Cat` to `Dog`, you can simply call `replace()` method.
 'Dog and Dog'
 ```
 
-### Wildcards matching　通配符匹配
+### 通配符查找匹配
 
-So how about searching string with wildcards pattern? You should try [fnmatch](https://docs.python.org/2/library/fnmatch.html) library, it is built-in python.
-
-当然，如果你觉得上面的功能还不能满足你，你想使用通配符来查找字符串？没问题！`fnmatch`这个库就能满足你的要求，看例子！
+当然，如果你觉得上面的功能还不能满足你，你想使用通配符来查找字符串？没问题！[fnmatch](https://docs.python.org/2/library/fnmatch.html)这个库就能满足你的要求，看例子！
 
 ```python
 >>> s = 'Cat and Dog'
@@ -48,11 +42,9 @@ False
 True
 ```
 
-### Regex find and replace 正则表达式查找替换
+### 正则表达式查找替换
 
-To use advanced text search and replacement, regular expression is your best friend. To find string with pattern, here is an example:
-
-如果你需要查找比较复杂的字符规则，正则表达式是你不二的选择。下面是查找的简单示例。
+如果你需要查找比较复杂的字符规则，正则表达式是你不二的选择。下面是正则查找的简单示例。
 
 ```python
 >>> import re
@@ -66,8 +58,6 @@ To use advanced text search and replacement, regular expression is your best fri
 '2016'
 ```
 
-To replace string with pattern, hmm, it is an advanced feature, you might want to try `re.sub()` function(sub => substitution).
-
 接下来你可能需要用正则表达式去替换某些字符，那么你需要了解`re.sub()`方法，看例子。
 
 ```python
@@ -80,11 +70,7 @@ To replace string with pattern, hmm, it is an advanced feature, you might want t
 'We will fly to Thailand on 2016-10-31'
 ```
 
-The `re.sub()` function is really powerful, in above example, `{color}` is a pattern that might be updated when string finally published. You can create pattern like this as a template. And `r'\3-\1-\2'` is the reference to regex matching groups.
-
-其实`re.sub()`远比你相像的强大的多。在上面的例子里你可以替换类似于`{color}`这样的模板字符，也可以把正则匹配到的所有分组调换顺序，例如把第3个分组放到最前面 `r'\3-\1-\2'`，看明白了吗？
-
-Let's see another example:
+其实`re.sub()`远比你相像的强大的多。在上面的例子里你可以替换类似于`{color}`这样的模板字符，也可以把正则匹配到的所有分组调换顺序，例如第二个例子一共匹配了3个分组，然后把第3个分组放到最前面 `r'\3-\1-\2'`，看明白了吗？
 
 接下来看另外一个例子。
 
@@ -97,8 +83,6 @@ pattern = r'(.*)({0})(.*)({1})(.*)'.format(name1, name2)
 print re.sub(pattern, r'\1\4\3\2\5', s)
 # Jerry is talking to Tom.
 ```
-
-Let's see how to customize the replace function.
 
 其实你还可以自定义替换函数，也就是`re.sub()`的第二个参数。
 
@@ -113,8 +97,6 @@ pattern = r'(\d+)/(\d+)/(\d+)'
 print re.sub(pattern, change_date, s)
 # We will fly to Thailand on 31 Oct 2016
 ```
-
-OK, the ultimate example goes here. Hope you enjoy :)
 
 最后给大家一个终极版的例子，里面用到了函数的闭包，着酸爽，你懂的！
 
@@ -138,8 +120,6 @@ print re.sub('python', match_case('money'), s, flags=re.IGNORECASE)
 ```
 
 ### 写在最后
-
-Oh, last but not least, do you want to do use `re.sub()` for wildcards, yes, you can do it! `fnmatch` provide a function to let you **translate** wildcards pattern into regular expression pattern.
 
 其实正则表达式还有很多玩法，如果你想让正则和通配符混合着用，一点问题都没有，因为`fnmatch`还有一个`translate()`的方法，可以让你把通配符无痛转换成正则表达式，你爱怎么玩就怎么玩。
 
