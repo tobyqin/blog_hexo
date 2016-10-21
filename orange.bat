@@ -3,7 +3,6 @@
 echo convert posts...
 python fix_md.py
 python convert_post.py
-xcopy _posts\images\* source\images\* /Y
 
 echo Start to publish blog...
 git add -A
