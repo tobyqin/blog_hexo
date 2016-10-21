@@ -1,7 +1,6 @@
 @echo off
 
 echo convert posts...
-python fix_md.py
 python convert_post.py
 
 echo Start to publish blog...
