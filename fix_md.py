@@ -4,6 +4,35 @@ import os
 import glob
 
 
+def to_relative(source_file):
+    content = str()
+    with open(source_file) as f:
+        for line in f:
+            if 'images/' in line:
+                line = line.replace('../images/', 'images/')
+            content += line
+
+        with open(source_file, 'w') as f:
+            f.writelines(content)
+
+
+def convert(source_file):
+    new_file = source_file.replace('_posts', 'source/_posts')
+    new_file = os.path.abspath(new_file)
+    if not os.path.exists(os.path.dirname(new_file)):
+        os.makedirs(os.path.dirname(new_file))
+    content = str()
+
+    with open(source_file) as f:
+        for line in f:
+            if 'images/' in line:
+                line = line.replace('images/', 'http://betacat.online/images/')
+            content += line
+
+    with open(new_file, 'w') as f:
+        f.writelines(content)
+
+
 def fix_file(file_name):
     names = os.path.split(file_name)
     folder = names[0]
@@ -37,3 +66,4 @@ if __name__ == '__main__':
     post_path = os.path.join(current_path, '_posts')
     for f in glob.glob(os.path.join(post_path, "*.md")):
         fix_file(f)
+        convert(f)
