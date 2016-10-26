@@ -18,7 +18,7 @@ Traceback (most recent call last):
 AssertionError
 ```
 
-It is great that `assert` can stop your application/tests when something goes wrong. However, it is not good enough that the **AssertionError** does not expose more information. In above example, we recieved the error message only with file name and line number, you have to start debugger to discover more. 
+It is great that `assert` can stop your application/tests when something goes wrong. However, it is not good enough that the **AssertionError** does not expose more information. In above example, we received the error message only with file name and line number, you have to start debugger to discover more. 
 
 ### Improved Solution #1
 
@@ -42,7 +42,7 @@ You might know about test frameworks, how do they do assertion? Yes, using test 
 
 #### py.test
 
-If you are running tests with [py.test](https://pypi.python.org/pypi/pytest), you can keep everthing unchanged in your code, the failure message will tell you what is going on in failed assertion.
+If you are running tests with [py.test](https://pypi.python.org/pypi/pytest), you can keep everything unchanged in your code, the failure message will tell you what is going on in failed assertion.
 
 ```python
 import pytest
@@ -151,7 +151,7 @@ def test_something():
         .does_not_contain('x')
 ```
 
-From its [github home page](https://github.com/ActivisionGameScience/assertpy) you will see it spports assertion in most test scenarios.
+From its [github home page](https://github.com/ActivisionGameScience/assertpy) you will see it supports assertion in most test scenarios.
 
 - Strings
 - Numbers
