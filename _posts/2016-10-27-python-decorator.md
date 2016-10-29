@@ -23,7 +23,7 @@ if __name__ == '__main__':
     say_goodbye()
 ```
 
-但是在实际调用中，我们发现程序出错了，上面的代码打印了两个hello。经过调试你发现是`say_goodbye()`里出错了。你的老板要求在调用每个方法前都要打印一下进入当前函数的时间，比如这样：
+但是在实际调用中，我们发现程序出错了，上面的代码打印了两个hello。经过调试你发现是`say_goodbye()`出错了。老板要求调用每个方法前都要记录进入函数的时间和名称，比如这样：
 
 ```
 [DEBUG] 2016-10-27 11:11:11 - Enter say_hello()
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     say_goodbye()
 ```
 
-很low吧？ 小B工作有一段时间了，他是这样写的。
+很low吧？ 嗯是的。小B工作有一段时间了，他告诉小A应该这样写。
 
 ```python
 def debug():
@@ -69,21 +69,22 @@ if __name__ == '__main__':
     say_goodbye()
 ```
 
-是不是好一点？那当然，但是一个业务函数里凭空多出一个`debug()`函数，是不是很难受？那么装饰器这时候应该登场了。
+是不是好一点？那当然，但是每个业务函数里都要调用一下`debug()`函数，是不是很难受？万一老板说say相关的函数不用debug，do相关的才需要呢？
+
+那么装饰器这时候应该登场了。
 
 > 装饰器本质上是一个Python函数，它可以让其他函数在不需要做任何代码变动的前提下增加额外功能，装饰器的返回值也是一个函数对象。它经常用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用。
 
-概括的讲，装饰器的作用就是**为已经存在的对象添加额外的功能**。
+概括的讲，装饰器的作用就是**为已经存在的函数或对象添加额外的功能**。
 
 ## 怎么写一个装饰器
 
-在早些时候 (Python Version <= 2.4),为一个函数添加额外功能的写法是这样的。
+在早些时候 (Python Version < 2.4，2004年以前)，为一个函数添加额外功能的写法是这样的。
 
 ```python
 def debug(func):
     def wrapper():
         print "[DEBUG]: enter {}()".format(func.__name__)
-        print 'Prepare and say...',
         return func()
     return wrapper
 
@@ -93,13 +94,12 @@ def say_hello():
 say_hello = debug(say_hello)  # 添加功能并保持原函数名不变
 ```
 
-上面的debug函数其实已经是一个装饰器了，它对原函数做了包装并返回了另外一个函数，额外添加了一下功能。因为这样写实在不太优雅，在新版本的Python中支持了@语法糖，下面代码等同于早期的写法。
+上面的debug函数其实已经是一个装饰器了，它对原函数做了包装并返回了另外一个函数，额外添加了一些功能。因为这样写实在不太优雅，在后面版本的Python中支持了@语法糖，下面代码等同于早期的写法。
 
 ```python
 def debug(func):
     def wrapper():
         print "[DEBUG]: enter {}()".format(func.__name__)
-        print 'Prepare and say...',
         return func()
     return wrapper
 
@@ -108,13 +108,12 @@ def say_hello():
     print "hello!"
 ```
 
-这是最简单的装饰器，但是有一个问题，如果被装饰的函数需要参数，那么这个装饰器就坏了。因为返回的已经装饰过的函数并不能接受参数，你可以指定装饰器函数就接收和原函数一样的参数，比如：
+这是最简单的装饰器，但是有一个问题，如果被装饰的函数需要传入参数，那么这个装饰器就坏了。因为返回的函数并不能接受参数，你可以指定装饰器函数`wrapper`接受和原函数一样的参数，比如：
 
 ```python
 def debug(func):
     def wrapper(something):  # 指定一毛一样的参数
         print "[DEBUG]: enter {}()".format(func.__name__)
-        print 'Prepare and say...',
         return func(something)
     return wrapper  # 返回包装过函数
 
@@ -123,7 +122,7 @@ def say(something):
     print "hello {}!".format(something)
 ```
 
-这样你就解决了一个问题，但又多了N个问题。因为目标函数有千千万，你只管你自己的函数，别人的函数参数是什么样子，鬼知道？还好Python提供了可变参数`*args`和关键字参数`**kwargs`，有了这两个参数，装饰器就可以用于任意目标函数了。
+这样你就解决了一个问题，但又多了N个问题。因为函数有千千万，你只管你自己的函数，别人的函数参数是什么样子，鬼知道？还好Python提供了可变参数`*args`和关键字参数`**kwargs`，有了这两个参数，装饰器就可以用于任意目标函数了。
 
 ```python
 def debug(func):
@@ -131,7 +130,7 @@ def debug(func):
         print "[DEBUG]: enter {}()".format(func.__name__)
         print 'Prepare and say...',
         return func(*args, **kwargs)
-    return wrapper  # 返回包装过函数
+    return wrapper  # 返回
 
 @debug
 def say(something):
@@ -152,10 +151,8 @@ def say(something):
 def logging(level):
     def wrapper(func):
         def inner_wrapper(*args, **kwargs):
-            from datetime import datetime
-            print "[{level}] {time}: enter function {func}()".format(
+            print "[{level}]: enter function {func}()".format(
                 level=level,
-                time=datetime.now(),
                 func=func.__name__)
             return func(*args, **kwargs)
         return inner_wrapper
@@ -177,9 +174,11 @@ if __name__ == '__main__':
     do("my work")
 ```
 
+是不是有一些晕？你可以这么理解，当带参数的装饰器被打在某个函数上时，比如`@logging(level='DEBUG')`，它其实是一个函数，会马上被执行，只要这个它返回的结果是一个装饰器时，那就没问题。细细再体会一下。
+
 ### 基于类实现的装饰器
 
-装饰器函数其实是这样一个接口约束，它必须接受一个callable对象作为参数，然后返回一个callable对象。在Python中一般callable对象都是函数，但是也有例外。只有某个对象重载了`__call__()`方法，那么这个对象就是callable的。
+装饰器函数其实是这样一个接口约束，它必须接受一个callable对象作为参数，然后返回一个callable对象。在Python中一般callable对象都是函数，但也有例外。只要某个对象重载了`__call__()`方法，那么这个对象就是callable的。
 
 ```python
 class Test():
@@ -190,9 +189,9 @@ t = Test()
 t()  # call me
 ```
 
-像`__call__`这样前后都带下划线的方法在Python中被称为内置方法，有时候也被称为魔法方法。重载这些魔方方法一般会改变对象的内部行为。上面这个例子就让一个类对象拥有了被调用的功能。
+像`__call__`这样前后都带下划线的方法在Python中被称为内置方法，有时候也被称为魔法方法。重载这些魔法方法一般会改变对象的内部行为。上面这个例子就让一个类对象拥有了被调用的行为。
 
-回到装饰器上的概念上来，装饰器要求接受一个callable对象，并返回一个callable对象（不严谨，详见后文）。那么用类来实现也是也可以的。我们可以让类的构造函数`__init__()`接受一个函数，然后重载`__call__()`返回一个函数，一样可以达到装饰器的效果。
+回到装饰器上的概念上来，装饰器要求接受一个callable对象，并返回一个callable对象（不太严谨，详见后文）。那么用类来实现也是也可以的。我们可以让类的构造函数`__init__()`接受一个函数，然后重载`__call__()`并返回一个函数，也可以达到装饰器函数的效果。
 
 ```python
 class logging(object):
@@ -200,8 +199,7 @@ class logging(object):
         self.func = func
 
     def __call__(self, *args, **kwargs):
-        print "[DEBUG] {time}: enter function {func}()".format(
-            time=datetime.now(),
+        print "[DEBUG]: enter function {func}()".format(
             func=self.func.__name__)
         return self.func(*args, **kwargs)
 @logging
@@ -218,14 +216,13 @@ class logging(object):
     def __init__(self, level='INFO'):
         self.level = level
         
-    def __call__(self, func):
+    def __call__(self, func): # 接受函数
         def wrapper(*args, **kwargs):
-            print "[{level}] {time}: enter function {func}()".format(
+            print "[{level}]: enter function {func}()".format(
                 level=self.level,
-                time=datetime.now(),
                 func=func.__name__)
             func(*args, **kwargs)
-        return wrapper
+        return wrapper  #返回函数
 
 @logging(level='INFO')
 def say(something):
@@ -234,7 +231,7 @@ def say(something):
 
 ### 内置的装饰器
 
-内置的装饰器和普通的装饰器原理是一样的，只不过因为有特殊方法的加成，所以更难理解一些。
+内置的装饰器和普通的装饰器原理是一样的，只不过返回的不是函数，而是类对象，所以更难理解一些。
 
 #### @property
 
@@ -243,16 +240,18 @@ def say(something):
 ```python
 def getx(self):
     return self._x
+
 def setx(self, value):
     self._x = value
+    
 def delx(self):
    del self._x
 
-# create a x property
+# create a property
 x = property(getx, setx, delx, "I am doc for x property")
 ```
 
-以上就是一个Python属性的标准写法，其实和Java挺像的，但是太罗嗦。有了@语法糖，以下代码效果是一致的。
+以上就是一个Python属性的标准写法，其实和Java挺像的，但是太罗嗦。有了@语法糖，能达到一样的效果但看起来更简单。
 
 ```python
 @property
@@ -264,11 +263,16 @@ def x(self): ...
 x = property(x)
 ```
 
-属性的`setter`, `getter`, `deleter` 在原来的基础上做了一些封装，因为`setter`和`deleter`是`property()`的第二和第三个参数，不能直接讨语法糖。`getter`装饰器和不带`getter`的属性装饰器效果是一样的，只是为了凑数，本身没有任何存在的意义。经过`@property`装饰过的函数返回的不再是一个函数，而是一个property对象。
+属性有三个装饰器：`setter`, `getter`, `deleter` ，都是在`property()`的基础上做了一些封装，因为`setter`和`deleter`是`property()`的第二和第三个参数，不能直接套用@语法。`getter`装饰器和不带`getter`的属性装饰器效果是一样的，估计只是为了凑数，本身没有任何存在的意义。经过`@property`装饰过的函数返回的不再是一个函数，而是一个`property`对象。
+
+```python
+>>> property()
+<property object at 0x10ff07940>
+```
 
 #### @staticmethod，@classmethod
 
-有了`property`装饰器的了解，这两个装饰器其实原理是差不多的。`@staticmethod`返回的是一个`staticmethod`类对象，而`@classmethod`返回的是一个`classmethod`类对象。他们都是调用的是`__init__()`的构造函数。
+有了`@property`装饰器的了解，这两个装饰器的原理是差不多的。`@staticmethod`返回的是一个`staticmethod`类对象，而`@classmethod`返回的是一个`classmethod`类对象。他们都是调用的是各自的`__init__()`构造函数。
 
 ```python
 class classmethod(object):
@@ -287,7 +291,7 @@ class staticmethod(object):
     # ...
 ```
 
-那么装饰器的@语法就等同调用了这两个类的构造函数。
+装饰器的@语法就等同调用了这两个类的构造函数。
 
 ```python
 class Foo(object):
@@ -299,7 +303,7 @@ class Foo(object):
     # 等同于 bar = staticmethod(bar)
 ```
 
-至此，我们上文提到的装饰器接口定义可以更加明确一些，装饰器必须接受一个callable对象，其实它并不关心你返回什么，可以是另外一个callable对象，也可以是其他类对象，比如property对象。
+至此，我们上文提到的装饰器接口定义可以更加明确一些，装饰器必须接受一个callable对象，其实它并不关心你返回什么，可以是另外一个callable对象（大部分情况），也可以是其他类对象，比如property。
 
 
 ## 装饰器里的那些坑
@@ -368,9 +372,9 @@ print say.__name__  # wrapper
 say = logging(say)
 ```
 
-logging其实返回的函数名字刚好是wrapper，那么上面的这个语句刚好就是把这个结果赋值给say，say的`__name__`自然也就是`wrapper`了，不仅仅是name，其他属性也都是来自wrapper，比如doc，source。
+`logging`其实返回的函数名字刚好是`wrapper`，那么上面的这个语句刚好就是把这个结果赋值给`say`，`say`的`__name__`自然也就是`wrapper`了，不仅仅是`name`，其他属性也都是来自`wrapper`，比如`doc`，`source`等等。
 
-要解决这个问题，可以使用标准库里的`functools.wraps`，将原函数的**部分**属性传递给新函数。
+使用标准库里的`functools.wraps`，可以**基本**解决这个问题。
 
 ```python
 from functools import wraps
@@ -400,7 +404,7 @@ print inspect.getargspec(say)  # failed
 print inspect.getsource(say)  # failed
 ```
 
-如果要彻底解决这个问题就需要使用第三方包，比如`wrapt`。后文有介绍。
+如果要彻底解决这个问题可以借用第三方包，比如`wrapt`。后文有介绍。
 
 ### 不能装饰@staticmethod 或者 @classmethod
 
@@ -434,7 +438,7 @@ AttributeError: 'staticmethod' object has no attribute '__module__'
 """
 ```
 
-前面已经解释了`@staticmethod`这个装饰器，其实它返回的并不是一个callable对象，而是一个staticmethod对象，那么它其实是不符合装饰器接口的，自然不能在它之上再加别的装饰器。要解决这个问题很简单，只要把你的装饰器放在`@staticmethod`之前就好了，因为你的装饰器返回的还是一个正常的函数，上面加上一个`@staticmethod`是不会出问题的。
+前面已经解释了`@staticmethod`这个装饰器，其实它返回的并不是一个callable对象，而是一个`staticmethod`对象，那么它是不符合装饰器要求的（比如传入一个callable对象），你自然不能在它之上再加别的装饰器。要解决这个问题很简单，只要把你的装饰器放在`@staticmethod`之前就好了，因为你的装饰器返回的还是一个正常的函数，然后再加上一个`@staticmethod`是不会出问题的。
 
 ```python
 class Car(object):
@@ -453,7 +457,7 @@ class Car(object):
 
 ### decorator.py
 
-[decorator.py](http://pythonhosted.org/decorator/documentation.html) 是一个非常简单的装饰器加强包。你可以很直观的先定义包装函数`wrapper()`，再调用`decorate(func, wrapper)`方法就可以完成一个装饰器。
+[decorator.py](http://pythonhosted.org/decorator/documentation.html) 是一个非常简单的装饰器加强包。你可以很直观的先定义包装函数`wrapper()`，再使用`decorate(func, wrapper)`方法就可以完成一个装饰器。
 
 ```python
 from decorator import decorate
@@ -467,7 +471,7 @@ def logging(func):
     return decorate(func, wrapper)  # 用wrapper装饰func
 ```
 
-你也可以使用它自带的@decorator装饰器来完成你的装饰器。
+你也可以使用它自带的`@decorator`装饰器来完成你的装饰器。
 
 ```python
 from decorator import decorator
@@ -478,11 +482,11 @@ def logging(func, *args, **kwargs):
     return func(*args, **kwargs)
 ```
 
-`decorator.py`实现的装饰器能完整保留原函数的name, doc和args，使用inspect能获得正确的值。唯一有问题的就是`inspect.getsource(func)`，返回的还是装饰器的源代码，你需要改成`inspect.getsource(func.__wrapped__)`。
+`decorator.py`实现的装饰器能完整保留原函数的`name`，`doc`和`args`，唯一有问题的就是`inspect.getsource(func)`返回的还是装饰器的源代码，你需要改成`inspect.getsource(func.__wrapped__)`。
 
 ### wrapt
 
-[wrapt](http://wrapt.readthedocs.io/en/latest/quick-start.html)是一个功能非常完善的包，用于实现各种你想到或者你没想到的装饰器。使用wrapt实现的装饰器你需要担心之前inspect中遇到的所有问题，因为它都帮你处理了，甚至`inspect.getsource(func)`也准确无误。
+[wrapt](http://wrapt.readthedocs.io/en/latest/quick-start.html)是一个功能非常完善的包，用于实现各种你想到或者你没想到的装饰器。使用wrapt实现的装饰器你不需要担心之前inspect中遇到的所有问题，因为它都帮你处理了，甚至`inspect.getsource(func)`也准确无误。
 
 ```python
 import wrapt
@@ -497,7 +501,7 @@ def logging(wrapped, instance, args, kwargs):  # instance is must
 def say(something): pass
 ```
 
-使用wrapt你只要定义一个函数，但是函数签名是固定的`(wrapped, instance, args, kwargs)`，注意第二个参数`instance`是必须的，就算你不用它。当装饰器装饰在不同位置时它将得到不同的值，根据`instance`你能够更加灵活的调整你的装饰器。另外，`args`和`kwargs`也是固定的，而且前面**没有星号**。在装饰器内部调用原函数才带星号。
+使用wrapt你只需要定义一个装饰器函数，但是函数签名是固定的，必须是`(wrapped, instance, args, kwargs)`，注意第二个参数`instance`是必须的，就算你不用它。当装饰器装饰在不同位置时它将得到不同的值，比如装饰在类实例方法时你可以拿到这个类实例。根据`instance`的值你能够更加灵活的调整你的装饰器。另外，`args`和`kwargs`也是固定的，注意前面**没有星号**。在装饰器内部调用原函数时才带星号。
 
 如果你需要使用wrapt写一个带参数的装饰器，可以这样写。
 
@@ -513,17 +517,17 @@ def logging(level):
 def do(work): pass
 ```
 
-关于wrapt的使用建议查阅官方文档，在此不在赘述。
+关于wrapt的使用，建议查阅官方文档，在此不在赘述。
 - http://wrapt.readthedocs.io/en/latest/quick-start.html
 
 ## 小结
 
 Python的装饰器和Java的注解（Annotation）并不是同一回事，和C#中的特性（Attribute）也不一样，完全是两个概念。
 
-装饰器的理念是对原函数、对象的加强，相当于重现封装，所以一般装饰器函数都被命名为`wrapper()`，意义在于包装。函数只有在被调用时才会发挥其作用。比如`@logging`装饰器可以在函数执行时额外输出日志，`@cache`装饰过的函数可以缓存计算结果等等。
+装饰器的理念是对原函数、对象的加强，相当于重新封装，所以一般装饰器函数都被命名为`wrapper()`，意义在于包装。函数只有在被调用时才会发挥其作用。比如`@logging`装饰器可以在函数执行时额外输出日志，`@cache`装饰过的函数可以缓存计算结果等等。
 
-而注解和特性则是对目标函数或对象添加一些属性，相当于将其分类。这些属性可以通过反射拿到，在程序运行时对不同的特性函数或对象加以干预。比如带有`Setup`的函数就当成准备步骤执行，带有`TestMethod`的函数就当成测试方法执行等等。
+而注解和特性则是对目标函数或对象添加一些属性，相当于将其分类。这些属性可以通过反射拿到，在程序运行时对不同的特性函数或对象加以干预。比如带有`Setup`的函数就当成准备步骤执行，或者找到所有带有`TestMethod`的函数依次执行等等。
 
-至此我所了解的装饰器已经讲完，但是还有一些内容没有提到，比如放在类上的装饰器。有机会在补充。谢谢观看。
+至此我所了解的装饰器已经讲完，但是还有一些内容没有提到，比如装饰类的装饰器。有机会在补充。谢谢观看。
 
 > 本文源码 https://github.com/tobyqin/python_decorator
