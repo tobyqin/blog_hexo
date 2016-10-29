@@ -65,12 +65,12 @@ print add_tag(content)
 
 其实闭包在Python中很常见，只不过你没特别注意这就是一个闭包。比如Python中的装饰器Decorator，假如你需要写一个带参数的装饰器，那么一般都会生成闭包。
 
-为什么？因为Python的装饰器是一个固定的函数接口。它要求你的装饰器函数（或装饰器类）必须返回这样一种接口，接受一个函数并返回一个函数：
+为什么？因为Python的装饰器是一个固定的函数接口形式。它要求你的装饰器函数（或装饰器类）必须接受一个函数并返回一个函数：
 
 ```python
 # how to define
-def wrapper(func1):  # 必须接受一个且仅一个函数作为参数
-    return func2  # 返回一个且仅一个callable对象，一般为函数
+def wrapper(func1):  # 接受一个callable对象
+    return func2  # 返回一个对象，一般为函数
     
 # how to use
 def target_func(args): # 目标函数
