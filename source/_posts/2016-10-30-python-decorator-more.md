@@ -189,9 +189,9 @@ print TestCases  # <class '__main__.TestCases'>
 print TestCases.__dict__  # {'__module__': '__main__', '__enabled__': True, '__pd_type__': 'test', '__run_mode__': 'singleline', ...}
 ```
 
-在此装饰器被置于类上方时，`TestClass()`函数会马上被执行并返回一个装饰器函数，这个函数是一个闭包函数，保存了穿进来的外部变量。它接受一个类，并使用之前保存的外部变量为传入的类添加属性，然后再返回这个类。这样经过`@TestClass()`装饰过的类都会带上`__enabled__`、`__pd_type__`以及`__run_mode__`的属性。
+当装饰器在被使用时，`TestClass()`函数会马上被执行并返回一个装饰器函数，这个函数是一个闭包函数，保存了`enabled`和`run_mode`两个变量。另外它还接受一个类作为参数，并使用之前保存的变量为这个类添加属性，最后返回。所以经过`@TestClass()`装饰过的类都会带上`__enabled__`、`__pd_type__`以及`__run_mode__`的属性。
 
-类装饰器可以完成和Java类似的注解功能，而且要比注解强大的多。
+由此可见，类装饰器可以完成和Java类似的注解功能，而且要比注解强大的多。
 
 ## 后记
 
