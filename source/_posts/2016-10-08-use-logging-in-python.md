@@ -4,7 +4,7 @@ date: 2016-10-08 20:57:43
 tags: python
 categories: Coding
 ---
-今天修改了项目里的logging相关功能，用到了python标准库里的logging模块，在此做一些记录。主要是从官方文档和stackoverflow上查询到的一些内容。
+最近修改了项目里的logging相关功能，用到了python标准库里的logging模块，在此做一些记录。主要是从官方文档和stackoverflow上查询到的一些内容。
 
 - [官方文档](https://docs.python.org/2.7/library/logging.html)
 - [技术博客](http://blog.csdn.net/balderfan/article/details/7644807)
@@ -18,7 +18,7 @@ categories: Coding
 import logging
 import sys
 
-# 获取logger实例
+# 获取logger实例，如果参数为空则返回root logger
 logger = logging.getLogger("AppName")
 
 # 指定logger输出格式
@@ -66,13 +66,15 @@ service_name = "Booking"
 logger.error('%s service is down!' % service_name)  # 使用python自带的字符串格式化，不推荐
 logger.error('%s service is down!', service_name)  # 使用logger的格式化，推荐
 logger.error('%s service is %s!', service_name, 'down')  # 多参数格式化
+logger.error('{} service is {}'.format(service_name, 'down')) # 使用format函数，推荐
 
-# 2016-10-08 21:59:19,493 ERROR   : Booking service is down!
-# 2016-10-08 21:59:19,493 ERROR   : Booking service is down!
 # 2016-10-08 21:59:19,493 ERROR   : Booking service is down!
 ```
 
 ### 记录异常信息
+
+当你使用logging模块记录异常信息时，不需要传入该异常对象，只要你直接调用`logger.error()` 或者 `logger.exception()`就可以将当前异常记录下来。
+
 ```python
 # 记录异常信息
 try:
@@ -221,9 +223,98 @@ logging.config.fileConfig(filepath)
 return logging.getLogger()
 ```
 
+#### 日志重复输出的坑
+
+你有可能会看到你打的日志会重复显示多次，可能的原因有很多，但总结下来无非就一个，日志中多个重复的handler。
+
+```python
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+
+fmt = '%(levelname)s:%(message)s'
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(logging.Formatter(fmt))
+logging.getLogger().addHandler(console_handler)
+
+logging.info('hello!')
+
+# INFO:root:hello!
+# INFO:hello!
+```
+
+上面这个例子出现了重复日志，因为在第3行调用`basicConfig()`方法时系统会默认创建一个handler，如果你再添加一个控制台handler时就会出现重复日志。
+
+```python
+import logging
+
+def get_logger():
+    fmt = '%(levelname)s:%(message)s'
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(logging.Formatter(fmt))
+    logger = logging.getLogger('App')
+    logger.setLevel(logging.INFO)
+    logger.addHandler(console_handler)
+    return logger
+
+def call_me():
+    logger = get_logger()
+    logger.info('hi')
+
+call_me()
+call_me()
+
+# INFO:hi
+# INFO:hi
+# INFO:hi
+```
+
+在这个例子里`hi`居然打印了三次，如果再调用一次`call_me()`呢？我告诉你会打印6次。why? 因为你每次调用`get_logger()`方法时都会给它加一个新的handler，你是自作自受。正常的做法应该是全局只配置logger一次。
+
+```python
+import logging
+
+def get_logger():
+    fmt = '%(levelname)s: %(message)s'
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(logging.Formatter(fmt))
+    logger = logging.getLogger('App')
+    logger.setLevel(logging.INFO)
+    logger.addHandler(console_handler)
+    return logger
+
+def foo():
+    logging.basicConfig(format='[%(name)s]: %(message)s')
+    logging.warn('some module use root logger')
+
+def main():
+    logger = get_logger()
+    logger.info('App start.')
+    foo()
+    logger.info('App shutdown.')
+
+main()
+
+# INFO: App start.
+# [root]: some module use root logger
+# INFO: App shutdown.
+# [App]: App shutdown.
+```
+
+为嘛最后的`App shutdown`打印了两次？所以在Stackoverflow上很多人都问，我应该怎么样把root logger关掉，root logger太坑爹坑妈了。只要你在程序中使用过root logger，那么默认你打印的所有日志都算它一份。上面的例子没有什么很好的办法，我建议你招到那个没有经过大脑就使用root logger的人，乱棍打死他或者开除他。
+
+如果你真的想禁用root logger，有两个不是办法的办法：
+
+```python
+logging.getLogger().handlers = []  # 删除所有的handler
+logging.getLogger().setLevel(logging.CRITICAL)  # 将它的级别设置到最高
+```
+
 ### 小结
 
 Python中的日志模块作为标准库的一部分，功能还是比较完善的。个人觉得上手简单，另外也支持比如过滤，文件锁等高级功能，能满足大多数项目需求。
+
+不过切记，小心坑。
 
 
 
