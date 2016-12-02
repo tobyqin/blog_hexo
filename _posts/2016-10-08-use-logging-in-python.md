@@ -223,9 +223,11 @@ logging.config.fileConfig(filepath)
 return logging.getLogger()
 ```
 
-#### 日志重复输出的坑
+### 日志重复输出的坑
 
 你有可能会看到你打的日志会重复显示多次，可能的原因有很多，但总结下来无非就一个，日志中多个重复的handler。
+
+#### 第一坑 
 
 ```python
 import logging
@@ -244,6 +246,8 @@ logging.info('hello!')
 ```
 
 上面这个例子出现了重复日志，因为在第3行调用`basicConfig()`方法时系统会默认创建一个handler，如果你再添加一个控制台handler时就会出现重复日志。
+
+#### 第二坑
 
 ```python
 import logging
@@ -270,6 +274,8 @@ call_me()
 ```
 
 在这个例子里`hi`居然打印了三次，如果再调用一次`call_me()`呢？我告诉你会打印6次。why? 因为你每次调用`get_logger()`方法时都会给它加一个新的handler，你是自作自受。正常的做法应该是全局只配置logger一次。
+
+#### 第三坑
 
 ```python
 import logging
