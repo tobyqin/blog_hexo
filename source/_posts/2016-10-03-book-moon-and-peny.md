@@ -7,7 +7,7 @@ categories: Reading
 
 <center>文/大橙子
 
-![](http://betacat.online/images/moon-and-peny.jpg)
+![](/images/moon-and-peny.jpg)
 
 </center>
 

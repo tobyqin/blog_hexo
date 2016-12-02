@@ -7,7 +7,7 @@ categories: Reading
 
 <center>文/大橙子
 
-![](http://betacat.online/images/huo-zhe.jpg)
+![](/images/huo-zhe.jpg)
 
 </center>
 

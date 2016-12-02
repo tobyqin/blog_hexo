@@ -17,7 +17,7 @@ categories: Coding
 
 下面是思维导图的总结
 
-![](http://betacat.online/images/underscore-in-Python.png)
+![](/images/underscore-in-Python.png)
 
 ### 附录： 如何调用魔法方法
 

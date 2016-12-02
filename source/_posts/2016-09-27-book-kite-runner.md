@@ -7,7 +7,7 @@ categories: Reading
 
 <center>文/大橙子
 
-![Kite Runner](http://betacat.online/images/kiterunner.png)
+![Kite Runner](/images/kiterunner.png)
 
 </center>
 

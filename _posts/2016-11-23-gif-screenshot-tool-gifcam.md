@@ -14,4 +14,4 @@ GifCam (Gif相机) 是一款免费且非常优秀的视频录制/剪辑的GIF动
 借助GifCam你可以快速方便地制作演示教程或者将视频一些搞笑经典片段制作成动画图片。你也可以将录制的屏幕导出成avi的视频格式，并根据指定的码率做压缩。
 
 GifCam官网：http://blog.bahraniapps.com/gifcam/#download
-从本站下载：[http://tobyqin.github.io/files/GifCam.zip](/files/GifCam.zip)
+从本站下载：[/files/GifCam.zip](/files/GifCam.zip)
