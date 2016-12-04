@@ -55,7 +55,7 @@ def fix_file(file_name):
         time_prefix += "-"
 
     if name.startswith('20'):
-        new_name = time_prefix + name[11:]
+        new_name = time_prefix + name[len(time_prefix):]
     else:
         new_name = time_prefix + name
 
