@@ -155,9 +155,9 @@ BaseException
 ```python
 try:
     do_something()
-except NameError as e:
+except NameError as e:  # should
     pass
-except KeyError, e:
+except KeyError, e:  # should not
     pass
 ```
 
