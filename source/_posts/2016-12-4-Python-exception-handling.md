@@ -54,15 +54,16 @@ except:
 ```
 
 ### 总结如下
-1. except语句不是必须的，finally语句也不是必须的，但是二者必须要有一个，否则就没有try的意义了。
-2. except语句可以有多个，Python会按except语句的顺序依次匹配你指定的异常，如果异常已经处理就不会再进入后面的except语句。
-3. except语句可以以元组形式同时指定多个异常，参见实例代码。
-4. except语句后面如果不指定异常类型，则默认捕获所有异常，你可以通过logging或者sys模块获取当前异常。
-5. 如果要捕获异常后要重复抛出，请使用raise，后面不要带任何参数或信息。
+1. `except`语句不是必须的，`finally`语句也不是必须的，但是二者必须要有一个，否则就没有`try`的意义了。
+2. `except`语句可以有多个，Python会按`except`语句的顺序依次匹配你指定的异常，如果异常已经处理就不会再进入后面的`except`语句。
+3. `except`语句可以以元组形式同时指定多个异常，参见实例代码。
+4. `except`语句后面如果不指定异常类型，则默认捕获所有异常，你可以通过logging或者sys模块获取当前异常。
+5. 如果要捕获异常后要重复抛出，请使用`raise`，后面不要带任何参数或信息。
 6. 不建议捕获并抛出同一个异常，请考虑重构你的代码。
+7. 不建议在不清楚逻辑的情况下捕获所有异常，有可能你隐藏了很严重的问题。
 7. 尽量使用内置的异常处理语句来 替换try/except语句，比如`with`语句，`getattr()`方法。
 
-## 引发异常 raise
+## 抛出异常 raise
 
 如果你需要自主抛出异常一个异常，可以使用`raise`关键字，等同于C#和Java中的`throw`语句，其语法规则如下。
 
@@ -96,7 +97,8 @@ class SomeCustomException(Exception):
 
 ### 传递异常 re-raise Exception
 
-捕捉到了异常，但是又想重新引发它(传递异常)，可以使用不带参数的`raise`语句即可：
+捕捉到了异常，但是又想重新引发它（传递异常），使用不带参数的`raise`语句即可：
+
 ```python
 def f1():
     print(1/0)
@@ -110,9 +112,10 @@ def f2():
 f2()
 ```
 
-在Python2中，为了保持异常的完整信息，那么你捕获后再次抛出时千万不能在`raise`后面加上异常对象，否则你的`trace`信息就会从此处截断。以上是最简单的重新抛出异常的做法。
+在Python2中，为了保持异常的完整信息，那么你捕获后再次抛出时千万不能在`raise`后面加上异常对象，否则你的**`trace`信息就会从此处截断**。以上是最简单的重新抛出异常的做法。
 
 还有一些技巧可以考虑，比如抛出异常前对异常的信息进行更新。
+
 ```python
 def f2():
     try:
@@ -129,7 +132,7 @@ Python3对重复传递异常有所改进，你可以自己尝试一下，不过�
 
 ### Exception 和 BaseException
 
-当我们要捕获一个通用异常时，应该用`Exception`还是`BaseException`？我建议你还是看一下[ 官方文档说明](https://docs.python.org/2.7/library/exceptions.html#bltin-exceptions)，这两个异常到底有啥区别？
+当我们要捕获一个通用异常时，应该用`Exception`还是`BaseException`？我建议你还是看一下[ 官方文档说明](https://docs.python.org/2.7/library/exceptions.html#bltin-exceptions)，这两个异常到底有啥区别呢？ 请看它们之间的继承关系。
 
 ```
 BaseException
@@ -184,7 +187,9 @@ TypeError: exceptions must be old-style classes or derived from BaseException, n
 
 ### 使用内置的语法范式代替try/except
 
-Python 本身提供了很多的语法范式简化了异常的处理，比如for语句就处理的`StopIteration`的异常，with语句在打开文件时会自动调用finally中的关闭文件操作。我们在写Python代码时应该尽量避免在遇到这种情况时还使用try/except/finally的思维来处理。
+Python 本身提供了很多的语法范式简化了异常的处理，比如`for`语句就处理的`StopIteration`异常，让你很流畅地写出一个循环。
+
+`with`语句在打开文件后会自动调用`finally`中的关闭文件操作。我们在写Python代码时应该尽量避免在遇到这种情况时还使用try/except/finally的思维来处理。
 
 ```python
 # should not
