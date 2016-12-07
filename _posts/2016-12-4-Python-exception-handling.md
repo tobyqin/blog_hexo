@@ -171,7 +171,7 @@ except KeyError, e:  # should not
 if is_work_done():
     pass
 else:
-    raise "Work is not done!"
+    raise "Work is not done!" # not cool
 ```
 
 上面的语句如果抛出异常，那么会是这样的：
