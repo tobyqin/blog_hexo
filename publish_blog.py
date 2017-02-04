@@ -35,14 +35,14 @@ def fix_image_path(source_file):
         os.makedirs(dst_post_path)
 
     content = str()
-    with open(source_file) as f:
+    with open(source_file,encoding='utf-8') as f:
         for line in f:
             if 'images/' in line or 'images\\' in line:
                 line = line.replace('images/', '/images/')
                 line = line.replace('images\\', '/images/')
             content += line
 
-    with open(new_file, 'w') as f:
+    with open(new_file, 'w', encoding='utf-8') as f:
         f.writelines(content)
 
 
@@ -55,7 +55,7 @@ def append_timestamp(file_name):
     time_prefix = None
 
     # read time stamp from blog date: section
-    with open(file_name) as f:
+    with open(file_name, encoding='utf-8') as f:
         for line in f:
             if line.startswith('date:'):
                 time_prefix = line.split()[1]
