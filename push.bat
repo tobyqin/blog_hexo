@@ -1,7 +1,7 @@
 @echo off
 
 echo convert posts...
-python convert_post.py
+python publish_post.py
 
 echo Start to publish blog...
 git add -A
