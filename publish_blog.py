@@ -7,7 +7,7 @@ import glob
 current_path = dirname(__file__)
 src_post_path = abspath(join(current_path, '_posts'))
 src_image_path = abspath(join(src_post_path, 'images'))
-dst_post_path = abspath(join(current_path, 'source', '_post'))
+dst_post_path = abspath(join(current_path, 'source', '_posts'))
 dst_image_path = abspath(join(current_path, 'source', 'images'))
 
 
