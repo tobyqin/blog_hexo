@@ -1,6 +1,7 @@
 @echo off
 
 echo Start to generate blog...
+py publish_blog.py
 
 cmd /c "hexo clean"
 cmd /c "hexo g"

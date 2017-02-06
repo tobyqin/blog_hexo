@@ -85,9 +85,6 @@ def append_timestamp(file_name):
         print("{}=>{}".format(file_name, new_name))
         os.rename(file_name, new_name)
 
-    else:
-        print("Skip: {}".format(new_name))
-
 
 if __name__ == '__main__':
     copy_images_dir()
