@@ -8,7 +8,7 @@ categories: tips
 在git提交过程中，存在三大环节：
 
 - working tree
-- index file (staging)
+- index file (staged)
 - commit
 
 这三大环节中，你应该有一个大概的了解：
