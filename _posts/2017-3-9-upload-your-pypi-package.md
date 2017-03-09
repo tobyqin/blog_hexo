@@ -1,5 +1,5 @@
 ---
-title: 上传你自己发明的轮子 - PyPI upload
+title: 上传并发布你自己发明的轮子 - Python PyPI 实践
 categories: python
 tags: PyPI
 date: 2017-3-9
@@ -12,11 +12,11 @@ date: 2017-3-9
 
 ##  上传前的注意事项
 
-- 在你的包根目录必须要有一个[setup.py](https://github.com/pypa/sampleproject/blob/master/setup.py)。
+- 假设你的包已经开发完成，并且根目录必须要有一个[setup.py](https://github.com/pypa/sampleproject/blob/master/setup.py)。
 - 最好有一个[README.rst](https://github.com/pypa/sampleproject/blob/master/README.rst) 用来描述你的轮子，虽然这不是必须的，但文档就像内裤，你最好还是要有的。
 - 如果你需要打包代码文件夹以外的文件，比如版权信息等等，你还需要写一个 [MANIFEST.in](https://github.com/pypa/sampleproject/blob/master/MANIFEST.in)。
 
-## 关于`setup.py`还要说两句
+## 关于`setup.py`的补充说明
 
 - `name` 必须是唯一的，允许使用数字和字母，推荐使用中划线（-）而不是下划线（_），因为pip安装只支持中划线，比如`pip install my-pkg`，为了不给自己找麻烦请听话。
 - `version`推荐遵循[语义化版本号](https://packaging.python.org/distributing/#semantic-versioning-preferred)规则，简单说就像这样：1.2.0
@@ -24,13 +24,13 @@ date: 2017-3-9
 
 ## 测试本地打包命令
 
-如果上面的都没问题，在本地目录执行以下命令应该没有错误。
+如果上面的都没问题，在本地目录执行以下命令应该能成功在dist目录下生成*.tar.gz的包文件。
 
 ```shell
 python setup.py sdist
 ```
 
-## 尝试上传至PyPI
+## 上传并发布包文件到PyPI
 
 ### 创建 PyPI账号
 
@@ -60,7 +60,7 @@ password = <password>
 2. 通过[PyPI网站提交表单](https://pypi.python.org/pypi?%3Aaction=submit_form)完成注册验证。
 3. 安装 `pip install twine` 然后在通过命令 `twine register dist/mypkg.whl` 完成注册。
 
-### 上传并发布你的包
+### 上传并完成发布
 
 你可以任选以下两种方式之一发布你的轮子。
 
@@ -70,15 +70,15 @@ password = <password>
 
 ### 管理你的包
 
-如果你的包已经上次，那么当你登录PyPI网站后应该就能看到。
+如果你的包已经上传成功，那么当你登录PyPI网站后应该能在右侧导航栏看到管理入口。
 
 ![pypi_manage](images/pypi_manage.png)
 
-点击包名进去后你可以对你的包进行修改，当然你也可以从这里删除这个包。
+点击包名进去后你可以对你的包进行管理，当然你也可以从这里删除这个包。
 
 ### 让别人使用你的包
 
-一旦你的包发布完成，其他人使用你的包只需要pip安装就可以了。比如：
+包发布完成后，其他人只需要使用pip就可以安装你的包文件。比如：
 
 ```
 pip install package-name
@@ -90,17 +90,35 @@ pip install package-name
 pip install package-name --update
 ```
 
-## 可能遇到的问题
+## 可能遇到的错误
 
-### Credential 
+### Upload failed (403): Invalid or non-existent authentication information. 
 
-### Email not verified
+错误的用户验证信息，你需要创建一个用户验证文件 `~/.pypirc`。请参阅上文。
 
-### Bad category
+### Upload failed (403): You are not allowed to edit 'xxx' package information
 
-### Upload not pack
+你需要先注册你的包才可以开始上传，运行注册命令：`python setup.py register`
 
-### timeout
+### Server response (401): Incomplete registration; check your email
+
+你的PyPI账户还没完成邮箱验证，你需要去注册邮箱找到一封验证邮件完成验证后再重试失败的步骤。
+
+### Server response (400): Invalid classifier "Topic :: Software Development :: Utilities"
+
+你的setup.py文件中的**classifier**信息有误，请按[官网](https://pypi.python.org/pypi?%3Aaction=browse)的正确分类书写**classifier**.
+
+### error: No dist file created in earlier command
+
+你还没打包就开始了上传命令，建议打包和上传的操作放在一起做，比如：
+
+```
+python setup sdist upload
+```
+
+### error: Upload failed (499): Client Disconnected
+
+这应该是网络问题，多重试几次。
 
 ### Upload failed (400): File already exists
 
