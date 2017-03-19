@@ -1,8 +1,8 @@
 # Toby's Github Pages
 
-������ʹ��hexo�����Ҳ����Ȥ�Ļ������Բο�����[�ٷ��ĵ�](https://hexo.io/)��
+如果你对使用hexo搭建博客也感兴趣的话，可以参考它的[官方文档](https://hexo.io/)。
 
-1. ����Ҫ��װnode.js
-2. ��װhexo
-3. ����hexo
-4. Ԥ����Ĳ���
+1. 你需要安装node.js
+2. 安装hexo
+3. 配置hexo
+4. 预览你的博客

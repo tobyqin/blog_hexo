@@ -6,7 +6,7 @@
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Python, C#, Testing, Coding, Reading, BetaCat, Love in AHU"
+keywords: "Python, C#, Testing, Coding, BetaCat, Love in AHU"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -63,8 +63,8 @@ menu_icons:
 
 # Schemes
 # scheme: Muse
-scheme: Mist
-# scheme: Pisces
+# scheme: Mist
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -79,7 +79,7 @@ font:
   enable: true
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default)
-  host:
+  host: https://fonts.lug.ustc.edu.cn
 
   # Global font settings used on <body> element.
   global:
@@ -145,7 +145,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-avatar: https://avatars1.githubusercontent.com/u/6058661?v=3&s=200
+avatar: https://avatars1.githubusercontent.com/u/14037644
 
 
 # Table Of Contents in the Sidebar
