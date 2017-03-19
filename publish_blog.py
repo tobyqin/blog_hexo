@@ -12,6 +12,7 @@ dst_image_path = abspath(join(current_path, 'source', 'images'))
 
 
 def copy_images_dir():
+    """Copy images from /_posts/images to /source/images"""
     if not exists(dst_image_path):
         os.mkdir(dst_image_path)
 
@@ -26,7 +27,10 @@ def copy_images_dir():
 
 
 def fix_image_path(source_file):
-    """Will copy file to source/_posts folder."""
+    """
+    1. Copy posts from /_posts to /source/_posts folder
+    2. Fix image url to use file in /source/images/*
+    """
 
     new_file = source_file.replace('_posts', 'source/_posts')
     new_file = abspath(new_file)
@@ -37,17 +41,17 @@ def fix_image_path(source_file):
     content = str()
     with open(source_file,encoding='utf-8') as f:
         for line in f:
-            if 'images/' in line or 'images\\' in line:
-                line = line.replace('images/', '/images/')
-                line = line.replace('images\\', '/images/')
+            if '(images/' in line or '(images\\' in line:
+                line = line.replace('(images/', '(/images/')
+                line = line.replace('(images\\', '(/images/')
             content += line
 
     with open(new_file, 'w', encoding='utf-8') as f:
         f.writelines(content)
 
 
-def append_timestamp(file_name):
-    """Will update file in current folder."""
+def add_timestamp_prefix(file_name):
+    """Update file name with timestamp prefix."""
 
     names = os.path.split(file_name)
     folder = names[0]
@@ -91,7 +95,7 @@ if __name__ == '__main__':
     rmtree(dst_post_path, ignore_errors=True)
 
     for f in glob.glob(join(src_post_path, "*.md")):
-        append_timestamp(f)
+        add_timestamp_prefix(f)
 
     for f in glob.glob(join(src_post_path, "*.md")):
         fix_image_path(f)
