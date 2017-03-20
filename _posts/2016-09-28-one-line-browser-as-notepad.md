@@ -1,8 +1,8 @@
 ---
 title: 一行代码让浏览器变成记事本
 date: 2016-09-28 15:02:46
-tags: javascript
-categories: Tips
+tags: [javascript,tips]
+categories: Tech
 ---
 有时候你为了测试富文本的显示效果，需要新建一个html或者word？太麻烦了。把下面这行代码贴到Chrome浏览器地址栏，按下回车，一切都搞定了，so easy！
 

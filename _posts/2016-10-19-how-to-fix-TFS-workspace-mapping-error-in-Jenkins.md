@@ -1,8 +1,8 @@
 ---
 title: 解决 Jenkins中TFS Plugin Mapping错误的问题
 date: 2016-10-19 14:29:04
-tags: tips
-categories: Tips
+tags: [tips,tfs,jenkins]
+categories: Tech
 ---
 ### 问题描述
 

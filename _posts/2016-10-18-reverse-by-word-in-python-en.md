@@ -1,8 +1,8 @@
 ---
 title: Reverse string by word with Python
 date: 2016-10-18 09:46:00
-tags: Python
-categories: Coding
+tags: [python,regex]
+categories: Tech
 ---
 **Reverse string by word** is a very popular interview question. In python you can solve it easily with code like below.
 

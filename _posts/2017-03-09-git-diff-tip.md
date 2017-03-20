@@ -1,8 +1,8 @@
 ---
 title: 理解 Git Diff 命令
 date: 2017-03-09 23:04:51
-tags: git
-categories: tips
+tags: [git,tips]
+categories: Tech
 ---
 
 在git提交过程中，存在三大环节：

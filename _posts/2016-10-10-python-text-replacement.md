@@ -1,8 +1,8 @@
 ---
 title: 在Python中查找和替换文本
 date: 2016-10-10 13:32:03
-tags: python
-categories: Coding
+tags: [python,regex]
+categories: Tech
 ---
 
 ### 最简单的查找替换

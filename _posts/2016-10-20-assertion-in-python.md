@@ -1,8 +1,8 @@
 ---
 title: Python中不尽如人意的断言Assertion
 date: 2016-10-20
-tags: Python
-categories: Coding
+tags: [python,software testing]
+categories: Tech
 ---
 ### Python Assert 为何不尽如人意
 

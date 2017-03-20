@@ -2,7 +2,7 @@
 title: 从C#到Python - 语言特性和概览
 tags: [C#,python]
 date: 2016-09-27 09:35:13
-categories: Coding
+categories: Tech
 ---
 
 因为工作的原因，目前主力编程语言从C#转移到Python，所以在此记录这两种语言的一些异同点和自己的感悟收获。本系列文章数量不限，随想随写。

@@ -1,9 +1,8 @@
 ---
 title: 上传并发布你自己发明的轮子 - Python PyPI 实践
-categories: python
-tags: PyPI
+categories: Tech
+tags: [python,PyPI]
 date: 2017-3-9
-
 ---
 
 本文仅讨论上传相关的步骤，关于如何给写一个`setup.py` 请参阅官方文档：

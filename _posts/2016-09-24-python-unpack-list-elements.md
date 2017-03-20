@@ -1,9 +1,8 @@
 ---
 title: Python：将数组中的元素导出到变量中 (unpacking)
-tags:
-  - python
+tags: [python,python list,tips]
 date: 2016-09-24 23:03:34
-categories: Tips
+categories: Tech
 ---
 ## 问题描述
 

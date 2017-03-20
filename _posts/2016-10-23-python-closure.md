@@ -1,7 +1,7 @@
 ---
 title: 说说Python中的闭包 - Closure
-categories: Coding
-tags: Python
+categories: Tech
+tags: [python,python closure]
 date: 2016-10-23
 ---
 

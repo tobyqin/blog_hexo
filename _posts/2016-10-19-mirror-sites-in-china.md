@@ -2,7 +2,7 @@
 title: Chrome, Andriod, JRE, Selenium各种开源工具的国内镜像
 date: 2016-10-19 13:29:04
 tags: tips
-categories: Tips
+categories: Tech
 ---
 ### 前言
 

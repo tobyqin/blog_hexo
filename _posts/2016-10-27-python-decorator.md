@@ -1,7 +1,7 @@
 ---
 title: 详解Python的装饰器
-categories: Coding
-tags: Python
+categories: Tech
+tags: [python,python decorator]
 date: 2016-10-27
 ---
 

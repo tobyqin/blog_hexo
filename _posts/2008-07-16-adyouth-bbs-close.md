@@ -1,7 +1,7 @@
 ---
 title: 安青事件详细过程
-categories: Say
-tags: Something
+categories: Life
+tags: AHU
 date: 2008-07-16
 ---
 ### 发生了什么

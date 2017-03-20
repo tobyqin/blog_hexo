@@ -1,7 +1,7 @@
 ---
 title: Move on to Python 3
-categories: Coding
-tags: Python
+categories: Tech
+tags: [python,python 3]
 date: 2017-2-6
 ---
 
@@ -9,7 +9,7 @@ Do we want to move on to Python 3? Well, what is your concerns? Here is a slide 
 
 ### Slides
 
-<iframe src="/files/slides/move-on-to-python-3.html" width="800px" height="500px" frameborder="0" scrolling="no"> </iframe>
+<iframe src="/files/slides/move-on-to-python-3.html" width="100%" height="440px" frameborder="0" scrolling="no"> </iframe>
 
 ### Resources
 - View the slide in full screen: [Move on to python 3](/files/slides/move-on-to-python-3.html)

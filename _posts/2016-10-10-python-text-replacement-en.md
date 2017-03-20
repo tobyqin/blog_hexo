@@ -1,8 +1,8 @@
 ---
 title: Find and replace text with Python
 date: 2016-10-10 13:32:03
-tags: python
-categories: Coding
+tags: [python,regex]
+categories: Tech
 ---
 
 ### Basic find and replace

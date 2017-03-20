@@ -1,8 +1,8 @@
 ---
 title: Turn off logging in python selenium
-tags: [python,selenium]
+tags: [python,selenium,logging,tips]
 date: 2016-09-24 22:14:44
-categories: Tips
+categories: Tech
 ---
 Python selenium will print a lot of debug info for selenium driver, which will mess up important information for your testing.
 

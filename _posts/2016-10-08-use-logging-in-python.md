@@ -1,8 +1,8 @@
 ---
 title: Python中的logging模块
 date: 2016-10-08 20:57:43
-tags: python
-categories: Coding
+tags: [python,logging]
+categories: Tech
 ---
 最近修改了项目里的logging相关功能，用到了python标准库里的logging模块，在此做一些记录。主要是从官方文档和stackoverflow上查询到的一些内容。
 

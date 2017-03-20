@@ -2,7 +2,7 @@
 title: Gif截屏工具 - GifCam
 date: 2016-11-23
 tags: tools
-categories: Tools
+categories: Tech
 ---
 
 如果你需要录制截屏并保存成gif图片格式，那么你一定不能错过GifCam这个神奇的小工具。它虽然只有600K，但功能不可小觑。

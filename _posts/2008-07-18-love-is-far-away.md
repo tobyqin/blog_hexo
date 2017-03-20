@@ -1,7 +1,7 @@
 ---
 title: 暧昧很近，爱情很远
-categories: Say
-tags: Something
+categories: Life
+tags: AHU
 date: 2008-07-18
 ---
 > 文 / 蔚蓝

@@ -1,7 +1,8 @@
 ---
 title: 编程语录
 date: 2016-09-24 22:14:44
-categories: Tips
+categories: Tech
+tags: [programming,tips]
 ---
 > - 编程语言的最终目的是什么？是为了让编程更容易。
 > - 人们对编程语言有一个必然要求，就是能为公共的模式命名，建立抽象，然后直接在抽象的层次上工作。

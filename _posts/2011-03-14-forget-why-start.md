@@ -1,7 +1,7 @@
 ---
 title: 走得太远，忘记了为什么出发
-categories: Say
-tags: Something
+categories: Life
+tags: Reading
 date: 2011-03-14
 ---
 > 可以颠覆掉所有的春天

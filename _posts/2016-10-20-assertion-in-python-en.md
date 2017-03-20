@@ -1,8 +1,8 @@
 ---
 title: Improve Assertion In Python
 date: 2016-10-20
-tags: Python
-categories: Coding
+tags: [python,software testing]
+categories: Tech
 ---
 ### Why not using Python Assert
 

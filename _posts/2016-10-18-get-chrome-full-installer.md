@@ -1,8 +1,8 @@
 ---
 title: 获取 Google Chrome 谷歌浏览器离线安装包
 date: 2016-10-18 21:35:01
-tags: tips
-categories: Tips
+tags: [tips,google]
+categories: Tech
 ---
 安装到个人用户目录，请使用以下链接：
 - [Download Google Chrome Standalone Offline Installer (32-bit)][1]

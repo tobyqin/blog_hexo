@@ -1,7 +1,7 @@
 ---
 title: 总结：Python中的异常处理
-categories: Coding
-tags: Python
+categories: Tech
+tags: [python,exception handling]
 date: 2016-12-4
 ---
 

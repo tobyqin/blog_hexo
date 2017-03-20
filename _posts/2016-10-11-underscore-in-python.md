@@ -1,8 +1,8 @@
 ---
 title: Python中的下划线和双下划线
 date: 2016-10-11 22:26:46
-tags: python
-categories: Coding
+tags: [python,python underscore,tips]
+categories: Tech
 ---
 ### 开门见山
 

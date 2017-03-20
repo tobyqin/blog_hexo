@@ -2,7 +2,7 @@
 title: 使用教育邮箱激活JetBrains全家桶
 date: 2016-09-27 15:27:14
 tags: [JetBrains, tips]
-categories: Tips
+categories: Tech
 ---
 
 ![](https://www.jetbrains.com/img/banners-home-page/product-card-resharper.jpg)

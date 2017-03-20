@@ -1,7 +1,7 @@
 ---
 title: Python装饰器的另类用法
-categories: Coding
-tags: Python
+categories: Tech
+tags: [python,python decorator]
 date: 2016-10-30
 ---
 
