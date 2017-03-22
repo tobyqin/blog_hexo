@@ -257,10 +257,10 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-duoshuo_shortname: tobyqin
+#duoshuo_shortname: tobyqin
 
 # Disqus
-#disqus_shortname:
+#disqus_shortname: tobyqin
 
 # Hypercomments
 #hypercomments_id:
@@ -298,11 +298,11 @@ duoshuo_shortname: tobyqin
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo_info:
-  ua_enable: true
-  admin_enable: false
-  user_id: 6333781332014925000
-  # admin_nickname: 作者
+#duoshuo_info:
+#  ua_enable: true
+#  admin_enable: false
+#  user_id: 6333781332014925000
+#  admin_nickname: 作者
 
 
 # Facebook SDK Support.
@@ -353,7 +353,7 @@ busuanzi_count:
 tencent_analytics: 60629746
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
-baidu_push: false
+baidu_push: true
 
 # Google Calendar
 # Share your recent schedule to others via calendar page
