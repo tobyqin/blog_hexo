@@ -11,7 +11,7 @@ language: zh-Hans
 timezone: Asia/Shanghai
 
 # comments
-duoshuo_shortname: tobyqin
+disqus_shortname: https-betacat-online
 
 # avatar
 avatar: https://avatars1.githubusercontent.com/u/14037644
