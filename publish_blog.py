@@ -1,8 +1,9 @@
+import glob
 import os
+import re
+from datetime import datetime
 from os.path import join, dirname, abspath, exists
 from shutil import copy2, rmtree
-import re
-import glob
 
 current_path = dirname(__file__)
 src_post_path = abspath(join(current_path, '_posts'))
@@ -39,7 +40,7 @@ def fix_image_path(source_file):
         os.makedirs(dst_post_path)
 
     content = str()
-    with open(source_file,encoding='utf-8') as f:
+    with open(source_file, encoding='utf-8') as f:
         for line in f:
             if '(images/' in line or '(images\\' in line:
                 line = line.replace('(images/', '(/images/')
@@ -69,13 +70,20 @@ def add_timestamp_prefix(file_name):
     if time_prefix is None:
         raise Exception('Cannot find time stamp for {}'.format(file_name))
     else:
-        time_prefix += "-"
+        real_time = datetime.strptime(time_prefix, '%Y-%m-%d').strftime('%Y-%m-%d')
+
+    # for line in fileinput.input(file_name, inplace=True):
+    #     if line.startswith('date: {}'.format(time_prefix)):
+    #         line = line.replace(time_prefix, real_time)
+    #     sys.stdout.write(line)
 
     # update timestamp for name with date
-    if re.search(r'^20\d\d-.*', name):
-        new_name = time_prefix + name[len(time_prefix):]
+    pattern = r'(^20\d\d-\d+-\d+).*'
+    match = re.match(pattern, name)
+    if match:
+        new_name = real_time + name[len(match.group(1)):]
     else:
-        new_name = time_prefix + name
+        new_name = real_time + name
 
     # rename old file name to new file name with timestamp
     new_name = new_name.replace(' ', '-')
