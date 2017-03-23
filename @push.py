@@ -10,3 +10,8 @@ os.system('git push origin master')
 os.system('git remote add osc git@git.oschina.net:ggqq/hexo.git')
 os.system('git pull osc master')
 os.system('git push osc master')
+
+# backup to coding.net
+os.system('git remote add coding git@git.coding.net:tobyqin/blog.git')
+os.system('git pull osc master')
+os.system('git push osc master')
