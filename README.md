@@ -1,4 +1,4 @@
-# Toby's Github Pages
+# Toby's Blog
 
 如果你对使用hexo搭建博客也感兴趣的话，可以参考它的[官方文档](https://hexo.io/)。
 
@@ -7,4 +7,4 @@
 3. 配置hexo
 4. 预览你的博客
 
-[!](https://travis-ci.org/tobyqin/blog.svg?branch=master)
+![https://travis-ci.org/tobyqin/blog.svg?branch=master]()
