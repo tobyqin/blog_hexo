@@ -7,4 +7,4 @@
 3. 配置hexo
 4. 预览你的博客
 
-![https://travis-ci.org/tobyqin/blog.svg?branch=master]()
+[![Build Status](https://travis-ci.org/tobyqin/blog.svg?branch=master)](https://travis-ci.org/tobyqin/blog)
