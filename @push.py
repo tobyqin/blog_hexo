@@ -1,6 +1,6 @@
 import os
 
-os.system('python publish_blog.py')
+os.system('python @prepare.py')
 os.system('git add -A')
 os.system('git commit -m "update blog."')
 os.system('git pull origin master')

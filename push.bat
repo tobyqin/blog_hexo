@@ -1,1 +1,0 @@
-python push.py

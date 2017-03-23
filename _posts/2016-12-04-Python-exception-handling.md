@@ -2,7 +2,7 @@
 title: 总结：Python中的异常处理
 categories: Tech
 tags: [python,exception handling]
-date: 2016-12-4
+date: 2016-12-04
 ---
 
 异常处理在任何一门编程语言里都是值得关注的一个话题，良好的异常处理可以让你的程序更加健壮，清晰的错误信息更能帮助你快速修复问题。在Python中，和不部分高级语言一样，使用了try/except/finally语句块来处理异常，如果你有其他编程语言的经验，实践起来并不难。

@@ -4,6 +4,7 @@ import re
 from datetime import datetime
 from os.path import join, dirname, abspath, exists
 from shutil import copy2, rmtree
+from codecs import open
 
 current_path = dirname(__file__)
 src_post_path = abspath(join(current_path, '_posts'))
@@ -47,7 +48,7 @@ def fix_image_path(source_file):
                 line = line.replace('(images\\', '(/images/')
             content += line
 
-    with open(new_file, 'w', encoding='utf-8') as f:
+    with open(new_file, mode='w', encoding='utf-8') as f:
         f.writelines(content)
 
 
@@ -58,32 +59,32 @@ def add_timestamp_prefix(file_name):
     folder = names[0]
     name = names[-1]
     time_prefix = None
+    content = str()
 
     # read time stamp from blog date: section
     with open(file_name, encoding='utf-8') as f:
         for line in f:
             if line.startswith('date:'):
                 time_prefix = line.split()[1]
-                break
+                real_time = datetime.strptime(time_prefix, '%Y-%m-%d').strftime('%Y-%m-%d')
+                line = line.replace(time_prefix, real_time)
+                time_prefix = real_time
+            content += line
 
     # raise error if no date: section found
     if time_prefix is None:
         raise Exception('Cannot find time stamp for {}'.format(file_name))
-    else:
-        real_time = datetime.strptime(time_prefix, '%Y-%m-%d').strftime('%Y-%m-%d')
 
-    # for line in fileinput.input(file_name, inplace=True):
-    #     if line.startswith('date: {}'.format(time_prefix)):
-    #         line = line.replace(time_prefix, real_time)
-    #     sys.stdout.write(line)
+    with open(file_name, encoding='utf-8', mode='w') as f:
+        f.write(content)
 
     # update timestamp for name with date
     pattern = r'(^20\d\d-\d+-\d+).*'
     match = re.match(pattern, name)
     if match:
-        new_name = real_time + name[len(match.group(1)):]
+        new_name = time_prefix + name[len(match.group(1)):]
     else:
-        new_name = real_time + name
+        new_name = time_prefix + name
 
     # rename old file name to new file name with timestamp
     new_name = new_name.replace(' ', '-')
