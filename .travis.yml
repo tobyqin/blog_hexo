@@ -9,7 +9,6 @@ branches:
 
 before_install:
 - export TZ='Asia/Shanghai'
-- ls -a .travis/
 - openssl aes-256-cbc -K $encrypted_7dd4dae099e2_key -iv $encrypted_7dd4dae099e2_iv
   -in .travis.enc -out ~/.ssh/id_rsa -d
 - ls -a
