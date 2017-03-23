@@ -108,3 +108,5 @@ if __name__ == '__main__':
 
     for f in glob.glob(join(src_post_path, "*.md")):
         fix_image_path(f)
+
+    print('OK.')
