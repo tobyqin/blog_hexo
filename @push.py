@@ -2,7 +2,7 @@ import os
 
 os.system('python @prepare.py')
 os.system('git add -A')
-os.system('git commit -m "update blog."')
+os.system('git commit -m "update website."')
 os.system('git pull origin master')
 os.system('git push origin master')
 
