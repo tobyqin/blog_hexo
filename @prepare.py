@@ -84,7 +84,7 @@ def add_timestamp_prefix(file_name):
     if match:
         new_name = time_prefix + name[len(match.group(1)):]
     else:
-        new_name = time_prefix + name
+        new_name = time_prefix + '-' + name
 
     # rename old file name to new file name with timestamp
     new_name = new_name.replace(' ', '-')
