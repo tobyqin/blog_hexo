@@ -2,7 +2,7 @@
 title: 如何开发一个 PyCharm 插件
 categories: [Tech]
 tags: [pycharm, plugin]
-date: 2016-04-01
+date: 2017-04-01
 
 ---
 
