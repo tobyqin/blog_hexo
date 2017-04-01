@@ -6,7 +6,7 @@ date: 2017-04-01
 
 ---
 
-PyCharm 是很多Python开发者优先选择的IDE，功能强大，跨平台，提供免费社区版，非常良心。如果你想自己给PyCharm添加一些功能怎么办呢？有两个办法：
+PyCharm 是很多Python 开发者优先选择的 IDE，功能强大，跨平台，提供免费社区版，非常良心。如果你想自己给PyCharm添加一些功能怎么办呢？有两个办法：
 
 1. 到 JetBrains 的 [github](https://github.com/JetBrains/intellij-community/) 去提需求或者自己发Pull Request请他们merge。
 2. 查找现有的[插件仓库](https://plugins.jetbrains.com/)，或者，自己写一个。
@@ -15,7 +15,7 @@ PyCharm 是很多Python开发者优先选择的IDE，功能强大，跨平台，
 
 ## 前期准备
 
-先普及一下知识，开发PyCharm 插件和开发IntellJ IDEA 插件需要的环境是一样的，因为 PyCharm 本身就是 IDEA 的一个子集，说白了就是IDEA 上套了一个 Python 语言支持的插件。其他系列的 IDEA IDE 其实也是一样的道理，都是套了一个语言支持的框架外加一点外观修改，就成了新的产品，比如 WebStrom，PhpStorm，RubyMine。到这里你应该有个印象，JetBrains 这个公司太牛了，就一个 IDEA 能整出那么多产品来，你服不服？
+先普及一下知识，开发 PyCharm 插件和开发 IntellJ IDEA 插件需要的环境是一样的，因为 PyCharm 本身就是 IDEA 的一个子集，说白了就是 IDEA 上套了一个 Python 语言支持的插件。其他系列的 IDEA IDE 其实也是一样的道理，都是套了一个语言支持的框架外加一点外观修改，就成了新的产品，比如 WebStrom，PhpStorm，RubyMine。到这里你应该有个印象，JetBrains 这个公司太牛了，就一个 IDEA 能整出那么多产品来，你服不服？
 
 开发插件你需要：
 
@@ -33,17 +33,17 @@ PyCharm 是很多Python开发者优先选择的IDE，功能强大，跨平台，
 
 ## 新建插件工程
 
-从文件菜单选择 New Project， 选择 IntelliJ Platform Plugin，如果你没有配置SDK，点击New 菜单。
+从文件菜单选择 **New Project**， 选择 **IntelliJ Platform Plugin**，如果你没有配置**SDK**，点击**New** 菜单。
 
 ![idea-plugin-sdk-1](images/idea-plugin-sdk-1.png)
 
-选择你本地PyCharm 社区版的安装路径作为SDK目录，Java SDK 选择 1.8 以上的版本。
+选择你本地 PyCharm 社区版的安装路径作为SDK目录，Java SDK 选择 1.8 以上的版本。
 
-请注意，你可以使用PyCharm 旗舰版的安装路径作为SDK目录，不过如果你要调试插件碰到核心代码时，社区版你可以跟到里面，旗舰版并不是开源的，你没办法拿到代码。
+请注意，你可以使用PyCharm 旗舰版的安装路径作为SDK目录，不过如果你要调试插件碰到核心代码时，社区版你可以跟到最里面，旗舰版并不是开源的，你没办法拿到调试代码。
 
 ![idea-plugin-sdk-2](images/idea-plugin-sdk-2.png)
 
-回到 New Project 的界面，点击 Next，输入 Project name 和 Project location，完成。
+回到 **New Project** 的界面，点击 **Next**，输入 **Project name** 和 **Project location**，完成。
 
 ![idea-new-project](images/idea-new-project.png)
 
@@ -55,12 +55,12 @@ PyCharm 是很多Python开发者优先选择的IDE，功能强大，跨平台，
 
 ![idea-project-structure](images/idea-project-structure.png)
 
-- .idea 目录 - JetBrains IDE 生成的工程都会有这么一个目录，存放用户配置和缓存，ignore掉。
-- doc 目录 - 插件的文档，可选。
-- out 目录 - 编译后的代码字节，ignore掉。
-- resources 目录 - 资源存放的位置，插件的主要配置在此。
-- src 目录 - 代码存放的位置。
-- *.iml 文件 - 项目的配置文件。
+- **.idea** 目录 - JetBrains IDE 生成的工程都会有这么一个目录，存放用户配置和缓存，ignore掉。
+- **doc** 目录 - 插件的文档，可选。
+- **out** 目录 - 编译后的代码字节，ignore掉。
+- **resources** 目录 - 资源存放的位置，插件的主要配置在此。
+- **src** 目录 - 代码存放的位置。
+- ***.iml** 文件 - 项目的配置文件。
 
 ## 修改插件信息
 
@@ -123,7 +123,7 @@ PyCharm 是很多Python开发者优先选择的IDE，功能强大，跨平台，
 
 ## 实现具体的业务代码
 
-这里我略过最核心的部分，根据你自己的需求用Java实现一些类和方法，就可以了。
+这里我略过最核心的部分，根据你自己的需求用Java实现一些类和方法就可以了。
 
 ## 运行和调试你的插件
 
@@ -154,7 +154,7 @@ PyCharm 是很多Python开发者优先选择的IDE，功能强大，跨平台，
 
 - https://plugins.jetbrains.com/
 
-登录之后选择 UPLOAD PLUGIN 菜单，上传之后大概需要2个工作日审核。
+登录之后选择 **UPLOAD PLUGIN** 菜单，上传之后大概需要2个工作日审核。
 
 ![idea-deploy-remote](images/idea-deploy-remote.png)
 
@@ -164,4 +164,4 @@ PyCharm 是很多Python开发者优先选择的IDE，功能强大，跨平台，
 
 关于如何实现具体的插件业务代码，一个偷懒的办法就是去看现有功能大概是怎么实现的，你可以拿到PyCharm Community Edition 的所有代码，还有啥看不到的，看懂只是时间问题。
 
-就 PyCharm 本身来说，我觉得作为IDE 提供的功能已经很丰富了，为啥还要写插件呢？对啊，哪里来的需求，会不会是一个伪需求呢。写插件前请你也想一想这个问题。
+就 PyCharm 本身来说，我觉得作为IDE 提供的功能已经很丰富了，为啥还要写插件呢？对啊，哪里来的需求，会不会是一个伪需求呢。写插件前请你想一想这个问题。
