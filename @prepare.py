@@ -44,8 +44,8 @@ def fix_image_path(source_file):
     with open(source_file, encoding='utf-8') as f:
         for line in f:
             if '(images/' in line or '(images\\' in line:
-                line = line.replace('(images/', '(/images/')
-                line = line.replace('(images\\', '(/images/')
+                line = line.replace('(images/', '(https://tobyqin.github.io/images/')
+                line = line.replace('(images\\', '(https://tobyqin.github.io/images/')
             content += line
 
     with open(new_file, mode='w', encoding='utf-8') as f:
