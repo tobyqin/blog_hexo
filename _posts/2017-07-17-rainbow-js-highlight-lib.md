@@ -24,9 +24,9 @@ RainbowJS 项目地址： https://github.com/ccampbell/rainbow
 
 像这样的自定义需求highlightjs就不是那么灵活，估计你需要把这整个库的代码拉下来，读懂它的开发和编译流程，才能勉强实现这样的需求。
 
-## 尝试 RainbowJS
+## 初试 RainbowJS
 
-RainbowJS 虽然简单而且支持的编程语言也不多，但是恰恰能满足自定义的需求。入门只需要三步即可：
+RainbowJS 虽然简单而且支持的编程语言也不多（压缩后大小只有不到3kb），但是恰恰能满足自定义高亮的需求。入门只需要三步即可：
 
 ### 导入主题配色文件
 
@@ -48,15 +48,33 @@ RainbowJS 虽然简单而且支持的编程语言也不多，但是恰恰能满�
     return content</code></pre>
 ```
 
-### 最页面最后导入 Rainbow JS
+### 开始高亮你的代码
 
-你只需要导入你需要的高亮语言，比如后文我们自定义的语言。
+如果整个过程是同步的，那么你只需要在页面最后导入RainbowJS和你你需要的高亮语言库，就可以自动高亮代码块。
 
 ```html
 <script src="/js/rainbow.js"></script>
 <script src="/js/language/generic.js"></script>
 <script src="/js/language/python.js"></script>
 ```
+
+如果你的代码块是异步生成的，你可以选择提前引入相关语言的js文件，然后调用`Rainbow.color()`方法来给代码着色。
+
+```Js
+// load rainbow js and language support
+...
+// call your function to generate dyanmc code blocks
+...
+// finally, highligh your code blocks
+Rainbow.color();
+// optionally, you can pass in a callback function in color()
+// for example:
+Rainbow.color(function() {
+    console.log('The new blocks are now highlighted!');
+});
+```
+
+
 
 ## 高亮自定义语言
 
