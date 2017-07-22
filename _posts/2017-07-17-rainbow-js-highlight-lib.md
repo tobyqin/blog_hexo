@@ -11,7 +11,7 @@ RainbowJS 项目地址： https://github.com/ccampbell/rainbow
 
 代码高亮的js库也不少，最知名的莫过于 [highlightjs](https://highlightjs.org/)，支持你听过的没听过的各种编程语言，兼容你用过没用过的各种浏览器，有着多姿多彩的配色方案。然而，唯有一点我还是选择放弃了它，因为它不能很方便的自定义高亮语言。
 
-现在我的需求是是这样的，有一个测试结果的页面，里面会显示一个测试案例的数据，以及控制台输出 stdout， 我需要高亮控制台输出的一些信息，比较 INFO 级别是默认色，WARN 级别是橙色，ERROR 级别是红色。
+现在我的需求是是这样的，有一个测试结果的页面，里面会显示一个测试案例的数据，以及控制台输出 stdout， 我需要高亮控制台输出的一些信息，比较 INFO 级别是默认色，WARN 级别是橙色，ERROR 级别是红色。我需要自定义日志输出高亮。
 
 ```
 ...
@@ -22,7 +22,7 @@ RainbowJS 项目地址： https://github.com/ccampbell/rainbow
 ...
 ```
 
-像这样的自定义需求highlightjs就不是那么灵活，估计你需要把这整个库的代码拉下来，读懂它的开发和编译流程，才能勉强实现这样的需求。
+像这样的自定义需求highlightjs就不是那么灵活，估计你需要把这整个库的代码拉下来，读懂它的开发和编译流程，才能勉强可以开始。
 
 ## 初试 RainbowJS
 
@@ -74,13 +74,175 @@ Rainbow.color(function() {
 });
 ```
 
-
-
 ## 高亮自定义语言
 
-从前面的例子可以看到rainbow的上手还是很简单的，如果要自定义高亮规则应该怎么办？非常简单，只要调用extend方法即可。
+从前面的例子可以看到rainbow的上手还是很简单的，如果要自定义高亮规则应该怎么办？非常简单，只要调用`extend`方法即可。
+
+```javascript
+Rainbow.extend('python', [
+    {
+        name: 'constant.language',
+        pattern: /True|False|None/g
+    }
+], 'generic');
+```
+
+用`extend`方法可以给指定语言添加高亮规则，规则的名字就是css类的名字，只要匹配了规则中pattern指定的正则表达式，Rainbow就会给匹配的结果添加上对应的css类。
+
+接下来我们要给log添加高亮规则，为了避免去写新的css类，我们可以重用主题配色里已经存在的类，根据主题颜色我们暂定高亮规则如下：
 
 ```
-例子
+1. debug - 灰色 - css: comment
+2. info  - 白色 - css: support.tag
+3. warn  - 橙色 - css: string
+4. error - 红色 - css: keyword
+5. 时间日期格式 - 灰色 - css: comment
+```
+对应的extend实现如下：
+
+```js
+// log.js
+Rainbow.extend('log', [
+    // debug level
+    {
+        name: 'comment',
+        pattern: /([^ ]*debug).*/gi
+    },
+
+    // info level
+    {
+        name: 'support.tag',
+        pattern: /([^ ]*info).*/gi
+    },
+
+    // warn level
+    {
+        name: 'string',
+        pattern: /([^ ]*warn).*/gi
+    },
+
+    // error level
+    {
+        name: 'keyword',
+        pattern: /([^ ]*error[^(]).*|([^ ]*fatal).*|([^ ]*failure).*|([^ ]*failed).*|([^ ]*exception[^(]).*/gi
+    },
+
+    // time format
+    {
+        name: 'comment',
+        pattern: /\b([\d\-:,]+)\b/gi
+    },
+
+], 'python');
 ```
 
+我对正则表达式做了一些加强，当log行匹配正确后就会被添加上对应规则的css类，并且所有高亮时继承python语言的高亮，主要是因为我的log是从python程序中记录的，当中会有一些python代码，我希望这些代码也能正常被着色。
+
+最后就是在网页中生成对应的代码块，高亮语言为log：
+
+```html
+<pre><code data-language="log">
+...
+2017-07-14 11:53:55,668 INFO   : Go to my account page
+2017-07-14 11:53:58,071 DEBUG  : Now check: MyAccountPage
+2017-07-14 11:53:59,804 WARNING: Page loaded time > 2000 ms
+2017-07-14 11:54:01,535 ERROR  : Test failed!!!
+...
+</code></pre>
+```
+
+效果图如下：
+
+![自定义Log高亮](images/log-highlight.png)
+
+## 一些改进方法
+
+在页面中加载多个js文件的写法挺不方便也不好维护，而且也会影响页面加载的速度。比如上文的例子中如果是直接把`<script>`片段写到页面里会是这个样子。
+
+```html
+<body>
+...
+<pre /><code />
+...
+<script src="/js/rainbow.js"></script>
+<script src="/js/language/generic.js"></script>
+<script src="/js/language/python.js"></script>
+<script src="/js/language/log.js"></script>
+</body>
+
+```
+
+一个改进的建议是就是当页面加载完成后再加载RainbowJS，然后调用高亮函数，你可以这样写：
+
+```js
+// page html
+<script>
+$(highlightLog);
+</script>
+
+// app.js
+function highlightLog(){
+    $.getScript('/libs/rainbow/rainbow.min.js', function () {
+        $.getScript('/libs/rainbow/language/generic.js', function () {
+            $.getScript('/libs/rainbow/language/python.js', function () {
+                $.getScript('/libs/rainbow/language/log.js', function () {
+                    Rainbow.color();
+                    });
+                });
+            });
+        });
+    };
+```
+
+虽然有点丑，但是功能没问题。如果你使用的是比较流行的[requirejs](http://www.requirejs.org/)，那么可以这样使用RainbowJS：
+
+```js
+// config.js
+requirejs.config({
+    baseUrl: '/libs',
+    shim: {
+        rainbow: {
+            exports: 'Rainbow'
+        },
+        rainbow_generic: {
+            deps: ['rainbow']
+        },
+        rainbow_python: {
+            deps: ['rainbow_generic']
+        },
+        rainbow_log: {
+            deps: ['rainbow_python']
+        }
+    },
+    paths: {
+        rainbow: 'rainbow/rainbow',
+        rainbow_generic: 'rainbow/language/generic',
+        rainbow_python: 'rainbow/language/python',
+        rainbow_log: 'rainbow/language/log'
+    }
+});
+
+// app.js
+function highlightLog() {
+    require(['rainbow'], function (Rainbow) {
+        window.Rainbow = Rainbow; // must
+        require(['rainbow_log'], function () {
+            Rainbow.color();
+        });
+    });
+}
+
+// page embeded
+<script src="/require.js"></script>
+<script>
+    require(['/config.js'], function () {
+        require(['app'], function (app) {
+            app.highlightLog();
+        });
+    });
+</script>
+```
+
+再或者先通过js的压缩和打包工具将写好的代码进行优化，亦是目前比较流行和推荐的做法。本文旨在介绍和使用RainbowJS，不做过多拓展，希望对你有所启发和帮助。
+
+如果需要完整的演示代码，可以查看我得GitHub项目：https://github.com/tobyqin/testcube
