@@ -11,7 +11,7 @@ RainbowJS 项目地址： https://github.com/ccampbell/rainbow
 
 代码高亮的js库也不少，最知名的莫过于 [highlightjs](https://highlightjs.org/)，支持你听过的没听过的各种编程语言，兼容你用过没用过的各种浏览器，有着多姿多彩的配色方案。然而，唯有一点我还是选择放弃了它，因为它不能很方便的自定义高亮语言。
 
-现在我的需求是是这样的，有一个测试结果的页面，里面会显示一个测试案例的数据，以及控制台输出 stdout， 我需要高亮控制台输出的一些信息，比较 INFO 级别是默认色，WARN 级别是橙色，ERROR 级别是红色。我需要自定义日志输出高亮。
+现在我的需求是是这样的，有一个自动化测试结果的页面，里面会显示一个测试案例运行的数据，比如控制台输出 stdout， 我需要高亮控制台输出的一些信息，例如：INFO 级别是默认色，WARN 级别是橙色，ERROR 级别是红色。一句话，我需要自定义日志输出高亮。
 
 ```
 ...
@@ -22,21 +22,21 @@ RainbowJS 项目地址： https://github.com/ccampbell/rainbow
 ...
 ```
 
-像这样的自定义需求highlightjs就不是那么灵活，估计你需要把这整个库的代码拉下来，读懂它的开发和编译流程，才能勉强可以开始。
+像这样的自定义需求highlightjs就不够灵活，估计你需要把这整个库的代码拉下来，读懂它的开发和编译流程，才能勉强可以开始。
 
 ## 初试 RainbowJS
 
 RainbowJS 虽然简单而且支持的编程语言也不多（压缩后大小只有不到3kb），但是恰恰能满足自定义高亮的需求。入门只需要三步即可：
 
-### 导入配色文件 - css
+### 1. 导入配色文件 - css
 
-官方的github 仓库里提供了 20 多种配色，常见的都可以找得到。
+官方的github 仓库里提供了 20 多种配色，常见主题配色都可以找到。
 
 ```html
 <link href="/rainbow/css/theme.css" rel="stylesheet" type="text/css">
 ```
 
-### 使用 `<pre><code>` 包住你的代码
+### 2. 使用 `<pre><code>` 包住你的代码
 
 在 `code` 标签里你可以使用`data-language` 指定代码语言。
 
@@ -48,9 +48,9 @@ RainbowJS 虽然简单而且支持的编程语言也不多（压缩后大小只�
     return content</code></pre>
 ```
 
-### 开始高亮你的代码
+### 3. 开始高亮你的代码
 
-如果整个过程是同步的，那么你只需要在页面最后导入RainbowJS和你你需要的高亮语言库，就可以自动高亮代码块。
+如果整个过程是同步的，那么你只需要在页面最后导入RainbowJS和你需要的高亮语言库，就可以自动高亮代码块。
 
 ```html
 <script src="/js/rainbow.js"></script>
@@ -58,7 +58,7 @@ RainbowJS 虽然简单而且支持的编程语言也不多（压缩后大小只�
 <script src="/js/language/python.js"></script>
 ```
 
-如果你的代码块是异步生成的，你可以选择提前引入相关语言的js文件，然后调用`Rainbow.color()`方法来给代码块着色。
+如果你的代码块是异步生成的，你可以选择提前引入Rainbow及相关语言的js文件，然后调用`Rainbow.color()`方法来给代码块着色。
 
 ```Js
 // load rainbow js and language support
@@ -76,24 +76,24 @@ Rainbow.color(function() {
 
 ## 高亮自定义语言
 
-从前面的例子可以看到rainbow的上手还是很简单的，如果要自定义高亮规则应该怎么办？非常简单，只要调用`extend`方法即可。
+从前面的例子可以看到rainbow的上手还是很简单的，如果要自定义高亮规则应该怎么办？非常简单，只要调用`extend`方法即可。比如给`True`，`False`，`None`添加`constant`的css类：
 
 ```javascript
 Rainbow.extend('python', [
     {
-        name: 'constant.language',
+        name: 'constant',
         pattern: /True|False|None/g
     }
 ], 'generic');
 ```
 
-用`extend`方法可以给指定语言添加高亮规则，规则的名字就是css类的名字，只要匹配了规则中pattern指定的正则表达式，Rainbow就会给匹配的结果添加上对应的css类。
+用`extend`方法可以给指定语言添加高亮规则，规则的名字就是即将添加的css类的名字，只要匹配了规则中指定的正则表达式，RainbowJS就会给匹配的结果添加上对应的css类。
 
 接下来我们要给log添加高亮规则，为了避免去写新的css类，我们可以重用主题配色里已经存在的类，根据主题颜色我们暂定高亮规则如下：
 
 ```
 1. debug - 灰色 - css: comment
-2. info  - 白色 - css: support.tag
+2. info  - 白色 - css: support
 3. warn  - 橙色 - css: string
 4. error - 红色 - css: keyword
 5. 时间日期格式 - 灰色 - css: comment
@@ -136,9 +136,9 @@ Rainbow.extend('log', [
 ], 'python');
 ```
 
-我对正则表达式做了一些加强，当log行匹配正确后就会被添加上对应规则的css类，并且所有高亮时继承python语言的高亮，主要是因为我的log是从python程序中记录的，当中会有一些python代码，我希望这些代码也能正常被着色。
+当log行正确匹配后就会被添加上对应规则的css类，并且所有高亮规则继承自python语言，因为我的log是从python程序中记录的，当中可能会有一些python代码，我希望这些代码也能正常被着色。
 
-最后就是在网页中生成对应的代码块，高亮语言为log：
+最后就是在网页中生成对应的代码块，指定高亮语言为log：
 
 ```html
 <pre><code data-language="log">
