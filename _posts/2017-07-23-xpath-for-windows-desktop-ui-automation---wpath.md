@@ -1,6 +1,6 @@
 ---
 title: Windows UI自动化测试的XPATH实现 - WPATH
-categories: [tech]
+categories: [Tech]
 tags: [Windows UIAutomation,XPATH,WPATH]
 date: 2017-07-23
 ---

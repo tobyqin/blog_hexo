@@ -1,6 +1,6 @@
 ---
 title: 一款优秀的代码高亮库 - rainbow.js
-categories: [tech]
+categories: [Tech]
 tags: [javascript, code-highlight]
 date: 2017-07-17
 ---
