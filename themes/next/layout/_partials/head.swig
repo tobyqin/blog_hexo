@@ -3,6 +3,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
+{% if theme.pace %}
+  {% set pace_css_uri = url_for(theme.vendors._internal + '/pace/'+ theme.pace_theme +'.min.css?v=1.0.2') %}
+  {% set pace_js_uri = url_for(theme.vendors._internal + '/pace/pace.min.js?v=1.0.2') %}
+    {% if theme.vendors.pace %}
+      {% set pace_js_uri = theme.vendors.pace %}
+    {% endif %}
+    {% if theme.vendors.pace_css %}
+      {% set pace_css_uri = theme.vendors.pace_css %}
+    {% endif %}
+  <script src="{{ pace_js_uri }}"></script>
+  <link href="{{ pace_css_uri }}" rel="stylesheet">
+{% endif %}
+
+
+{% if theme.han %}
+  {% set Han_uri = url_for(theme.vendors._internal + '/Han/dist/han.min.css?v=3.3') %}
+  {% if theme.vendors.Han %}
+    {% set Han_uri = theme.vendors.Han %}
+  {% endif %}
+  <link rel="stylesheet" media="all" href="{{ Han_uri }}">
+{% endif %}
+
+
 {# #238, Disable Baidu tranformation #}
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -10,6 +33,11 @@
 
 {% if theme.google_site_verification %}
   <meta name="google-site-verification" content="{{ theme.google_site_verification }}" />
+{% endif %}
+
+
+{% if theme.yandex_site_verification %}
+  <meta name="yandex-verification" content="{{ theme.yandex_site_verification }}" />
 {% endif %}
 
 

@@ -8,9 +8,12 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    {% if theme.sidebar.onmobile %}
+      <div id="sidebar-dimmer"></div>
+    {% endif %}
     <div class="sidebar-inner">
 
-      {% set display_toc = is_post and theme.toc.enable %}
+      {% set display_toc = is_post and theme.toc.enable or is_page and theme.toc.enable %}
 
       {% if display_toc and toc(page.content).length > 1 %}
         <ul class="sidebar-nav motion-element">
@@ -29,31 +32,42 @@
                src="{{ url_for( theme.avatar | default(theme.images + '/avatar.gif') ) }}"
                alt="{{ theme.author }}" />
           <p class="site-author-name" itemprop="name">{{ theme.author }}</p>
-          <p class="site-description motion-element" itemprop="description">{{ theme.description }}</p>
+           {% if theme.seo %}
+              <p class="site-description motion-element" itemprop="description">{{ theme.signature }}</p>
+           {% else %}
+              <p class="site-description motion-element" itemprop="description">{{ theme.description }}</p>
+          {% endif %}
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="{{ url_for(theme.menu.archives) }}">
-              <span class="site-state-item-count">{{ site.posts.length }}</span>
-              <span class="site-state-item-name">{{ __('state.posts') }}</span>
-            </a>
-          </div>
+
+          {% if config.archive_dir != '/' %}
+            <div class="site-state-item site-state-posts">
+              <a href="{{ url_for(theme.menu.archives) }}">
+                <span class="site-state-item-count">{{ site.posts.length }}</span>
+                <span class="site-state-item-name">{{ __('state.posts') }}</span>
+              </a>
+            </div>
+          {% endif %}
 
           {% if site.categories.length > 0 %}
+            {% set categoriesPageQuery = site.pages.find({type: 'categories'}, {lean: true}) %}
+            {% set hasCategoriesPage = categoriesPageQuery.length > 0 %}
             <div class="site-state-item site-state-categories">
-              {% if theme.menu.categories %}<a href="{{ url_for(theme.menu.categories) }}">{% endif %}
+              {% if hasCategoriesPage %}<a href="{{ url_for(categoriesPageQuery[0].path) }}">{% endif %}
                 <span class="site-state-item-count">{{ site.categories.length }}</span>
                 <span class="site-state-item-name">{{ __('state.categories') }}</span>
-              {% if theme.menu.categories %}</a>{% endif %}
+              {% if hasCategoriesPage %}</a>{% endif %}
             </div>
           {% endif %}
 
           {% if site.tags.length > 0 %}
+            {% set tagsPageQuery = site.pages.find({type: 'tags'}, {lean: true}) %}
+            {% set hasTagsPage = tagsPageQuery.length > 0 %}
             <div class="site-state-item site-state-tags">
-              {% if theme.menu.tags %}<a href="{{ url_for(theme.menu.tags) }}">{% endif %}
+              {% if hasTagsPage %}<a href="{{ url_for(tagsPageQuery[0].path) }}">{% endif %}
                 <span class="site-state-item-count">{{ site.tags.length }}</span>
                 <span class="site-state-item-name">{{ __('state.tags') }}</span>
-              {% if theme.menu.tags %}</a>{% endif %}
+              {% if hasTagsPage %}</a>{% endif %}
             </div>
           {% endif %}
 
@@ -133,6 +147,15 @@
           </div>
         </section>
       <!--/noindex-->
+      {% endif %}
+
+      {% if theme.sidebar.b2t %}
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          {% if theme.sidebar.scrollpercent %}
+            <span id="scrollpercent"><span>0</span>%</span>
+          {% endif %}
+        </div>
       {% endif %}
 
     </div>
