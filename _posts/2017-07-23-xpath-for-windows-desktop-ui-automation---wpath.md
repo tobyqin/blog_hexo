@@ -19,15 +19,19 @@ Windows UI 自动化，顾名思义就是在Windows平台实现软件的界面�
 
 进阶的方案就是使用微软提供的自动化工具集：[UI Automation](https://docs.microsoft.com/en-us/dotnet/framework/ui-automation/ui-automation-overview)。UI Automation是Microsoft .NET 3.0框架下提供的一种用于自动化测试的技术，是在MSAA基础上建立的，MSAA就是Microsoft Active Accessibility。
 
-如果你使用过.NET 提供的UI Automation相关的类库，应该有一个直观的感受，非常不方便，举一个例子：
+如果你使用过.NET 提供的UI Automation相关的类库，应该有一个直观的感受，就是非常啰嗦，举一个例子：
 
 ```csharp
-AutomationElement ControlTypeComboBox = grdClassBook.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.ComboBox));
+AutomationElement ControlTypeComboBox = grdClassBook.FindFirst(
+  TreeScope.Children, 
+  new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.ComboBox));
 
-AutomationElement cellElement = ControlTypeComboBox.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.AutomationIdProperty, "ListBox"));
+AutomationElement cellElement = ControlTypeComboBox.FindFirst(
+  TreeScope.Children, 
+  new PropertyCondition(AutomationElement.AutomationIdProperty, "ListBox"));
 ```
 
-每当你尝试去获取一个UI元素时，都需要使用FindFirst之类的方法去查询指定的PropertyCondition，而PropertyCondition使用起来也不简单，如果你要使用AND或者OR组合多个条件时，你需要这样做。
+每当你尝试去获取一个UI元素时，都需要使用`FindFirst`之类的方法去查询指定的`PropertyCondition`，而`PropertyCondition`使用起来也不简单，特别是当你需要拼接多个AND或者OR多个条件时。
 
 ```csharp
 var btnCondition = new AndCondition(
@@ -35,11 +39,11 @@ var btnCondition = new AndCondition(
   new PropertyCondition(AutomationElement.NameProperty, "ok"));
 ```
 
-是不是非常啰嗦非常不爽？你看看搞Web自动化的同学都可以用XPATH，快速定位和查询元素，多好。既然我们那么羡慕XPATH，那我们就搞一个类似于XPATH出来，让做Windows桌面自动化的同学也可以High一把。
+才两个条件就这么多代码了？你看看搞Web自动化的同学都可以用XPATH，快速定位和查询元素 `/div[@id='ok']`，多好。既然我们那么羡慕XPATH，那我们就搞一个出来，让做Windows桌面自动化的同学也可以High一把。
 
 ## WPATH实现原理
 
-具体代码我就不在此赘述了，想读代码的同学可以直接移步到Github：https://github.com/tobyqin/wpath。WPATH的主要原理就是利用反射的方式去获取当前方法或者属性的Attribute，在Attribute中我们可以定义类似于XPATH的WPATH，经过表达式解析转换成对应的Find方法和PropertyCondition，举一个例子说明：
+具体代码我就不在此赘述了，想读代码的同学可以直接移步至Github：https://github.com/tobyqin/wpath。WPATH的主要原理就是通过反射的方式去获取当前方法或者属性的Attribute，在Attribute中我们可以定义类似于XPATH的语法，我 且称之为WPATH。最后经过表达式解析转换成对应的Find方法和Condition，举一个例子说明：
 
 ```Csharp
 [WPath("/Edit[@id='txtId' or @Class='TextBox']")]
@@ -49,7 +53,7 @@ public AutomationElement EditControl
 }
 ```
 
-当调用`FindByWPath()`时，该属性或者方法上的WPath Attribute就会被解析出来，其中的 `/`会被解析成FindFirst，`Edit`会被解析成ControlType.Edit，中括号里的条件就会被组合起来，最后调用的结果大致如下：
+当调用`FindByWPath()`时，该属性上的WPath Attribute就会被解析出来，其中的 `/`会被解析成FindFirst，`Edit`会被解析成ControlType.Edit，中括号里的条件最后被组合起来，调用的最终结果大致如下：
 
 ```csharp
 public AutomationElement EditControl
@@ -66,7 +70,7 @@ public AutomationElement EditControl
 }
 ```
 
- 痛苦的感觉一下减轻许多。
+ 痛苦的感觉一下减轻许多，有没有？
 
 ## 更详细的WPATH用法
 
@@ -78,10 +82,10 @@ PM> Install-Package WPath
 
 ### 简单说明
 
-1. WPath 和 XPath 类似，以 '/' 开头.
-2. 可以使用多个 '/' 来定位目标元素.
-3. 节点名字来自于MSDN定义好的 [control type](https://msdn.microsoft.com/en-us/library/ms743581(v=vs.110).aspx).
-4. WPath支持的查询属性如下:
+1. WPath 和 XPath 类似，以 '/' 开头。
+2. 可以使用多个 '/' 来定位目标元素。
+3. 节点名字来自于MSDN定义好的 [control type](https://msdn.microsoft.com/en-us/library/ms743581%28v=vs.110%29.aspx)。
+4. 目前WPath支持的查询属性如下:
 
 - `Name` (NameProperty)
 - `ID` (AutomationIdProperty)
@@ -89,19 +93,19 @@ PM> Install-Package WPath
 - `Enabled` (IsEnabledProperty)
 - `FrameworkID` (FrameworkIdProperty)
 
-### 举例说明:
+### 举例子
 
 > `/Group/Button`
 
-- 获取Group元素下的第一个Button。
+- 获取第一个Group下的第一个Button。
 
 > `//Button[@Name='Save']`
 
-- 在子孙节点中获取一个Name为 "Save" 的元素。
+- 在子孙节点中获取第一个Name为 "Save" 的元素。
 
 > `/[@Name='TabContainer']/Button[2]`
 
-- 获取Name为 'TabContainer'的控件下的第二个Button，注意，控件类型名称可以为空。
+- 获取Name为 "TabContainer"的控件下的第二个Button，注意，控件类型名称可以为空。
 
 > `/Button[@ID='AddButton' and @Name='Add']`
 
@@ -119,7 +123,7 @@ PM> Install-Package WPath
 
 - 获取当前元素下最后一个Button。
 
-### 在代码中的用法
+### 实际运用
 
 推荐使用Attribute的方式进行调用，可用于类方法或者属性。
 
@@ -151,14 +155,14 @@ Assert.AreEqual("OK", e.Current.Name);
 Assert.AreEqual(ControlType.Text, e.Current.ControlType);
 ```
 
-### 小贴士:
+### 小贴士
 
 - 元素类型节点是大小写不明感的，比如：
   - @name = @Name
   - /edit = /Edit
 - 父节点定位 `../` 目前不支持，因为有点复杂。
 
-更多的说明建议还是去看Github中的说明文档，或者直接看文档亦或是单元测试。
+更多的说明建议还是去看Github中的说明文档，或者直接看[单元测试](https://github.com/tobyqin/wpath/blob/master/WPath.Tests/UnitTests.cs)。
 
 ## 后记
 
