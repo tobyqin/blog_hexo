@@ -23,11 +23,11 @@ Windows UI 自动化，顾名思义就是在Windows平台实现软件的界面�
 
 ```csharp
 AutomationElement ControlTypeComboBox = grdClassBook.FindFirst(
-  TreeScope.Children, 
+  TreeScope.Children,
   new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.ComboBox));
 
 AutomationElement cellElement = ControlTypeComboBox.FindFirst(
-  TreeScope.Children, 
+  TreeScope.Children,
   new PropertyCondition(AutomationElement.AutomationIdProperty, "ListBox"));
 ```
 
@@ -43,7 +43,9 @@ var btnCondition = new AndCondition(
 
 ## WPATH实现原理
 
-具体代码我就不在此赘述了，想读代码的同学可以直接移步至Github：https://github.com/tobyqin/wpath。WPATH的主要原理就是通过反射的方式去获取当前方法或者属性的Attribute，在Attribute中我们可以定义类似于XPATH的语法，我 且称之为WPATH。最后经过表达式解析转换成对应的Find方法和Condition，举一个例子说明：
+具体代码我就不在此展开，想刨根的同学可以直接移步至Github：https://github.com/tobyqin/wpath。
+
+WPATH的主要原理就是通过反射的方式去获取当前方法或者属性的Attribute，在Attribute中我们可以定义类似于XPATH的语法，我 且称之为WPATH。最后经过表达式解析转换成对应的Find方法和Condition，举一个例子说明：
 
 ```Csharp
 [WPath("/Edit[@id='txtId' or @Class='TextBox']")]
@@ -58,14 +60,14 @@ public AutomationElement EditControl
 ```csharp
 public AutomationElement EditControl
 {
-   get 
-   { 
-     return this.AppElement.FindFirst(TreeScope.Children, 
+   get
+   {
+     return this.AppElement.FindFirst(TreeScope.Children,
        new AndCondition(
           new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Edit),
           new OrCondition(
             new PropertyCondition(AutomationElement.AutomationId, "txtId"),
-            new PropertyCondition(AutomationElement.Class, "TextBox")))); 
+            new PropertyCondition(AutomationElement.Class, "TextBox"))));
    }
 }
 ```
@@ -157,7 +159,7 @@ Assert.AreEqual(ControlType.Text, e.Current.ControlType);
 
 ### 小贴士
 
-- 元素类型节点是大小写不明感的，比如：
+- 元素类型节点是大小写不敏感的，比如：
   - @name = @Name
   - /edit = /Edit
 - 父节点定位 `../` 目前不支持，因为有点复杂。
