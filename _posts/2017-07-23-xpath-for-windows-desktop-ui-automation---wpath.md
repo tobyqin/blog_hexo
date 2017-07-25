@@ -86,7 +86,7 @@ PM> Install-Package WPath
 
 1. WPath 和 XPath 类似，以 '/' 开头。
 2. 可以使用多个 '/' 来定位目标元素。
-3. 节点名字来自于MSDN定义好的 [control type](https://msdn.microsoft.com/en-us/library/ms743581%28v=vs.110%29.aspx)。
+3. 节点名字来自于MSDN定义好的 [control type](https://docs.microsoft.com/en-us/dotnet/framework/ui-automation/ui-automation-control-types)。
 4. 目前WPath支持的查询属性如下:
 
 - `Name` (NameProperty)
