@@ -3,8 +3,9 @@ from datetime import date
 from os.path import join, dirname, abspath
 
 current_path = dirname(__file__)
-draft_path = abspath(join(current_path, '_drafts'))
-template_file = join(draft_path, 'draft-template.md')
+draft_dir = abspath(join(current_path, '_drafts'))
+template_dir = join(draft_dir, 'template')
+template_file = join(template_dir, 'draft-template.md')
 
 
 def read_template():
@@ -29,15 +30,16 @@ if __name__ == '__main__':
 
     category = ','.join(category.split())
     tags = ','.join(tags.split())
+    post_date = date.today().isoformat()
 
     content = read_template()
     content = content.replace('$title', title)
     content = content.replace('$category', category)
     content = content.replace('$tags', tags)
-    content = content.replace('$date', date.today().isoformat())
+    content = content.replace('$date', post_date)
 
-    draft_name = title.strip().replace(' ', '-') + '.md'
-    draft_name = join(draft_path, draft_name)
+    draft_name = '{}-{}.md'.format(post_date, title.strip().replace(' ', '-'))
+    draft_name = join(draft_dir, draft_name)
     with open(draft_name, encoding='utf8', mode='w') as f:
         f.write(content)
 

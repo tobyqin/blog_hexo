@@ -2,25 +2,35 @@ import glob
 import os
 import re
 from datetime import datetime
-from os.path import join, dirname, abspath, exists
+from os.path import join, dirname, abspath, exists, isfile
 from shutil import copy2, rmtree
 from codecs import open
+import sys
 
-current_path = dirname(__file__)
-src_post_path = abspath(join(current_path, '_posts'))
-src_image_path = abspath(join(src_post_path, 'images'))
-dst_post_path = abspath(join(current_path, 'source', '_posts'))
-dst_image_path = abspath(join(current_path, 'source', 'images'))
+current_dir = dirname(__file__)
+draft_post_dir = abspath(join(current_dir, '_drafts'))
+draft_image_dir = abspath(join(draft_post_dir, 'images'))
+src_post_dir = abspath(join(current_dir, '_posts'))
+src_image_dir = abspath(join(src_post_dir, 'images'))
+dst_post_dir = abspath(join(current_dir, 'source', '_posts'))
+dst_image_dir = abspath(join(current_dir, 'source', 'images'))
+image_server = 'https://tobyqin.github.io/images/'
 
 
-def copy_images_dir():
-    """Copy images from /_posts/images to /source/images"""
-    if not exists(dst_image_path):
-        os.mkdir(dst_image_path)
+def copy_dir(from_dir, to_dir):
+    """only copy top level files."""
+    if not exists(from_dir):
+        return
 
-    for img in os.listdir(src_image_path):
-        src = join(src_image_path, img)
-        dst = join(dst_image_path, img)
+    if not exists(to_dir):
+        os.mkdir(to_dir)
+
+    for file in os.listdir(from_dir):
+        src = join(from_dir, file)
+        dst = join(to_dir, file)
+
+        if not isfile(src):
+            return
 
         if exists(dst):
             os.remove(dst)
@@ -28,31 +38,41 @@ def copy_images_dir():
         copy2(src, dst)
 
 
-def fix_image_path(source_file):
+def publish_drafts():
+    copy_dir(draft_post_dir, src_post_dir)
+    copy_dir(draft_image_dir, src_image_dir)
+
+
+def publish_images():
+    """Copy images from /_posts/images to /source/images"""
+    copy_dir(src_image_dir, dst_image_dir)
+
+
+def publish_post(source_file):
     """
     1. Copy posts from /_posts to /source/_posts folder
-    2. Fix image url to use file in /source/images/*
+    2. Fix image url to use files in /source/images/*
     """
 
     new_file = source_file.replace('_posts', 'source/_posts')
     new_file = abspath(new_file)
 
-    if not exists(dst_post_path):
-        os.makedirs(dst_post_path)
+    if not exists(dst_post_dir):
+        os.makedirs(dst_post_dir)
 
     content = str()
     with open(source_file, encoding='utf-8') as f:
         for line in f:
             if '(images/' in line or '(images\\' in line:
-                line = line.replace('(images/', '(https://tobyqin.github.io/images/')
-                line = line.replace('(images\\', '(https://tobyqin.github.io/images/')
+                line = line.replace('(images/', '(' + image_server)
+                line = line.replace('(images\\', '(' + image_server)
             content += line
 
     with open(new_file, mode='w', encoding='utf-8') as f:
         f.writelines(content)
 
 
-def add_timestamp_prefix(file_name):
+def fix_post_file_name(file_name):
     """Update file name with timestamp prefix."""
 
     names = os.path.split(file_name)
@@ -100,13 +120,14 @@ def add_timestamp_prefix(file_name):
 
 
 if __name__ == '__main__':
-    copy_images_dir()
-    rmtree(dst_post_path, ignore_errors=True)
+    if len(sys.argv) > 1 and sys.argv[1] == 'draft':
+        publish_drafts()
 
-    for f in glob.glob(join(src_post_path, "*.md")):
-        add_timestamp_prefix(f)
+    publish_images()
+    rmtree(dst_post_dir, ignore_errors=True)
 
-    for f in glob.glob(join(src_post_path, "*.md")):
-        fix_image_path(f)
+    for f in glob.glob(join(src_post_dir, "*.md")):
+        fix_post_file_name(f)
+        publish_post(f)
 
     print('OK.')
