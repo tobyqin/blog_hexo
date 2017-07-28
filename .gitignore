@@ -8,3 +8,4 @@ public/
 .deploy*/
 source/images/
 source/_posts/
+.vscode/
