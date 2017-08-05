@@ -21,5 +21,79 @@ Xmind生成的思维导图以 .xmind 为扩展名，其实这本质上是一个z
 >
 > 你可以使用任何一种文本编辑器打开zip文件，文件的头两个字母为 PK。
 
+xmind解压以后，里面主要由一些xml文件构成，解析content.xml 和 comment.xml 就可以获得思维导图的结构和主要文字内容。
+
+## xmind2testlink
+
+这是一个我使用Python实现对xmind进行解析的PyPI包，有了它你可以很方便地将xmind转化成其他系统使用的格式，比如TestLink。
+
+### 安装和使用
+
+使用pip可以快速安装xmind2testlink。
+
+```
+pip install xmind2testlink -U
+```
+
+安装后默认就提供了命令行转换功能，可以将xmind转成可以导入testlink的xml文件。
+
+```
+xmind2testlink /path/to/testcase.xmind
+Generated: testcase.xml
+```
+
+如果你想自己编程使用中间对象，可以导入xmind_parser或者testlink_parser中的方法。
+
+```python
+from xmind2testlink.xmind_parser import *
+from xmind2testlink.testlink_parser import *
+
+# do your stuff
+```
+### 使用须知
+
+并不是所有的xmind都可以顺利被xmind2testlink识别，因为我是按照一定规律去分析xmind结构的，所以如果你要使用这个小工具，那么你需要遵循一些简单的游戏规则。
+
+![xmind 设计TestCase 示例](images/test_case_by_xmind.png)
+
+如图，你的xmind应该和上图结构一致：
+
+1. 默认的中心主题不会被转换，默认从第一层子主题开始转换。
+2. 第一层子主题会被识别为 TestSuite。
+3. TestSuite 的子主题 会被识别为 TestCase。
+4. TestCase 的下级分支为 TestStep 和 Expected Result。
+5. 你可以给 TestSuite，TestCase加上 Note，这会被识别为Summary 字段。
+6. 你可以给TestCase 加上 Comment，这会被识别为 Preconception 字段。
+7. 你可以使用数字Marker来为TestCase定义优先级。
+8. 你可以使用感叹号`!`来注释掉不想导入的任意分支。
 
 
+如果觉得太复杂了，可以从这里下载示例的xmind文件，看一眼就懂了。
+
+- https://github.com/tobyqin/xmind2testlink/blob/master/doc/test_case_by_xmind.xmind
+
+### 进阶用法
+
+可能不是每个人都了解Python或者安装了Python，那么这是你可以将xmind2testlink部署成一个网站，步骤也非常简单。
+
+```
+# clone this git repo ahead
+cd /path/to/xmind2testlink/web
+pip install -r requirements.txt -U
+python application.py
+
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+* Restarting with stat
+```
+
+这时你启动浏览器就可以看到一个web版的转换界面。
+
+![xmind2testlink web](images/xmind2testlink_web.png)
+
+这是一个有Flask写的简单程序，你可以将其部署到专门的服务器，详情请查阅官方文档。
+
+## 小结
+
+其实在实现一个小工具的过程中，从构思想法到实现，有很多内容和未知需要去探索。xmind2testlink 涉及到的知识点也不少，比如 PyPI 打包发布，python读取zip文件，解析xml，Flask，网站前后期，服务器部署，持续集成，单元测试等等，我个人收获不小，同时也提高了自己的工作效率。
+
+如果你工作或生活也有各种想法，不如动手去做，失败了没啥大不了的，万一成功了呢。
