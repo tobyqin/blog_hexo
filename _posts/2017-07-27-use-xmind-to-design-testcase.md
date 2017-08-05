@@ -52,7 +52,7 @@ from xmind2testlink.testlink_parser import *
 ```
 ### 使用须知
 
-并不是所有的xmind都可以顺利被xmind2testlink识别，因为我是按照一定规律去分析xmind结构的，所以如果你要使用这个小工具，那么你需要遵循一些简单的游戏规则。
+并不是所有的xmind都可以顺利被xmind2testlink识别，因为我是按照一定规律去分析xmind结构的，所以如果你要使用这个小工具，那么请你遵循一些简单的游戏规则。
 
 ![xmind 设计TestCase 示例](images/test_case_by_xmind.png)
 
@@ -90,10 +90,10 @@ python application.py
 
 ![xmind2testlink web](images/xmind2testlink_web.png)
 
-这是一个有Flask写的简单程序，你可以将其部署到专门的服务器，详情请查阅官方文档。
+这是一个由Flask写的简单程序，你可以将其部署到专门的服务器，详情请查阅官方文档。
 
 ## 小结
 
-其实在实现一个小工具的过程中，从构思想法到实现，有很多内容和未知需要去探索。xmind2testlink 涉及到的知识点也不少，比如 PyPI 打包发布，python读取zip文件，解析xml，Flask，网站前后期，服务器部署，持续集成，单元测试等等，我个人收获不小，同时也提高了自己的工作效率。
+其实在实现一个小工具的过程中，从构思想法到实现，有很多内容和未知需要去探索。xmind2testlink 涉及到的知识点也不少，比如 PyPI 打包发布，python读取zip文件，解析xml，Flask，网站前后期，服务器部署，持续集成，单元测试等等，我个人收获不小。
 
 如果你工作或生活也有各种想法，不如动手去做，失败了没啥大不了的，万一成功了呢。
