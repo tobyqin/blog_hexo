@@ -3,7 +3,7 @@ title: 我的作品
 date: 2017-01-01
 ---
 
-<center> 中文 | English</center>
+<center> [中文](/works/) | [English](/works/en/)</center>
 
 ## TestCube
 

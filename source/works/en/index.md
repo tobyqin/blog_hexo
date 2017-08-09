@@ -3,7 +3,7 @@ title: My Works
 date: 2017-01-01
 ---
 
-<center> 中文 | English</center>
+<center> [中文](/works/) | [English](/works/en/)</center>
 
 ## Recent busy on...
 
