@@ -298,7 +298,7 @@ han: false
 disqus:
   enable: true
   shortname: https-betacat-online
-  count: true
+  count: false
 
 # Hypercomments
 #hypercomments_id:
@@ -391,7 +391,7 @@ vkontakte_api:
 # To get your ID visit https://widgetpack.com
 rating:
   enable: false
-  id:     #<app_id>
+  id:     6590
   color:  fc6423
 
 
@@ -399,8 +399,8 @@ rating:
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
   enable: false
-  app_id: #<app_id>
-  app_key: #<app_key>
+  app_id: Nf2J9KsNSaVISyq95uNGT5GD-gzGzoHsz
+  app_key: OtjbCxghLfNjp3ET5jlO29cz
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
