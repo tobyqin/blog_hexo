@@ -37,7 +37,7 @@ date: 2017-01-01
 >
 > Home: https://github.com/tobyqin/wpath
 >
-> Description: WPath is a library to select Windows UI automatin element like XPath.
+> Description: WPath is a library to select Windows UI automation element like XPath.
 >
 > 
 >
