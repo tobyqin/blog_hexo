@@ -5,7 +5,7 @@ date: 2017-01-01
 
 <center> [中文](/works/) | [English](/works/en/)</center>
 
-## 我最近正在捣鼓
+## 最近正在捣鼓
 
 > ### TestCube
 >
@@ -23,7 +23,7 @@ date: 2017-01-01
 
 
 
-## 已经完成上线的
+## 已经完成上线
 
 > ### xmind2testlink
 >
