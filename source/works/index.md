@@ -11,7 +11,7 @@ date: 2017-01-01
 >
 > 主页：https://github.com/tobyqin/testcube
 >
-> 介绍：TestCube is a platform to manage and monitor automation test run and results, it provides a friendly web interface which is build with Python and Django.
+> 介绍：TestCube 是一个用于管理和检测自动化测试运行的系统，它提供了一个友好的 Web UI让你快速分析测试结果，基于 Python 和 Django 构建。
 >
 > 
 >
@@ -19,7 +19,7 @@ date: 2017-01-01
 >
 > 主页：https://github.com/tobyqin/testcube-client
 >
-> 介绍：A Python client for TestCube.
+> 介绍：TestCube 的一个Python客户端，可以通过pip安装。
 
 
 
@@ -29,7 +29,7 @@ date: 2017-01-01
 >
 > 主页：https://github.com/tobyqin/xmind2testlink
 >
-> 介绍：With this tool, you will be able to convert [xmind](https://www.xmind.net/) tests to [testlink](http://www.testlink.org/) tests xml files. 
+> 介绍：你可以通过这个小工具方便地将 [xmind](https://www.xmind.net/) 设计的测试案例转换成 [testlink](http://www.testlink.org/) 系统可识别的 xml 文件，然后进行导入。 
 >
 > 
 >
@@ -37,7 +37,7 @@ date: 2017-01-01
 >
 > 主页：https://github.com/tobyqin/wpath
 >
-> 介绍：WPath is a library to select Windows UI automatin element like XPath.
+> 介绍：WPath 一个 C# 实现的 Windows UI Automation 帮助库，它可以让你使用类似于 XPath 的语法去选择Windows UI 元素。
 >
 > 
 >
@@ -45,7 +45,7 @@ date: 2017-01-01
 >
 > 主页：https://github.com/tobyqin/KeepScreenAlive
 >
-> 介绍：A small tool to keep screen alive on Windows, it will be helpful for UI automation or some specific situations.
+> 介绍：这是一个可以让你在锁屏后依然保持屏幕处于活动状态的小工具，对Windows UI 自动化测试很有帮助。
 >
 > 
 >
@@ -53,4 +53,4 @@ date: 2017-01-01
 >
 > 主页：https://github.com/tobyqin/ccnet.tfsrevisionlabeller
 >
-> 介绍：TFS revision labeller for CruiseControl.NET.
+> 介绍：CruiseControl.NET的一个 TFS 相关插件。
