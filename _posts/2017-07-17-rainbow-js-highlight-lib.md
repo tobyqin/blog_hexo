@@ -5,8 +5,6 @@ tags: [javascript, code-highlight]
 date: 2017-07-17
 ---
 
-RainbowJS 项目地址： https://github.com/ccampbell/rainbow
-
 ## 缘起
 
 代码高亮的js库也不少，最知名的莫过于 [highlightjs](https://highlightjs.org/)，支持你听过的没听过的各种编程语言，兼容你用过没用过的各种浏览器，有着多姿多彩的配色方案。然而，唯有一点我还是选择放弃了它，因为它不能很方便的自定义高亮语言。
@@ -22,9 +20,11 @@ RainbowJS 项目地址： https://github.com/ccampbell/rainbow
 ...
 ```
 
-像这样的自定义需求highlightjs就不够灵活，估计你需要把这整个库的代码拉下来，读懂它的开发和编译流程，才能勉强可以开始。
+像这样的需求使用 highlightjs 来实现就显得不够灵活，甚至有点无从下手。
 
 ## 初试 RainbowJS
+
+> RainbowJS 项目地址： https://github.com/ccampbell/rainbow
 
 RainbowJS 虽然简单而且支持的编程语言也不多（压缩后大小只有不到3kb），但是恰恰能满足自定义高亮的需求。入门只需要三步即可：
 
@@ -60,7 +60,7 @@ RainbowJS 虽然简单而且支持的编程语言也不多（压缩后大小只�
 
 如果你的代码块是异步生成的，你可以选择提前引入Rainbow及相关语言的js文件，然后调用`Rainbow.color()`方法来给代码块着色。
 
-```js
+```Js
 // load rainbow js and language support
 ...
 // call your function to generate dyanmc code blocks
