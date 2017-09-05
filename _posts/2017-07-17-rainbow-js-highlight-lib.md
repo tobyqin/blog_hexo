@@ -60,7 +60,7 @@ RainbowJS 虽然简单而且支持的编程语言也不多（压缩后大小只�
 
 如果你的代码块是异步生成的，你可以选择提前引入Rainbow及相关语言的js文件，然后调用`Rainbow.color()`方法来给代码块着色。
 
-```Js
+```js
 // load rainbow js and language support
 ...
 // call your function to generate dyanmc code blocks
