@@ -4,3 +4,4 @@ categories: [Life]
 tags: [thinking,career]
 date: 2017-08-16
 ---
+测试文字输入。
