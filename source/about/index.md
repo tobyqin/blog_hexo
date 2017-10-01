@@ -2,7 +2,7 @@
 title: 关于 / About
 date: 2016-09-24 13:43:25
 ---
-Hi, my name is Toby. I am a software engineer in testing, usually called QA engineer. I have worked in this area for more than 6 years, if you have good opportunities want to tell me, contact me via GitHub.
+Hi, my name is Toby. I am a software engineer in testing, usually called as QA engineer. I have worked in this field for more than 6 years, if you have good opportunities want to share, welcome to contact me via GitHub.
 
 At spare time, I like to do a lot of things, reading, photography and coding. Have fun and hope you enjoy this website.
 
