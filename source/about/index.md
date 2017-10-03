@@ -1,5 +1,5 @@
 ---
-title: 关于 / About
+title: About me / 关于我
 date: 2016-09-24 13:43:25
 ---
 Hi, my name is Toby. I am a software engineer in testing, usually called as QA engineer. I have worked in this field for more than 6 years, if you have good opportunities want to share, welcome to contact me via GitHub.
