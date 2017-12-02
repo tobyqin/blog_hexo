@@ -23,7 +23,7 @@ Cookiecutter英文的意思大概是饼干模型这么一类东西，可以让�
 pip install -U cookiecutter
 ```
 
-## 从模板新建项目
+## 上手
 
 首先你要确定新建的项目到底是何种类型，这是一个很严肃的问题。一般IDE会提供新建项目的功能，为什么我们还要cookiecutter？此新建非彼新建。IDE的新建项目一般指的是空项目，而cookiecutter新建的项目一般是已经有一定完成度的框架。
 
