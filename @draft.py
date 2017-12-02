@@ -1,3 +1,6 @@
+"""
+Use this script to create a hexo draft post.
+"""
 from codecs import open
 from datetime import date
 from os.path import join, dirname, abspath

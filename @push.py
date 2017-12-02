@@ -1,3 +1,6 @@
+"""
+Use this script to push changes to remote git server.
+"""
 import os
 
 os.system('python @prepare.py')

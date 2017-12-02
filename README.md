@@ -7,6 +7,23 @@
 3. 配置hexo
 4. 预览你的博客
 
+## 自定义命令 【需要Python】
+
+```shell
+# 新建博客草稿
+python @draft.py
+
+# 发布草稿
+python @prepare.py draft
+
+# 本地预览
+python @preview.py
+
+# 推送保持
+python @push.py
+
+```
+
 [![Build Status](https://travis-ci.org/tobyqin/blog.svg?branch=master)](https://travis-ci.org/tobyqin/blog)
 
 欢迎访问我的博客：https://betacat.online

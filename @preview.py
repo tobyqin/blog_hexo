@@ -1,3 +1,6 @@
+"""
+Use this script to preview blog locally.
+"""
 import os
 
 os.system('python @prepare.py')

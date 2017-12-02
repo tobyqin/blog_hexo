@@ -1,3 +1,13 @@
+"""
+Use this script to prepare post.
+
+> python @prepare.py draft
+Will publish all _drafts to _post folder, then publish to source folder.
+
+> python @prepare.py
+Publish _posts to source folder.
+
+"""
 import glob
 import os
 import re
