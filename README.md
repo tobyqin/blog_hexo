@@ -19,7 +19,7 @@ python @prepare.py draft
 # 本地预览
 python @preview.py
 
-# 推送保持
+# 推送保存
 python @push.py
 
 ```
