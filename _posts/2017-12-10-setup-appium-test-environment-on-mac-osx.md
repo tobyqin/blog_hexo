@@ -59,19 +59,19 @@ Appium 可以通过多种方式安装。
 
 首先通过brew安装nodejs：
 
-```
+```Shell
 brew install node
 ```
 
 配置国内源，在个人目录下新建一个.npmrc文件，写入：
 
-```
+```Shell
 registry=https://registry.npm.taobao.org/
 ```
 
 开始安装Appium：
 
-```
+```Shell
 npm install -g appium
 npm install -g appium-doctor
 ```
@@ -90,7 +90,7 @@ Appium-doctor 可以帮你诊断测试环境，建议安装。
 
 本文只讨论Python实现的Appium测试，所以你只需要允许以下命令：
 
-```
+```Shell
 pip install Appium-Python-Client
 ```
 
@@ -111,7 +111,7 @@ pip install Appium-Python-Client
 
 如果你已经安装了appium-doctor，那么你只要运行appium-doctor命令就可以知道你还需要设置哪些环境变量，比如：
 
-```
+```Shell
 tobyqin@CatBook ~> appium-doctor
 info AppiumDoctor Appium Doctor v.1.4.3
 info AppiumDoctor ### Diagnostic starting ###
@@ -139,7 +139,14 @@ info AppiumDoctor
 info AppiumDoctor Bye! Run appium-doctor again when all manual fixes have been applied!
 ```
 
-其实你不一定需要把通过所有检查项，如果只是为了完成Android的Appium测试，只要确保ANDROID_HOME 和 JAVA_HOME 正确配置，另外SDK Tools 和Platform Tools都加入PATH就基本完成了。
+其实你不一定需要把通过所有检查项，如果只是为了完成Android的Appium测试，只要确保ANDROID_HOME 和 JAVA_HOME 正确配置，另外SDK Tools 和Platform Tools都加入PATH就基本完成了。可以参考我个人目录下的.bash_profile设置：
+
+```Shell
+export ANDROID_HOME=~/Library/Android/sdk/
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
+
+export PATH=~/bin:$PATH:/usr/local/bin:$ANDROID_HOME/platform-tools/:$JAVA_HOME/bin
+```
 
 ## 开始编写自动化测试
 
