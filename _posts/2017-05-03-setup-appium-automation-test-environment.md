@@ -201,3 +201,7 @@ search_box.send_keys('hello toby')
 ![appium-hello](images/appium-hello.gif)
 
 恭喜你，你已经开始进入移动端的自动化测试的大门了！
+
+## 参考
+
+- [在Mac OSX 上配置Appium+Android自动化测试环境](/posts/2017-12-10/setup-appium-test-environment-on-mac-osx/)
