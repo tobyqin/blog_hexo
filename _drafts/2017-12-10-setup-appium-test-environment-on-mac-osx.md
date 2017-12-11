@@ -32,6 +32,8 @@ brew install android-sdk
 
 在国内使用brew可以事先配置好国内源，速度回快很多。
 
+如果有梯子建议选择Android Studio，安装方法很简单，官网下载一路Next，启动后会让你把SDK等等一系列依赖都装好，一步到位。
+
 ## 准备Android 模拟器或者使用真机
 
 如果SDK已经安装完毕，应该可以使用adb命令来检查可用的模拟器或者已经连接到电脑上的实体手机。
@@ -47,11 +49,13 @@ find /Users -name adb  # 搜索用户目录
 find / -name adb  # 搜索全盘
 ```
 
-找到之后可以把 adb 目录加入PATH，方便后续调用。
+找到之后可以把 adb 目录加入PATH，方便后续使用。
 
 ## 安装Appium
 
 Appium 可以通过多种方式安装。
 
 ### 方式一：使用 NodeJS 安装
+
+### 方式二：下载Appium桌面版安装
 
