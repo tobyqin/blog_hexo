@@ -9,3 +9,5 @@ public/
 source/images/
 source/_posts/
 .vscode/
+.yulib*/
+yulib.*
