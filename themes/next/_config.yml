@@ -27,8 +27,8 @@ override: false
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
-  small: /favicon-128x128.png
-  medium: /favicon-128x128.png
+  small: /favicon-100x100.png
+  medium: /favicon-100x100.png
   apple_touch_icon: /favicon-128x128.png
   #safari_pinned_tab: /images/logo.svg
   #android_manifest: /images/manifest.json
@@ -48,7 +48,7 @@ footer:
   since: 2015
 
   # Icon between year and copyright info.
-  icon: user
+  icon: heart
 
   # If not defined, will be used `author` from Hexo main config.
   copyright:
@@ -58,9 +58,9 @@ footer:
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
-    enable: true
+    enable: false
     # Version info of NexT after scheme info (vX.X.X).
-    version: true
+    version: false
   # -------------------------------------------------------------
   # Any custom text can be defined here.
   #custom_text: Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>
@@ -233,7 +233,7 @@ post_wordcount:
   item_text: true
   wordcount: false
   min2read: false
-  totalcount: true
+  totalcount: flase
   separated_meta: true
 
 # Wechat Subscriber
