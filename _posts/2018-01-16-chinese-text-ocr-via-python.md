@@ -1,5 +1,5 @@
 ---
-title: 用Python识别图片里的文字 - Tesseract 和 百度云OCR的对比
+title: 识别图片中的文字 - Tesseract 和 百度云OCR的对比
 categories: [Tech]
 tags: [python,ocr,tesseract,baidu-ocr]
 date: 2018-01-16
