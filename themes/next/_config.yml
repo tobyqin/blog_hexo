@@ -543,11 +543,11 @@ busuanzi_count:
   enable: true
   # custom uv span for the whole site
   site_uv: true
-  site_uv_header: <i class="fa fa-user"></i> 本站访客数 
+  site_uv_header: <i class="fa fa-user"></i> Unique visitors
   site_uv_footer:
   # custom pv span for the whole site
   site_pv: true
-  site_pv_header: <i class="fa fa-globe"></i> 总访问量 
+  site_pv_header: <i class="fa fa-globe"></i> Page views
   site_pv_footer:
   # custom pv span for one page only
   page_pv: true
