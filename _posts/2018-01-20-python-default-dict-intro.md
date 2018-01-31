@@ -207,7 +207,7 @@ AttributeError: type object 'dict' has no attribute '__missing__'
 {'foo': 'default'}
 ```
 
-### 在旧版本的Python中实现类defaultdict的功能
+### 在旧版本的Python中实现defaultdict
 
 defaultdict类是从2.5版本之后才添加的，在一些旧版本中并不支持它，因此为旧版本实现一个兼容的defaultdict类是必要的。这其实很简单，虽然性能可能未必如2.5版本中自带的defautldict类好，但在功能上是一样的。
 
