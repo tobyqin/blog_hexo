@@ -354,7 +354,7 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: 7fc537dfd82db5d382767b00660d77a4
 
 # Duoshuo ShortName
 #duoshuo_shortname: tobyqin
