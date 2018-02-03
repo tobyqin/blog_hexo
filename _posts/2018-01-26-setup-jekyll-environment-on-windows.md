@@ -1,41 +1,41 @@
 ---
 title: 在Windows上搭建Jekyll运行环境
 categories: [Tech]
-tags: [Ruby,Jekyll,Windows]
+tags: [Ruby,Jekyll,Windows,Hexo]
 date: 2018-01-26
 ---
 
 ## Jekyll 和 Hexo
 
-静态博客目前最流行的也就是Hexo和Jekyll，我一直都是Hexo的粉丝和用户，相对于Jekyll我想大多数人选择Hexo的原因跟我差不多：
+静态博客目前最流行的也就是 Hexo 和 Jekyll，我一直都是 Hexo 的粉丝和用户，相对于 Jekyll 我想大多数人选择 Hexo 的原因跟我差不多：
 
-1. 安装本地环境简单，只需要nodejs和一行命令即可
+1. 安装本地环境简单，只需要 nodejs 和一行命令即可
 2. 官网文档非常优秀，极易上手
 3. 众多优秀的主题可选，配置功能完善
 4. 目录结构清晰易懂，内容和配置分离
 
-简单来说，Hexo可以让你快速开始写文字，但是Jekyll却不见得，Jekyll的罪状我大致列一下：
+简单来说，Hexo 可以让你快速开始写文字，但是 Jekyll 却不见得，Jekyll 的罪状我大致列一下：
 
-1. 本地环境在Windows上坑超多，很多人在这一步就放弃了，官方文档很挫
+1. 本地环境在 Windows 上坑超多，很多人在这一步就放弃了，官方文档很挫
 2. 没有专门的主题目录，导致使用新主题需要覆盖安装
 3. 脚本和内容混合存放，不易管理和使用
 4. 托管后部署如果有错无法获取报错信息，如果没有本地环境根本没法调查
 
-另外，据说Jekyll站点的生成效率也比Hexo慢很多，不过我相信这对大多数人都没影响，我们的文章数量也不多。
+另外，据说 Jekyll 站点的生成效率也比 Hexo 慢很多，不过我相信这对大多数人都没影响，我们的文章数量也不多。
 
-但是，Jekyll比Hexo有一个让你欲罢不能的优点，那就是天然被GitHub Pages支持，当然国内的Coding Pages，OSC Pages等等产商也直接支持Jekyll，俨然这就是一个静态页面的标准。
+但是，Jekyll 比 Hexo 有一个让你欲罢不能的优点，那就是天然被 GitHub Pages 支持，当然国内的 Coding Pages，OSC Pages 等等产商也直接支持 Jekyll，俨然这就是一个静态页面的标准。
 
-使用Jekyll，你可以不用考虑编译生成的问题，写完直接commit，几分钟后就能看到效果。然而使用Hexo，你要么在本地生成页面后上传，要么找一个持续集成的服务（比如 [Travis CI](https://travis-ci.org/)）帮你编译后上传，不是很简单。
+使用 Jekyll，你可以不用考虑编译生成的问题，写完直接 commit，几分钟后就能看到效果。然而使用Hexo，你要么在本地生成页面后上传，要么找一个持续集成的服务（比如 [Travis CI](https://travis-ci.org/)）帮你编译后上传，不是很简单。
 
-因为Jekyll那个欲罢不能的原因，今天就说说如果在Windows上用最快的速度准备一个Jekyll环境。
+因为 Jekyll 那个欲罢不能的原因，今天就说说如果在 Windows 上用最快的速度准备一个Jekyll环境。
 
 参考资料： https://jekyllrb.com/docs/windows/
 
 ## 通过Bash准备Jekyll环境
 
-如果你是Windows 10，可以考虑使用Bash来运行Linux脚本和软件，详见 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about)。
+如果你是 Windows 10，可以考虑使用 Bash 来运行Linux脚本和软件，详见 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about)。
 
-启动Bash后，运行以下命令即可完成Jekyll的准备工作：
+启动 Bash 后，运行以下命令即可完成 Jekyll 的准备工作：
 
 ```bash
 sudo apt-get update -y && sudo apt-get upgrade -y
@@ -48,11 +48,11 @@ sudo gem install jekyll bundler
 
 可能遇到的坑：
 
-1. 在Windows 10 启用 Bash并不容易，不是所有系统版本都支持
+1. 在 Windows 10 启用 Bash 并不容易，不是所有系统版本都支持
 
-2. 就算版本支持，你的Windows如果是盗版或者不完整也有可能装不上
+2. 就算版本支持，你的 Windows 如果是盗版或者不完整也有可能装不上
 
-3. 就算你能装上，这个Bash需要Linux子系统是一个大家伙，会吃掉你系统盘很多空间
+3. 就算你能装上，这个 Bash 需要 Linux 子系统是一个大家伙，会吃掉你系统盘很多空间
 
 4. 就算你系统盘有足够的空间，从服务器下载数GB的文件网络不一定稳定，电脑还不能随便关机
 
@@ -83,7 +83,7 @@ ruby dk.rb install
 gem install jekyll bundler
 ```
 
-## 在本地运行Jekyll
+## 在本地运行 Jekyll
 
 更多命令建议参考官方文档 https://jekyllrb.com/docs/quickstart/
 
