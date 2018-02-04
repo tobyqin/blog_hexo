@@ -112,9 +112,9 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Muse
+# scheme: Muse
 scheme: Mist
-#scheme: Pisces
+# scheme: Pisces
 #scheme: Gemini
 
 
@@ -230,9 +230,9 @@ post_meta:
 # Post wordcount display settings
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
-  item_text: false
-  wordcount: false
-  min2read: false
+  item_text: true
+  wordcount: true
+  min2read: true
   totalcount: false
   separated_meta: false
 
