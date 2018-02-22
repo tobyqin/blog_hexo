@@ -7,9 +7,9 @@ comments: false
 
 > [微信公众号Markdown转换](https://betacat.online/md/)
 >
-> [在线文档集合](http://devdocs.io/offline)
+> [好用的开发者文档阅读方式](http://devdocs.io/offline)
 >
-> [各种在线工具合集](http://tool.oschina.net)
+> [各种在线工具合集-OSCHINA](http://tool.oschina.net)
 >
 > [生成漂亮的代码片段](https://carbon.now.sh)
 >
