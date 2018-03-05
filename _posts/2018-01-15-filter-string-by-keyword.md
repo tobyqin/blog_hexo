@@ -1,6 +1,6 @@
 ---
-title: 使用Python将字符串过滤并保留关键字
-categories: [Tech]
+title: 【问题】使用Python将字符串过滤并保留关键字
+categories: [Quiz]
 tags: [python,quiz]
 date: 2018-01-15
 ---

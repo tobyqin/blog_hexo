@@ -1,6 +1,6 @@
 ---
 title: 【问题】从一长串数字中找到重复多次的三个数字
-categories: [Tech]
+categories: [Quiz]
 tags: [quiz,python]
 date: 2018-01-03
 ---
