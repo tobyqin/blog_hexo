@@ -20,7 +20,7 @@ def md5sum(filename, blocksize=65536):
     return hash.hexdigest()
 ```
 
-这个方法可以快速获得一个文件的MD5值，`blocksize` 可以根据普遍文件大小和CPU性能调整，一般选择的值约等于一个文件的大小。
+这个方法可以快速获得一个文件的MD5值，`blocksize` 可以根据文件大小和CPU性能调整，一般选择的值约等于文件的平均大小。
 
 ## 保存所有文件标识和路径
 
