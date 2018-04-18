@@ -7,7 +7,7 @@ date: 2018-04-08
 
 单元测试是每种编程语言必学的课题，是保护开发者的强力护盾，每个程序员都在时间允许的情况下尽可能多的写单元测试，今天我们不讨论其必要性，只抛砖引玉聊一聊Python中单元测试的恩怨情仇。本文仅代表个人看法，仅供参考。
 
-## 标准库中难以忍受的unittest
+## 标准库中难以忍受的 unittest
 
 很多时候我们总是认为标准库里的带的总是精挑细选的，如果不经过仔细打磨怎么可能入选为一等公民？然后我要告诉你，Python标准库里的单元测试框架真不是最好的，随着你对Python的熟悉你甚至会讨厌这个unittest，为什么呢？
 
@@ -43,15 +43,13 @@ if __name__ == '__main__':
 
 很久很久以前，Python从Java借鉴了单元测试框架，包括命名规则和实现方式，一直沿用至今。不得不说这个框架没啥毛病，该有的功能的都有，想做的事都可以做，但是用起来总是没有爽的感觉。
 
-但是为啥伟大的社区力量为啥不把这个框架改的爽一点呢？没办法，为了兼容和世界和平，你要知道Python这个庞然大物能健康地活着，后面有无数的类库和方法在支撑，而这些类库和方法都被单元测试保护着，如果修改了单元测试框架导致case挂了，你就成了千古罪人。
+但是为啥伟大的社区力量为啥不把这个框架改的爽一点呢？没办法，我估计是为了世界和平，你要知道Python这个庞然大物能健康地活着，后面有无数的类库和方法在支撑，而这些类库和方法都被单元测试保护着，如果修改了单元测试框架导致兼容性问题，你就成了千古罪人。
 
-## 见识简洁的单元测试
+## 见识简洁的单元测试 pytest
 
 Python中很多大牛其实都有严重的强迫症，追求简洁和优雅的代码。必然的，他们会抛弃标准库中的unittest，使用或者发明自己心仪的单元测试框架。
 
-### pytest
-
-正如其名，这是一个无数人推荐并在使用的Python单元测试框架，pytest 使用起来非常简单，只要你的方法名是以 `test_` 开头就可以，你可以和需要测试的方法放在一起，亦或是新建一个文件来专门存放单元测试，都可以。
+正如其名，pytest是一个无数人推荐并在使用的Python单元测试框架，它使用起来非常简单，只要你的方法名以 `test` 开头就可以，你可以和需要测试的方法放在一起，亦或是新建一个文件来专门存放单元测试，都可以。
 
 
 ```python
@@ -61,8 +59,43 @@ def your_func():
 def test_your_func():
   assert result
 ```
-这样的设计，就让你写单元测试成了顺手拈来的事，假如你写完了一个方法，想看看是否work，在旁边直接写上一个`test_` 开头的方法，稍微准备一下数据就可以验证这个方法好不好用，岂不妙哉？
+这样的设计，就让你写单元测试成了顺手拈来的事，假如你写完了一个方法，想看看是否work，在旁边直接写上一个`test` 开头的方法，稍微准备一下数据就可以验证这个方法好不好用，岂不妙哉？
+
+> The idioms that pytest first introduced brought a change in the Python community because they made it possible for test suites to be written in a very compact style, or at least far more compact than was ever possible before. Pytest basically introduced the concept that Python tests should be plain Python functions instead of forcing developers to include their tests inside large test classes.
+
+pytest 的发明让大家意识到单元测试原来可以这么轻松和随意，完全没有必要去继承一个所谓的测试类或者按照复杂的规则才能开始书写测试代码，这也是我选择和推荐它的理由。
+
+当然，如果原来你的单元测试时unittest写的话，pytest其实也是[有可能兼容的](https://docs.pytest.org/en/latest/unittest.html)的。
+
+pytest 能够识别 `unittest.TestCase` 子类中的测试方法，如果文件名符合 `test_*.py` 或者 `*_test.py` 这样的规则。
+
+并且大多数 `unittest` 的功能都是被支持的，例如：
+
+-   `@unittest.skip` 装饰器;
+-   `setUp/tearDown`;
+-   `setUpClass/tearDownClass()`;
+
+我觉得，pytest有以下优点：
+
+- 上手和使用足够简单 
+- 当case失败时信息足够丰富和直观，比如最后导致失败的变量值会打印出来
+- 更丰富的运行参数
+- 可以使用 `assert` 而不是 `self.assert*` 
+- 被广大IDE支持，社区资源丰富，用户群体大
+
 
 ## 让单元测试和IDE无缝集成
+
+毕竟我们大多数人都不是神，不能用记事本写代码，IDE才是我们正确搬砖的方式。Python的首选IDE毋庸置疑就是 JetBrain 公司出品的 [PyCharm](https://www.jetbrains.com/pycharm/download/)。
+
+在PyCharm中只要你将默认的单元测试驱动改成pytest，就可以在任意`test`开头的方法上通过右键菜单运行或者调试这个测试案例，非常方便。
+
+![更改PyCharm设置](images/pytest-pycharm-settings.png)
+
+![右键菜单运行或者调试](images/pytest-context-run.png)
+
+如果你要运行当前文件的所有测试，只要从非`test`方法的其他区域点击右键即可。或者修改任意已经运行过的Configuration，添加你想要的参数，比如最多运行挂3个case就终止测试等等。
+
+![自定义Run Configuration](images/pytest-configuration.png)
 
 ## 闲话和总结
