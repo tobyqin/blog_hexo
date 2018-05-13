@@ -5,7 +5,7 @@ tags: [python,error,logging]
 date: 2018-05-11
 ---
 
-在我们写的各种系统和应用里，无论你的代码再完美也还是会抛异常，出错误。今天的主角是知名的异常记录框架 - Sentry，了解一下。
+在各种系统和应用里，无论你的代码再完美也还是会抛异常，出错误。今天的主角是当今比较流行的异常记录框架 - Sentry，来了解一下。
 
 ## 关于日志管理
 
@@ -44,7 +44,7 @@ Sentry免费版可以：
 
 ## 开始配置DSN
 
-你可以认为 DSN（Data Source Name）是Sentry 管理项目需要的PROJECT_ID，每个应用都需要对应一个 PROJECT_ID，以及用于身份认证的 PUBLIC_KEY 和 SECRET_KEY。由此组成一个这样的 DSN：
+你可以认为 DSN（Data Source Name）是Sentry 管理项目需要的`PROJECT_ID`，每个应用都需要对应一个 `PROJECT_ID`，以及用于身份认证的 `PUBLIC_KEY` 和 `SECRET_KEY`。由此组成一个这样的 DSN：
 
 ```
 {PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}/{PATH}{PROJECT_ID}
@@ -55,7 +55,7 @@ PROTOCOL 通常会是 `http` 或者 `https`，HOST 为 Sentry 服务的主机名
 在你登入Sentry后台之后，你可以新建一个项目，之后就可以得到类似于下面这样一个DSN。
 
 ```
-https://9b6120e1077542c99d6a781fe0550405@sentry.io/287370
+https://e055040d5@sentry.io/12345
 ```
 
 有了DSN以后，你就可以在客户端中将错误日志上传到Sentry了。
@@ -133,8 +133,8 @@ INSTALLED_APPS = (
 
 RAVEN_CONFIG = {
     'dsn': 'http://public_key:secret_key@example.com/1',
-    # If you are using git, you can also automatically configure the
-    # release based on the git info.
+    # If you are using git, you can also automatically 
+    # configure the release based on the git info.
     'release': raven.fetch_git_sha(os.path.abspath(os.pardir)),
 }
 ```
@@ -147,9 +147,9 @@ RAVEN_CONFIG = {
 
 ![sentry-email-alert](images/sentry-email-alert.png)
 
-当然你还可以将异常报警集成到更多系统中，比如HICHAT，SLACK，IRC，WEBHOOKS，在项目配置提供了相应的入口。
+当然你还可以将异常报警集成到更多系统中，比如HICHAT，SLACK，IRC，WEBHOOKS，在Sentry后台提供了相应的入口。
 
-在Sentry的项目管理页面你可以浏览到更详细的报告，比如按照异常信息的类别进行分类和过滤，也可以统计近期异常的状态和频率，非常方便。
+在Sentry的项目 Dashboard 你可以浏览到更详细的报告，比如按照异常信息的类别进行分类和过滤，也可以统计近期异常的状态和频率，非常方便。
 
 ![sentry-dashboard](images/sentry-dashboard.png)
 
