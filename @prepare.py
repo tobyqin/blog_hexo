@@ -39,13 +39,12 @@ def copy_dir(from_dir, to_dir):
         src = join(from_dir, file)
         dst = join(to_dir, file)
 
-        if not isfile(src):
-            return
+        if isfile(src):
 
-        if exists(dst):
-            os.remove(dst)
+            if exists(dst):
+                os.remove(dst)
 
-        copy2(src, dst)
+            copy2(src, dst)
 
 
 def publish_drafts():
