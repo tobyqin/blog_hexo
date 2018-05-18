@@ -18,11 +18,7 @@ Chrome 从 59.0 开始支持HEADLESS模式（2017年5月），Firefox从 55.0 �
 使用浏览器的HEADLESS模式进行自动化测试，你需要先满足以下前提：
 
 - Python + Selenium 运行环境
-
-
 - Chrome 59+ 或者 Firefox 55+
-
-
 - ChromeDriver 或者 GeckoDriver 最新版已加入PATH
 
 万事俱备，废话不多说我们直接上演示代码。
@@ -78,19 +74,14 @@ browser.save_screenshot('firefox-headless-test.png')
 
 浏览器HEADLESS模式可以让程序运行的环境更贴近用户访问的真实环境，相对于模拟UserAgent等方式得出的数据也会更加准确可靠。
 
-尤其在自动化测试领域，HEADLESS也有取代传统的带界面的自动化测试的趋势，有一些公司已经[将实践投入生产](https://about.gitlab.com/2017/12/19/moving-to-headless-chrome/)中。我们可以在调试自动化测试时使用用户界面，当部署到持续集成环境中是启用HEADLESS，并开启多线程使用并行的方式来运行测试案例，这样效率会大大提高，而且因为被干扰而导致测试失败的概率也会降低。
+尤其在自动化测试领域，HEADLESS也有取代传统的带界面的自动化测试的趋势，有一些公司已经[将实践投入生产](https://about.gitlab.com/2017/12/19/moving-to-headless-chrome/)中。我们可以在调试自动化测试时使用用户界面，当部署到持续集成环境中是启用HEADLESS，并开启多线程使用并行的方式来运行测试案例，这样效率会大大提高，而且因为界面被干扰而导致测试失败的概率也会降低。
 
 总的来说，至少在端对端的自动化测试中，HEADLESS模式没有明显的缺点，甚至可以成为网页自动化测试进化的下一个目标。
 
 ## 参考文档
 
 - <https://developer.mozilla.org/en-US/Firefox/Headless_mode>
-
-
 - <https://intoli.com/blog/running-selenium-with-headless-firefox/>
-
-
 - <https://developers.google.com/web/updates/2017/04/headless-chrome>
-
-
 - <https://about.gitlab.com/2017/12/19/moving-to-headless-chrome/>
+
