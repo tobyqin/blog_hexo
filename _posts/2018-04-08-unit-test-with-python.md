@@ -1,7 +1,7 @@
 ---
 title: 说说Python中的单元测试
 categories: [Tech]
-tags: [Python,unittest,pytest]
+tags: [python,unittest,pytest]
 date: 2018-04-08
 ---
 

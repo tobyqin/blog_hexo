@@ -1,7 +1,7 @@
 ---
 title: Python 查找重复文件升级版 - photodup
 categories: [Tech]
-tags: [Python,Flask]
+tags: [python,flask]
 date: 2018-04-01
 ---
 
