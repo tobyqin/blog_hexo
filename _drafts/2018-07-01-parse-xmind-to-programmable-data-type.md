@@ -65,11 +65,11 @@ out = xmind_to_dict(xmind_file)
 ]
 ```
 
-通过遍历sheet和topics就可以获取到xmind中每个节点的数据。
+通过遍历sheet和topics就可以获取到xmind中每个节点的信息。
 
 ## Xmind 转 JSON
 
-转成Json非常简单，如果你还是使用Python编程，可以这样写：
+转成JSON非常简单，如果你还是使用Python编程，可以这样写：
 
 ```python
 from xmindpraser import xmind_to_json
