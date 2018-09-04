@@ -12,8 +12,8 @@ date: 2017-12-10
 1. 安装好Mac OSX 操作系统的设备
 2. 能够访问中国局域网以外资源的方法（没有也行，但很痛苦）
 3. 已经安装好 [homebrew](https://brew.sh/)
-4. 已经安装好 Python3.x
-5. 已经安装好 Java Runtime Environment
+4. 已经安装好 Python3.x，可以通过brew安装
+5. 已经安装好 Java Runtime Environment，可以通过brew安装
 
 
 
@@ -22,17 +22,18 @@ date: 2017-12-10
 本文主要为了测试安卓应用，那么这里我们就需要安装Android Studio或者Android SDK。
 
 - Android Studio - 完整的开发以及测试工具，需要梯子
-- Android SDK - 足够完成自动化测试，通过homebrew安装
+- Android SDK + Platform Tools - 足够完成自动化测试，通过homebrew安装
 
-如果只是为了自动化测试我建议安装SDK足矣，使用brew命令安装。
+如果只是为了自动化测试建议安装SDK足矣，使用brew命令轻松搞定。
 
 ```
-brew install android-sdk
+brew cask install android-sdk
+brew cask install android-platform-tools
 ```
 
 在国内使用brew可以事先配置好国内源，速度会快很多。
 
-如果有梯子建议选择Android Studio，安装方法很简单，官网下载后一路Next，启动后会让你把SDK等等一系列依赖都装好，一步到位。
+如果有梯子可以选择Android Studio，安装方法很简单，官网下载后一路Next，启动后会让你把SDK等等一系列依赖都装好，一步到位。
 
 ## 准备Android 模拟器或者使用真机
 
@@ -49,7 +50,9 @@ find /Users -name adb  # 搜索用户目录
 find / -name adb  # 搜索全盘
 ```
 
-找到之后可以把 adb 目录加入PATH，方便后续使用。
+找到之后可以把 adb 目录加入PATH，方便后续使用。一般在 `~/Library/Android/sdk/platform-tools/adb`，如果通过brew安装，会自动建立软链接后加入PATH。
+
+模拟器可以使用官方模拟器（Android Studio自带），或者口碑较好的 [Genymotion](https://www.genymotion.com/)，具体请查阅其他文章，搭模拟器其实也挺不容易的。
 
 ## 安装Appium
 
