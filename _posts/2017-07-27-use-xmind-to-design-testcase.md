@@ -50,11 +50,15 @@ from xmind2testlink.testlink_parser import *
 
 # do your stuff
 ```
-### 使用须知
+### 使用须知 v1
 
 并不是所有的xmind都可以顺利被xmind2testlink识别，因为我是按照一定规律去分析xmind结构的，所以如果你要使用这个小工具，那么请你遵循一些简单的游戏规则。
 
-![xmind 设计TestCase 示例](images/test_case_by_xmind.png)
+![xmind2testlink_v1](https://github.com/tobyqin/xmind2testlink/raw/master/web/static/guide/xmind2testlink_v1.png)
+
+输出结果：
+
+![xmind2testlink_v1_out](https://github.com/tobyqin/xmind2testlink/raw/master/web/static/guide/xmind2testlink_v1_out.png)
 
 如图，你的xmind应该和上图结构一致：
 
@@ -68,9 +72,31 @@ from xmind2testlink.testlink_parser import *
 8. 你可以使用感叹号`!`来注释掉不想导入的任意分支。
 
 
-如果觉得太复杂了，可以从这里下载示例的xmind文件，看一眼就懂了。
+如果觉得太复杂了，可以下载示例的xmind文件（[Test case by xmind v1.xmind](https://github.com/tobyqin/xmind2testlink/blob/master/web/static/guide/test_case_by_xmind_v1.xmind)），看一眼就懂了。
 
-- https://github.com/tobyqin/xmind2testlink/blob/master/doc/test_case_by_xmind.xmind
+### 使用须知 v2
+
+在使用V1的规则一段时间后，发现不是特别xmind，xmind真正强大的地方在于发散思维整理，如果按照前面的规则使用xmind，会有很大的限制，于是我升级了xmind2testlink，称之为V2。看图：
+
+![xmind2testlink_v2](https://github.com/tobyqin/xmind2testlink/raw/master/web/static/guide/xmind2testlink_v2.png)
+
+输出结果：
+
+![xmind2testlink_v2_out](https://github.com/tobyqin/xmind2testlink/raw/master/web/static/guide/xmind2testlink_v2_out.png)
+
+基于V1，补充的规则如下：
+
+1. 根主题必须加上一个小星星，这是用来区分V1和V2的标识。
+2. 第一层子主题还是会被识别为 TestSuite。
+3. 之后的主题可以自由扩展，如果一个主题被标记了priority那么意味着case到此结束。
+4. 如果没有主题被标记priority，默认case取到最后一个主题。
+5. 默认使用空格连接case子主题，你可以指定其他连接符（根主题的最后一个字符）。
+6. TestCase 的下级分支为 TestStep 和 Expected Result。
+7. 所有case子主题的Summary和Preconception会被连接起来。
+8. 你可以给 TestSuite，TestCase加上 Note，这会被识别为Summary 字段。
+9. `!`开头的所有主题都会被自动忽略，可以用来隐藏或者注释某些不想导入的内容。
+
+照旧，这里有一个示例文件（[Test case by xmind v2.xmind](https://github.com/tobyqin/xmind2testlink/blob/master/web/static/guide/test_case_by_xmind_v2.xmind)），看一下就明白了。其实Github上的[英文文档](https://github.com/tobyqin/xmind2testlink)描述更清楚一下，有能力的你还是去看一下。
 
 ### 进阶用法
 
@@ -88,7 +114,7 @@ python application.py
 
 这时你启动浏览器就可以看到一个web版的转换界面。
 
-![xmind2testlink web](images/xmind2testlink_web.png)
+![xmind2testlink web](https://raw.githubusercontent.com/tobyqin/xmind2testlink/master/web/static/guide/web.png)
 
 这是一个由Flask写的简单程序，你可以将其部署到专门的服务器，详情请查阅官方文档。
 
