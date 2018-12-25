@@ -11,3 +11,4 @@ source/_posts/
 .vscode/
 .yulib*/
 yulib.*
+commit.json
