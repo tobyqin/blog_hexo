@@ -26,4 +26,4 @@ python @push.py
 
 [![Build Status](https://travis-ci.org/tobyqin/blog.svg?branch=master)](https://travis-ci.org/tobyqin/blog)
 
-欢迎访问我的博客：https://betacat.online
+欢迎访问我的博客：https://betacat.online (Backup: https://tobyqin.github.io)
