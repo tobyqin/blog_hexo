@@ -141,7 +141,7 @@ def say(something):
 
 ## 高级一点的装饰器
 
-带参数的装饰器和类装饰器属于进阶的内容。在理解这些装饰器之前，最好对函数的闭包和装饰器的接口约定有一定了解。(参见http://betacat.online/posts/python-closure/)
+带参数的装饰器和类装饰器属于进阶的内容。在理解这些装饰器之前，最好对函数的闭包和装饰器的接口约定有一定了解。(参见 https://betacat.online/posts/2016-10-23/python-closure/)
 
 ### 带参数的装饰器
 
