@@ -1,5 +1,5 @@
 ---
-title: 在Mac OSX 上配置Appium+Android自动化测试环境
+title: 在Mac OSX 上配置 Appium + Android 自动化测试环境
 categories: [Tech]
 tags: [python,appium,mac,automation]
 date: 2017-12-10
