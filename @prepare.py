@@ -1,11 +1,8 @@
 """
-Use this script to prepare post.
-
-> python @prepare.py draft
-Will publish all _drafts to _post folder, then publish to source folder.
+Use this script to convert posts from _drafts or _posts.
 
 > python @prepare.py
-Publish _posts to source folder.
+Will publish all `_drafts` to `_posts` folder, then publish to `source` folder.
 
 """
 import glob
@@ -15,7 +12,6 @@ from datetime import datetime
 from os.path import join, dirname, abspath, exists, isfile
 from shutil import copy2, rmtree
 from codecs import open
-import sys
 
 current_dir = dirname(__file__)
 draft_post_dir = abspath(join(current_dir, '_drafts'))
@@ -36,15 +32,18 @@ def copy_dir(from_dir, to_dir):
         os.mkdir(to_dir)
 
     for file in os.listdir(from_dir):
-        src = join(from_dir, file)
-        dst = join(to_dir, file)
+        if file.startswith('!'):
+            print('ignore: ' + file)
+        else:
+            src = join(from_dir, file)
+            dst = join(to_dir, file)
 
-        if isfile(src):
+            if isfile(src):
 
-            if exists(dst):
-                os.remove(dst)
+                if exists(dst):
+                    os.remove(dst)
 
-            copy2(src, dst)
+                copy2(src, dst)
 
 
 def publish_drafts():
@@ -129,9 +128,7 @@ def fix_post_file_name(file_name):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == 'draft':
-        publish_drafts()
-
+    publish_drafts()
     publish_images()
     rmtree(dst_post_dir, ignore_errors=True)
 

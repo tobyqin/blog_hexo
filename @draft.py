@@ -1,5 +1,7 @@
 """
 Use this script to create a hexo draft post.
+By default, the draft file name will starts with `!`.
+When draft ready, remove the leading `!` then it will be published next time.
 """
 from codecs import open
 from datetime import date
@@ -41,7 +43,7 @@ if __name__ == '__main__':
     content = content.replace('$tags', tags)
     content = content.replace('$date', post_date)
 
-    draft_name = '{}-{}.md'.format(post_date, title.strip().replace(' ', '-'))
+    draft_name = '!{}-{}.md'.format(post_date, title.strip().replace(' ', '-'))
     draft_name = join(draft_dir, draft_name)
     with open(draft_name, encoding='utf8', mode='w') as f:
         f.write(content)
