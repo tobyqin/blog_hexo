@@ -10,7 +10,7 @@ from os.path import join, dirname, abspath
 current_path = dirname(__file__)
 draft_dir = abspath(join(current_path, '_drafts'))
 template_dir = join(draft_dir, 'template')
-template_file = join(template_dir, 'draft-template.md')
+template_file = join(template_dir, '!draft-template.md')
 
 
 def read_template():

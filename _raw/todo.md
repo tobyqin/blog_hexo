@@ -2,7 +2,7 @@
 layout: post
 title: 当你在浏览器中输入“google.com”并回车，会发生什么？
 categories:
-  - Tech
+  - Reprint
 tags:
   - Interview
   - Networking

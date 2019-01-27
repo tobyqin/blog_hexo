@@ -8,10 +8,11 @@ Will publish all `_drafts` to `_posts` folder, then publish to `source` folder.
 import glob
 import os
 import re
+from codecs import open
 from datetime import datetime
 from os.path import join, dirname, abspath, exists, isfile
+from pathlib import Path
 from shutil import copy2, rmtree
-from codecs import open
 
 current_dir = dirname(__file__)
 draft_post_dir = abspath(join(current_dir, '_drafts'))
@@ -23,7 +24,30 @@ dst_image_dir = abspath(join(current_dir, 'source', 'images'))
 image_server = 'https://tobyqin.github.io/images/'
 
 
-def copy_dir(from_dir, to_dir):
+def copy_tree(src, dst):
+    """copy tree:
+    1. ignore files starts with . and !
+    2. if exists in target, delete it then do copy.
+    """
+    s = Path(src)
+    for i in s.glob('**/*'):
+        if i.is_file():
+            if not (i.name.startswith('.') or i.name.startswith('!')):
+                from_name = str(i)
+                target_name = from_name.replace(src, dst)
+                print('{} => {}'.format(i, target_name))
+
+                if exists(target_name):
+                    os.remove(target_name)
+
+                target_dir = dirname(target_name)
+                if not exists(target_dir):
+                    os.mkdir(target_dir)
+
+                copy2(from_name, target_name)
+
+
+def copy_top_dir(from_dir, to_dir):
     """only copy top level files."""
     if not exists(from_dir):
         return
@@ -47,13 +71,12 @@ def copy_dir(from_dir, to_dir):
 
 
 def publish_drafts():
-    copy_dir(draft_post_dir, src_post_dir)
-    copy_dir(draft_image_dir, src_image_dir)
+    copy_tree(draft_post_dir, src_post_dir)
 
 
 def publish_images():
     """Copy images from /_posts/images to /source/images"""
-    copy_dir(src_image_dir, dst_image_dir)
+    copy_tree(src_image_dir, dst_image_dir)
 
 
 def publish_post(source_file):

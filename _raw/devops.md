@@ -2,7 +2,7 @@
 layout: post
 title: 关于 DevOps ，咱们聊的可能不是一回事
 categories: 
-  - Tech
+  - Reprint
 tags:
   - DevOps
 ---
