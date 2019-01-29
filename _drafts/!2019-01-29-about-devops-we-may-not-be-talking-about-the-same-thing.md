@@ -1,10 +1,8 @@
 ---
-layout: post
 title: 关于 DevOps ，咱们聊的可能不是一回事
-categories: 
-  - Reprint
-tags:
-  - DevOps
+categories: [Reprint]
+tags: [DevOps,Interview,Networking]
+date: 2019-01-29
 ---
 > 原文： https://www.jianshu.com/p/645bb1283a77
 
@@ -395,3 +393,4 @@ Share 在英文里有两个意思，一个和别人分享，另一个是和别�
 2.  不存在” DevOps 团队“，只存在”以 DevOps 方式工作的团队“。
 
 以上是我过去三年的 DevOps 实践和咨询经历，希望能给正在做 DevOps 的你一些参考和提示，并祝愿你在 DevOps 的实践过程中更加顺利。
+

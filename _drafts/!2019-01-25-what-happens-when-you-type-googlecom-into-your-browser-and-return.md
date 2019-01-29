@@ -1,11 +1,8 @@
 ---
-layout: post
 title: 当你在浏览器中输入“google.com”并回车，会发生什么？
-categories:
-  - Reprint
-tags:
-  - Interview
-  - Networking
+categories: [Reprint]
+tags: [DevOps,Interview,Networking]
+date: 2019-01-25
 ---
 > 原文： https://www.cnbeta.com/articles/tech/808191.htm
 
@@ -88,3 +85,4 @@ tags:
 你知道吗？ 对于人员而言，这可能不是一个很好的面试问题，因为答案涉及到如此多的网络知识。这是我喜欢的问题的格式，一些开放的事物，包括一些猜测。这使得面试官有机会跟进诸如“你认为TLS是如何建立的？”之类的问题，以查看候选人如何思考，看看他们有多少创意，看看他们的极限何在（有多耐心？）。
 
 你最喜欢的面试问题是什么？
+

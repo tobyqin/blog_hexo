@@ -3,10 +3,45 @@ import json
 import random
 import urllib.parse
 import urllib.request
+from datetime import datetime
+from os.path import dirname, abspath, join
 
 app_id = '20181121000237296'
 sec_key = 'FpUUXfla5UuEcStx5tHk'
 host = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'
+
+current_path = dirname(__file__)
+raw_dir = abspath(join(current_path, '_raw'))
+draft_dir = abspath(join(current_path, '_drafts'))
+
+
+class Post(object):
+    title = ''
+    en_title = ''
+    filename = ''  # from en_title
+    date = datetime.now().strftime('%Y-%m-%d')
+    categories = []
+    tags = []
+    content = ''
+
+
+draft_template = """---
+title: $title---
+categories: [$category---]
+tags: [$tags---]
+date: $date---
+---
+$content---
+"""
+
+
+def create_post_content(post):
+    content = draft_template.replace('$title---', post.title)
+    content = content.replace('$category---', ','.join(post.categories).upper())
+    content = content.replace('$tags---', ','.join(post.tags).lower())
+    content = content.replace('$date---', post.date)
+    return content.replace('$content---', ''.join(post.content))
+
 
 def translate(txt, from_lang='auto', to_lang='en'):
     '''
@@ -27,3 +62,8 @@ def test_translate():
     print('文言文翻译')
     print('源自: {}'.format(src))
     print('结果: ' + translate('准备好开始学习英语了吗'))
+
+
+def get_img(url, filename):
+    import urllib.request
+    urllib.request.urlretrieve(url, filename)

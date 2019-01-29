@@ -3,25 +3,17 @@ Use this script to create a hexo draft post.
 By default, the draft file name will starts with `!`.
 When draft ready, remove the leading `!` then it will be published next time.
 """
+import re
 from codecs import open
-from datetime import date
-from os.path import join, dirname, abspath
+from os.path import join
 
-current_path = dirname(__file__)
-draft_dir = abspath(join(current_path, '_drafts'))
-template_dir = join(draft_dir, 'template')
-template_file = join(template_dir, '!draft-template.md')
-
-
-def read_template():
-    with open(template_file, encoding='utf8') as f:
-        return f.read()
-
+from utils import draft_dir, Post, create_post_content
 
 if __name__ == '__main__':
-    print('Creating new draft post...\n')
+    post = Post()
+    print('Creating new draft...\n')
     print('Title:')
-    title = input()
+    post.title = input()
 
     print('Category: Tech (default)')
     category = input()
@@ -33,18 +25,12 @@ if __name__ == '__main__':
         print('Tags: (required)')
         tags = input()
 
-    category = ','.join(category.split())
-    tags = ','.join(tags.split())
-    post_date = date.today().isoformat()
+    post.categories = category.split()
+    post.tags = tags.split()
 
-    content = read_template()
-    content = content.replace('$title', title)
-    content = content.replace('$category', category)
-    content = content.replace('$tags', tags)
-    content = content.replace('$date', post_date)
-
-    draft_name = '!{}-{}.md'.format(post_date, title.strip().replace(' ', '-'))
-    draft_name = join(draft_dir, draft_name)
+    content = create_post_content(post)
+    draft_name = '!{}-{}.md'.format(post.date, re.sub('\s', '-', post.title.strip()))
+    draft_name = join(draft_dir, draft_name.lower())
     with open(draft_name, encoding='utf8', mode='w') as f:
         f.write(content)
 
