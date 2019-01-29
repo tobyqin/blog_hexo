@@ -14,14 +14,64 @@ from os.path import join, dirname, abspath, exists, isfile
 from pathlib import Path
 from shutil import copy2, rmtree
 
-current_dir = dirname(__file__)
-draft_post_dir = abspath(join(current_dir, '_drafts'))
-draft_image_dir = abspath(join(draft_post_dir, 'images'))
+from utils import draft_dir, current_dir, get_img
+
+draft_image_dir = abspath(join(draft_dir, 'images'))
 src_post_dir = abspath(join(current_dir, '_posts'))
 src_image_dir = abspath(join(src_post_dir, 'images'))
 dst_post_dir = abspath(join(current_dir, 'source', '_posts'))
 dst_image_dir = abspath(join(current_dir, 'source', 'images'))
 image_server = 'https://tobyqin.github.io/images/'
+
+
+def replace_img(origin_url):
+    img_name = origin_url.split('/')[-1]
+    img_path = '{}/{}/{}'.format(draft_image_dir, datetime.now().strftime('%Y-%m'), img_name)
+    get_img(origin_url, img_path)
+    return img_path.replace(draft_dir + '/', '')
+
+
+def test_replace_img():
+    print(replace_img('https://static.cnbetacdn.com/article/2019/0114/116c69b7fb0b665.jpg'))
+
+
+def prepare_draft():
+    """
+    fix markdown format and download remote images to local for drafts.
+    """
+
+    def process_img(l):
+        m = re.search(r'(\[!\[([^\]]*)\]\((http[^\)]+)\)\]\((http[^\)]+)\))', l)
+        if m:
+            place_holder, img_text, new_img_url, _ = m.groups()
+            new_img_url = replace_img(new_img_url)
+            new_img_tag = '![{}]({})'.format(img_text, new_img_url)
+            return l.replace(place_holder, new_img_tag)
+        else:
+            m = re.search(r'(!\[([^\]]*)\]\((http[^\)]+)\))', l)
+            if m:
+                place_holder, img_text, new_img_url = m.groups()
+                new_img_url = replace_img(new_img_url)
+                new_img_tag = '![{}]({})'.format(img_text, new_img_url)
+                return l.replace(place_holder, new_img_tag)
+
+        return l
+
+    def process_item(l, i):
+        return l
+
+    for draft in Path(draft_dir).glob('*.md'):
+        content = []
+        with draft.open(encoding='utf8') as f:
+            for i, line in enumerate(f.readlines()):
+                line = process_img(line)
+                line = process_item(line, i)
+                content.append(line)
+        draft.write_text(''.join(content), encoding='utf8')
+
+
+def test_prepare_draft():
+    prepare_draft()
 
 
 def copy_tree(src, dst):
@@ -48,7 +98,9 @@ def copy_tree(src, dst):
 
 
 def copy_top_dir(from_dir, to_dir):
-    """only copy top level files."""
+    """
+    only copy top level files.
+    """
     if not exists(from_dir):
         return
 
@@ -71,7 +123,7 @@ def copy_top_dir(from_dir, to_dir):
 
 
 def publish_drafts():
-    copy_tree(draft_post_dir, src_post_dir)
+    copy_tree(draft_dir, src_post_dir)
 
 
 def publish_images():
@@ -151,6 +203,7 @@ def fix_post_file_name(file_name):
 
 
 if __name__ == '__main__':
+    prepare_draft()
     publish_drafts()
     publish_images()
     rmtree(dst_post_dir, ignore_errors=True)

@@ -1,18 +1,19 @@
 import hashlib
 import json
+import os
 import random
 import urllib.parse
 import urllib.request
 from datetime import datetime
-from os.path import dirname, abspath, join
+from os.path import dirname, abspath, join, exists
 
 app_id = '20181121000237296'
 sec_key = 'FpUUXfla5UuEcStx5tHk'
 host = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'
 
-current_path = dirname(__file__)
-raw_dir = abspath(join(current_path, '_raw'))
-draft_dir = abspath(join(current_path, '_drafts'))
+current_dir = dirname(__file__)
+raw_dir = abspath(join(current_dir, '_raw'))
+draft_dir = abspath(join(current_dir, '_drafts'))
 
 
 class Post(object):
@@ -66,4 +67,7 @@ def test_translate():
 
 def get_img(url, filename):
     import urllib.request
+    img_dir = dirname(filename)
+    if not exists(img_dir):
+        os.mkdir(img_dir)
     urllib.request.urlretrieve(url, filename)

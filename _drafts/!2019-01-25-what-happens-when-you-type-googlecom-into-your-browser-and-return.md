@@ -32,7 +32,7 @@ date: 2019-01-25
 
 何为显著地不同?让我们看看对应的DNS:
 
-[![](https://static.cnbetacdn.com/article/2019/0114/116c69b7fb0b665.jpg)](https://static.cnbetacdn.com/article/2019/0114/116c69b7fb0b665.jpg)
+![](images/2019-01/116c69b7fb0b665.jpg)
 
 我知道我以前见过google.com返回包中带有多个IP地址，但似乎不再是这种情况了。似乎他们之前常常使用轮巡策略，但现在不再使用了。 这个[StackOverflow](https://stackoverflow.com/questions/10257969/is-it-possible-that-one-domain-name-has-multiple-corresponding-ip-addresses)提问涉及了此情况。我已忘记了它被称为轮2。
 
@@ -50,7 +50,7 @@ date: 2019-01-25
 
 我记得在TLS中他们会在协议协商时交换证书。网络并不是我的强项。在我的浏览器中打开google.com，并禁用缓存：
 
-[![](https://static.cnbetacdn.com/article/2019/0114/d1eee285e02ff7b.jpg)](https://static.cnbetacdn.com/article/2019/0114/d1eee285e02ff7b.jpg)
+![](images/2019-01/d1eee285e02ff7b.jpg)
 
 我记得主机名规范化——这是一个301。
 
@@ -60,7 +60,7 @@ date: 2019-01-25
 
 ## 响应
 
-[![](https://static.cnbetacdn.com/article/2019/0114/db31097ca290ccc.jpg)](https://static.cnbetacdn.com/article/2019/0114/db31097ca290ccc.jpg)
+![](images/2019-01/db31097ca290ccc.jpg)
 
 以上是IE 11和Chrome响应数据的对比——所有都处于退出状态。
 
@@ -72,7 +72,7 @@ date: 2019-01-25
 
 ## 深入理解渲染!
 
-[![](https://static.cnbetacdn.com/article/2019/0114/6e53d8e5af24b27.jpg)](https://static.cnbetacdn.com/article/2019/0114/6e53d8e5af24b27.jpg)
+![](images/2019-01/6e53d8e5af24b27.jpg)
 
 上图是Chrome将为你提供的第一个屏幕截图。
 
