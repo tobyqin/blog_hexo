@@ -57,15 +57,57 @@ def prepare_draft():
 
         return l
 
-    def process_item(l, i):
-        return l
+    def is_item_line(l):
+        return re.match(r'^ *(\*|(\d\.)+) +', l)
+
+    def next_line_should_remove(current_line, current_i, total):
+        max_i = len(total) - 1
+        next_i = current_i + 1
+        next_next_i = next_i + 1
+
+        # for item line
+        if is_item_line(current_line):
+
+            if next_next_i <= max_i:  # more than 2 lines left
+                if total[next_i].strip() == '':  # if next line is empty
+                    # and next next line is empty or is item line
+                    if total[next_next_i].strip() == '' or is_item_line(total[next_next_i]):
+                        return True  # then remove next line
+                    else:
+                        return False
+
+            elif next_i <= max_i:  # only 2 lines left, remove last empty line
+                return not total[next_i].strip()
+
+            else:
+                return False
+
+        # for empty line, remove continue empty line
+        elif current_line.strip() == '':
+            return next_i <= max_i and total[next_i].strip() == ''
+
+        # not touch other lines
+        else:
+            return False
 
     for draft in Path(draft_dir).glob('*.md'):
         content = []
         with draft.open(encoding='utf8') as f:
-            for i, line in enumerate(f.readlines()):
+
+            should_remove = False
+            lines = f.readlines()
+            for i, line in enumerate(lines):
                 line = process_img(line)
-                line = process_item(line, i)
+
+                if line.strip() == '' and should_remove:
+                    should_remove = next_line_should_remove(line, i, lines)
+                    continue
+
+                if is_item_line(line):
+                    line = re.sub(r'( *)\* +', r'\1* ', line, 1)  # no order item
+                    line = re.sub(r'( *)(\d+)\. +', r'\1\2. ', line, 1)  # order item
+                    should_remove = next_line_should_remove(line, i, lines)
+
                 content.append(line)
         draft.write_text(''.join(content), encoding='utf8')
 
