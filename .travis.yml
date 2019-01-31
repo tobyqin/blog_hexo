@@ -1,7 +1,7 @@
-language: node_js
+language: python
 
-node_js:
-- 6
+python:
+- 3.7
 
 branches:
   only:
@@ -14,6 +14,7 @@ before_install:
 - chmod 600 ~/.ssh/id_rsa
 - eval $(ssh-agent)
 - ssh-add ~/.ssh/id_rsa
+- nvm install node
 #- cp .travis/ssh_config ~/.ssh/config
 
 - git config --global user.name 'Toby @ Travis CI'
