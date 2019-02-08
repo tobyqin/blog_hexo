@@ -14,7 +14,7 @@
 python @draft.py
 
 # 发布草稿
-python @prepare.py draft
+python @prepare.py
 
 # 本地预览
 python @preview.py

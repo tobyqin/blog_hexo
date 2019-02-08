@@ -38,7 +38,7 @@ $content---
 
 def create_post_content(post):
     content = draft_template.replace('$title---', post.title)
-    content = content.replace('$category---', ','.join(post.categories).upper())
+    content = content.replace('$category---', ','.join(post.categories).capitalize())
     content = content.replace('$tags---', ','.join(post.tags).lower())
     content = content.replace('$date---', post.date)
     return content.replace('$content---', ''.join(post.content))

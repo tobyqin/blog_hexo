@@ -1,5 +1,5 @@
 ---
-title: 一些 PyCharm 使用和设置建议
+title: 一些 PyCharm 的使用和设置建议
 categories: [TECH]
 tags: [python,pycharm,tips]
 date: 2019-02-08
