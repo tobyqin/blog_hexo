@@ -45,7 +45,8 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        r = [] # 相加结果集
+         # 相加结果集
+        r = []
         
         # 遍历链表1
         while l1:
