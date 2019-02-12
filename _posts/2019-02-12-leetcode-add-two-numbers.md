@@ -114,12 +114,12 @@ class Solution:
             data_1 += str(l1.val)
             l1 = l1.next
 
-		# 链表2转字符串
+        # 链表2转字符串
         while (l2 != None):
             data_2 += str(l2.val)
             l2 = l2.next
 
-		# 字符串翻转后转整数
+        # 字符串翻转后转整数
         data_1 = int(data_1[::-1])
         data_2 = int(data_2[::-1])
 
