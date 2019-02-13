@@ -12,3 +12,4 @@ source/_posts/
 .yulib*/
 yulib.*
 commit.json
+__py*/
