@@ -1,5 +1,5 @@
 ---
-title: sync screenshots from mobile devices to pc
+title: 手机截图报Bug的一些思路
 categories: [Tech]
 tags: [tips,mobile]
 date: 2019-02-13
