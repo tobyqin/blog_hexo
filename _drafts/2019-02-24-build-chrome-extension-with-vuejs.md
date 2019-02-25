@@ -141,7 +141,7 @@ Refused to load the script 'https://cdn.bootcss.com/vue/2.6.6/vue.js' because it
 Refused to execute inline script because it violates the following Content Security Policy directive: "script-src 'self' blob: filesystem: chrome-extension-resource:". Either the 'unsafe-inline' keyword, a hash ('sha256-fMtOu4CF/4bYGHZuo6ltgNQyLcxFW9rBnAYSk3yz53w='), or a nonce ('nonce-...') is required to enable inline execution.
 ```
 
-默认情况下，浏览器插件权限是非常低的，不允许访问除了插件本身的文件以外的文件，不能调用页面内脚本（inline sript），也不能使用eval之类的函数。
+默认情况下，浏览器插件权限是非常低的，不允许访问除了插件本身的文件以外的文件，不能调用页面内脚本（inline script），也不能使用eval之类的函数。
 
 你需要在manifest文件中配置好Content Security Policy（CSP）才能使用Vue。
 
@@ -156,7 +156,7 @@ Refused to execute inline script because it violates the following Content Secur
 }
 ```
 
-因为这个CSP写起来实在不怎么友好，伟大的GitHub网友有一个工具可以帮你一把。
+因为这个CSP写起来实在不怎么友好，伟大的网友做了一个工具可以帮你一把。
 
 - https://github.com/foundeo/content-security-policy.com/
 
@@ -180,7 +180,7 @@ Refused to execute inline script because it violates the following Content Secur
 
 // app.js
 
-var app = new Vue({
+new Vue({
     el: '#app',
     data: {
         message: 'Hello Vue!'
@@ -202,7 +202,7 @@ var app = new Vue({
 
 ## 如何发布插件
 
-当你完成插件开发后，在启用开发者模式的插件中心就可以看到打包插件按钮，这个按钮可以帮你快速打包一个插件目录为crx文件，第一次打包你不需要提供密钥，它会帮你生成一个密钥，之后的版本升级你需要用同一个密钥打包，否则就被认为是一个新的插件了，所以切记把密钥保存好。
+当你完成插件开发后，在启用开发者模式的插件中心就可以看到打包插件按钮，这个按钮可以帮你快速打包crx文件，第一次打包你不需要提供密钥，它会帮你生成一个密钥，之后的版本升级你需要用同一个密钥打包，否则就被认为是一个新的插件了，所以切记保存好密钥。
 
 ![image-20190224220845746](images/image-20190224220845746.png)
 
@@ -228,6 +228,10 @@ var app = new Vue({
 ### 安全请求
 
 现在很难找到不是https的页面里，所以你的插件里如果会往后台发送请求的话，也是需要支持https协议的，否则会被拦截的。
+
+### 插件配置
+
+如果你的插件是可配置的，怎么保存配置信息呢？直接用`localStorage`就行了。`localStorage`对每个站点都是独立的，每一个插件可以看成独立的站点，所以当你在插件里调用`localStorage`对象时就是当前插件的`localStorage`。如果你希望配置是可同步的，那么请考虑`chrome.storage`对象，里面提供了`storage.local `和 `storage.sync `。
 
 ### 完整的例子
 
