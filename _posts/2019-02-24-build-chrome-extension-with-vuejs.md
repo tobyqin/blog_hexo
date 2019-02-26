@@ -238,3 +238,5 @@ new Vue({
 不想推荐文档什么的，自己需要会去搜索的。那么有没有一个完整的例子？当然有啦，去看我的github吧，觉得不错就点个赞。
 
 - https://github.com/tobyqin/chrome_vue_ext_demo
+
+![](https://raw.githubusercontent.com/tobyqin/chrome_vue_ext_demo/master/capture.png)

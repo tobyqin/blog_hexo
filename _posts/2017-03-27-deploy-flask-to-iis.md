@@ -80,10 +80,10 @@ Applied configuration changes to section "system.webServer/fastCgi" for "MACHINE
       <!-- scriptProcessor 的值来自命令行工具 wfastcgi-enable -->
       <add name="FlaskFastCGI" path="*" verb="*" modules="FastCgiModule" scriptProcessor="C:\Python34\python.exe|C:\Python34\lib\site-packages\wfastcgi.py" resourceType="Unspecified" requireAccess="Script" />
     </handlers>
-	<security> 
-		<!-- URL 重写中的特殊字符，比如加号+等等 -->
-		<requestFiltering allowDoubleEscaping="true"></requestFiltering> 
-	</security> 
+    <security>
+        <!-- URL 重写中的特殊字符，比如加号+等等 -->
+        <requestFiltering allowDoubleEscaping="true"></requestFiltering>
+    </security>
   </system.webServer>
 
   <appSettings>
