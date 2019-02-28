@@ -1,6 +1,5 @@
 ---
-title: priciple to deliver software
-categories: [Reading]
+title: 软件交付的原则
 tags: [devops]
 date: 2019-02-26
 ---
