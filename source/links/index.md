@@ -5,7 +5,9 @@ comments: false
 ---
 ## 工具类
 
-> [微信公众号Markdown转换](https://betacat.online/md/)
+> [小胡子哥的微信公众号Markdown编辑器](http://md.barretlee.com/)
+> 
+> [另外一个微信公众号Markdown编辑器](https://lab.lyric.im/wxformat/)
 >
 > [好用的开发者文档阅读方式](http://devdocs.io/offline)
 >
