@@ -5,7 +5,7 @@ tags: [docker,container,devops]
 date: 2019-04-20
 ---
 
-Docker作为当今最流行的容器技术，我们还是需要了解一下的。本文仅半调侃总结了我对容器的认识，需要深入的同学建议多多查阅[官方文档](https://docs.docker.com/engine/docker-overview/)。
+Docker作为当今最流行的容器技术，我们还是需要了解一下的。本文以半调侃的方式总结了我对容器的认识，需要深入的同学建议多多查阅[官方文档](https://docs.docker.com/engine/docker-overview/)。
 
 ## 为啥要 Docker
 
@@ -88,6 +88,10 @@ Docker作为当今最流行的容器技术，我们还是需要了解一下的�
 ## 容器化的限制
 
 容器化的实现源于Linux系统本身的一种特性，叫[系统级虚拟化](https://en.wikipedia.org/wiki/OS-level_virtualisation)（OS-level virtualisation）。早在10多年前在Google已经广泛应用，对，Google那个糟老头就是这么坏，用了那么久都不跟说容器真香，等Docker火了以后它才说Docker太Low了，你们需要Kubernets。
+
+![docker fun](images/docker fun.jpeg)
+
+这张图经常出现在我们视线，为啥鲸鱼和企鹅还有老鼠在一起啊？因为鲸鱼代表着Docker，企鹅代表着Linux，老鼠代表着Go语言。Docker运行的基础是Linux，它是由Go语言编写的，简单说Docker和它爹它妈在聚餐了。
 
 既然容器化原理离不开Linux特性，那么容器化的限制也显而易见：
 
