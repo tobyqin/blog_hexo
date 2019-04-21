@@ -225,7 +225,7 @@ Hello from Docker!
 
 回到工作中，如果开发同学做完了一个需求，是不是告诉你这个`run`命令的具体参数就可以测试和发布了呢？（基本）是的！天啊，开发同学太厉害了，他变强了，也变秃了。
 
-![](http://ancongw.com/img/aHR0cDovL2ltZzEuaW1ndG4uYmRpbWcuY29tL2l0L3U9MzYwODE2OTAyNSwzMTkzNTA4MzIwJmZtPTI2JmdwPTAuanBn.jpg)
+![](images/strong.jpg)
 
 聪明的你可能想到了，在社会人维护的Docker仓库里，其实包含了很多打包好的软件镜像，你只要`docker run`就行，比如jenkins，sonarqube，redis，kafka，你能想到的全都有。天啊，原来用Docker整一个玩耍的环境那么简单！
 
