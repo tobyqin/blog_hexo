@@ -5,7 +5,7 @@ tags: [docker,container,devops]
 date: 2019-04-20
 ---
 
-Docker作为当今最流行的容器技术，我们还是需要了解一下的。本文以半调侃的方式总结了我对容器的认识，需要深入的同学建议多多查阅[官方文档](https://docs.docker.com/engine/docker-overview/)。
+Docker作为当今最流行的容器技术，我们还是学习需要了解的。本文以轻松愉快的方式介绍了我对容器的认识，需要深入的同学建议多多查阅[官方文档](https://docs.docker.com/engine/docker-overview/)。
 
 ## 为啥要 Docker
 
@@ -15,13 +15,13 @@ Docker作为当今最流行的容器技术，我们还是需要了解一下的�
 
 来源： <https://www.docker.com/why-docker>
 
-简单总结：
+**简单总结：**
 
 1. 更少的部署时间，更高的交付效率balabala，反正很厉害
 2. 老板花更少的资源，做更多的事
 3. 员工花更少的时间，做更多的事（加量不加价？）
 
-总之，Docker可以让你变得很牛Pi（破音），甚于内裤外穿。
+总之，Docker可以让你和你的企业变得很牛很潮，甚于内裤外穿。
 
 ## 啥是 Docker
 
@@ -38,9 +38,9 @@ Docker作为当今最流行的容器技术，我们还是需要了解一下的�
 3. 虚拟机需要上G的磁盘空间外加和真实环境等效的CPU，内存
 4. 容器只需要运行写入的磁盘空间（MB级），能使用宿主机全部CPU，内存
 
-打通俗一点的比分，独立的物理机是别墅，花园车库都是你的；虚拟机是楼盘卖的各种户型，有独立的客厅卧室；容器是酒店里的房间，大部分资源都是公用的。
+打通俗一点的比分，独立的物理机是别墅，花园车库都是你的；虚拟机是楼盘卖的各种公寓，有独立的客厅卧室；容器是酒店里的房间，大部分资源都是公用的。
 
-那为啥我不住别墅而住酒店呢？别墅不仅贵还有地理位置限制，高档的酒店服务不见得比别墅和公寓差。
+那为啥我不住别墅而住酒店呢？别墅不仅贵还要养管家，高档的酒店不见得比别墅和公寓差，但成本和管理效率高多了。
 
 ## 怎么实现容器化
 
@@ -48,11 +48,11 @@ Docker作为当今最流行的容器技术，我们还是需要了解一下的�
 
 ![image-20190420151830272](images/image-20190420151830272.png)
 
-所谓基础镜像，你可以理解成操作系统，有官方的操作系统，也有公司自己维护的。发布方需要把自己的软件和基础镜像打包后推送到仓库，就算容器化了。
+所谓基础镜像，你可以简单理解成操作系统。发布方需要把自己的软件和基础镜像打包后推送到仓库，就算容器化了。
 
-注意，你要打包的不光是软件包本身，还有各种配置过程，比如加个文件，移个文件，修改权限，打开端口等等。
+注意，你要打包的不光是软件本身，还有各种配置过程，比如修改文件，修改权限，打开端口等等。
 
-关于Docker镜像，我们可以理解成千层饼，基础镜像是最下面一层，每添加一个功能（命令）就往上叠一层，看官方这个图：
+关于Docker镜像，我们可以看作千层饼，基础镜像是最下面一层，每添加一个功能（命令）就往上叠一层，看官方这个图：
 
 ![Layers of a container based on the Ubuntu image](images/2019-04/container-layers.jpg)
 
@@ -63,14 +63,14 @@ Docker作为当今最流行的容器技术，我们还是需要了解一下的�
 3. Install app2
 4. Change permission
 
-每一次运行命令都会生成一个层（Layer），每个层都是可以复用的。比如打上标签后发布，或者在下一层制作镜像时重复的步骤会被加速完成（缓存）：
+每一次运行命令都会生成一个层（Layer），每个层都是可以复用的。比如在任意层打上标签后发布，或者在下次制作镜像时加以利用（缓存加速）：
 
 1. Add file1 （秒完成）
 2. Install app1 （秒完成）
 3. Install app3 （新的Layer）
 4. Change permission （新的Layer，以为上一步的Layer不一样）
 
-顺带提一下镜像打包的最佳实践：层约少越好，所以请尽可能减少打包镜像的命令步骤。
+打包出来的镜像层是只读的，当镜像被运行后就会生成容器，每个容器都只是对镜像附加了一个可写层，所以资源利用率很高。
 
 了解完生产方的流程后，我们来看一下消费方的流程：
 
@@ -79,19 +79,19 @@ Docker作为当今最流行的容器技术，我们还是需要了解一下的�
 作为消费方，可以用来去自如，为所欲为来描述容器化后的世界：
 
 1. 我想要啥就去仓库Pull一下
-2. 运行容器，不用担心配置繁琐，环境差异这种烦心事
+2. 运行容器，不必担心配置繁琐，环境差异这种烦心事
 3. 这镜像功能不错 - 那就让它跑着
 4. 这镜像是个乐色 - 分分钟删了它
 
-有了容器，开发的锅再也甩不掉。因为你是容器的爹，也是容器的妈，你再也不敢说在我这明明是好的啊。
+有了容器，开发的锅更难甩掉了，因为你是容器的爹，也是容器的妈。测试运维找上门，你再也不敢说在我这明明是好的啊。
 
 ## 容器化的限制
 
-容器化的实现源于Linux系统本身的一种特性，叫[系统级虚拟化](https://en.wikipedia.org/wiki/OS-level_virtualisation)（OS-level virtualisation）。早在10多年前在Google已经广泛应用，对，Google那个糟老头就是这么坏，用了那么久都不跟说容器真香，等Docker火了以后它才说Docker太Low了，你们需要Kubernets。
+容器化的实现源于Linux系统本身的一种特性，叫[系统级虚拟化](https://en.wikipedia.org/wiki/OS-level_virtualisation)（OS-level virtualisation）。早在10多年前在Google已经广泛应用，对，Google那个糟老头坏的很，用了那么久都不跟我们说容器真香。等Docker火了以后它才说光Docker不够，你们还需要Kubernets。
 
 ![docker fun](images/docker fun.jpeg)
 
-这张图经常出现在我们视线，为啥鲸鱼和企鹅还有老鼠在一起啊？因为鲸鱼代表着Docker，企鹅代表着Linux，老鼠代表着Go语言。Docker运行的基础是Linux，它是由Go语言编写的，简单说Docker和它爹它妈在聚餐了。
+这张图经常出现在我们视线，为啥鲸鱼和企鹅还有老鼠在一起啊？鲸鱼代表着Docker，企鹅代表着Linux，老鼠代表着Go语言。Docker运行的基础是Linux，它是由Go语言编写的，哦原来Docker和它爹它妈在聚餐呢。
 
 既然容器化原理离不开Linux特性，那么容器化的限制也显而易见：
 
@@ -100,13 +100,13 @@ Docker作为当今最流行的容器技术，我们还是需要了解一下的�
 
 举例说明，适合容器化的应用：
 
-- 站点服务，微服务，无状态任务
+- 前端服务，微服务，无状态任务
 
 不合适容器化的应用：
 
 - 数据库，数据库，数据库
 
-为啥数据库不适合容器化啊？第一，数据库是有状态的；第二，数据库不是想起就起想停就停的，数据安全大过天；第三第四第五网上写了一堆。
+为啥数据库不适合容器化啊？第一，数据库是有状态的；第二，数据库不是想起就起想停就停的，数据安全大过天；第三第四第五网上写了一堆展开可以另写一篇。
 
 ### 最佳实践
 
@@ -126,12 +126,12 @@ Docker作为当今最流行的容器技术，我们还是需要了解一下的�
 
 ## 安装 Docker
 
-现在Docker的安装非常傻瓜，只要从[官网下载](https://download.docker.com/)对应平台的安装包点击几下就可以安装完成。但是有一些前提条件：
+现在Docker的安装非常傻瓜，只要从[官网下载](https://download.docker.com/)对应平台的安装包点击几下就可以安装完成。你需要知道：
 
-1. Windows需要开启[CPU虚拟化](https://docs.docker.com/docker-for-windows/troubleshoot/#virtualization-must-be-enabled)，配置4G内存以上，Windows 10 / 64位系统
+1. Windows用户需要开启[CPU虚拟化](https://docs.docker.com/docker-for-windows/troubleshoot/#virtualization-must-be-enabled)，配置4G内存以上，Windows 10 / 64位系统
 2. 早期版本的Windows可以考虑使用[Docker Toolbox](https://docs.docker.com/toolbox/overview/)或通过Linux虚拟机来安装
 3. MacOSX用户建议[下载Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-mac)后安装，用Brew会更麻烦
-4. Linux用户最简单最原生，用各种包管理器都可以装，例如：
+4. Linux用户最简单最野生，用各种包管理器就可以装，例如：
 
 ```shell
 yum install docker     # centos / redhat
@@ -152,7 +152,7 @@ apt-get install docker # ubuntu
 
 ## 启动 Docker
 
-在Windows / MacOSX中，直接双击图标就可以启动Docker Engine，如果启动成功在系统通知区域就可以看到Docker的图标。
+在Windows / MacOSX中，双击小鲸鱼就可以启动Docker，启动成功后在通知区域就可以看到Docker的图标。
 
 坑：在Windows / MacOSX 中居然真的只能通过图形来重启或者停止Docker服务？！
 
@@ -187,7 +187,7 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 
 Docker 大部分操作都是通过命令行来完成的，对你还记得Windows和MacOSX的那个图像客户端，他们可以干什么？简单说他们除了用来启动和退出Docker外，还可以用来配置仓库源和网络代理地址，别的功能你就忘了吧。
 
-对，在中华大地，使用Docker前最好还是先[配置国内的源](https://yeasy.gitbooks.io/docker_practice/install/mirror.html)，不然镜像会拉的很慢，便秘的感觉。
+还有，在中华大地，使用Docker前最好还是先[配置国内的源](https://yeasy.gitbooks.io/docker_practice/install/mirror.html)，不然镜像会拉的很慢，便秘的感觉。
 
 万事俱备，我们来一个Docker Hello World：
 
@@ -204,13 +204,13 @@ Hello from Docker!
 
 运行完这个命令，以后出去面试你就可以跟面试官说自己精通Docker和容器化技术了。
 
-面试官再问你就说docker 命令太多了，我一般都是通过`docker --help` 查阅的。当然啦，我也不水的，docker 命令我说起来也是一套一套的。不信你往后看。
+面试官再追问，你就说 Docker 命令太多了，我一般都是通过`docker --help` 查阅的。当然啦，咱也不水的，Docker 命令我说起来也是一套一套的，不信你往下看。
 
-先说说这个Hello World，你发现没有，作为消费方，你只要一个`docker run <image>` 命令就够了，docker足够聪明，如果这个`<image>` 不存在，那么它就会仓库里找，找到了就自动下载，然后运行起来。
+再说说这个Hello World，你发现没有，作为消费方，其实你只要一个`docker run <image>` 命令就够了，Docker足够聪明，如果这个`<image>` 不存在，那么它就会仓库里找，找到了就自动pull，然后运行起来。
 
-回到工作中，如果开发同学做完了一个需求，是不是告诉你这个run命令的具体参数就可以测试和发布了呢？基本是的！天啊，开发同学太厉害了，他变强了，也变秃了。
+回到工作中，如果开发同学做完了一个需求，是不是告诉你这个run命令的具体参数就可以测试和发布了呢？（基本）是的！天啊，开发同学太厉害了，他变强了，也变秃了。
 
-聪明的你也许也想到了，在社会人维护的docker仓库里，其实隐藏了很多破解好的程序，你只要`docker run`就可以用，比如Jira，Teamcity。当然也有很多免费的软件，比如Jenkins，SonarQube，redis，kafka。
+聪明的你可能想到了，在社会人维护的Docker仓库里，其实包含了很多打包好的软件镜像，你只要`docker run`就行，比如Jenkins，SonarQube，redis，kafka，你能想到的全都有。天啊，原来用Docker准备玩耍的环境那么简单！
 
 ### 命令速记
 
@@ -273,7 +273,7 @@ docker container ls
 docker ps
 ```
 
-虽然`docker ps` / `docker exec` 等等命令更简洁，但是也更混乱，不便记忆。你有时候甚至不确定自己操作的是容器还是镜像或者是网络？
+虽然`docker ps` / `docker exec` 等等命令更简洁，但是也更混乱，不便记忆。你有时候甚至不确定自己操作的是容器还是镜像或者是别的对象？
 
 让我们再仔细对比一下管理命令和简化版命令：
 
@@ -297,7 +297,7 @@ docker rename
 docker rm
 ```
 
-所以在你理解docker能做的事情后，再通过管理命令去实践你就会事半功倍。我做了一个思维导图，列出了常见的操作。
+所以在你理解Docker能做的事情后，再通过管理命令去实践你就会事半功倍。我做了一个思维导图，列出了常见的操作。
 
 ![image-20190420185522119](images/image-20190420185522119.png)
 
@@ -308,9 +308,11 @@ docker rm
 3. 需要管理镜像，那就`docker image xxx`
 4. 需要管理容器，那就`docker container xxx`
 
+是不是超级简单？
+
 ### portainer
 
-[portainer](https://www.portainer.io/) 是一个浏览器界面的图形化docker管理工具，它实现了几乎所有的docker engine提供的功能，你只要一个命令就可以让它运行在你的本地。
+[portainer](https://www.portainer.io/) 是一个浏览器界面的图形化Docker管理工具，它实现了几乎所有的Docker Engine操作，你只要一个命令就可以让它运行在你的本地。
 
 ```
 $ docker volume create portainer_data
@@ -323,7 +325,7 @@ $ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v por
 
 ## Dockerfile
 
-要制作容器镜像，你需要一个详细的步骤，这个实施步骤记录下来就是Dockerfile。我们来看一个例子：
+要制作容器镜像，你需要一个详细的步骤，这个实施过程记录下来就是Dockerfile。我们来看一个例子：
 
 ```shell
 FROM ubuntu:18.04
@@ -332,7 +334,7 @@ RUN make /app
 CMD python /app/app.py
 ```
 
-其实Dockerfile很简单也很易懂，自己写几遍就记住了。在Dockerfile中可以用的命令并不是特别多。
+其实Dockerfile很简单易懂，无非就是第一做什么第二做什么，自己写几遍就记住了。在Dockerfile中可以用的命令并不是特别多。
 
 | 关键字     | 解释                                                |
 | ---------- | --------------------------------------------------- |
@@ -348,9 +350,9 @@ CMD python /app/app.py
 | CMD        | 容器的默认命令，例如：`CMD [“echo”, “hello”]`       |
 | ENTRYPOINT | 容器的入口命令，例如：`ENTRYPOINT [“top”, “-b”]`    |
 
-以上只是简单介绍，需要用到具体命令时建议还是参考[官方文档](https://docs.docker.com/engine/reference/builder/#usage)。
+以上只是简单介绍，需要用到具体命令时建议还是参考[Dockerfile官方文档](https://docs.docker.com/engine/reference/builder/#usage)。
 
-这些命令里最难说清楚的就是`CMD`和`ENTRYPOINT`，如果我是面试官这是必考题。三言两语说不完，我们改日再聊这个话题。
+这些命令里最难说清楚的就是`CMD`和`ENTRYPOINT`，如果我是面试官这是必考题。三言两语说不完，我们改日再聊这个话题，记住，很重要。
 
 有了Dockerfile之后，只要运行`docker image build`就可以生成镜像了。
 
@@ -374,6 +376,8 @@ b48eea5f4f04: Layer already exists
 2aebd096e0e2: Layer already exists
 latest: digest: sha256:c06bc4a35073319b8d7e7ef128a7daa8cdb4e766468ffc50f8a61afcf5ef3f46 size: 1367
 ```
+
+发布成功后你也就成了社会人了。
 
 ## Docker Compose
 
@@ -402,14 +406,14 @@ volumes:
 
 有了这个配置文件，你只需要运行`docker-compose up`就可以轻松管理配置文件里的一系列容器。
 
-关于Docker Compose的介绍不做深入，也不推荐深入，因为这样的容器编排只能满足小企业或者个人开发者的需求，真正在企业中我们会用 [Docker Swarm](https://docs.docker.com/engine/swarm/) 或者 [Kubernets](https://kubernetes.io/)。
+关于Docker Compose的介绍不做深入，也不推荐深入，因为这样的容器编排只能满足小企业或者个人开发者的需求，单台主机。真正在企业中我们会用 [Docker Swarm](https://docs.docker.com/engine/swarm/) 或者 [Kubernets](https://kubernetes.io/)。
 
 ## Docker Swarm 和 K8S
 
 Swarm是Docker官方提供的一款集群管理工具，其主要作用是把若干台Docker主机抽象为一个整体，并且通过一个入口统一管理这些Docker主机上的各种Docker资源。
 
-Kubernets也叫k8s，中间更好8个字母。类似的我们还把international缩写成i11l。k8s是Google开源的容器编排引擎，支持大规模容器集群管理，自动化部署，自动伸缩，负载均衡，资源监控等等功能。
+Kubernets也叫k8s，中间刚好是8个字母。类似的我们还把international缩写成i11l。Kubernets是Google开源的容器编排引擎，支持大规模容器集群管理，自动化部署，自动伸缩，负载均衡，资源监控等等功能。
 
-Swarm和Kubernetes其实是一类东西，但是Google家的东西更强大也更复杂，一般企业会二选一。
+Swarm和Kubernetes其实是一类东西，但是Google家的东西更强大也更复杂，企业一般会二选一。
 
 关于容器编排是另外一个话题（很大的），本期内容完。
