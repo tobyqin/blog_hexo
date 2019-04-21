@@ -5,7 +5,7 @@ tags: [docker,container,devops]
 date: 2019-04-20
 ---
 
-Docker作为当今最流行的容器技术，我们还是学习需要了解的。本文以轻松愉快的方式介绍了我对容器的认识，需要深入的同学建议多多查阅[官方文档](https://docs.docker.com/engine/docker-overview/)。
+Docker作为当今最流行的容器技术，我们还是需要紧跟时代努力学习，避免被公司优化掉。本文以轻松愉快的方式介绍了我对容器的认识，需要深入的同学建议多多查阅[官方文档](https://docs.docker.com/engine/docker-overview/)。
 
 ## 为啥要 Docker
 
@@ -122,6 +122,21 @@ Docker作为当今最流行的容器技术，我们还是学习需要了解的�
 
 你可能听过[Windows容器](https://www.microsoft.com/zh-cn/cloud-platform/containers)，是有那么一回事，但是当前还不是很成熟，勇敢你的可以尝试，但你的老板大概是不会让它跑在生产环境的。据说携程已经将Windows容器化应用到生产了，牛Pi（破音）！
 
+## 容器的优缺点
+
+优点显而易见，随便列几个：
+
+1. 比VM小，比VM快，比VM便宜
+2. 更容易发布和维护，有效避免DEV，QA，OPS的撕逼
+3. 社区非常活跃，国外有谷歌微软亚马逊，国内有BAT做先驱
+
+那么缺点呢？并不是太多，不信你到网上找找看。简单列举：
+
+1. 平台限制，目前只支持Unix/Linux应用，只支持64位系统
+2. 相对于直接部署应用，性能会差一些
+3. 学习和迁移成本，取决于现有架构和资源
+4. Docker公司决策有点迷，很多言论说它要挂了
+
 理论讲完了，我们进入实操环节。
 
 ## 安装 Docker
@@ -208,13 +223,15 @@ Hello from Docker!
 
 再说说这个Hello World，你发现没有，作为消费方，其实你只要一个`docker run <image>` 命令就够了，Docker足够聪明，如果这个`<image>` 不存在，那么它就会仓库里找，找到了就自动pull，然后运行起来。
 
-回到工作中，如果开发同学做完了一个需求，是不是告诉你这个run命令的具体参数就可以测试和发布了呢？（基本）是的！天啊，开发同学太厉害了，他变强了，也变秃了。
+回到工作中，如果开发同学做完了一个需求，是不是告诉你这个`run`命令的具体参数就可以测试和发布了呢？（基本）是的！天啊，开发同学太厉害了，他变强了，也变秃了。
 
-聪明的你可能想到了，在社会人维护的Docker仓库里，其实包含了很多打包好的软件镜像，你只要`docker run`就行，比如Jenkins，SonarQube，redis，kafka，你能想到的全都有。天啊，原来用Docker准备玩耍的环境那么简单！
+![](http://ancongw.com/img/aHR0cDovL2ltZzEuaW1ndG4uYmRpbWcuY29tL2l0L3U9MzYwODE2OTAyNSwzMTkzNTA4MzIwJmZtPTI2JmdwPTAuanBn.jpg)
+
+聪明的你可能想到了，在社会人维护的Docker仓库里，其实包含了很多打包好的软件镜像，你只要`docker run`就行，比如jenkins，sonarqube，redis，kafka，你能想到的全都有。天啊，原来用Docker整一个玩耍的环境那么简单！
 
 ### 命令速记
 
-也许你知道一些docker命令，比如：
+也许你知道一些Docker命令，比如：
 
 - docker run
 - docker images
@@ -222,7 +239,7 @@ Hello from Docker!
 - docker rename
 - docker rm / rmi
 
-但是我真的建议你忘记它们，换一种方式去使用和记忆docker命令。当你敲完`docker --help` 之后，出来的信息大概是这样的：
+但是我真的建议你忘记它们，换一种方式去使用和记忆Docker命令。当你敲完`docker --help` 之后，出来的信息大概是这样的：
 
 ```
 $ docker --help
@@ -255,7 +272,7 @@ Commands:
   ...
 ```
 
-不重要的部分我都省略了，在当前和未来版本的docker中，官方都极力推荐我们通过管理命令去执行docker命令。比如说：
+不重要的部分我都省略了，在当前和未来版本的Docker中，官方都极力推荐我们通过管理命令去执行Docker命令。比如说：
 
 ```
 docker image ls
@@ -312,7 +329,7 @@ docker rm
 
 ### portainer
 
-[portainer](https://www.portainer.io/) 是一个浏览器界面的图形化Docker管理工具，它实现了几乎所有的Docker Engine操作，你只要一个命令就可以让它运行在你的本地。
+[portainer](https://www.portainer.io/) 是一个浏览器界面的图形化Docker管理工具，它实现了几乎所有的Docker Engine操作，你只要两条命令就可以让它运行在你的机器上。
 
 ```
 $ docker volume create portainer_data
@@ -321,7 +338,7 @@ $ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v por
 
 ![image-20190420231352125](images/image-20190420231352125.png)
 
-有了它，你可以忘掉上面的命令，前提是你先通过面试。
+有了它，你就可以忘掉上面的命令，前提是你先通过面试。
 
 ## Dockerfile
 
@@ -352,7 +369,7 @@ CMD python /app/app.py
 
 以上只是简单介绍，需要用到具体命令时建议还是参考[Dockerfile官方文档](https://docs.docker.com/engine/reference/builder/#usage)。
 
-这些命令里最难说清楚的就是`CMD`和`ENTRYPOINT`，如果我是面试官这是必考题。三言两语说不完，我们改日再聊这个话题，记住，很重要。
+这些命令里最难说清楚的就是`CMD`和`ENTRYPOINT`，如果我是面试官这是必考题。三言两语说不完，我们改日再聊这个话题吧。
 
 有了Dockerfile之后，只要运行`docker image build`就可以生成镜像了。
 
@@ -377,18 +394,20 @@ b48eea5f4f04: Layer already exists
 latest: digest: sha256:c06bc4a35073319b8d7e7ef128a7daa8cdb4e766468ffc50f8a61afcf5ef3f46 size: 1367
 ```
 
-发布成功后你也就成了社会人了。
+发布成功后你也就成了一个Docker社会人了。
 
 ## Docker Compose
 
-Dockerfile只是打包一个程序或者一种服务，实际上我们的应用会复杂的多，比如有web前端，有后端服务，有缓存系统，有消息队列，有数据库等等。
+Dockerfile只是打包一个程序或者一种服务，实际上我们的应用会复杂的多，比如有web前端，有大后端，有缓存系统，有消息队列，有数据库等等。
 
-这时候你就需要使用[Docker Compose](https://docs.docker.com/compose/overview/)了，它是一个官方提供用来定义和运行多个容器的工具，你只要写一个配置文件就可以对容器进行编排，看例子。
+这时候你就需要使用[Docker Compose](https://docs.docker.com/compose/overview/)了，它是一个官方提供的用来定义和运行多个容器的工具，你只要写一个配置文件就可以对容器进行编排，看例子。
 
 ```yaml
 # docker-compose.yml
 version: '3'
 services:
+  db:
+    image: postgres
   web:
     build: .
     ports:
@@ -398,6 +417,8 @@ services:
     - logvolume01:/var/log
     links:
     - redis
+    depends_on:
+    - db
   redis:
     image: redis
 volumes:
