@@ -68,7 +68,7 @@ Docker作为当今最流行的容器技术，我们还是需要紧跟时代努�
 1. Add file1 （秒完成）
 2. Install app1 （秒完成）
 3. Install app3 （新的Layer）
-4. Change permission （新的Layer，以为上一步的Layer不一样）
+4. Change permission （新的Layer，上一步的Layer不一样）
 
 打包出来的镜像层是只读的，当镜像被运行后就会生成容器，每个容器都只是对镜像附加了一个可写层，所以资源利用率很高。
 
