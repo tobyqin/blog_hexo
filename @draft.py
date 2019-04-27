@@ -6,6 +6,7 @@ When draft ready, remove the leading `!` then it will be published next time.
 import re
 from codecs import open
 from os.path import join
+import uuid
 
 from utils import draft_dir, Post, create_post_content
 
@@ -25,11 +26,14 @@ if __name__ == '__main__':
         print('Tags: (required)')
         tags = input()
 
+    if not post.title:
+        post.title = "{}-{}".format(category, uuid.uuid4().hex)
+
     post.categories = category.split()
     post.tags = tags.split()
 
     content = create_post_content(post)
-    draft_name = '!{}-{}.md'.format(post.date, re.sub('\s', '-', post.title.strip()))
+    draft_name = '!{}-{}.md'.format(post.date, re.sub(r'\s', '-', post.title.strip()))
     draft_name = join(draft_dir, draft_name.lower())
     with open(draft_name, encoding='utf8', mode='w') as f:
         f.write(content)

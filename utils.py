@@ -45,9 +45,10 @@ def create_post_content(post):
 
 
 def translate(txt, from_lang='auto', to_lang='en'):
-    '''
+    """
     https://fanyi-api.baidu.com/api/trans/product/apidoc
-    '''
+    """
+
     salt = random.randint(32768, 65536)
     sign = app_id + txt + str(salt) + sec_key
     sign = hashlib.md5(sign.encode('utf-8')).hexdigest()
