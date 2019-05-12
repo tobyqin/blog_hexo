@@ -20,8 +20,8 @@ def raw_to_draft(post):
     post.en_title = translate(post.title)
 
     # generate filename
-    post.filename = re.sub('\s', '-', post.en_title).lower()
-    post.filename = '!{}-{}.md'.format(post.date, re.sub('[^\d\w-]', '', post.filename))
+    post.filename = re.sub(r'\s', '-', post.en_title).lower()
+    post.filename = '!{}-{}.md'.format(post.date, re.sub(r'[^\d\w-]', '', post.filename))
     return post
 
 
