@@ -120,3 +120,6 @@ Python 操作 WebDAV的包不是特别多，好用的更少。
 使用cURL操作WebDAV是也要注意文件名中编码的问题，比如中文，空格，特殊字符都需要转义。
 
 更多cURL的操作可以google或者看[这篇文档](https://www.qed42.com/blog/using-curl-commands-webdav)。
+
+还有一个办法是把 WebDAV 挂载到Linux上，大概搜索了一下 [davfs2](https://wiki.archlinux.org/index.php/Davfs2) 发现也挺折腾的，不去弄了。
+
