@@ -38,20 +38,21 @@ def get_posts():
         p.date = datetime.fromtimestamp(file.stat().st_ctime).strftime('%Y-%m-%d')
         with file.open(encoding='utf8') as f:
             p.content = f.readlines()
+            front_lines = 0
             if p.content[0].startswith('['):
                 attributes = p.content[0][1:-2].split(',')
                 p.categories = attributes[:1]
                 p.tags = [a[1:] for a in attributes[1:]]
-                front_lines = 1
+                front_lines += 1
                 for line in p.content[1:]:
                     if line.strip() == '':
                         front_lines += 1
                     else:
                         break
 
-                # remove front formatter
-                p.content = p.content[front_lines:]
-                posts.append(to_draft(p))
+            # remove front formatter
+            p.content = p.content[front_lines:]
+            posts.append(to_draft(p))
 
     return posts
 
