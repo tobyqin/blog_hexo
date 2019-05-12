@@ -13,6 +13,7 @@ host = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'
 
 current_dir = dirname(__file__)
 raw_dir = abspath(join(current_dir, '_raw'))
+mobile_dir = abspath(join(current_dir, '_mobile'))
 draft_dir = abspath(join(current_dir, '_drafts'))
 
 
