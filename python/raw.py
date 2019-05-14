@@ -1,7 +1,5 @@
 """
 script to process _raw to _draft.
-
-python @raw.py
 """
 
 import re
@@ -9,7 +7,7 @@ from datetime import datetime
 from os.path import join
 from pathlib import Path
 
-from utils import Post, translate, create_post_content, raw_dir, draft_dir
+from python.utils import Post, translate, create_post_content, raw_dir, draft_dir
 
 
 def raw_to_draft(post):
@@ -68,6 +66,10 @@ def build_draft(post):
         f.write(content)
 
 
-if __name__ == '__main__':
+def run():
     for p in get_raw_posts():
         build_draft(p)
+
+
+if __name__ == '__main__':
+    run()

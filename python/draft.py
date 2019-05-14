@@ -8,7 +8,7 @@ from codecs import open
 from os.path import join
 import uuid
 
-from utils import draft_dir, Post, create_post_content
+from python.utils import draft_dir, Post, create_post_content
 
 if __name__ == '__main__':
     post = Post()

@@ -11,16 +11,16 @@
 
 ```shell
 # 新建博客草稿
-python @draft.py
+python blog.py draft
 
 # 发布草稿
-python @prepare.py
+python blog.py prepare
 
 # 本地预览
-python @preview.py
+python blog.py preview
 
-# 推送保存
-python @push.py
+# 推送保存 [prepare + push]
+python blog.py
 
 ```
 

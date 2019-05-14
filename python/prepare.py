@@ -14,7 +14,8 @@ from os.path import join, dirname, abspath, exists, isfile
 from pathlib import Path
 from shutil import copy2, rmtree
 
-from utils import draft_dir, current_dir, get_img
+from python.utils import draft_dir, current_dir, get_img
+import python.raw
 
 draft_image_dir = abspath(join(draft_dir, 'images'))
 src_post_dir = abspath(join(current_dir, '_posts'))
@@ -244,7 +245,8 @@ def fix_post_file_name(file_name):
         os.rename(file_name, new_name)
 
 
-if __name__ == '__main__':
+def run():
+    python.raw.run()
     prepare_draft()
     publish_drafts()
     publish_images()
@@ -255,3 +257,7 @@ if __name__ == '__main__':
         publish_post(f)
 
     print('OK.')
+
+
+if __name__ == '__main__':
+    run()

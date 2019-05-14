@@ -1,7 +1,5 @@
 """
 script to process _mobile to _draft.
-
-python @mobile.py
 """
 
 import re
@@ -9,7 +7,7 @@ from datetime import datetime
 from os.path import join
 from pathlib import Path
 
-from utils import Post, translate, create_post_content, mobile_dir, draft_dir
+from python.utils import Post, translate, create_post_content, mobile_dir, draft_dir
 
 
 def to_draft(post):
@@ -64,6 +62,10 @@ def build_draft(post):
         f.write(content)
 
 
-if __name__ == '__main__':
+def run():
     for p in get_posts():
         build_draft(p)
+
+
+if __name__ == '__main__':
+    run()

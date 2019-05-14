@@ -19,7 +19,7 @@ before_install:
 
 - git config --global user.name 'Toby @ Travis CI'
 - git config --global user.email toby.qin@live.coom
-- python @prepare.py
+- python blog.py prepare
 
 install:
 - npm install hexo-cli -g

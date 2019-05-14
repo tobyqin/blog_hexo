@@ -2,12 +2,12 @@
 Use this script to push changes to remote git server.
 """
 import os
-import shutil
+import python.mobile as m
+import python.prepare as p
 
-py = 'python3' if shutil.which('python3') else 'python'
+m.run()
+p.run()
 
-os.system('{} @mobile.py'.format(py))
-os.system('{} @prepare.py'.format(py))
 os.system('git add -A')
 os.system('git commit -m "update website."')
 os.system('git pull origin master')

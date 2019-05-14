@@ -11,7 +11,7 @@ app_id = '20181121000237296'
 sec_key = 'FpUUXfla5UuEcStx5tHk'
 host = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'
 
-current_dir = dirname(__file__)
+current_dir = dirname(dirname(__file__))
 raw_dir = abspath(join(current_dir, '_raw'))
 mobile_dir = abspath(join(current_dir, '_mobile'))
 draft_dir = abspath(join(current_dir, '_drafts'))
