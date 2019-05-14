@@ -1,4 +1,4 @@
-import python.mobile
+import python.jg
 import python.draft
 import python.prepare
 import python.preview
@@ -6,7 +6,7 @@ import python.push
 import sys
 
 m = {
-    'mobile': python.mobile,
+    'jg': python.jg,
     'draft': python.draft,
     'prepare': python.prepare,
     'preview': python.preview,
@@ -18,4 +18,4 @@ if __name__ == '__main__':
         args = sys.argv[1]
         m[args].run()
     else:
-        m['preview'].run()
+        m['push'].run()

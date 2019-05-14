@@ -7,7 +7,6 @@ import python.prepare
 
 def run():
     python.prepare.run()
-    os.chdir('..')
     os.system('node_modules/.bin/hexo clean')
     os.system('node_modules/.bin/hexo g')
     os.system('node_modules/.bin/hexo s')

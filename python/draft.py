@@ -10,7 +10,8 @@ import uuid
 
 from python.utils import draft_dir, Post, create_post_content
 
-if __name__ == '__main__':
+
+def run():
     post = Post()
     print('Creating new draft...\n')
     print('Title:')
@@ -39,3 +40,7 @@ if __name__ == '__main__':
         f.write(content)
 
     print('\nOK, draft created.\n{}'.format(draft_name))
+
+
+if __name__ == '__main__':
+    run()
