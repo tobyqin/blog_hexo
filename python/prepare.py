@@ -14,9 +14,9 @@ from os.path import join, dirname, abspath, exists, isfile
 from pathlib import Path
 from shutil import copy2, rmtree
 
-from python.utils import draft_dir, current_dir, get_img
-import python.raw
 import python.mobile
+import python.raw
+from python.utils import draft_dir, current_dir, get_img
 
 draft_image_dir = abspath(join(draft_dir, 'images'))
 src_post_dir = abspath(join(current_dir, '_posts'))

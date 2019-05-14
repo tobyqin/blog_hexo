@@ -4,9 +4,9 @@ By default, the draft file name will starts with `!`.
 When draft ready, remove the leading `!` then it will be published next time.
 """
 import re
+import uuid
 from codecs import open
 from os.path import join
-import uuid
 
 from python.utils import draft_dir, Post, create_post_content
 

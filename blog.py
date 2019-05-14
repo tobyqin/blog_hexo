@@ -1,9 +1,10 @@
-import python.jg
+import sys
+
 import python.draft
+import python.jg
 import python.prepare
 import python.preview
 import python.push
-import sys
 
 m = {
     'jg': python.jg,

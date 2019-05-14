@@ -2,6 +2,7 @@
 Use this script to preview blog locally.
 """
 import os
+
 import python.prepare
 
 

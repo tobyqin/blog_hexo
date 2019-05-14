@@ -13,7 +13,7 @@ from webdavfs.webdavfs import WebDAVFS
 if 'jg_login' not in os.environ and 'jg_password' not in os.environ:
     raise EnvironmentError('Please set "jg_login" and "jg_password" in environment!')
 
-target_dir = join(dirname(__file__), '_mobile')
+target_dir = join(dirname(dirname(__file__)), '_mobile')
 url = 'https://dav.jianguoyun.com/dav'
 options = {
     'url': url,
