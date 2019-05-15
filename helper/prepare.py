@@ -14,9 +14,9 @@ from os.path import join, dirname, abspath, exists, isfile
 from pathlib import Path
 from shutil import copy2, rmtree
 
-import python.mobile
-import python.raw
-from python.utils import draft_dir, current_dir, get_img
+import helper.mobile
+import helper.raw
+from helper.utils import draft_dir, current_dir, get_img
 
 draft_image_dir = abspath(join(draft_dir, 'images'))
 src_post_dir = abspath(join(current_dir, '_posts'))
@@ -247,8 +247,8 @@ def fix_post_file_name(file_name):
 
 
 def run():
-    python.mobile.run()
-    python.raw.run()
+    helper.mobile.run()
+    helper.raw.run()
     prepare_draft()
     publish_drafts()
     publish_images()

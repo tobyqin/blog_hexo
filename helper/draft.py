@@ -8,7 +8,7 @@ import uuid
 from codecs import open
 from os.path import join
 
-from python.utils import draft_dir, Post, create_post_content
+from helper.utils import draft_dir, Post, create_post_content
 
 
 def run():

@@ -1,17 +1,17 @@
 import sys
 
-import python.draft
-import python.jg
-import python.prepare
-import python.preview
-import python.push
+import helper.draft
+import helper.jg
+import helper.prepare
+import helper.preview
+import helper.push
 
 m = {
-    'jg': python.jg,
-    'draft': python.draft,
-    'prepare': python.prepare,
-    'preview': python.preview,
-    'push': python.push
+    'jg': helper.jg,
+    'draft': helper.draft,
+    'prepare': helper.prepare,
+    'preview': helper.preview,
+    'push': helper.push
 }
 
 if __name__ == '__main__':

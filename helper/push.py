@@ -3,11 +3,11 @@ Use this script to push changes to remote git server.
 """
 import os
 
-import python.prepare
+import helper.prepare
 
 
 def run():
-    python.prepare.run()
+    helper.prepare.run()
 
     os.system('git add -A')
     os.system('git commit -m "update website."')
