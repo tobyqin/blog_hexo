@@ -1,7 +1,7 @@
 """
 script to process _mobile to _draft.
 """
-
+import os
 import re
 from datetime import datetime
 from os.path import join
@@ -51,6 +51,8 @@ def get_posts():
             # remove front formatter
             p.content = p.content[front_lines:]
             posts.append(to_draft(p))
+
+        os.remove(str(file))
 
     return posts
 
