@@ -129,7 +129,7 @@ def copy_tree(src, dst):
             if not (i.name.startswith('.') or i.name.startswith('!')):
                 from_name = str(i)
                 target_name = from_name.replace(src, dst)
-                print('{} => {}'.format(i, target_name))
+                # print('{} => {}'.format(i, target_name))
 
                 if exists(target_name):
                     os.remove(target_name)
