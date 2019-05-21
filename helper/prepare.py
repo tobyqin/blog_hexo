@@ -247,6 +247,7 @@ def fix_post_file_name(file_name):
 
 
 def run():
+    print('Prepare drafts...')
     helper.mobile.run()
     helper.raw.run()
     prepare_draft()
