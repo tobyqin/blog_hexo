@@ -33,6 +33,10 @@ def get_posts():
         print('Process: {}'.format(file.name))
         p = Post()
         p.title = file.stem
+
+        if p.title.endswith('.md'):
+            p.title = p.title[:-3]
+
         p.date = datetime.fromtimestamp(file.stat().st_ctime).strftime('%Y-%m-%d')
         with file.open(encoding='utf8') as f:
             p.content = f.readlines()
