@@ -1,5 +1,5 @@
 ---
-title: 秦浪传.md
+title: 秦浪传
 categories: [Thoughts]
 tags: []
 date: 2019-06-02
