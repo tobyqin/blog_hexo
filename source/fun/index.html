@@ -7,10 +7,16 @@
   <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css">
 </head>
 <body>
+  <nav>
+    <a href="#/">EN</a>
+    <a href="#/zh-cn/">中文</a>
+  </nav>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      //...
+      coverpage: false,
+      autoSidebar:true,
+      basePath:'/fun/'
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
