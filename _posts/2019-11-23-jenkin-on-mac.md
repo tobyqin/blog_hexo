@@ -14,7 +14,24 @@ date: 2019-11-23
 
 文件读写的问题有网友说可以通过rsync之类的软件解决，听上去可行，其实也不方便。所以到最后，我们可能还是选择在本地安装Jenkins。
 
-在官网选择适合MacOSX的pkg下载后双击开始安装，输入本机密码后就可以完成安装并且Jenkins默认会启动，但是有可能你发现什么都没发生。注意，此处有坑。
+本地安装最简单的办法是使用Howbrew包管理器。
+
+```
+$ brew install jenkins
+==> Downloading http://mirrors.jenkins.io/war/2.205/jenkins.war
+==> Downloading from http://ftp-chi.osuosl.org/pub/jenkins/war/2.205/jenkins.war
+######################################################################## 100.0%
+==> jar xvf jenkins.war
+==> Caveats
+Note: When using launchctl the port will be 8080.
+
+To have launchd start jenkins now and restart at login:
+  brew services start jenkins
+Or, if you don't want/need a background service you can just run:
+  jenkins
+```
+
+你也可以在官网选择适合MacOSX的pkg下载后双击开始安装，输入本机密码后就可以完成安装。这也开始里你的踩坑之旅。Jenkins安装完成后会默认启动，但是有可能你发现什么都没发生。坑开始来了。
 
 1. 你本机需要有java的虚拟机环境，而且必须是8-11版本的，12以上的不支持（截止2019/12）
 2. 你本机的8080端口不能有别的服务
@@ -66,6 +83,7 @@ $ sudo defaults write /Library/Preferences/org.jenkins-ci httpPort 8090
 - httpsListenAddress
 - war (Defaults to `/Applications/Jenkins/jenkins.war`)
 - JENKINS_HOME (Defaults to `/Users/Shared/Jenkins`)
+- tmpdir (Defautls to `/Users/Shared/Jenkins/tmp`) 
 - minHeapSize (Defaults to 256m on 64bit architectures and 64m on 32bit)
 - heapSize (Defaults to 512m on 64bit architectures and 128m on 32bit)
 - minPermGen (Defaults to 256m on 64bit architectures and 64m on 32bit)
@@ -111,7 +129,7 @@ alias stop-jenkins="sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.
 
 ## 卸载 Jenkins
 
-Google搜出来的排在比较靠前的卸载方案是：
+通过Homebrew安装的软件卸载比较简单，这里说的主要是通过界面安装的Jenkins的卸载。Google搜出来的排在比较靠前的卸载方案是：
 
 1. 手动删除 war 包
 2. 手动删除 `JENKINS_HOME` 目录
@@ -120,7 +138,7 @@ Google搜出来的排在比较靠前的卸载方案是：
 但其实不用那么麻烦，只需要一条命令即可。
 
 ```
-sh  /Library/Application\ Support/Jenkins/Uninstall.command
+sh /Library/Application\ Support/Jenkins/Uninstall.command
 ```
 
 期间需要输入本机管理员密码，大致输出如下。
@@ -152,5 +170,7 @@ Forgot package 'org.jenkins-ci.jenkins.osx.pkg' on '/'.
 ```
 
 ## 小结
+
+在Mac安装任何软件首选应该还是HomeBrew，不仅可以帮你搞定依赖，后续的升级和清理也很轻松。
 
 在 Mac 上部署 Jenkins 有点像鸡肋，食之无味，弃之不舍。如果一定要在 Mac 上需要完成一些自动化的任务，同时希望配置简单友好，不知道你有没有更好的办法？
