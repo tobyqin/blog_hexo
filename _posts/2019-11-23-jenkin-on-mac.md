@@ -31,7 +31,11 @@ Or, if you don't want/need a background service you can just run:
   jenkins
 ```
 
-你也可以在官网选择适合MacOSX的pkg下载后双击开始安装，输入本机密码后就可以完成安装。这也开始里你的踩坑之旅。Jenkins安装完成后会默认启动，但是有可能你发现什么都没发生。坑开始来了。
+最新消息，官方已经发文不再支持macOS下的原生包安装，建议该用docker或者homebrew。
+
+- https://jenkins.io/blog/2019/11/25/macos-native-installer-deprecation/
+
+（原文继续）你也可以在官网选择适合MacOSX的pkg下载后双击开始安装，输入本机密码后就可以完成安装。这也开始里你的踩坑之旅。Jenkins安装完成后会默认启动，但是有可能你发现什么都没发生。坑开始来了。
 
 1. 你本机需要有java的虚拟机环境，而且必须是8-11版本的，12以上的不支持（截止2019/12）
 2. 你本机的8080端口不能有别的服务
