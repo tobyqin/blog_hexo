@@ -25,9 +25,16 @@ jobs:
         echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa # 配置秘钥
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
+        ssh-keyscan git.coding.net >> ~/.ssh/known_hosts
+        
         # set git infomation
         git config --global user.name 'Toby@Github' # 换成你自己的邮箱和名字
         git config --global user.email 'toby.qin@live.com'
+        
+        # prepare blog
+        pip install -r requirements.txt
+        python blog.py prepare
+        
         # install dependencies
         npm i -g hexo-cli # 安装hexo
         npm i
@@ -35,4 +42,6 @@ jobs:
     - name: Deploy
       run: |
         # publish
-        hexo generate && hexo deploy # 执行部署程序
+        hexo clean
+        hexo generate
+        hexo deploy # 执行部署程序
