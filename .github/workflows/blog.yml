@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: "10.x"
     
-    - name: Setup Hexo env
+    - name: Setup
       env:
         ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
         TZ: Asia/Shanghai
