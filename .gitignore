@@ -14,3 +14,4 @@ yulib.*
 commit.json
 __py*/
 package-lock.json
+.theia/
