@@ -1,4 +1,4 @@
-image: python3
+pythonimage: python3
 ports:
 - port: 4000
 tasks:
