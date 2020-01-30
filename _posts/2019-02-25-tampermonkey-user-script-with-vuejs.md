@@ -37,18 +37,17 @@ TamperMonkey官方的定义说这是一个用户脚本管理器。通俗的说�
 // ==UserScript==
 // @name         Github Info
 // @namespace    https://betacat.online/
-// @version      0.1.1
+// @version      0.2.1
 // @description  A demo to use vuejs in tampermonkey script.
 // @author       Toby Qin
 // @include      *github.com*
 // @exclude      *api.github*
 // @supportURL   https://github.com/tobyqin/tampermonkey_vue
-// @updateURL    $server/peppa.user.js
-// @downloadURL  $server/peppa.user.js
-// @require      https://cdn.bootcss.com/vue/2.5.16/vue.min.js
-// @require      https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js
-// @require      $server/app.js?$version
-// @require      $server/app.css?$version
+// @updateURL    https://github.com/tobyqin/tampermonkey_vue/raw/master/github-info/github-info.user.js
+// @downloadURL  https://github.com/tobyqin/tampermonkey_vue/raw/master/github-info/github-info.user.js
+// @require      https://vuejs.org/js/vue.min.js
+// @require      https://code.jquery.com/jquery-3.4.1.min.js
+// @require      https://github.com/tobyqin/tampermonkey_vue/raw/master/github-info/app.js
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_setClipboard
@@ -84,7 +83,7 @@ jQuery虽然即将成为被大家争相抛弃的东西，但不得不说在油�
 ```javascript
 // ==UserScript==
 // ...
-// @require      https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js
+// @require      https://code.jquery.com/jquery-3.4.1.min.js
 // ...
 // ==/UserScript==
 
@@ -102,6 +101,8 @@ Vue不提供noConflict的导入方式，所以一旦你导入和站点不一致�
 所以在油猴插件中使用Vue需要做足够的调研。你可以参考我的这个例子同时使用jQuery和Vue来开发油猴插件。
 
 - https://github.com/tobyqin/tampermonkey_vue
+
+![tampermonkey-vue](images/tampermonkey-vue.png)
 
 ## 本地部署
 
@@ -128,7 +129,7 @@ serve -l 5000
 
 ### python http.server
 
-如果你本机安装了Python，也可以直接托管一个目录。
+如果你本机安装了Python，也可以直接托管一个文件目录。
 
 ```
 cd /path/to/project
