@@ -11,7 +11,7 @@ date: 2020-01-30
 
 `du` 是Linux和MacOSX都自带命令行工具，全称是 Disk Usage，这样就好记了。配合两个参数就可以搞定大多数问题。
 
-```
+```shell
 -s      Display an entry for each specified file.  (Equivalent to -d 0)
 -h      "Human-readable" output. 
 ```
@@ -60,7 +60,7 @@ date: 2020-01-30
 
 `du` 还可以很方便检查当前目录占用空间。
 
-```
+```sh
 [root@2017127313 ~]# du -sh
 603M    .
 ```
@@ -69,8 +69,8 @@ date: 2020-01-30
 
 `find` 是非常强大的命令，可以按文件属性进行搜索，比如检索大于10M的文件。
 
-```
-[root@50KVM-2017127313 ~]# find . -type f -size +10M
+```sh
+[root@50KVM-2017127313 ~]# find . -size +10M
 ./blog/.git/objects/pack/pack-fab187cef1cd08d186624f1e5e97e3131b20abc0.pack
 ./docs/.git/objects/3f/3385a6b098631a8426a720dcd56a9ed7da4183
 ./docs/PPT/Demo.pptx
@@ -78,13 +78,13 @@ date: 2020-01-30
 
 如上命令是把文件名打印出来了，但文件的细节还是不清楚，这时候你需要加上更多参数。
 
-```
-find . -type f -size +10M  -print0 | xargs -0 ls -l
+```sh
+find / -size +500M -exec du -h {} \; 2>/dev/null
 ```
 
 如果还要排序，再加个管道。
 
-```
+```sh
 find . -type f -size +100M  -print0 | xargs -0 du -h | sort -nr
 ```
 
@@ -124,7 +124,7 @@ tmpfs           29942     2  29940    1% /run/user/0
 
 文章的最后再送个 `free` 命令吧，这个跟文件系统有一丢丢关系，这个命令是用来显示内存的。
 
-```
+```sh
 [root@2017127313 ~]# free -h
               total        used        free      shared  buff/cache   available
 Mem:           233M         58M         28M          9M        147M        142M
@@ -135,4 +135,4 @@ Swap:          511M         21M        490M
 
 一般Linux都会配置虚拟内存，也就是用swap分区。很早以前内存还是很宝贵的，所以聪明的人类就划分了一部分硬盘来充当二级内存，纵然速度慢点，但是容量更大了能处理的东西就更多了。
 
-`free` 里可以看到swap占用情况，但不能清理或者调整。
+`free` 里可以查看swap占用情况，但不能清理或者调整它的大小。
