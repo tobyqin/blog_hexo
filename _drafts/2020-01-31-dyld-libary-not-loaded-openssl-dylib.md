@@ -1,5 +1,5 @@
 ---
-title: dyld: Library not loaded: /usr/local/opt/openssl@1.1/lib/libcrypto.1.1.dylib
+title: "Library not loaded: /usr/local/opt/openssl@1.1/lib/libcrypto.1.1.dylib"
 categories: [Tech]
 tags: [openssl,ssh,git]
 date: 2020-01-31
