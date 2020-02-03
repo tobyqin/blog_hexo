@@ -1,9 +1,11 @@
 ---
-title: 在 Linux 管理 Swap 文件
+title: Linux 添加和删除 Swap 文件
 categories: [Reprint]
 tags: [linux,swap]
 date: 2020-02-03
 ---
+Linux内核为了提高读写效率与速度，会将文件在内存中进行缓存，Swap 是通过磁盘文件的形式给系统增加虚拟内存的解决方案。所以Swap速度肯定比真实内存慢，但是可以让系统可以处理超过自身内存瓶颈的任务。默认情况下，系统会用完物理内存后才用虚拟内存。
+
 ## 检查 Swap
 
 先检查一下系统里有没有存在的 Swap 文件，如果返回的信息概要是空的，则表示 Swap 文件不存在。
@@ -72,6 +74,19 @@ swapon /swapfile
 
 当下一次系统启动时，新的swap文件就打开了。
 
+在 Linux 系统中，可以通过查看 `/proc/sys/vm/swappiness` 内容的值来确定系统对 Swap 分区的使用原则。当 `swappiness` 内容的值为 0 时，表示最大限度地使用物理内存，物理内存使用完毕后，才会使用 Swap 分区。当 `swappiness` 内容的值为 100 时，表示积极地使用 Swap 分区，并且把内存中的数据及时地置换到 Swap 分区。 默认值为 0，表示需要在物理内存使用完毕后才会使用 Swap 分区。
+
+```bash
+ ## 查看默认的swappiness参数 
+ cat  /proc/sys/vm/swappiness 
+ ## 临时修改 
+ sysctl -w  vm.swappiness=10 
+ ## 永久修改 
+ vi + /etc/sysctl.conf 
+ # 添加 vm.swappiness=10 
+ ## 让配置生效  sysctl -p 
+```
+
 ## 删除 Swap
 
 先卸载Swap分区，后从fastab中删除，最后删除文件。
@@ -84,5 +99,6 @@ rm -rf /swapfile
 ## 参考链接
 
 - https://blog.csdn.net/wangjunjun2008/article/details/50681115
+- https://www.cnblogs.com/operationhome/p/10571166.html
 
 
