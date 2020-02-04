@@ -1,6 +1,6 @@
 ---
 title: Linux 添加和删除 Swap 文件
-categories: [Reprint]
+categories: [Tech]
 tags: [linux,swap]
 date: 2020-02-03
 ---
