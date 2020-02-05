@@ -27,6 +27,8 @@ docker run --name seafile \
 
 注意，`SEAFILE_SERVER_HOSTNAME` 一定要配置正确，不然上传文件会报网络错误，如果是本地测试可以配置成 127.0.0.1，默认的用户名密码如果没配的话，就是`me@example.com`，`asecret`。
 
+如果一定要用7.x，可以尝试用[非官方封装的docker镜像](https://hub.docker.com/r/tinysnake/seafile)。
+
 部署成功后就可以登录了，界面如下。
 
 ![seafile-example](images/seafile-example.png)
