@@ -35,6 +35,8 @@ docker run --name seafile \
 
 Seafile可以映射本地目录，不过不会映射本地文件列表。也就是说，你不能直接操作本地文件然后在网页上体现，反之亦然。它映射的本地目录是按它的系统结构存储的数据，所以不是很方便，一定要映射本地某个目录的话就需要安装客户端了。
 
+Seafile还提供了[公有云的免费版和团队版](https://cloud.seafile.com/)，2个G的容量随便用用还不错，不用自己部署和维护。
+
 ## filebrowser
 
 这是一个挺简洁的文件管理器，不过项目在[Github](https://github.com/filebrowser/filebrowser)已经不维护了，挺可惜的，不过不影响使用。
