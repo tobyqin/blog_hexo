@@ -1,7 +1,7 @@
 ---
 title: 秦浪传
 categories: [Thoughts]
-tags: []
+tags: [daily]
 date: 2019-06-02
 ---
 程浪，程家人，生性浪荡。
