@@ -30,39 +30,39 @@ N1买了又一段时间了，最开始卖家刷的是yyf电视系统，用的不
 
 刷机图如上，打开USB Image Tool，选择你的U盘，点击Restore后选择镜像，等待结束即可。
 
-刷USB的工具可以从这里下载：[N1工具库](https://cnone.lty.fun/home/工具库/N1)
+> USB Image Tool下载：[N1工具库](https://cnone.lty.fun/home/工具库/N1)
 
-另外，刷U盘镜像还有很多工具可以用，比如单文件版rufus，或者用Linux下的dd命令，MacOS应该也有功能类似的软件。如果觉得U盘空间太小，还可以用etcher把Armbian写到移动硬盘上。
+其实，刷U盘镜像还有很多工具可以用，比如单文件版`rufus`，或者用Linux下的`dd`命令，MacOSX应该也有功能类似的软件。如果觉得U盘空间太小，还可以用`etcher`把Armbian写到移动硬盘上。
 
-Armbian镜像从网盘下载：<https://pan.baidu.com/s/1-7AmPhRkP1LKtqb6X7s9IA> 提取码: sjp9 
+> Armbian镜像网盘下载：<https://pan.baidu.com/s/1-7AmPhRkP1LKtqb6X7s9IA> 提取码: sjp9 
 
 **修改dtb**
 
-这一步一般是必要的，但看情况。dtb文件可以理解成驱动文件，Armbian默认会用一套驱动文件，但不一定完全适配你的N1。所有论坛上就有大神对N1的dtb进行了优化，你只需要下载他们的dtb并且让系统去使用这套dtb即可。
+这一步一般是必要的，但看情况。`dtb`文件可以理解成驱动文件，Armbian默认会有一套驱动文件，但不完全适配N1，导致硬件不正常或者负载过高。所以论坛上就有大神对N1的`dtb`进行了优化，你只需要下载并加载他们的`dtb`即可。
 
 大致方法如下：
 
-1. U盘烧录镜像完毕后，会有Boot分区允许访问。
-2. 将下载好的dtb放入到U盘的dtb目录。
-3. 在Boot分区里有一个nEnv.ini文件，里面写了使用哪个dtb
-4. 修改nEnv.ini指向你的dtb文件。
+1. U盘烧录镜像完毕后，Boot分区（U盘的根目录）允许访问。
+2. 将下载好的`dtb`放入到U盘的`dtb`目录。
+3. U盘根目录有一个`nEnv.ini`文件，里面写了使用哪个`dtb`
+4. 修改`nEnv.ini`指向刚才拷贝进来的`dtb`。
 
 ![uEnv.ini](images/2020-02/2019-01-23_14-57-02.jpg)
 
-5.77 的dtb可以用恩山论坛大神提供的，据说稳定性不错，有待我来考证：
+Armbian 5.77 的`dtb`可以用恩山论坛大神提供的，据说稳定性不错：
 
 - <https://www.right.com.cn/forum/thread-510423-1-1.html>
 
-修改后的eEnv.ini长这样，注意看第一行。
+修改后的`eEnv.ini`长这样，注意看第一行。
 
 ```
 dtb_name=/dtb/meson-gxl-s905d-phicomm-n1-xiangsm.dtb
 bootargs=root=LABEL=ROOTFS rootflags=data=writeback rw console=ttyAML0,115200n8 console=tty0 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0
 ```
 
-如果你下载的镜像作者已经说了不需要改dtb和nEnv.ini，那么这一步就不需要做了。驱动不正确的后果就是某些硬件工作不正常，所以还是需要谨慎对待。
+如果你下载的镜像作者已经说了不需要改`dtb`和`nEnv.ini`，那么这一步就不需要做了。驱动不正确的后果就是某些硬件工作不正常，所以还是需要谨慎对待。
 
-另外uEnv.ini文件**不能用Windows记事本编辑**，因为它的换行符在Linux下也会识别错误，需要用Notepad++或者VsCode等软件来处理。
+另外`uEnv.ini`文件**不能用Windows记事本编辑**，因为它的换行符在Linux下也会识别错误，需要用Notepad++或者VsCode等软件来处理。
 
 到此为止，你的U盘准备好了。刷其他系统的思路大致是一样的，搞定U盘就搞定了大半。
 
@@ -80,7 +80,7 @@ bootargs=root=LABEL=ROOTFS rootflags=data=writeback rw console=ttyAML0,115200n8 
 adb connect <N1的IP，从路由器看>
 adb shell reboot update
 ```
-命令敲完，N1黑屏后就可以拔掉电源，然后把U盘插到靠近HDMI的USB口，再接上电源就可以进入Armbian系统。用`root`和密码`1234`就可以进入系统。
+命令敲完，N1黑屏后就可以拔掉电源，然后把U盘插到靠近HDMI的USB口，再接上电源就可以进入Armbian系统。用`root`和密码`1234`登录。
 
 ```
  ____  ___   ___  ____
