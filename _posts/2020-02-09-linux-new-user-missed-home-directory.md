@@ -40,7 +40,7 @@ useradd -m user2 # 会创建home目录，没有回显
 useradd -m user1 # 不会补充创建home目录，回显报错
 useradd: user 'user1' already exists
 
-# 可以通过复制home模板补救，模板在/etc/skel
+# 可以通过复制home模板补救，模板在/etc/skel，有时候也被叫做骨架目录
 cp /etc/skel/ /home/user1 -a
 chmod 700 /home/user1  #只有owner拥有所有所有权限
 chown user1:user1 /home/user1 -R # owner改成user1
@@ -57,7 +57,7 @@ userdel user2 # 保留home目录
 
 ```
 
-`adduser`和`deluser`的尝试：
+当然，如果误删除了用户的home目录可以可以用上面的方法来修复。关于`adduser`和`deluser`的尝试：
 
 ```shell
 root@aml:~# adduser user3
