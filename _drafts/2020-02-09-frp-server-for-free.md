@@ -1,7 +1,7 @@
 ---
 title: 免费的FRP服务器
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [frp, tips]
 date: 2020-02-09
 ---
 目前网上还是能找到免费的FRP服务器的，可以通过搜索引擎试试。

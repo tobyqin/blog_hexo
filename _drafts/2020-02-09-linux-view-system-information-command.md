@@ -1,7 +1,7 @@
 ---
 title: Linux查看系统信息的命令
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [Linux, shell]
 date: 2020-02-09
 ---
 ## 查看系统版本
