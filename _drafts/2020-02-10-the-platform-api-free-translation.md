@@ -1,7 +1,7 @@
 ---
 title: 各平台免费翻译API
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [free, api]
 date: 2020-02-10
 ---
 ## Google

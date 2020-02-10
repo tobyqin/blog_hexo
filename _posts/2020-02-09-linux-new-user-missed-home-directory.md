@@ -1,6 +1,6 @@
 ---
 title: Linux新建用户没有用户目录
-categories: [Thoughts]
+categories: [Tech]
 tags: [Linux,shell]
 date: 2020-02-09
 ---
