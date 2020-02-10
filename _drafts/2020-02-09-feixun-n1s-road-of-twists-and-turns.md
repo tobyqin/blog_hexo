@@ -340,11 +340,79 @@ docker update --restart=always portainer
 
 注意，Armbian下的软件都是Arm架构的，包括Docker镜像，所以在安装前需要甄别一下。
 
+### 安装LAMP
+
+LNMP是Linux+Nginx+MySQL+PHP组合缩写，可以认为是Linux Web服务器的黄金套件。
+
+- 官网：https://lnmp.org/
+
+```sh
+root@aml:~/lnmp1.6# wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz && tar zxf lnmp1.6.tar.gz && cd lnmp1.6 && ./install.sh lnmp
+...
+============================== Check install ==============================
+Checking ...
+Nginx: OK
+MySQL: OK
+PHP: OK
+PHP-FPM: OK
+Clean Web Server src directory...
++------------------------------------------------------------------------+
+|          LNMP V1.6 for Debian Linux Server, Written by Licess          |
++------------------------------------------------------------------------+
+|           For more information please visit https://lnmp.org           |
++------------------------------------------------------------------------+
+|    lnmp status manage: lnmp {start|stop|reload|restart|kill|status}    |
++------------------------------------------------------------------------+
+|  phpMyAdmin: http://IP/phpmyadmin/                                     |
+|  phpinfo: http://IP/phpinfo.php                                        |
+|  Prober:  http://IP/p.php                                              |
++------------------------------------------------------------------------+
+|  Add VirtualHost: lnmp vhost add                                       |
++------------------------------------------------------------------------+
+|  Default directory: /home/wwwroot/default                              |
++------------------------------------------------------------------------+
+
++-------------------------------------------+
+|    Manager for LNMP, Written by Licess    |
++-------------------------------------------+
+|              https://lnmp.org             |
++-------------------------------------------+
+nginx (pid 1340) is running...
+php-fpm is runing!
+● mysql.service - LSB: start and stop MySQL
+   Loaded: loaded (/etc/init.d/mysql; generated; vendor preset: enabled)
+   Active: active (running) since Sun 2020-02-09 22:58:55 CST; 3s ago
+     Docs: man:systemd-sysv-generator(8)
+      CPU: 16ms
+   CGroup: /system.slice/mysql.service
+           ├─1380 /bin/sh /usr/local/mysql/bin/mysqld_safe --datadir=/usr/local/mysql/var --pid-file=/usr/local/mysql/var/aml.pid
+           └─1880 /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/var --plugin-dir=/usr/local/mysql/lib/plugin --user=mysql --log-error=aml.err --open-files-limit=65535 --pid-file=/usr/local/mysql/var/aml.pid --socket=/tmp/mysql.sock --port=3306
+           
+Feb 09 22:58:36 aml systemd[1]: Starting LSB: start and stop MySQL...
+Feb 09 22:58:37 aml mysql[1367]: Starting MySQL
+Feb 09 22:58:55 aml mysql[1367]: ...................
+Feb 09 22:58:55 aml systemd[1]: Started LSB: start and stop MySQL.
+State      Recv-Q Send-Q Local Address:Port               Peer Address:Port              
+LISTEN     0      50           *:3306                     *:*                  
+LISTEN     0      128          *:80                       *:*                  
+LISTEN     0      128          *:80                       *:*                  
+LISTEN     0      128          *:80                       *:*                  
+LISTEN     0      128          *:80                       *:*                  
+LISTEN     0      128          *:22                       *:*                  
+LISTEN     0      128         :::9090                    :::*                  
+LISTEN     0      128         :::9000                    :::*                  
+LISTEN     0      128         :::22                      :::*                  
+Install lnmp takes 180 minutes.
+Install lnmp V1.6 completed! enjoy it.
+```
+
+可能N1性能和LNMP期望值不一样，安装花了3个小时。
+
 ### 内网穿透
 
-如果想从外网访问你的N1服务器，就需要使用内网穿透技术了，之前我有写过[反向代理和内网穿透](/posts/2019-02-22/reverse-proxy-and-intranet-through/)，换汤不换药，我们需要frp：
+如果想从外网访问你的N1服务器，就需要使用内网穿透技术了，之前我有写过[反向代理和内网穿透](/posts/2019-02-22/reverse-proxy-and-intranet-through/)，换汤不换药，我们需要frp。
 
-- https://github.com/fatedier/frp
+- 官网：https://github.com/fatedier/frp
 
 大致思路：
 

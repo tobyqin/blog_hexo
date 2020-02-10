@@ -15,6 +15,7 @@ current_dir = dirname(dirname(__file__))
 raw_dir = abspath(join(current_dir, '_raw'))
 mobile_dir = abspath(join(current_dir, '_mobile'))
 draft_dir = abspath(join(current_dir, '_drafts'))
+default_translator = 'youdao'
 
 
 class Post(object):
@@ -45,10 +46,37 @@ def create_post_content(post):
     return content.replace('$content---', ''.join(post.content))
 
 
-def translate(txt, from_lang='auto', to_lang='en'):
+def youdao(txt):
     """
-    https://fanyi-api.baidu.com/api/trans/product/apidoc
+    http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i=测试
+    type的类型有：
+        ZH_CN2EN 中文　»　英语
+        ZH_CN2JA 中文　»　日语
+        ZH_CN2KR 中文　»　韩语
+        ZH_CN2FR 中文　»　法语
+        ZH_CN2RU 中文　»　俄语
+        ZH_CN2SP 中文　»　西语
+        EN2ZH_CN 英语　»　中文
+        JA2ZH_CN 日语　»　中文
+        KR2ZH_CN 韩语　»　中文
+        FR2ZH_CN 法语　»　中文
+        RU2ZH_CN 俄语　»　中文
+        SP2ZH_CN 西语　»　中文
     """
+    base = 'http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&'
+    target = base + urllib.parse.urlencode({'i': txt})
+    response = urllib.request.urlopen(target).read().decode('utf-8')
+    return json.loads(response)['translateResult'][0][0]['tgt']
+
+
+def test_youdao():
+    print(youdao('你好'))
+
+
+def baidu(txt, from_lang='auto', to_lang='en'):
+    """
+        https://fanyi-api.baidu.com/api/trans/product/apidoc
+        """
 
     salt = random.randint(32768, 65536)
     sign = app_id + txt + str(salt) + sec_key
@@ -58,6 +86,21 @@ def translate(txt, from_lang='auto', to_lang='en'):
 
     response = urllib.request.urlopen(target).read().decode('utf-8')
     return json.loads(response)['trans_result'][0]['dst']
+
+
+def test_baidu():
+    print(baidu('你好'))
+
+
+def translate(txt, from_lang='auto', to_lang='en'):
+    """
+    https://fanyi-api.baidu.com/api/trans/product/apidoc
+    """
+
+    if default_translator == 'youdao':
+        return youdao(txt)
+    elif default_translator == 'baidu':
+        return baidu(txt, from_lang, to_lang)
 
 
 def test_translate():
