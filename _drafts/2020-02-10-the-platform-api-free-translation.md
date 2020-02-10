@@ -7,6 +7,8 @@ date: 2020-02-10
 ## Google
 
 > http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=zh_CN&q=hello
+>
+> http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=en_US&q=你好
 
 ```javascript
 {
@@ -36,6 +38,8 @@ date: 2020-02-10
 
 ## BING必应
 
+> http://api.microsofttranslator.com/v2/Http.svc/Translate?appId=AFC76A66CF4F434ED080D245C30CF1E71C22959C&from=&to=zh&text=hello
+>
 > http://api.microsofttranslator.com/v2/Http.svc/Translate?appId=AFC76A66CF4F434ED080D245C30CF1E71C22959C&from=&to=en&text=你好
 
 ```html
@@ -44,6 +48,8 @@ date: 2020-02-10
 
 ## Youdao有道
 
+> http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i=hello
+>
 > http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i=你好
 
 ```javascript
