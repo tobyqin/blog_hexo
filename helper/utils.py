@@ -101,7 +101,7 @@ def google(txt):
     return json.loads(response)['sentences'][0]['trans']
 
 def test_google():
-    print(google('你好'))
+    print(google('Linux中的任务管理器'))
 
 def translate(txt, from_lang='auto', to_lang='en'):
     """
