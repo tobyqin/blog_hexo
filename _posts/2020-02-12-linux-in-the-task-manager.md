@@ -1,7 +1,7 @@
 ---
 title: Linux中的任务管理器
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [Linux,top]
 date: 2020-02-12
 ---
 ## top

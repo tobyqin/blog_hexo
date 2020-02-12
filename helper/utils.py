@@ -15,7 +15,7 @@ current_dir = dirname(dirname(__file__))
 raw_dir = abspath(join(current_dir, '_raw'))
 mobile_dir = abspath(join(current_dir, '_mobile'))
 draft_dir = abspath(join(current_dir, '_drafts'))
-default_translator = 'youdao'
+default_translator = 'google'
 
 
 class Post(object):
@@ -63,7 +63,7 @@ def youdao(txt):
         RU2ZH_CN 俄语　»　中文
         SP2ZH_CN 西语　»　中文
     """
-    base = 'http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&'
+    base = 'https://fanyi.youdao.com/translate?&doctype=json&type=AUTO&'
     target = base + urllib.parse.urlencode({'i': txt})
     response = urllib.request.urlopen(target).read().decode('utf-8')
     return json.loads(response)['translateResult'][0][0]['tgt']
@@ -91,6 +91,17 @@ def baidu(txt, from_lang='auto', to_lang='en'):
 def test_baidu():
     print(baidu('你好'))
 
+def google(txt):
+    """
+    http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=en_US&q=你好
+    """
+    base = 'https://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=en_US&&'
+    target = base + urllib.parse.urlencode({'q': txt})
+    response = urllib.request.urlopen(target).read().decode('utf-8')
+    return json.loads(response)['sentences'][0]['trans']
+
+def test_google():
+    print(google('你好'))
 
 def translate(txt, from_lang='auto', to_lang='en'):
     """
