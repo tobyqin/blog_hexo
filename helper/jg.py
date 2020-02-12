@@ -19,7 +19,6 @@ import pathlib
 import urllib.parse
 from os.path import join
 
-from webdavfs.webdavfs import WebDAVFS
 
 import helper.mobile
 from helper.utils import draft_dir, mobile_dir
@@ -41,7 +40,8 @@ def get_options(root=NEW_DIR):
 
 
 def get_fs(options):
-    return WebDAVFS(**options)
+	from webdavfs.webdavfs import WebDAVFS
+	return WebDAVFS(**options)
 
 
 def urlparse(string):
