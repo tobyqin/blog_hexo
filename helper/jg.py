@@ -40,8 +40,8 @@ def get_options(root=NEW_DIR):
 
 
 def get_fs(options):
-	from webdavfs.webdavfs import WebDAVFS
-	return WebDAVFS(**options)
+    from webdavfs.webdavfs import WebDAVFS
+    return WebDAVFS(**options)
 
 
 def urlparse(string):
