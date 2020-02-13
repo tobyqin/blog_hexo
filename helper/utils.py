@@ -73,10 +73,12 @@ def test_youdao():
     print(youdao('你好'))
 
 
-def baidu(txt, from_lang='auto', to_lang='en'):
+def baidu(txt, **kwargs):
     """
         https://fanyi-api.baidu.com/api/trans/product/apidoc
-        """
+    """
+    from_lang = kwargs.get('from_lang', 'auto')
+    to_lang = kwargs.get('to_lang', 'en')
 
     salt = random.randint(32768, 65536)
     sign = app_id + txt + str(salt) + sec_key
