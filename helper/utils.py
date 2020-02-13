@@ -46,7 +46,7 @@ def create_post_content(post):
     return content.replace('$content---', ''.join(post.content))
 
 
-def youdao(txt):
+def youdao(txt, **kwargs):
     """
     http://fanyi.youdao.com/translate?&doctype=json&type=AUTO&i=测试
     type的类型有：
@@ -91,7 +91,8 @@ def baidu(txt, from_lang='auto', to_lang='en'):
 def test_baidu():
     print(baidu('你好'))
 
-def google(txt):
+
+def google(txt, **kwargs):
     """
     http://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=en_US&q=你好
     """
@@ -100,18 +101,16 @@ def google(txt):
     response = urllib.request.urlopen(target).read().decode('utf-8')
     return json.loads(response)['sentences'][0]['trans']
 
+
 def test_google():
     print(google('Linux中的任务管理器'))
+
 
 def translate(txt, from_lang='auto', to_lang='en'):
     """
     https://fanyi-api.baidu.com/api/trans/product/apidoc
     """
-
-    if default_translator == 'youdao':
-        return youdao(txt)
-    elif default_translator == 'baidu':
-        return baidu(txt, from_lang, to_lang)
+    return globals()[default_translator](txt, from_lang=from_lang, to_lang=to_lang)
 
 
 def test_translate():
