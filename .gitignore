@@ -13,5 +13,5 @@ source/_posts/
 yulib.*
 commit.json
 __py*/
-package-lock.json
+#package-lock.json
 .theia/
