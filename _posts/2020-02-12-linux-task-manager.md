@@ -4,9 +4,12 @@ categories: [Tech]
 tags: [Linux,top]
 date: 2020-02-12
 ---
-## top
 
 在Linux中有一个命令叫`top`，作用和Windows下的任务管理器差不多。
+
+<!-- more -->
+
+## top
 
 ```
 top - 15:43:06 up 3 days, 17:46,  1 user,  load average: 0.00, 0.00, 0.00

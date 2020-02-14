@@ -4,6 +4,11 @@ categories: [Tech]
 tags: [Linux, shell]
 date: 2020-02-09
 ---
+
+查看Linux系统信息的一些技巧。
+
+<!-- more -->
+
 ## 查看系统版本
 
 ```sh

@@ -1,3 +1,13 @@
+---
+title: Hexo博客升级记录
+categories: [Thoughts]
+tags: []
+date: 2020-02-14
+---
+抽了半天时间升级一下博客程序。
+
+<!-- more -->
+
 ## 升级 nodejs 版本
 
 用brew可以升级最新的node，用新不用旧。
@@ -31,7 +41,7 @@ $ ncu -g
  nrm                1.1.0  →   1.2.1
 ```
 
-可以选择性更新。
+可以选择性更新，比如：
 
 ```sh
 npm -g install npm@6.13.7 nrm@1.2.1
@@ -61,7 +71,7 @@ Checking /Users/tobyqin/src/blog/package.json
  Run ncu -u to upgrade package.json
 ```
 
-告诉你了，用 -u的参数就可以完成更新。
+告诉你了，用 `-u` 参数就可以完成更新。
 
 ```sh
 $ ncu -u
@@ -121,7 +131,7 @@ hexo s
 
 ## 升级主题版本
 
-因为我对主题做了一些小修改，所以克隆最新的主题到另外的目录。
+克隆最新的主题到另外的目录。
 
 ```
 git clone https://github.com/theme-next/hexo-theme-next themes/next7
@@ -145,12 +155,29 @@ hexo clean && hexo g && hexo s
 
 ## 合并主题配置
 
-每次主题升级配置文件都不一定兼容，痛苦的合并过程，略。
+每次主题升级配置文件都不一定兼容，还好Next主题允许定义一个外部配置文件来覆盖默认的配置。
 
 ```
-# 旧主题
-/themes/hexo/_config.yml
-# 新主题
+# 外部主题配置
+/source/_data/next.yml
+# 默认主题配置
 /themes/hexo7/_config.yml
 ```
+
+新版加了很多主题配置，也删掉了部分配置，只能靠人肉对比了。
+
+## 改进主题样式
+
+纵然配置改完了，升级后的Next还是不够完美，手动调优，主要修改：
+
+1. 导航菜单 - 改成黑底白字
+2. 博文间隔 - 80px
+3. 博文默认字体大小
+
+具体内容看这个commit。
+
+![image-20200214183013735](images/image-20200214183013735.png)
+
+
+
 

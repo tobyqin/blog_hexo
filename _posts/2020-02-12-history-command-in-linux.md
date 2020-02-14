@@ -6,6 +6,8 @@ date: 2020-02-12
 ---
 `history`是用来显示命令历史的命令。
 
+<!-- more -->
+
 ```
 root@aml:~# history 
     1  which git
