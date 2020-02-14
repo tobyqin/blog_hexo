@@ -233,7 +233,6 @@ NexT.utils = {
     });
 
     var tocElement = document.querySelector('.post-toc-wrap');
-
     function activateNavByIndex(target) {
       if (target.classList.contains('active-current')) return;
 
@@ -291,7 +290,6 @@ NexT.utils = {
         element && intersectionObserver.observe(element);
       });
     }
-
     createIntersectionObserver(document.documentElement.scrollHeight);
   },
 
