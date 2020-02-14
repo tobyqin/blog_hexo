@@ -18,8 +18,14 @@
   }
 }
 
+li.menu-item.menu-item-active > a {
+  background: $brand-hover-color;
+  color: $headband-bg;
+}
+
 .menu-item-active a {
-  background: $gray-lighter;
+  background: $brand-hover-color;
+  color: $headband-bg;
 }
 
 .menu {
@@ -42,6 +48,7 @@
       border-radius: 2px;
       padding: 0 10px;
       transition-property: background;
+      color: $brand-color;
 
       +mobile() {
         text-align: left;
@@ -55,7 +62,7 @@
     .badge {
       background: white;
       border-radius: 10px;
-      color: $black-light;
+      color: $brand-color;
       padding: 1px 4px;
       text-shadow: 1px 1px 0 rgba(0, 0, 0, .1);
     }
