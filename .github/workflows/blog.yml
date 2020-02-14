@@ -30,15 +30,20 @@ jobs:
         echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
-        
+
         # set git infomation
         git config --global user.name 'Toby@Github' # 换成你自己的邮箱和名字
         git config --global user.email 'toby.qin@live.com'
-        
+
+        echo Node： `node -v`
+        echo npm： `npm -v`
+        echo python: `python -V`
+        echo pip: `pip -V`
+
         # prepare blog
         pip install -r requirements.txt
         python blog.py prepare
-        
+
         # install dependencies
         npm install -g hexo-cli
         npm install
