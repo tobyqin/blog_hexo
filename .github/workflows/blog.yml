@@ -53,6 +53,6 @@ jobs:
     - name: Deploy
       run: |
         # publish my blog
-        hexo clean
-        hexo generate
-        hexo deploy
+        yarn run hexo clean
+        yarn run hexo generate
+        yarn run hexo deploy
