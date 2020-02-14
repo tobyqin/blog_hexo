@@ -32,7 +32,7 @@ python blog.py
 
 在没有Python和Node的情况下，也是可以发布的，只要新建一个markdown丢到 `_mobile_`目录即可，标签和分类可以以后再到`_posts`改。对了，这个目录我和坚果云同步了，所以手机上也是可以直接写博的。
 
-[![Build Status](https://travis-ci.org/tobyqin/blog.svg?branch=master)](https://travis-ci.org/tobyqin/blog)
+![Deploy Blog](https://github.com/tobyqin/blog/workflows/Deploy%20Blog/badge.svg)
 
 欢迎访问我的博客：https://betacat.online (Backup: https://tobyqin.github.io)
 
