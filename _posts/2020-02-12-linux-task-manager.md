@@ -4,7 +4,6 @@ categories: [Tech]
 tags: [Linux,top]
 date: 2020-02-12
 ---
-
 在Linux中有一个命令叫`top`，作用和Windows下的任务管理器差不多。
 
 <!-- more -->
