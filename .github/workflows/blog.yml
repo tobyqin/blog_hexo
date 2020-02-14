@@ -47,7 +47,7 @@ jobs:
         python blog.py prepare
 
         # install dependencies
-        yarn install -g hexo-cli
+        yarn global add hexo-cli
         yarn install
   
     - name: Deploy
