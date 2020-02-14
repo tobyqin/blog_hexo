@@ -18,7 +18,7 @@ jobs:
     - name: Use Node.js 13.x
       uses: actions/setup-node@v1
       with:
-        node-version: "13.x"
+        node-version: "12.x"
     
     - name: Setup
       env:
