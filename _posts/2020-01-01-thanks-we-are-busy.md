@@ -1,7 +1,7 @@
 ---
 title: 谢谢，我们很忙
 categories: [Life]
-tags: [comics,geek]
+tags: [comics,geek,tips,devops]
 date: 2020-01-01
 ---
 

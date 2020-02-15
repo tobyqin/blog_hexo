@@ -1,7 +1,7 @@
 ---
 title: Hexo博客升级记录
-categories: [Thoughts]
-tags: []
+categories: [Life]
+tags: [blog, hexo, cloudflare, next]
 date: 2020-02-14
 ---
 抽了半天时间升级一下博客程序。
@@ -195,5 +195,16 @@ hexo clean && hexo g && hexo s
 
 是不是我改坏了？试着把原版的Next7主题恢复再部署一次，还是白屏。又查了2小时，放弃吧。
 
-我先回滚了，太费时间。
+我先回滚了，太费时间。回滚到旧版，显示正常。
 
+## 解决问题，还是Cloudflare
+
+最后突然想到是不是主题本身有问题？去到Github的Issue里找了一圈，果然：
+
+- [在同时开启CloudFlare的Rocket Loader和PJAX后，页面异常](https://github.com/theme-next/hexo-theme-next/issues/1147)
+
+解决问题的方法：
+
+1. 登录Cloudflare，选中网站
+2. Speed功能块，Optimization里找到Rocket Loader
+3. 关闭后等2分钟，刷新页面，正常了。

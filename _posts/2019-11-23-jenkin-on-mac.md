@@ -1,7 +1,7 @@
 ---
 title: 在Mac上部署Jenkins
 categories: [Tech]
-tags: [jenkins]
+tags: [jenkins,cicd,devops]
 date: 2019-11-23
 ---
 

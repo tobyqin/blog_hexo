@@ -1,7 +1,7 @@
 ---
 title: 社会人口头禅
 categories: [Thoughts]
-tags: [joke]
+tags: [joke,fun]
 date: 2019-05-20
 ---
 大过节的、多大点事、都是亲戚、别太计较；

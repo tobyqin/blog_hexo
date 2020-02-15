@@ -1,7 +1,7 @@
 ---
 title: 在 MacOSX 上 准备 Jekyllrb 环境的坑
 categories: [Tech]
-tags: [jekyllrb,ruby,bundler]
+tags: [jekyllrb,ruby,bundler,blog]
 date: 2019-04-28
 ---
 

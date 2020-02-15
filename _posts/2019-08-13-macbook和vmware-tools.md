@@ -1,7 +1,7 @@
 ---
 title: MacBook和Vmware Tools
 categories: [Thoughts]
-tags: []
+tags: [MacOSX,VMWare]
 date: 2019-08-13
 ---
 Vmware tool 就是个坑，特别是在Mac电脑上。
