@@ -40,19 +40,21 @@ jobs:
         echo python: `python -V`
         echo pip: `pip -V`
 
-        npm install -g yarn
+        #npm install -g yarn
 
         # prepare blog
         pip install -r requirements.txt
         python blog.py prepare
 
         # install dependencies
-        yarn global add hexo-cli
-        yarn install
+        #yarn global add hexo-cli
+        #yarn install
+        npm install -g hexo-cli
+        npm install
   
     - name: Deploy
       run: |
         # publish my blog
-        yarn run hexo clean
-        yarn run hexo generate
-        yarn run hexo deploy
+        #yarn run hexo generate
+        #yarn run hexo deploy
+        hexo g && hexo d
