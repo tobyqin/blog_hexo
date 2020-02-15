@@ -5,6 +5,10 @@ tags: [book]
 date: 2019-02-09
 ---
 
+一月书单备忘。
+
+<!-- more -->
+
 ##《凤凰项目，一个IT运维的传奇故事》
 
 **作者：Gene Kim，Kevin Behr，George Spafford，软件工程**

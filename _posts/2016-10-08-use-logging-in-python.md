@@ -4,7 +4,11 @@ date: 2016-10-08 20:57:43
 tags: [python,logging]
 categories: Tech
 ---
-最近修改了项目里的logging相关功能，用到了python标准库里的logging模块，在此做一些记录。主要是从官方文档和stackoverflow上查询到的一些内容。
+最近修改了项目里的logging相关功能，用到了python标准库里的logging模块，在此做一些记录。
+
+<!-- more -->
+
+主要是从官方文档和stackoverflow上查询到的一些内容。
 
 - [官方文档](https://docs.python.org/2.7/library/logging.html)
 - [技术博客](http://blog.csdn.net/balderfan/article/details/7644807)

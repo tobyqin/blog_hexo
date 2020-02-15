@@ -4,6 +4,10 @@ date: 2016-10-20
 tags: [python,software testing]
 categories: Tech
 ---
+Assertion is the basics of testing.
+
+<!-- more -->
+
 ### Why not using Python Assert
 
 Assertion in Python is pretty simple, you can assert any condition by `assert` statement.

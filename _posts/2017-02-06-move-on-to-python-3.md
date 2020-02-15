@@ -5,7 +5,11 @@ tags: [python,python 3]
 date: 2017-02-06
 ---
 
-Do we want to move on to Python 3? Well, what is your concerns? Here is a slide made by me probably can help you out.  *(Use the **left/right** arrow key to navigate **back/forward**.)*
+Do we want to move on to Python 3? 
+
+<!-- more -->
+
+Well, what is your concerns? Here is a slide made by me probably can help you out.  *(Use the **left/right** arrow key to navigate **back/forward**.)*
 
 ### Slides
 

@@ -5,6 +5,10 @@ tags: [python,regex]
 categories: Tech
 ---
 
+Tips of Python programming.
+
+<!-- more -->
+
 ### Basic find and replace
 
 Search and replace text in Python is simple, you can find a specific string with `find()` or `index()` method, it will return the index of first match occasion.

@@ -4,8 +4,6 @@ categories: [Tech]
 tags: [Linux,shell]
 date: 2020-02-09
 ---
-## [linux使用useradd创建的用户没有目录的解决办法](https://www.cnblogs.com/sogeisetsu/p/11401562.html)
-
 简而言之，用`adduser`而不是`useradd`，用`deluser`而不是`userdel`。
 
 <!-- more -->
@@ -94,4 +92,10 @@ Done.
 1. 查看 `/etc/passwd` 文件
 2. 使用`getent passwd` 命令
 3. 使用 `compgen -u` 命令
+
+**参考：**
+
+- [linux使用useradd创建的用户没有目录的解决办法](https://www.cnblogs.com/sogeisetsu/p/11401562.html)
+
+
 

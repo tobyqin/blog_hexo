@@ -9,6 +9,8 @@ categories: Tech
 
 如果你还有在校时的邮箱，比如`your_name@xxx.edu`或者`your_name@xxx.edu.cn`的邮箱，那么你可以免费激活JetBrains全家桶。
 
+<!-- more -->
+
 ### JetBrains Toolbox 专业开发工具 学生免费授权计划
 
 > 工欲善其事，必先利其器。无论是学习 Java，PHP，Ruby，Python，JavaScript，Objective-C，.NET 任何一种开发技术，国际知名且年年获奖的 JetBrains 专业开发工具都能有效帮助您。更棒的是：您可以完全免费使用！

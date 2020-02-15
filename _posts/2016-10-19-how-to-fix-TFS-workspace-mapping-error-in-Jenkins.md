@@ -4,6 +4,10 @@ date: 2016-10-19 14:29:04
 tags: [tips,tfs,jenkins]
 categories: Tech
 ---
+处理TFS的问题备忘。
+
+<!-- more -->
+
 ### 问题描述
 
 Once you had update in TFS workspace for Jenkin TFS plugin, you might get error like bellow:
@@ -46,7 +50,7 @@ Manually delete all the files in the TFS cache, they located at:
 
 - If there is a \4.0\Cache and \5.0\Cache existed, delete them all.
 
-  ​
+  
 
 你可以尝试通过以下步骤解决。
 

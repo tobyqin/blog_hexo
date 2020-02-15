@@ -6,7 +6,11 @@ date: 2017-04-01
 
 ---
 
-PyCharm 是很多 Python 开发者优先选择的 IDE，功能强大，跨平台，提供免费社区版，非常良心。如果你想自己给PyCharm添加一些功能怎么办呢？有两个办法：
+PyCharm 是很多 Python 开发者优先选择的 IDE，功能强大，跨平台，提供免费社区版，非常良心。如果你想自己给PyCharm添加一些功能怎么办呢？
+
+<!-- more --> 
+
+有两个办法：
 
 1. 通过提需求实现，到 JetBrains 的 [github](https://github.com/JetBrains/intellij-community/) 去提issue或者自己发Pull Request请他们merge。
 2. 通过安装插件实现，你可以查找现有的[插件仓库](https://plugins.jetbrains.com/)，或者，自己写一个。
@@ -31,7 +35,7 @@ PyCharm 是很多 Python 开发者优先选择的 IDE，功能强大，跨平台
 
 - （非必需）将[IntellJ IDEA Community Edition](https://github.com/JetBrains/intellij-community/) 的代码克隆到本地，方便调试
 
-  ​
+  
 
 如果你英文还可以，也可以阅读官方的帮助文档。
 

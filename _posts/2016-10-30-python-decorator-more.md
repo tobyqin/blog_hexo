@@ -7,6 +7,8 @@ date: 2016-10-30
 
 之前有比较系统介绍过Python的装饰器（请查阅《[详解Python装饰器](https://betacat.online/posts/2016-10-27/python-decorator/)》），本文算是一个补充。今天我们一起探讨一下装饰器的另类用法。
 
+<!-- more -->
+
 ## 语法回顾
 
 开始之前我们再将Python装饰器的语法回顾一下。

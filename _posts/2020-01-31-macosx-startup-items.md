@@ -5,9 +5,7 @@ tags: [macosx,startup]
 date: 2020-01-31
 ---
 
-
-
-MacOSX下的开机项有多乱。
+MacOSX下的开机项有多乱，需要整理一下。
 
 <!-- more -->
 

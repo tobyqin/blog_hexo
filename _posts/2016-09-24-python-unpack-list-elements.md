@@ -4,6 +4,10 @@ tags: [python,python list,tips]
 date: 2016-09-24 23:03:34
 categories: Tech
 ---
+Python 算法备忘。
+
+<!-- more -->
+
 ## 问题描述
 
 你需要将数组（list）或元组（tuple）中的一些元素导出到``N``个变量中。可能你并不希望通过遍历的方式。

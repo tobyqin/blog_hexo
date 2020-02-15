@@ -4,12 +4,17 @@ date: 2016-10-11 22:26:46
 tags: [python,python underscore,tips]
 categories: Tech
 ---
+下划线在Python中有很特别的意义。
+
+<!-- more -->
+
 ### 开门见山
 
 下划线在Python中有特殊的意义，简单来说，可以总结成两点。
 
-1. 单下划线一般用于声明私有成员。
-2. 双下划线一般被用于Python内置的特殊方法或者属性。
+1. 单下划线在前一般用于声明私有成员，比如 `_private_var`
+2. 单下划线在后一般用于命名已经被保留关键字占用的变量，比如 `class_`,`type_`
+3. 双下划线一般被用于Python内置的特殊方法或者属性，比如 `__name__`,`__file__`
 
 更多细节的讨论，可以看StackOverflow上的这个主题 http://stackoverflow.com/questions/1301346/the-meaning-of-a-single-and-a-double-underscore-before-an-object-name-in-python。
 

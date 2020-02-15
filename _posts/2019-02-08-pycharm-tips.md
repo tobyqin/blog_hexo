@@ -7,6 +7,8 @@ date: 2019-02-08
 
 PyCharm是笔者强烈推荐的Python IDE，如果你有EDU的邮箱可以直接[申请专业版授权](https://betacat.online/posts/2016-09-27/get-jetbrains-student-licence/)，或者就使用社区版，功能上并没有太多缩减，日常开发也完全够用。
 
+<!-- more -->
+
 如果是首次安装PyCharm，有一些设置项建议还是按照自己习惯修改掉，所谓磨刀不误砍柴工。
 
 ## 显示工具栏
