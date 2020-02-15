@@ -57,4 +57,4 @@ jobs:
         # publish my blog
         #yarn run hexo generate
         #yarn run hexo deploy
-        hexo g && hexo d
+        hexo clean && hexo deploy
