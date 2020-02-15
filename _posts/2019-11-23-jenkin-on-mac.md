@@ -5,6 +5,10 @@ tags: [jenkins]
 date: 2019-11-23
 ---
 
+Jenkins还是我最喜欢的CICD工具。
+
+<!-- more -->
+
 ## 安装 Jenkins
 
 官网目前推荐的方式是docker运行Jenkins，只需要一条命令就可以搞定。docker是很好用，不过也会有一些不方便的地方：

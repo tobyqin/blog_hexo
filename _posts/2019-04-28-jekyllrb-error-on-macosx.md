@@ -5,6 +5,10 @@ tags: [jekyllrb,ruby,bundler]
 date: 2019-04-28
 ---
 
+Jekyllrb还是有必要了解一下。
+
+<!-- more -->
+
 ## 错误信息
 
 弄了半天把Ruby和Gem环境弄好，运行 `bundle install` 后报错。

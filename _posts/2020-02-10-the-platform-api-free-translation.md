@@ -4,6 +4,10 @@ categories: [Tech]
 tags: [free, api]
 date: 2020-02-10
 ---
+收集一下，用的上。
+
+<!-- more -->
+
 ## Google
 
 > https://translate.google.cn/translate_a/single?client=gtx&dt=t&dj=1&ie=UTF-8&sl=auto&tl=zh_CN&q=hello

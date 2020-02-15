@@ -174,10 +174,26 @@ hexo clean && hexo g && hexo s
 2. 博文间隔 - 80px
 3. 博文默认字体大小
 
-具体内容看这个commit。
+具体内容看这个[commit](https://github.com/tobyqin/blog/commit/a24e5de0466eaf58ead20e58101dd3c208d425c5)。
 
 ![image-20200214183013735](images/image-20200214183013735.png)
 
+## 部署白屏，回滚
 
+本地测试完全没问题，推到Github后打开一下，懵逼了，也没显示正常但是看不见任何文字。
 
+![image-20200215113446861](images/image-20200215113446861.png)
+
+从源码和CSS看都是正常的，眼睛就是看不见，换了浏览器也不行，查了半天，还以为是Cloudflare的问题，因为发现走Cloudflare后所有的Script标签都被加上了一串随机字符串，这是和本地生成的主页diff。
+
+![image-20200215113752742](images/image-20200215113752742.png)
+
+得到的结论是这个随机字符对Script标签没影响，因为后面我回滚后的Script标签页会加上随机码，但不影响显示。
+
+- https://magento.stackexchange.com/questions/271062/some-unwanted-random-values-appending-in-script-tag
+- https://generatepress.com/forums/topic/random-string-in-script-tag/
+
+是不是我改坏了？试着把原版的Next7主题恢复再部署一次，还是白屏。又查了2小时，放弃吧。
+
+我先回滚了，太费时间。
 

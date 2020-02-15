@@ -5,6 +5,10 @@ tags: [webdav,jianguoyun]
 date: 2019-05-06
 ---
 
+坚果云更Linux也可以配合的很好。
+
+<!-- more -->
+
 ## 开启WebDAV
 
 在坚果云网页端可以找到WebDAV的管理界面，开启后就可以得到一个密钥。

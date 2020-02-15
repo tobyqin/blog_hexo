@@ -5,7 +5,9 @@ tags: [docker,container]
 date: 2020-02-06
 ---
 
-一行代码就可以停止或者删除所有的 [Docker](http://www.docker.io/) 容器:
+一行代码就可以停止或者删除所有的 [Docker](http://www.docker.io/) 容器。
+
+<!-- more -->
 
 ```sh
 docker stop $(docker ps -a -q)

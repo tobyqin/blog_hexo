@@ -7,6 +7,8 @@ date: 2019-12-25
 
 Github 今年推出了自己的CI集成方案 [Github Actions](https://github.com/features/actions)，本着玩一玩不吃亏的态度，我把原来通过 [Travis CI](https://travis-ci.org/) 的自动发布流程迁移到了 Github Actions，整个过程还是非常愉快顺利的。
 
+<!-- more -->
+
 ## 创建博客
 
 这部我就不展开说了，直接到 [Hexo 官网](https://hexo.io/)参考文档就可以快速开始。

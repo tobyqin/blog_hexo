@@ -5,9 +5,13 @@ tags: [openssl,ssh,git]
 date: 2020-01-31
 ---
 
+因为升级了MacOSX和openssl，然后Jekyll和Python都坏了，报各种错误。
+
+<!-- more -->
+
 ## 问题描述
 
-因为升级了MacOSX和openssl，然后Jekyll和Python都坏了，报各种错误。
+Python和Git都会报错。
 
 > dyld: Library not loaded: /usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/Python
 >   Referenced from: /Users/tobyqin/src/service/venv/bin/python

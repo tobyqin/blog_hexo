@@ -6,6 +6,8 @@ date: 2019-08-13
 ---
 Vmware tool 就是个坑，特别是在Mac电脑上。
 
+<!-- more -->
+
 我在MacBook上装了一个Vmware Workstation的虚拟机，然后在虚拟机里装了一个Windows系统。Windows可以正常启动，用着挺好的，但是发现不能从本机拷贝文件进去，或者把文件拷贝出来，它提示我说我没装Vmware Tools。
 
 好的，我去网上搜了一通教程，并不能解决我如何安装Vmware Toools的问题，因为在虚拟机菜单里“安装Vmware Tools”是灰色的，什么办法都试过了，不行，就是灰色的。
