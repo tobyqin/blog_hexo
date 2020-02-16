@@ -7,6 +7,8 @@ date: 2018-07-29
 
 Sometimes we mgiht want to make our package update to latest version, let me show you how do I accomplish this.
 
+<!-- more -->
+
 ## Determine Versions
 
 We have to determine current installed package version.

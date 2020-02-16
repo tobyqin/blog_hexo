@@ -1,9 +1,13 @@
 ---
 title: 	用命令行在Linux同步坚果云
 categories: [Tech]
-tags: [webdav,jianguoyun]
+tags: [webdav,jianguoyun,Linux]
 date: 2019-05-06
 ---
+
+坚果云更Linux也可以配合的很好。
+
+<!-- more -->
 
 ## 开启WebDAV
 

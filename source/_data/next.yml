@@ -234,6 +234,9 @@ codeblock:
     # Available values: default | flat | mac
     style: flat
 
+# next 6
+highlight_theme: night eighties
+
 follow_me:
 #Twitter: https://twitter.com/username || twitter
 #Telegram: https://t.me/channel_name || telegram
@@ -321,7 +324,6 @@ leancloud_visitors:
 # Tencent analytics ID
 tencent_analytics: 60629746
 
-
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
 baidu_push: true
 
@@ -336,45 +338,3 @@ local_search:
   top_n_per_article: 1
   # unescape html strings to the readable one
   unescape: false
-
-
-
-font:
-  enable: true
-
-  # Uri of fonts host, e.g. //fonts.googleapis.com (Default).
-  host:
-
-  # Font options:
-  # `external: true` will load this font family from `host` above.
-  # `family: Times New Roman`. Without any quotes.
-  # `size: x.x`. Use `em` as unit. Default: 1 (16px)
-
-  # Global font settings used for all elements inside <body>.
-  global:
-    external: true
-    family: Lato
-    size: 0.875
-
-  # Font settings for site title (.site-title).
-  title:
-    external: true
-    family:
-    size: 1.7
-
-  # Font settings for headlines (<h1> to <h6>).
-  headings:
-    external: true
-    family:
-    size: 1.4
-
-  # Font settings for posts (.post-body).
-  posts:
-    external: true
-    family:
-
-  # Font settings for <code> and code blocks.
-  codes:
-    external: true
-    family:
-

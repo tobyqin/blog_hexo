@@ -6,6 +6,8 @@ categories: Quiz
 ---
 **Reverse string by word** is a very popular interview question. In python you can solve it easily with code like below.
 
+<!-- more -->
+
 ```python
 def reverse_string_by_word(s):
     lst = s.split()  # split by blank space by default

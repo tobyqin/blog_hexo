@@ -5,6 +5,10 @@ tags: [Ruby,Jekyll,Windows,Hexo]
 date: 2018-01-26
 ---
 
+静态页面博客的鼻祖就是Jekyll。
+
+<!-- more -->
+
 ## Jekyll 和 Hexo
 
 静态博客目前最流行的也就是 Hexo 和 Jekyll，我一直都是 Hexo 的粉丝和用户，相对于 Jekyll 我想大多数人选择 Hexo 的原因跟我差不多：

@@ -4,7 +4,12 @@ date: 2016-10-18 21:35:01
 tags: [tips,google]
 categories: Tech
 ---
+谷歌浏览器的离线安装包还真有用。
+
+<!-- more -->
+
 安装到个人用户目录，请使用以下链接：
+
 - [Download Google Chrome Standalone Offline Installer (32-bit)][1]
 - [Download Google Chrome Standalone Offline Installer (64-bit)][2]
 

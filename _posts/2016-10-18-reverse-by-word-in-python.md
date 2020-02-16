@@ -6,6 +6,8 @@ categories: Quiz
 ---
 **按单词反转字符串**是一道很常见的面试题。在Python中实现起来非常简单。
 
+<!-- more -->
+
 ```python
 def reverse_string_by_word(s):
     lst = s.split()  # split by blank space by default

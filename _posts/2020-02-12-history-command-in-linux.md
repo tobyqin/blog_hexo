@@ -1,7 +1,7 @@
 ---
 title: Linux中的history命令
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [Linux, shell]
 date: 2020-02-12
 ---
 `history`是用来显示命令历史的命令。

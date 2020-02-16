@@ -5,6 +5,10 @@ tags: [leetcode,algorithm]
 date: 2019-02-10
 ---
 
+LeetCode 备忘。
+
+<!-- more -->
+
 ## 题目
 
 给定一个整数数组，找出和为指定值的两个元素的下标。举例说明：

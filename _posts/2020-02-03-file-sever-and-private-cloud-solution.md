@@ -11,6 +11,8 @@ tags:
 ---
 尝试了几种开源的私有云盘（文件服务器）的解决方案，备忘一下。
 
+<!-- more -->
+
 ## Seafile
 
 可以参考[官网部署文档](https://cloud.seafile.com/published/seafile-manual-cn/docker)，最新版7.x需要用docker-compose，十分不推荐这种被淘汰的技术，所以还是用旧版（6.x）吧。

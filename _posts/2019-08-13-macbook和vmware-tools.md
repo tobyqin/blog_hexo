@@ -1,10 +1,12 @@
 ---
 title: MacBook和Vmware Tools
 categories: [Thoughts]
-tags: []
+tags: [MacOSX,VMWare]
 date: 2019-08-13
 ---
 Vmware tool 就是个坑，特别是在Mac电脑上。
+
+<!-- more -->
 
 我在MacBook上装了一个Vmware Workstation的虚拟机，然后在虚拟机里装了一个Windows系统。Windows可以正常启动，用着挺好的，但是发现不能从本机拷贝文件进去，或者把文件拷贝出来，它提示我说我没装Vmware Tools。
 

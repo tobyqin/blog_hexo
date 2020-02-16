@@ -5,6 +5,10 @@ tags: [python,quiz]
 date: 2018-01-15
 ---
 
+Python 算法备忘。
+
+<!-- more -->
+
 ## 问题描述
 
 给出一个关键词列表:

@@ -4,7 +4,11 @@ tags: [python,selenium,logging,tips]
 date: 2016-09-24 22:14:44
 categories: Tech
 ---
-Python Selenium默认会往控制台和Log文件里写入大量的DEBUG信息，比如下面这张图。这样的相信在测试过程中有一定帮助，但大部分情况下都是没有营养的，而且会把你自己打印的Log信息淹没在汪洋大海中。
+Python Selenium默认会往控制台和Log文件里写入大量的DEBUG信息，比如下面这张图。
+
+<!-- more -->
+
+这样的相信在测试过程中有一定帮助，但大部分情况下都是没有营养的，而且会把你自己打印的Log信息淹没在汪洋大海中。
 
 ![](images/selenium-debug-logging.png)
 

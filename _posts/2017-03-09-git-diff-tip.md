@@ -5,6 +5,10 @@ tags: [git,tips]
 categories: Tech
 ---
 
+你确定自己会`git diff` 吗？
+
+<!-- more -->
+
 在git提交过程中，存在三大环节：
 
 - working tree

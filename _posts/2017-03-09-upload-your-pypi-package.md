@@ -5,6 +5,10 @@ tags: [python,PyPI]
 date: 2017-03-09
 ---
 
+Pypi的发布实践。
+
+<!-- more -->
+
 本文仅讨论上传相关的步骤，关于如何给写一个`setup.py` 请参阅官方文档：
 
 - https://docs.python.org/2/distutils/setupscript.html

@@ -7,6 +7,8 @@ date: 2017-07-27
 
 前面我有介绍过思维导图和xmind，现在我们再往前一步，让生活再美好一些。
 
+<!-- more -->
+
 > 上集回顾：[你听说过思维导图吗？](https://betacat.online/posts/2017-07-26/the-power-of-mindmap/)
 >
 > 原文链接： https://betacat.online/posts/2017-07-26/the-power-of-mindmap/

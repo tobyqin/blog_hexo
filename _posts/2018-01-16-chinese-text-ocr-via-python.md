@@ -7,6 +7,8 @@ date: 2018-01-16
 
 当今时代人工智能都已经是烂大街的词了，OCR应该也很多人都知道。
 
+<!-- more -->
+
 > OCR （Optical Character Recognition，[光学字符识别](https://baike.baidu.com/item/%E5%85%89%E5%AD%A6%E5%AD%97%E7%AC%A6%E8%AF%86%E5%88%AB)）是指电子设备（例如扫描仪或数码相机）检查纸上打印的字符，通过检测暗、亮的模式确定其形状，然后用字符识别方法将形状翻译成计算机文字的过程。
 
 本文主要记录了通过Python使用OCR的两次尝试。

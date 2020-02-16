@@ -1,11 +1,13 @@
 ---
 title: 通过 Github Actions 自动发布 Hexo 博客
 categories: [Tech]
-tags: [hexo,github-actions]
+tags: [hexo,github-actions,github,cicd]
 date: 2019-12-25
 ---
 
 Github 今年推出了自己的CI集成方案 [Github Actions](https://github.com/features/actions)，本着玩一玩不吃亏的态度，我把原来通过 [Travis CI](https://travis-ci.org/) 的自动发布流程迁移到了 Github Actions，整个过程还是非常愉快顺利的。
+
+<!-- more -->
 
 ## 创建博客
 

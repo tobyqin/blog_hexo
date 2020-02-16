@@ -5,6 +5,10 @@ tags: [python, cookiecutter]
 date: 2017-08-16
 ---
 
+如果快速应用优秀模板或者框架到你的项目？
+
+<!-- more -->
+
 ## 简介
 
 Cookiecutter英文的意思大概是饼干模型这么一类东西，可以让你快速做出某种形状的饼干。实际上你在google搜索到的cookiecutter是一个托管在GitHub的开源项目。

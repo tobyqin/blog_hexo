@@ -4,6 +4,10 @@ date: 2016-10-20
 tags: [python,software testing]
 categories: Tech
 ---
+断言是测试的氧气，无断言，不测试。
+
+<!-- more -->
+
 ### Python Assert 为何不尽如人意
 
 Python中的断言用起来非常简单，你可以在`assert`后面跟上任意判断条件，如果断言失败则会抛出异常。

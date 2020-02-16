@@ -5,6 +5,10 @@ tags: [python,selenium,headless]
 date: 2018-05-18
 ---
 
+自动化测试的进阶内容。
+
+<!-- more -->
+
 ## 了解HEADLESS模式
 
 HEADLESS BROWSER 指的是不需要用户界面的浏览器，这种浏览器在自动化测试和爬虫领域有着广泛的应用。

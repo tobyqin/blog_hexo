@@ -1,0 +1,380 @@
+favicon:
+  small: /logo/logo.png
+  medium: /logo/logo.png
+  apple_touch_icon: /logo/logo.png
+  safari_pinned_tab: /logo/logo.svg
+  #android_manifest: /images/manifest.json
+  #ms_browserconfig: /images/browserconfig.xml
+
+# Set default keywords (Use a comma to separate)
+keywords: "BetaCat,Python,Blog,未上线的猫,测试喵"
+
+
+footer:
+  since: 2015
+  icon:
+    name: heart
+    animated: true
+    color: "#808080"
+
+  # If not defined, `author` from Hexo main config will be used.
+  copyright:
+  # -------------------------------------------------------------
+  powered:
+    # Hexo link (Powered by Hexo).
+    enable: true
+    # Version info of Hexo after Hexo link (vX.X.X).
+    version: true
+
+  theme:
+    # Theme & scheme info link (Theme - NexT.scheme).
+    enable: true
+    # Version info of NexT after scheme info (vX.X.X).
+    version: true
+
+# Creative Commons 4.0 International License.
+# https://creativecommons.org/share-your-work/licensing-types-examples
+# Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+creative_commons:
+  license: by-nc-sa
+  sidebar: true
+  post: true
+
+# ---------------------------------------------------------------
+# Menu Settings
+# ---------------------------------------------------------------
+
+# When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -> archives).
+# Usage: `Key: /link/ || icon`
+# Key is the name of menu item. If translate for this menu will find in languages - this translate will be loaded; if not - Key name will be used. Key is case-senstive.
+# Value before `||` delimeter is the target link.
+# Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
+# External url should start with http:// or https://
+menu:
+  home: / || home
+  #categories: /categories/ || th
+  archives: /archives/ || archive
+  tags: /tags/ || tags
+  works: /works/ || coffee
+  about: /about/ || user
+  #schedule: /schedule/ || calendar
+  #sitemap: /sitemap.xml || sitemap
+  #commonweal: /404/ || heartbeat
+
+# Enable/Disable menu icons / item badges.
+menu_settings:
+  icons: true
+  badges: false
+
+
+# ---------------------------------------------------------------
+# Scheme Settings
+# ---------------------------------------------------------------
+
+# Schemes
+# scheme: Muse
+scheme: Mist
+#scheme: Pisces
+#scheme: Gemini
+
+
+# ---------------------------------------------------------------
+# Sidebar Settings
+# ---------------------------------------------------------------
+
+# Posts / Categories / Tags in sidebar.
+site_state: true
+
+# Social Links
+# Usage: `Key: permalink || icon`
+# Key is the link label showing to end users.
+# Value before `||` delimeter is the target permalink.
+# Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
+social:
+  GitHub: https://github.com/tobyqin || github
+  E-Mail: mailto:me@betacat.online || envelope
+  Links: https://betacat.online/links || link
+  #Google: https://plus.google.com/yourname || google
+  #Twitter: https://twitter.com/yourname || twitter
+  #FB Page: https://www.facebook.com/yourname || facebook
+  #VK Group: https://vk.com/yourname || vk
+  #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
+  #YouTube: https://youtube.com/yourname || youtube
+  #Instagram: https://instagram.com/yourname || instagram
+  #Skype: skype:yourname?call|chat || skype
+
+social_icons:
+  enable: true
+  icons_only: false
+  transition: true
+
+# Follow me on GitHub banner in right-top corner.
+# Usage: `permalink || title`
+# Value before `||` delimeter is the target permalink.
+# Value after `||` delimeter is the title and aria-label name.
+#github_banner: https://github.com/yourname || Follow me on GitHub
+
+# Blog rolls
+links_icon: link
+links_title: Links
+links_layout: block
+  #links_layout: inline
+  #links:
+#Title: http://example.com
+
+# Sidebar Avatar
+avatar:
+  # in theme directory(source/images): /images/avatar.gif
+  # in site  directory(source/uploads): /uploads/avatar.gif
+  # You can also use other linking images.
+  url: https://avatars1.githubusercontent.com/u/14037644
+  # If true, the avatar would be dispalyed in circle.
+  rounded: true
+  # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
+  opacity: 1
+  # If true, the avatar would be rotated with the cursor.
+  rotated: true
+
+# Table Of Contents in the Sidebar
+toc:
+  enable: true
+  # Automatically add list number to toc.
+  number: true
+  # If true, all words will placed on next lines if header width longer then sidebar width.
+  wrap: false
+  # Maximum heading depth of generated toc. You can set it in one post through `toc_max_depth` var.
+  max_depth: 2
+  expand_all: false
+
+sidebar:
+  # Sidebar Position, available values: left | right (only for Pisces | Gemini).
+  position: right
+  #position: right
+
+  # Manual define the sidebar width.
+  # If commented, will be default for:
+  # Muse | Mist: 320
+  # Pisces | Gemini: 240
+  #width: 300
+
+  # Sidebar Display, available values (only for Muse | Mist):
+  #  - post    expand on posts automatically. Default.
+  #  - always  expand for all pages automatically
+  #  - hide    expand only when click on the sidebar toggle icon.
+  #  - remove  Totally remove sidebar including sidebar toggle.
+  display: post
+  #display: always
+  #display: hide
+  #display: remove
+
+  # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).
+  offset: 12
+  # Back to top in sidebar.
+  b2t: false
+  # Scroll percent label in b2t button.
+  scrollpercent: false
+  # Enable sidebar on narrow view (only for Muse | Mist).
+  onmobile: false
+
+
+# ---------------------------------------------------------------
+# Post Settings
+# ---------------------------------------------------------------
+
+# Automatically scroll page to section which is under <!-- more --> mark.
+scroll_to_more: true
+
+# Automatically saving scroll position on each post/page in cookies.
+save_scroll: true
+
+# Automatically excerpt description in homepage as preamble text.
+excerpt_description: true
+
+# Automatically Excerpt. Not recommend.
+# Use <!-- more --> in the post to control excerpt accurately.
+auto_excerpt:
+  enable: true
+  length: 200
+
+# Read more button
+# If true, the read more button would be displayed in excerpt section.
+read_more_btn: true
+
+# Post meta display settings
+post_meta:
+  item_text: true
+  created_at: true
+  updated_at:
+    enabled: false
+    # If true, show updated date label only if `updated date` different from `created date` (post edited in another day than was created).
+    # And if post will edited in same day as created, edited time will show in popup title under created time label.
+    # If false show anyway, but if post edited in same day, show only edited time.
+    another_day: true
+  categories: true
+
+# Post wordcount display settings
+# Dependencies: https://github.com/theme-next/hexo-symbols-count-time
+symbols_count_time:
+  separated_meta: false
+  item_text_post: false
+  item_text_total: false
+  awl: 4
+  wpm: 275
+
+codeblock:
+  # Code Highlight theme
+  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
+  # See: https://github.com/chriskempson/tomorrow-theme
+  highlight_theme: night eighties
+  # Add copy button on codeblock
+  copy_button:
+    enable: false
+    # Show text copy result.
+    show_result: false
+    # Available values: default | flat | mac
+    style: flat
+
+follow_me:
+#Twitter: https://twitter.com/username || twitter
+#Telegram: https://t.me/channel_name || telegram
+#WeChat: /images/wechat-qrcode.jpg  || wechat
+#RSS: /atom.xml || rss
+
+# Wechat Subscriber  -- deprecated
+wechat_subscriber:
+  enabled: true
+  qcode: /images/wechat-qrcode.jpg
+  description: 欢迎到微信里去当吃瓜群众
+
+reward_settings:
+  # If true, reward will be displayed in every article by default.
+  enable: true
+  animation: false
+  comment: 欢迎到微信里去当吃瓜群众
+
+reward:
+  wechatpay: /images/wechat-qrcode.jpg
+  #alipay: /images/alipay.png
+  #paypal: /images/paypal.png
+  #bitcoin: /images/bitcoin.png
+
+# Related popular posts
+# Dependencies: https://github.com/tea3/hexo-related-popular-posts
+related_posts:
+  enable: true
+  title: # custom header, leave empty to use the default one
+  display_in_home: false
+  params:
+    maxCount: 5
+    #PPMixingRate: 0.0
+    #isDate: false
+    #isImage: false
+    #isExcerpt: false
+
+# ---------------------------------------------------------------
+# Misc Theme Settings
+# ---------------------------------------------------------------
+
+# Disable Baidu tranformation on mobile devices.
+disable_baidu_tranformation: false
+
+# Reduce padding / margin indents on devices with narrow width.
+mobile_layout_economy: false
+
+# Android Chrome header panel color ($brand-bg / $headband-bg => $black-deep).
+android_chrome_color: "#222"
+
+# Custom Logo
+# Do not support Scheme Mist currently.
+# Options:
+#   enabled: If true, will enable custom logo
+#   image: Images's url, replace it with specific image
+custom_logo:
+  enabled: false
+  image:
+
+# Enable "cheers" for archive page.
+cheers_enabled: true
+
+# Baidu Analytics ID
+baidu_analytics: 7fc537dfd82db5d382767b00660d77a4
+
+# Disqus
+disqus:
+  enable: true
+  shortname: https-betacat-online
+  count: false
+  lazyload: true
+
+# Show number of visitors to each article.
+# You can visit https://leancloud.cn get AppID and AppKey.
+leancloud_visitors:
+  enable: false
+  app_id: Nf2J9KsNSaVISyq95uNGT5GD-gzGzoHsz
+  app_key: OtjbCxghLfNjp3ET5jlO29czey>
+  # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
+  # If you don't care about security in leancloud counter and just want to use it directly
+  # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
+  security: false
+  betterPerformance: false
+
+# Tencent analytics ID
+tencent_analytics: 60629746
+
+
+# Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
+baidu_push: true
+
+# Local search
+# Dependencies: https://github.com/theme-next/hexo-generator-searchdb
+local_search:
+  enable: true
+  # if auto, trigger search by changing input
+  # if manual, trigger search by pressing enter key or search button
+  trigger: auto
+  # show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+  # unescape html strings to the readable one
+  unescape: false
+
+
+
+font:
+  enable: true
+
+  # Uri of fonts host, e.g. //fonts.googleapis.com (Default).
+  host:
+
+  # Font options:
+  # `external: true` will load this font family from `host` above.
+  # `family: Times New Roman`. Without any quotes.
+  # `size: x.x`. Use `em` as unit. Default: 1 (16px)
+
+  # Global font settings used for all elements inside <body>.
+  global:
+    external: true
+    family: Lato
+    size: 0.875
+
+  # Font settings for site title (.site-title).
+  title:
+    external: true
+    family:
+    size: 1.7
+
+  # Font settings for headlines (<h1> to <h6>).
+  headings:
+    external: true
+    family:
+    size: 1.4
+
+  # Font settings for posts (.post-body).
+  posts:
+    external: true
+    family:
+
+  # Font settings for <code> and code blocks.
+  codes:
+    external: true
+    family:
+

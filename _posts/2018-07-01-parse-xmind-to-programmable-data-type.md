@@ -5,6 +5,10 @@ tags: [python,xmind,pypi,json]
 date: 2018-07-01
 ---
 
+一个新的轮子。
+
+<!-- more -->
+
 ## 前言
 
 最近升级了一下[xmind2testlink](https://github.com/tobyqin/xmind2testlink)，顺带产生了一个中间轮子：[xmindparser](https://github.com/tobyqin/xmindparser)。

@@ -5,6 +5,10 @@ tags: [python,appium,mac,automation]
 date: 2017-12-10
 ---
 
+Appium是手机端自动化测试的必备知识。
+
+<!-- more -->
+
 ## 前提准备
 
 开始正文之前，你需要准备好一些基本条件：

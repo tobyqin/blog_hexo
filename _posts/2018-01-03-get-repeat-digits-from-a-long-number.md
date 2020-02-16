@@ -5,6 +5,10 @@ tags: [quiz,python]
 date: 2018-01-03
 ---
 
+Python算法备忘。
+
+<!-- more -->
+
 ## 问题描述
 
 > https://stackoverflow.com/questions/47581326/given-a-string-of-a-million-numbers-return-all-repeating-3-digit-numbers
