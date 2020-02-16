@@ -1,7 +1,0 @@
-pythonimage: python3
-ports:
-- port: 4000
-tasks:
-  - command: "npm install hexo-cli -g && npm install"
-  - command: "pip3 install -r requirements.txt"
-  - command: "python3 blog.py prepare"

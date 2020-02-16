@@ -7,7 +7,7 @@
 3. 配置Hexo
 4. 预览你的博客
 
-一旦博客的目录结构生成之后，你就可以使用Github Actions进行自动化发布，和使用Github Pages进行托管。
+一旦博客的目录结构生成之后，你就可以[使用Github Actions进行自动化发布](https://betacat.online/posts/2019-12-24/publish-hexo-blog-via-github-actions/)，和使用Github Pages进行托管。
 
 后续在本地写博客可以不用安装node.js和Hexo，只要按一定的规则新建Markdown文件后推送即可。所以我写了以下自定义命令（需要Python）来协助我达到这个目的。
 
