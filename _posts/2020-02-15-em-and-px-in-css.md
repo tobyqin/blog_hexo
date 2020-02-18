@@ -1,7 +1,7 @@
 ---
 title: CSS中的em和px
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [css]
 date: 2020-02-15
 ---
 `em`，`px`，`pt`都是CSS中的长度单位，他们有一定的对应关系。

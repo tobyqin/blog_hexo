@@ -1,7 +1,7 @@
 ---
 title: 在Github Actions中使用Yarn
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [github,nodejs,yarn,npm]
 date: 2020-02-15
 ---
 Yarn的呼声时不时比npm大，在Github Actions里怎么使用Yarn呢？

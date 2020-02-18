@@ -1,7 +1,7 @@
 ---
 title: Linux里的文件传输
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [Linux,shell]
 date: 2020-02-16
 ---
 如果要和Linux交换文件怎么办？
