@@ -19,15 +19,15 @@ CSS选择器的优先级官方的说法应该叫特殊性（Specificity），特
 
 用图片表示就是这样的：
 
-![img](images/2020-02/20180527004805952)
+![css specificity](images/2020-02/20180527004805952)
 
 或者这样的：
 
-![Image result for css Specificity](https://cms-assets.tutsplus.com/uploads/users/30/posts/34141/image/spec-01.svg)
+![css selector priority](images/image-20200222175158998.png)
 
 再补充一个实际的计算例子：
 
-![Image result for css Specificity](https://cdn-media-1.freecodecamp.org/images/1*wH2JSH_fw4oiAH2eqTg4qA.png)
+![CSS selector](images/image-20200222175423591.png)
 
 或者这个例子：
 
