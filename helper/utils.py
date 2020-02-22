@@ -122,7 +122,8 @@ def test_translate():
     print('结果: ' + translate('准备好开始学习英语了吗'))
 
 
-def get_img(url, filename):
+def download_img(url, filename):
+    """download remote image from `url` to `filename`"""
     import urllib.request
     img_dir = dirname(filename)
     if not exists(img_dir):

@@ -1,7 +1,7 @@
 ---
 title: 文档站点生成工具
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [docs,generator,js]
 date: 2020-02-22
 ---
 写代码总是要维护文档的，最好文档和代码是在一起的。

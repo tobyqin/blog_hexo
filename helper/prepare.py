@@ -16,7 +16,7 @@ from shutil import copy2, rmtree
 
 import helper.mobile
 import helper.raw
-from helper.utils import draft_dir, current_dir, get_img
+from helper.utils import draft_dir, current_dir, download_img
 
 draft_image_dir = abspath(join(draft_dir, 'images'))
 src_post_dir = abspath(join(current_dir, '_posts'))
@@ -27,10 +27,15 @@ image_server = 'https://tobyqin.github.io/images/'
 
 
 def replace_img(origin_url):
+    import urllib.error
     img_name = origin_url.split('/')[-1]
     img_path = '{}/{}/{}'.format(draft_image_dir, datetime.now().strftime('%Y-%m'), img_name)
-    get_img(origin_url, img_path)
-    return img_path.replace(draft_dir + '/', '')
+    try:
+        download_img(origin_url, img_path)
+        return img_path.replace(draft_dir + '/', '')  # use relative path
+    except urllib.error.HTTPError:  # failed to download image
+        print('Warning: failed to download image: {}!'.format(origin_url))
+        return origin_url
 
 
 def test_replace_img():
