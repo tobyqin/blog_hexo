@@ -1,5 +1,5 @@
 """
-script to process _raw to _draft.
+script to process _repost to _draft.
 """
 
 import re
@@ -7,10 +7,10 @@ from datetime import datetime
 from os.path import join
 from pathlib import Path
 
-from helper.utils import Post, translate, create_post_content, raw_dir, draft_dir
+from helper.utils import Post, translate, create_post_content, repost_dir, draft_dir
 
 
-def raw_to_draft(post):
+def repost_to_draft(post):
     # fix category for such posts
     post.categories = ['Reprint']
 
@@ -23,17 +23,17 @@ def raw_to_draft(post):
     return post
 
 
-def get_raw_posts():
+def get_reposts():
     posts = []
-    for raw_file in Path(raw_dir).glob('**/*.md'):
+    for post_file in Path(repost_dir).glob('**/*.md'):
         # skip file name starts with ! and .
-        if raw_file.name.startswith('!') or raw_file.name.startswith('.'):
+        if post_file.name.startswith('!') or post_file.name.startswith('.'):
             continue
 
-        print('Process: {}'.format(raw_file.name))
+        print('Process: {}'.format(post_file.name))
         p = Post()
-        p.date = datetime.fromtimestamp(raw_file.stat().st_ctime).strftime('%Y-%m-%d')
-        with raw_file.open(encoding='utf8') as f:
+        p.date = datetime.fromtimestamp(post_file.stat().st_ctime).strftime('%Y-%m-%d')
+        with post_file.open(encoding='utf8') as f:
             p.content = f.readlines()
             if p.content[0].startswith('---'):
                 attribute = ''
@@ -54,7 +54,7 @@ def get_raw_posts():
 
                 # remove front formatter
                 p.content = p.content[front_lines:]
-                posts.append(raw_to_draft(p))
+                posts.append(repost_to_draft(p))
 
     return posts
 
@@ -67,7 +67,7 @@ def build_draft(post):
 
 
 def run():
-    for p in get_raw_posts():
+    for p in get_reposts():
         build_draft(p)
 
 

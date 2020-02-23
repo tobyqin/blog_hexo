@@ -15,7 +15,7 @@ from pathlib import Path
 from shutil import copy2, rmtree
 
 import helper.mobile
-import helper.raw
+import helper.repost
 from helper.utils import draft_dir, current_dir, download_img
 
 draft_image_dir = abspath(join(draft_dir, 'images'))
@@ -254,7 +254,7 @@ def fix_post_file_name(file_name):
 def run():
     print('Prepare drafts...')
     helper.mobile.run()
-    helper.raw.run()
+    helper.repost.run()
     prepare_draft()
     publish_drafts()
     publish_images()

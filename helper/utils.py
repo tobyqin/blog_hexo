@@ -12,7 +12,7 @@ sec_key = 'FpUUXfla5UuEcStx5tHk'
 host = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'
 
 current_dir = dirname(dirname(__file__))
-raw_dir = abspath(join(current_dir, '_raw'))
+repost_dir = abspath(join(current_dir, '_repost'))
 mobile_dir = abspath(join(current_dir, '_mobile'))
 draft_dir = abspath(join(current_dir, '_drafts'))
 default_translator = 'google'
