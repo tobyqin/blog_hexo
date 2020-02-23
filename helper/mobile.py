@@ -79,8 +79,9 @@ def run():
         build_draft(p)
 
     image_dir = join(mobile_dir, 'images')
-    for i in os.listdir(image_dir):
-        shutil.move(i, join(draft_dir,'images'))
+    if exists(image_dir):
+        for i in os.listdir(image_dir):
+            shutil.move(i, join(draft_dir,'images'))
 
 
 if __name__ == '__main__':
