@@ -4,7 +4,7 @@ script to process _mobile to _draft.
 import os
 import re
 from datetime import datetime
-from os.path import join
+from os.path import join, exists
 from pathlib import Path
 import shutil
 
@@ -78,7 +78,9 @@ def run():
     for p in get_posts():
         build_draft(p)
 
-    shutil.move(join(mobile_dir, 'images'), join(draft_dir, 'images'))
+    image_dir = join(mobile_dir, 'images')
+    if exists(image_dir):
+        shutil.move(image_dir, draft_dir)
 
 
 if __name__ == '__main__':
