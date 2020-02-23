@@ -80,8 +80,13 @@ def run():
 
     image_dir = join(mobile_dir, 'images')
     if exists(image_dir):
-        for i in os.listdir(image_dir):
-            shutil.move(i, join(draft_dir,'images'))
+        for name in os.listdir(image_dir):
+            src = join(image_dir, name)
+            dst = join(draft_dir, 'images', name)
+
+            if exists(dst):
+                os.remove(dst)
+            shutil.move(src, dst)
 
 
 if __name__ == '__main__':
