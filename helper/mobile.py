@@ -27,7 +27,7 @@ def get_posts():
     posts = []
     for file in Path(mobile_dir).glob('**/*.md'):
         # skip file name starts with ! and .
-        if file.name.startswith('!') or file.name.startswith('.'):
+        if file.name.startswith('!') or file.name.startswith('.') or file.name.startswith('！'):
             continue
 
         print('Process: {}'.format(file.name))
@@ -41,18 +41,23 @@ def get_posts():
         with file.open(encoding='utf8') as f:
             p.content = f.readlines()
             front_lines = 0
+
+            # Process attribute line, e.g. [Reading,#test,#test2]
             if p.content[0].startswith('['):
+                # remove `[` & `]` then split with `,`
                 attributes = p.content[0][1:-2].split(',')
                 p.categories = attributes[:1]
-                p.tags = [a[1:] for a in attributes[1:]]
+                p.tags = [attr[1:] for attr in attributes[1:]]
                 front_lines += 1
-                for line in p.content[1:]:
-                    if line.strip() == '':
-                        front_lines += 1
-                    else:
-                        break
 
-            # remove front formatter
+            # remove blank lines until real content
+            for line in p.content[1:]:
+                if line.strip() == '':
+                    front_lines += 1
+                else:
+                    break
+
+            # remove attribute line and front blank content
             p.content = p.content[front_lines:]
             posts.append(to_draft(p))
 

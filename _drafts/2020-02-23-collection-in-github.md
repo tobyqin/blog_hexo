@@ -1,7 +1,7 @@
 ---
 title: Github里的Collection
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [github,tips]
 date: 2020-02-23
 ---
 在Github里有个功能叫Collection。
