@@ -6,11 +6,12 @@ import re
 from datetime import datetime
 from os.path import join
 from pathlib import Path
+import shutil
 
 from helper.utils import Post, translate, create_post_content, mobile_dir, draft_dir
 
 
-def to_draft(post):
+def make_draft(post):
     if not post.categories:
         post.categories = ['Thoughts']
 
@@ -31,35 +32,35 @@ def get_posts():
             continue
 
         print('Process: {}'.format(file.name))
-        p = Post()
-        p.title = file.stem
+        post = Post()
+        post.title = file.stem
 
-        if p.title.endswith('.md'):
-            p.title = p.title[:-3]
+        if post.title.endswith('.md'):
+            post.title = post.title[:-3]
 
-        p.date = datetime.fromtimestamp(file.stat().st_ctime).strftime('%Y-%m-%d')
+        post.date = datetime.fromtimestamp(file.stat().st_ctime).strftime('%Y-%m-%d')
         with file.open(encoding='utf8') as f:
-            p.content = f.readlines()
+            post.content = f.readlines()
             front_lines = 0
 
             # Process attribute line, e.g. [Reading,#test,#test2]
-            if p.content[0].startswith('['):
+            if post.content[0].startswith('['):
                 # remove `[` & `]` then split with `,`
-                attributes = p.content[0][1:-2].split(',')
-                p.categories = attributes[:1]
-                p.tags = [attr[1:] for attr in attributes[1:]]
+                attributes = post.content[0][1:-2].split(',')
+                post.categories = attributes[:1]
+                post.tags = [attr[1:] for attr in attributes[1:]]
                 front_lines += 1
 
             # remove blank lines until real content
-            for line in p.content[1:]:
+            for line in post.content[1:]:
                 if line.strip() == '':
                     front_lines += 1
                 else:
                     break
 
             # remove attribute line and front blank content
-            p.content = p.content[front_lines:]
-            posts.append(to_draft(p))
+            post.content = post.content[front_lines:]
+            posts.append(make_draft(post))
 
         os.remove(str(file))
 
@@ -76,6 +77,8 @@ def build_draft(post):
 def run():
     for p in get_posts():
         build_draft(p)
+
+    shutil.move(join(mobile_dir, 'images'), join(draft_dir, 'images'))
 
 
 if __name__ == '__main__':
