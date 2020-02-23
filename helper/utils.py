@@ -33,6 +33,7 @@ title: $title---
 categories: [$category---]
 tags: [$tags---]
 date: $date---
+layout: post
 ---
 $content---
 """
