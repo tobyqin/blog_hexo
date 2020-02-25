@@ -1,7 +1,7 @@
 ---
 title: Linux免密码登录SSH
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [linux,ssh,shell]
 date: 2020-02-23
 layout: post
 ---

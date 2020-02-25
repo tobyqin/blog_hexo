@@ -1,7 +1,7 @@
 ---
 title: 让vi在保存文件时获得sudo权限
-categories: [Thoughts]
-tags: []
+categories: [Tips]
+tags: [vim,linux]
 date: 2020-02-23
 layout: post
 ---
