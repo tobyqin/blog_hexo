@@ -9,4 +9,4 @@ layout: post
 
 <!-- more -->
 
-![_etc_passwd](images/_etc_passwd.svg)
+![etc_passwd](images/etc_passwd.svg)

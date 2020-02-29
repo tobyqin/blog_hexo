@@ -178,6 +178,9 @@ def publish_drafts():
     copy_tree(draft_dir, root_post_dir)
 
 
+def test_publish_drafts():
+    publish_drafts()
+
 def publish_images():
     """Copy images from /_posts/images to /source/images"""
     copy_tree(root_post_image_dir, source_post_image_dir)
