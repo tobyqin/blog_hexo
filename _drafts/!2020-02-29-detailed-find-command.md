@@ -1,4 +1,11 @@
-## 714190338find命令
+---
+title: find命令详解
+categories: [Tech]
+tags: [linux,bash]
+date: 2020-02-29
+layout: post
+---
+## find命令
 
 ```
 find < path > < expression > < cmd >

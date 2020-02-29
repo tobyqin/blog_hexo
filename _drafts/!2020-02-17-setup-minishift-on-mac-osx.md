@@ -2,7 +2,7 @@
 title: setup minishift on mac osx
 categories: [Tech]
 tags: [openshift,minishift,kubernetes]
-date: 2020-01-17
+date: 2020-02-17
 ---
 
 By following [my previous article in this series](https://developers.redhat.com/blog/2019/03/21/containers-kubernetes-and-microservices-start-here/), you’ve crushed the whole [containers](https://developers.redhat.com/blog/category/containers/) thing. It was much easier than you anticipated, and you’ve updated your resume. Now it’s time to move into the spotlight, walk the red carpet, and own the whole [Kubernetes](https://developers.redhat.com/topics/kubernetes/) game. In this blog post, we’ll get our Kubernetes environment up and running on macOS, spin up an image in a container, and head to [Coderland](https://developers.redhat.com/index.php/coderland/serverless/serverless-knative-intro/).

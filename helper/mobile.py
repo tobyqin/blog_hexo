@@ -3,10 +3,10 @@ script to process _mobile to _draft.
 """
 import os
 import re
+import shutil
 from datetime import datetime
 from os.path import join, exists
 from pathlib import Path
-import shutil
 
 from helper.utils import Post, translate, create_post_content, mobile_dir, draft_dir
 
@@ -34,9 +34,6 @@ def get_posts():
         print('Process: {}'.format(file.name))
         post = Post()
         post.title = file.stem
-
-        if post.title.endswith('.md'):
-            post.title = post.title[:-3]
 
         post.date = datetime.fromtimestamp(file.stat().st_ctime).strftime('%Y-%m-%d')
         with file.open(encoding='utf8') as f:

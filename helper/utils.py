@@ -19,13 +19,28 @@ default_translator = 'google'
 
 
 class Post(object):
-    title = ''
-    en_title = ''
-    filename = ''  # from en_title
-    date = datetime.now().strftime('%Y-%m-%d')
-    categories = []
-    tags = []
-    content = ''
+
+    def __init__(self):
+        self.title = ''
+        self.en_title = ''
+        self.filename = ''  # from en_title
+        self.location = ''  # where to save the post
+        self.date = datetime.now().strftime('%Y-%m-%d')
+        self.categories = []
+        self.tags = []
+        self.content = ''
+        self.layout = 'post'
+        self.not_ready = False  # ready to publish, `!` prefix
+
+    def __str__(self):
+        return 'title: {title}\nen_title: {en_title}\n' \
+               'date: {date}\ncategory: {categories}\n' \
+               'tags:{tags}\nfilename:{filename}\n' \
+               'location: {location}\ncontent: \n{content}'.format_map(self.__dict__)
+
+    def create_content(self):
+        if self.content and not self.content.startswith('---'):
+            self.content = create_post_content(self)
 
 
 draft_template = """---
@@ -33,17 +48,31 @@ title: $title---
 categories: [$category---]
 tags: [$tags---]
 date: $date---
-layout: post
+layout: $layout---
 ---
 $content---
 """
 
 
-def create_post_content(post):
+def create_post_content(post: Post):
     content = draft_template.replace('$title---', post.title)
-    content = content.replace('$category---', ','.join(post.categories).capitalize())
-    content = content.replace('$tags---', ','.join(post.tags).lower())
+
+    if isinstance(post.categories, str):
+        content = content.replace('$category---', post.categories.capitalize())
+    elif isinstance(post.categories, list):
+        content = content.replace('$category---', ','.join(post.categories).capitalize())
+    else:
+        raise ValueError('Bad category: {}'.format(post.categories))
+
+    if isinstance(post.tags, str):
+        content = content.replace('$tags---', post.tags.lower())
+    elif isinstance(post.tags, list):
+        content = content.replace('$tags---', ','.join(post.tags).lower())
+    else:
+        raise ValueError('Bad tags: {}'.format(post.tags))
+
     content = content.replace('$date---', post.date)
+    content = content.replace('$layout---', post.layout)
     return content.replace('$content---', ''.join(post.content))
 
 
