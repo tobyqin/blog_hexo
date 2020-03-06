@@ -1,7 +1,7 @@
 ---
 title: CentOS里的防火墙配置
-categories: []
-tags: []
+categories: [Tech]
+tags: [linux,centos,firewall]
 date: 2020-03-06
 layout: post
 ---
