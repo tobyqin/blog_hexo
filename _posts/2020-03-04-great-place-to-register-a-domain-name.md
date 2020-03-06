@@ -12,5 +12,12 @@ layout: post
 1. https://namesilo.com
 2. https://www.namecheap.com
 
-如果打算长期持有域名的话可以考虑上面两个。如果是短期比如一年的话可以用GoDaddy，或者免费的tk域名](http://www.dot.tk/)。
+如果打算长期持有域名的话可以考虑上面两个。namesilo比较容易找到一美元的优惠码，比如：
+
+```
+2020code  # 新注册优惠
+2020renew # 续费优惠 
+```
+
+如果是短期比如一年的话可以用GoDaddy，或者免费的tk域名](http://www.dot.tk/)。
 
