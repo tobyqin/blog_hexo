@@ -28,3 +28,8 @@ comments: false
 > [小胡子哥](https://www.barretlee.com/)
 >
 > [狼和凤凰](https://www.phodal.com/)
+>
+> [大象笔记](https://www.sunzhongwei.com/)
+>
+> [WORKS.WIKI](https://works.wiki/) (主题模板很赞)
+
