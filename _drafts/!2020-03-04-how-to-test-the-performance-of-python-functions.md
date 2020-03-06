@@ -1,11 +1,11 @@
 ---
-title: test-python-function-performance
-categories: []
-tags: []
+title: 如何测试Python函数的性能
+categories: [Tech]
+tags: [Python]
 date: 2020-03-04
 layout: post
 ---
-有两个口碑还不错的域名供应商，国外的。
+怎么测试Python函数的性能？
 
 <!-- more -->
 
