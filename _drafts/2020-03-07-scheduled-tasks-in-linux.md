@@ -1,10 +1,12 @@
 ---
 title: Linux里的计划任务
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [linux，cron，crontab，anacron]
 date: 2020-03-07
 layout: post
 ---
+
+cron 是 Linux 内置的计划任务程序。
 
 crontab 是 cron 定期执行任务所需的列表文件，注意通过 crontab 命令来修改。
 
