@@ -1,17 +1,18 @@
 ---
 title: nano的简单用法
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [nano，linux]
 date: 2020-03-07
 layout: post
 ---
+
+不小心进了nano，都不知道怎么退出来。
 
 <!-- more -->
 
 ![image-20200307150218747](images/image-20200307150218747.png)
 
 虽然画面上有快捷键，按完之后还是一脸懵逼。`^`是`Ctrl`键的缩写。
-
 
 
 `^O`是写入，按完之后就这样了。
