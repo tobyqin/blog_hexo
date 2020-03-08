@@ -159,3 +159,8 @@ def download_img(url, filename):
     if not exists(img_dir):
         os.mkdir(img_dir)
     urllib.request.urlretrieve(url, filename)
+
+
+def log(message, enable=True):
+    if enable:
+        print(message)

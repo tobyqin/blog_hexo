@@ -16,7 +16,7 @@ from shutil import copy2, rmtree
 
 import helper.mobile
 from helper.post_builder import make_post
-from helper.utils import draft_dir, current_dir, download_img
+from helper.utils import draft_dir, current_dir, download_img, log
 
 draft_image_dir = abspath(join(draft_dir, 'images'))
 root_post_dir = abspath(join(current_dir, '_posts'))
@@ -42,63 +42,67 @@ def test_replace_img():
     print(replace_img('https://static.cnbetacdn.com/article/2019/0114/116c69b7fb0b665.jpg'))
 
 
-def prepare_draft():
+def prepare_drafts():
     """
     fix markdown format and download remote images to local for drafts.
     """
 
-    def process_img(l):
-        m = re.search(r'(\[!\[([^\]]*)\]\((http[^\\)]+)\)\]\((http[^\\)]+)\))', l)
+    def process_img(line: str):
+        m = re.search(r'(\[!\[([^\]]*)\]\((http[^\\)]+)\)\]\((http[^\\)]+)\))', line)
         if m:
             place_holder, img_text, new_img_url, _ = m.groups()
             new_img_url = replace_img(new_img_url)
             new_img_tag = '![{}]({})'.format(img_text, new_img_url)
-            return l.replace(place_holder, new_img_tag)
+            return line.replace(place_holder, new_img_tag)
         else:
-            m = re.search(r'(!\[([^\]]*)\]\((http[^\\)]+)\))', l)
+            m = re.search(r'(!\[([^\]]*)\]\((http[^\\)]+)\))', line)
             if m:
                 place_holder, img_text, new_img_url = m.groups()
                 new_img_url = replace_img(new_img_url)
                 new_img_tag = '![{}]({})'.format(img_text, new_img_url)
-                return l.replace(place_holder, new_img_tag)
+                return line.replace(place_holder, new_img_tag)
 
-        return l
+        return line
 
-    def is_item_line(l):
-        return re.match(r'^ *(\*|(\d\.)+) +', l)
+    def is_item_line(line: str):
+        return re.match(r'^ *(\*|-|(\d\.)+) +', line)
 
-    def next_line_should_remove(current_line, current_i, total):
-        max_i = len(total) - 1
-        next_i = current_i + 1
-        next_next_i = next_i + 1
+    def is_empty_line(line: str):
+        return line.strip() == ''
+
+    def next_line_should_remove(current_line: str, current_i: int, content: list):
+        max_index = len(content) - 1
+        next_index = current_i + 1
+        next_next_index = next_index + 1
+        should_remove = False
+
+        # for empty line, remove continue empty line
+        if is_empty_line(current_line) and next_index <= max_index:
+            next_line = content[next_index]
+            should_remove = is_empty_line(next_line)
 
         # for item line
         if is_item_line(current_line):
 
-            if next_next_i <= max_i:  # more than 2 lines left
-                if total[next_i].strip() == '':  # if next line is empty
+            if next_next_index <= max_index:  # more than 2 lines left
+                next_line = content[next_index]
+                next_next_line = content[next_next_index]
+                if is_empty_line(next_line):  # if next line is empty
                     # and next next line is empty or is item line
-                    if total[next_next_i].strip() == '' or is_item_line(total[next_next_i]):
-                        return True  # then remove next line
-                    else:
-                        return False
+                    should_remove = is_empty_line(next_next_line) or is_item_line(next_next_line)
 
-            elif next_i <= max_i:  # only 2 lines left, remove last empty line
-                return not total[next_i].strip()
+            elif next_index <= max_index:  # only 2 lines left, remove last empty line
+                next_line = content[next_index]
+                should_remove = is_empty_line(next_line)
 
-            else:
-                return False
-
-        # for empty line, remove continue empty line
-        elif current_line.strip() == '':
-            return next_i <= max_i and total[next_i].strip() == ''
-
-        # not touch other lines
-        else:
-            return False
+        return should_remove
 
     for draft in Path(draft_dir).glob('*.md'):
-        make_post(draft, keep_origin=False, direct_publish=False)
+        make_post(draft,
+                  category='Tech',
+                  tags='tips',
+                  keep_origin=True,
+                  direct_publish=False)
 
     for draft in Path(draft_dir).glob('*.md'):
         content = []
@@ -107,15 +111,19 @@ def prepare_draft():
             should_remove = False
             lines = f.readlines()
             for i, line in enumerate(lines):
-                line = process_img(line)
 
-                if line.strip() == '' and should_remove:
-                    should_remove = next_line_should_remove(line, i, lines)
+                if should_remove:
                     continue
 
+                line = process_img(line)
+
+                if is_empty_line(line):
+                    should_remove = next_line_should_remove(line, i, lines)
+
                 if is_item_line(line):
-                    line = re.sub(r'( *)\* +', r'\1* ', line, 1)  # no order item
-                    line = re.sub(r'( *)(\d+)\. +', r'\1\2. ', line, 1)  # order item
+                    line = re.sub(r'^( *)\* +', r'\1* ', line, count=1)  # list item
+                    line = re.sub(r'^( *)- +', r'\1* ', line, count=1)  # list item
+                    line = re.sub(r'^( *)(\d+)\. +', r'\1\2. ', line, count=1)  # order item
                     should_remove = next_line_should_remove(line, i, lines)
 
                 content.append(line)
@@ -123,30 +131,50 @@ def prepare_draft():
 
 
 def test_prepare_draft():
-    prepare_draft()
+    prepare_drafts()
 
 
-def copy_tree(src, dst):
-    """copy tree:
-    1. ignore files starts with . and !
-    2. if exists in target, delete it then do copy.
+def incremental_copy_tree(src, dst, match_pattern=None, ignore_pattern=None, debug=False):
+    """copy tree with incremental:
+    0. ignore files in destination if not in source.
+    1. over write files in destination if existed in source.
     """
-    s = Path(src)
-    for i in s.glob('**/*'):
-        if i.is_file():
-            if not (i.name.startswith('.') or i.name.startswith('!')):
-                from_name = str(i)
-                target_name = from_name.replace(src, dst)
-                # print('{} => {}'.format(i, target_name))
+    source_dir = Path(src)
+    for item in source_dir.glob('**/*'):
+        if item.is_file() and should_copy_file(item.name, ignore_pattern, match_pattern, debug):
 
-                if exists(target_name):
-                    os.remove(target_name)
+            from_name = str(item)
+            target_name = from_name.replace(src, dst)
 
-                target_dir = dirname(target_name)
-                if not exists(target_dir):
-                    os.mkdir(target_dir)
+            log('Copy: {} => {}'.format(item, target_name), debug)
+            if exists(target_name):
+                os.remove(target_name)
 
-                copy2(from_name, target_name)
+            target_dir = dirname(target_name)
+            if not exists(target_dir):
+                os.mkdir(target_dir)
+
+            copy2(from_name, target_name)
+
+
+def should_copy_file(filename, ignore_pattern, match_pattern, debug):
+    should_copy = False
+    if not ignore_pattern and not match_pattern:
+        should_copy = True
+
+    if ignore_pattern:
+        if re.match(ignore_pattern, filename):
+            log('Ignore pattern: {}'.format(filename), debug)
+            should_copy = False
+        else:
+            should_copy = True
+    if match_pattern:
+        if re.match(match_pattern, filename):
+            log('Match pattern: {}'.format(filename), debug)
+            should_copy = True
+        else:
+            should_copy = False
+    return should_copy
 
 
 def copy_top_dir(from_dir, to_dir):
@@ -175,15 +203,17 @@ def copy_top_dir(from_dir, to_dir):
 
 
 def publish_drafts():
-    copy_tree(draft_dir, root_post_dir)
+    incremental_copy_tree(draft_dir, root_post_dir, match_pattern=r'^\d{4}-\d{2}-\d{2}.*md', debug=True)
+    incremental_copy_tree(draft_image_dir, root_post_image_dir, ignore_pattern='^[\.\!].*', debug=True)
 
 
 def test_publish_drafts():
     publish_drafts()
 
-def publish_images():
+
+def publish_post_images():
     """Copy images from /_posts/images to /source/images"""
-    copy_tree(root_post_image_dir, source_post_image_dir)
+    incremental_copy_tree(root_post_image_dir, source_post_image_dir)
 
 
 def publish_post(source_file):
@@ -213,9 +243,9 @@ def publish_post(source_file):
 def run():
     print('Prepare drafts...')
     helper.mobile.run()
-    prepare_draft()
+    prepare_drafts()
     publish_drafts()
-    publish_images()
+    publish_post_images()
     rmtree(source_post_dir, ignore_errors=True)
 
     for f in glob.glob(join(root_post_dir, "*.md")):
