@@ -56,6 +56,9 @@ grep -lrI "docker" ./
 
 # 搜索匹配正则表达式的文件
 egrep -lr "^docker" ./
+
+# 搜索当前目录下的某些文件的内容
+grep -lr "docker" *.py
 ```
 
 `egrep` 是 `grep` 的正则表达式版本，`grep`还支持很多参数，具体请查阅文档。查找文件内容也可以用 `find` 命令。

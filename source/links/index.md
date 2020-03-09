@@ -6,7 +6,7 @@ comments: false
 ## 工具类
 
 > [小胡子哥的微信公众号Markdown编辑器](http://md.barretlee.com/)
-> 
+>
 > [另外一个微信公众号Markdown编辑器](https://lab.lyric.im/wxformat/)
 >
 > [好用的开发者文档阅读方式](http://devdocs.io/offline)
@@ -16,6 +16,8 @@ comments: false
 > [生成漂亮的代码片段](https://carbon.now.sh)
 >
 > [生成Github用的各种徽章](http://shields.io/#your-badge)
+>
+> [在线画流程图，思维导图](https://www.freedgo.com/)
 
 ## 博客类
 
