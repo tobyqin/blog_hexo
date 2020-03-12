@@ -18,6 +18,8 @@ comments: false
 > [生成Github用的各种徽章](http://shields.io/#your-badge)
 >
 > [在线画流程图，思维导图](https://www.freedgo.com/)
+>
+> [Linux命令大全](https://www.linuxcool.com/)
 
 ## 博客类
 
@@ -38,4 +40,17 @@ comments: false
 > [IOIOX](https://www.ioiox.com/)
 >
 > [无主界](https://www.idleleo.com/)
+>
+> [Lyric](https://lyric.im/)（产品经理和编程）
 
+## DEVOPS
+
+> [A HANDS-ON DEVOPS COURSE](https://nemonik.github.io/hands-on-DevOps/#/) （在线PPT）
+>
+> [Gitlab 历年分析报告](https://learn.gitlab.com/c/forrester-wave-cloud-native-ci-cd-2019?x=GVkN_U)
+>
+> [DevOps Tools](https://github.com/collections/devops-tools)
+
+学习资料
+
+> [Linux就该这么学](https://www.linuxprobe.com/chapter-00.html)
