@@ -1,7 +1,7 @@
 ---
 title: 在ParallelDesktop虚拟机中访问Mac的IP
 categories: [Tech]
-tags: [tips]
+tags: [paralledesktop,tips]
 date: 2020-03-14
 layout: post
 ---
