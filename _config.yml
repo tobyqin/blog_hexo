@@ -80,4 +80,4 @@ deploy:
   
 - type: git
   repo: git@e.coding.net:tobyqin/tobyqin.git
-  branch: coding-pages
+  branch: master
