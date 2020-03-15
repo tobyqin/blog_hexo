@@ -27,7 +27,7 @@ install:
 - npm install
 
 addons:
-  ssh_known_hosts: git.coding.net
+  ssh_known_hosts: e.coding.net
 
 script:
 - hexo clean
