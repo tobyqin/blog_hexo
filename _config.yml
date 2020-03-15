@@ -78,6 +78,6 @@ deploy:
   repo: git@github.com:tobyqin/tobyqin.github.io.git
   branch: master
   
-#- type: git
-#  repo: git@git.coding.net:tobyqin/tobyqin.git
-#  branch: coding-pages
+- type: git
+  repo: git@e.coding.net:tobyqin/tobyqin.git
+  branch: coding-pages
