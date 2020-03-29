@@ -1,7 +1,7 @@
 ---
 title: nginx常用命令
 categories: [Tech]
-tags: [tips]
+tags: [nginx]
 date: 2020-03-28
 layout: post
 ---
