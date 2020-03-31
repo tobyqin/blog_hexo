@@ -24,6 +24,8 @@ comments: false
 > [生成ASCII图像](https://onlineasciitools.com/)
 >
 > [用ASCII画流程图](http://asciiflow.com/)
+>
+> [中国速度](https://china-speed.org.cn/)（开发者用的国内镜像合集）
 
 ## 博客类
 
