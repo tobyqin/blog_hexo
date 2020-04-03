@@ -18,7 +18,7 @@ avatar: https://avatars1.githubusercontent.com/u/14037644
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://betacat.online
+url: https://tobyqin.cn
 root: /
 permalink: posts/:year-:month-:day/:title/
 permalink_defaults:
