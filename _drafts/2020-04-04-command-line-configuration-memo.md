@@ -116,6 +116,8 @@ plugins=(zsh-autosuggestions)
 命令行的别名可以极大提高效率。
 
 ```bash
+ls --color=auto &>/dev/null && alias ls='ls --color=auto' && eval "$(dircolors)"
+
 alias g='git'
 alias k='kubectl'
 alias n='nginx'
@@ -127,7 +129,7 @@ alias c='clear'
 alias cls='clear'
 alias l='ls -lah'
 alias ll='ls -l'
-alias la='ls -a'
+alias la='ll -la'
 alias grep="grep --color=auto"
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -145,15 +147,16 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 
--='cd -'
-...=../..
-....=../../..
-.....=../../../..
-......=../../../../..
+alias cdback='cd -'
+alias '..'='cd ..'
+alias '...'='../..'
+alias '....'='../../..'
+alias '.....'='../../../..'
+alias '......'='../../../../..'
 
 alias df='df -h'
 alias du='du -h'
-alias cp='cp -v' 
+alias cp='cp -v'
 alias mv='mv -v'
 alias mkdir='mkdir -pv'
 alias which='which -a'
@@ -168,6 +171,7 @@ alias chgrp='chgrp --preserve-root'
 alias virc='vi ~/.vimrc'
 alias barc='vi ~/.bashrc && source ~/.bashrc'
 alias baprofile='vi ~/.bash_profile && source ~/.bash_profile'
+alias bareload='source ~/.bash_profile &>/dev/null || source ~/.bashrc  &>/dev/null'
 alias zshrc='vi ~/.zshrc && source ~/.zshrc'
 
 alias untar='tar -zxvf'
@@ -177,5 +181,7 @@ alias ng='nginx'
 alias ngreload='sudo ng -s reload'
 alias ngtest='sudo ng -t'
 alias ngconf='sudo vi /etc/nginx/nginx.conf && ngtest'
+
+alias help='tldr'
 ```
 
