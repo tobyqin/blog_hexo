@@ -1,7 +1,7 @@
 ---
 title: 命令行配置备忘
 categories: [Tech]
-tags: [tips]
+tags: [linux,shell,bash,alias]
 date: 2020-04-04
 layout: post
 ---
