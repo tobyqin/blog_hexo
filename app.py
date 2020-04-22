@@ -24,4 +24,9 @@ def index(filename: str):
         raise e
 
 
+@app.route('/config')
+def config():
+    return "config page"
+
+
 app.run()
