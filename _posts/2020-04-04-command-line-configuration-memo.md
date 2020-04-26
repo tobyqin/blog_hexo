@@ -177,10 +177,10 @@ alias zshrc='vi ~/.zshrc && source ~/.zshrc'
 alias untar='tar -zxvf'
 alias www='python2 -m SimpleHTTPServer 8000'
 
-alias ng='nginx'
-alias ngreload='sudo ng -s reload'
-alias ngtest='sudo ng -t'
-alias ngconf='sudo vi /etc/nginx/nginx.conf && ngtest'
+alias ngx='nginx'
+alias ngxreload='sudo ng -s reload'
+alias ngxtest='sudo ng -t'
+alias ngxconf='sudo vi /etc/nginx/conf/nginx.conf && ngxtest'
 
 alias help='tldr'
 ```
