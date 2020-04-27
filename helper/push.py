@@ -13,7 +13,7 @@ def run():
     helper.prepare.run()
 
     os.system('git add -A')
-    os.system('git commit -m "build draft."')
+    os.system('git commit -m "build website."')
     os.system('git pull origin master')
     os.system('git push origin master')
 
