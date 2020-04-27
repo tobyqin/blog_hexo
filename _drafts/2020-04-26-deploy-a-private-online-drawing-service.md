@@ -28,17 +28,17 @@ Draw.io 是基于[mxGraph library](https://github.com/jgraph/mxgraph)构建的�
 
 欲知详情请移步至该项目：
 
-- <https://github.com/jgraph/drawio>
+* <https://github.com/jgraph/drawio>
 
 要完整部署该项目需要用 ant 来编译 war，并用 tomcat 托管。但是，我不想用 ant 去编译也不想和 Tom 猫发生什么关系，所以我要对这个项目的功能进行阉割。
 
-- 去除所有国外的在线服务，比如 Google Drive，OneDrive，Github 等等
-- 避免跳转到 Draw.io 官网
-- 去除后端服务，只要能在浏览器绘图并缓存，能保存为本地文件
+* 去除所有国外的在线服务，比如 Google Drive，OneDrive，Github 等等
+* 避免跳转到 Draw.io 官网
+* 去除后端服务，只要能在浏览器绘图并缓存，能保存为本地文件
 
 来来来，folk 一下这个项目开干，新项目地址：
 
-- <https://github.com/tobyqin/drawio-local>
+* <https://github.com/tobyqin/drawio-local>
 
 ```bash
 # 第一步，干掉Java，只保留Web应用
@@ -154,6 +154,6 @@ docker run --name="drawio-local" --restart always -p 5000:5000  tobyqin/drawio-l
 
 这个服务我已经部署到了我的主机，免费用，随便用，但不保证它的速度和生命延续。
 
-- <https://draw.pytips.cn>
+* <https://draw.pytips.cn>
 
 就这样，Peace。
