@@ -101,7 +101,7 @@ def prepare_drafts():
         make_post(draft,
                   category='Tech',
                   tags='tips',
-                  keep_origin=False,
+                  keep_origin=True,
                   direct_publish=False)
 
     for draft in Path(draft_dir).glob('*.md'):
