@@ -116,8 +116,7 @@ docker rm openwrt
 
 参考文章：
 
-- https://instar.me/archives/e806f8ac.html
-- https://post.smzdm.com/p/akm7q5xk/
-- http://hostloc.com/thread-532624-1-1.html
-- https://leeyr.com/326.html
-
+* https://instar.me/archives/e806f8ac.html
+* https://post.smzdm.com/p/akm7q5xk/
+* http://hostloc.com/thread-532624-1-1.html
+* https://leeyr.com/326.html

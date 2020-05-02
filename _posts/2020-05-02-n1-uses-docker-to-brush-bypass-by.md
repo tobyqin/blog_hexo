@@ -1,7 +1,7 @@
 ---
 title: N1用Docker刷旁路由
 categories: [Tech]
-tags: [tips]
+tags: [tips,n1,docker,route,armbian]
 date: 2020-05-02
 layout: post
 ---
@@ -46,7 +46,7 @@ docker run --restart always --name=openwrt -d --network macnet --privileged unif
 docker exec -it openwrt bash
 vi /etc/config/network
 
-# 把 192.168.1.1 改成 192.168.0.254
+# 把 192.168.1.1 改成 192.168.0.254， 配置参考如下
 
 config interface 'lan'
         option type 'bridge'
@@ -60,6 +60,7 @@ config interface 'lan'
 退出容器里的shell，重启N1。
 
 ```
+exit
 reboot
 ```
 
@@ -112,3 +113,10 @@ docker rm openwrt
 ![image-20200502163305280](images/image-20200502163305280.png)
 
 ![image-20200502163321286](images/image-20200502163321286.png)
+
+参考文章：
+
+* https://instar.me/archives/e806f8ac.html
+* https://post.smzdm.com/p/akm7q5xk/
+* http://hostloc.com/thread-532624-1-1.html
+* https://leeyr.com/326.html
