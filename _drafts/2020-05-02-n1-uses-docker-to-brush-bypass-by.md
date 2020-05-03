@@ -13,20 +13,20 @@ layout: post
 
 安装Portainer很有用。
 
-```
+```bash
 docker volume create portainer_data
 docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer:linux-arm64
 ```
 
 打开网卡混淆模式
 
-```
+```bash
 ip link set eth0 promisc on
 ```
 
 创建docker虚拟网络，IP段需要和主路由的一致。
 
-```
+```bash
 docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.254 -o parent=eth0 macnet
 ```
 
@@ -36,13 +36,13 @@ docker network create -d macvlan --subnet=192.168.1.0/24 --gateway=192.168.1.254
 
 运行OpenWrt容器。
 
-```
+```bash
 docker run --restart always --name=openwrt -d --network macnet --privileged unifreq/openwrt-aarch64:latest
 ```
 
 进入OpenWrt的shell，修改网络。
 
-```
+```bash
 docker exec -it openwrt bash
 vi /etc/config/network
 
@@ -55,18 +55,15 @@ config interface 'lan'
         option ipaddr '192.168.1.254' # 改这行
         option netmask '255.255.255.0'
         option ip6assign '60'
-```
 
-退出容器里的shell，重启N1。
-
-```
+# 退出容器里的shell，重启N1
 exit
 reboot
 ```
 
 重启完成后就可以在浏览器访问旁路由了。
 
-```
+```bash
 http://192.168.1.254/
 # 默认用户名密码 root / password
 ```
