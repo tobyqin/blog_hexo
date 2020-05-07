@@ -1,3 +1,10 @@
+---
+title: Parallels Desktop里的虚拟机的Docker无网络
+categories: [Tech]
+tags: [tips]
+date: 2020-05-07
+layout: post
+---
 Parallel Desktop里装了一个CentOS，CentOS里装了一个Docker，有点像套娃。
 
 <!-- more -->
