@@ -1,7 +1,7 @@
 ---
 title: 现场互动方案
-categories: [Tech]
-tags: [tips]
+categories: [Other]
+tags: [interaction]
 date: 2020-05-10
 layout: post
 ---
