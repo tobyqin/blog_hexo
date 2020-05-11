@@ -1,7 +1,7 @@
 ---
 title: Parallels Desktop里的虚拟机的Docker无网络
 categories: [Tech]
-tags: [tips]
+tags: [linux,docker,vmware,macosx]
 date: 2020-05-07
 layout: post
 ---
