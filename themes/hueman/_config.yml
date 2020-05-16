@@ -18,7 +18,7 @@ customize:
     favicon: # path to favicon
     social_links: # for more icons, please see http://fontawesome.io/icons/#brand
         github: https://github.com/tobyqin
-        email: mailto:me@betacat.online
+        # email: mailto:me@betacat
         rss: /atom.xml
 
 # Widgets

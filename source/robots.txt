@@ -4,4 +4,4 @@ Allow: /
 Disallow: /js/
 Disallow: /css/
 Disallow: /lib/
-Sitemap: https://betacat.online/sitemap.xml
+Sitemap: https://tobyqin.github.io/sitemap.xml

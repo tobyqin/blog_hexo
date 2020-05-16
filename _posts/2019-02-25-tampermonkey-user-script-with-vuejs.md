@@ -5,7 +5,7 @@ tags: [tampermonkey,user-script,vuejs]
 date: 2019-02-25
 ---
 
-前面我们介绍过怎么[用VueJS开发浏览器插件](https://betacat.online/posts/2019-02-24/build-chrome-extension-with-vuejs/)，也知道了它有一个巨大限制，就是需要注册成开发者你才能发布插件到商店。而且你发布的任何插件都需要经过严格的审核才能最终和用户见面。这时候我想你该认识一下油猴了。
+前面我们介绍过怎么[用VueJS开发浏览器插件](https://tobyqin.github.io/posts/2019-02-23/build-chrome-extension-with-vuejs/)，也知道了它有一个巨大限制，就是需要注册成开发者你才能发布插件到商店。而且你发布的任何插件都需要经过严格的审核才能最终和用户见面。这时候我想你该认识一下油猴了。
 
 <!-- more -->
 
@@ -38,7 +38,7 @@ TamperMonkey官方的定义说这是一个用户脚本管理器。通俗的说�
 ```javascript
 // ==UserScript==
 // @name         Github Info
-// @namespace    https://betacat.online/
+// @namespace    https://tobyqin.github.io/
 // @version      0.2.1
 // @description  A demo to use vuejs in tampermonkey script.
 // @author       Toby Qin
