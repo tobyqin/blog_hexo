@@ -32,7 +32,7 @@ jobs:
         ssh-keyscan e.coding.net >> ~/.ssh/known_hosts
 
         # set git infomation
-        git config --global user.name 'Toby@Github' # 换成你自己的邮箱和名字
+        git config --global user.name 'Toby@Github'
         git config --global user.email 'toby.qin@live.com'
 
         echo Node： `node -v`

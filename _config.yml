@@ -8,7 +8,7 @@ subtitle: 未上线的猫
 description: BetaCat 测试喵
 author: Toby Qin
 language: zh-Hans
-timezone: Asia/Shanghai
+timezone: UTC
 
 # comments
 disqus_shortname: https-betacat-online
