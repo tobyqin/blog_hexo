@@ -23,7 +23,6 @@ jobs:
     - name: Setup
       env:
         ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
-        TZ: Asia/Shanghai
       run: |
         # set up private key for deploy
         mkdir -p ~/.ssh/
