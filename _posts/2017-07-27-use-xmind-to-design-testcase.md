@@ -9,9 +9,9 @@ date: 2017-07-27
 
 <!-- more -->
 
-> 上集回顾：[你听说过思维导图吗？](https://tobyqin.github.io/posts/2017-07-25/the-power-of-mindmap/)
+> 上集回顾：[你听说过思维导图吗？](https://tobyqin.github.io/posts/2017-07-26/the-power-of-mindmap/)
 >
-> 原文链接： <https://tobyqin.github.io/posts/2017-07-25/the-power-of-mindmap/>
+> 原文链接： <https://tobyqin.github.io/posts/2017-07-26/the-power-of-mindmap/>
 
 本文我们将使用xmind设计测试案例，并导入到TestCase管理系统TestLink。
 

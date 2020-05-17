@@ -5,7 +5,7 @@ tags: [python,pycharm,tips]
 date: 2019-02-08
 ---
 
-PyCharm是笔者强烈推荐的Python IDE，如果你有EDU的邮箱可以直接[申请专业版授权](https://tobyqin.github.io/posts/2016-09-26/get-jetbrains-student-licence/)，或者就使用社区版，功能上并没有太多缩减，日常开发也完全够用。
+PyCharm是笔者强烈推荐的Python IDE，如果你有EDU的邮箱可以直接[申请专业版授权](https://tobyqin.github.io/posts/2016-09-27/get-jetbrains-student-licence/)，或者就使用社区版，功能上并没有太多缩减，日常开发也完全够用。
 
 <!-- more -->
 

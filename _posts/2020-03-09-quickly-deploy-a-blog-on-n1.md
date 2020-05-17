@@ -5,7 +5,7 @@ tags: [tips]
 date: 2020-03-09
 layout: post
 ---
-前提是你已经[刷了armbian](https://tobyqin.github.io/posts/2020-02-08/feixun-n1s-road-of-twists-and-turns/)。
+前提是你已经[刷了armbian](https://tobyqin.github.io/posts/2020-02-09/feixun-n1s-road-of-twists-and-turns/)。
 
 <!-- more -->
 

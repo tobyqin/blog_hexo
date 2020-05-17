@@ -45,8 +45,8 @@ IOS 是否有类似工具和命令，我不清楚，如果有那么实现自动�
 
 专业的开发测试人员，也可以参考我的另外两篇博客：
 
-- [在 Windows 下搭建 Appium + Android 自动化测试环境](https://tobyqin.github.io/posts/2017-05-02/setup-appium-automation-test-environment/)
-- [在Mac OSX 上配置Appium+Android自动化测试环境](https://tobyqin.github.io/posts/2017-12-09/setup-appium-test-environment-on-mac-osx/)
+- [在 Windows 下搭建 Appium + Android 自动化测试环境](https://tobyqin.github.io/posts/2017-05-03/setup-appium-automation-test-environment/)
+- [在Mac OSX 上配置Appium+Android自动化测试环境](https://tobyqin.github.io/posts/2017-12-10/setup-appium-test-environment-on-mac-osx/)
 
 如果只是为了刷金币，只需要安装好驱动和ADB工具即可。
 
