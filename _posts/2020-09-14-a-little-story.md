@@ -1,7 +1,7 @@
 ---
 title: 一个小故事
-categories: [Thoughts]
-tags: []
+categories: [Life]
+tags: [life, dream]
 date: 2020-09-14
 layout: post
 ---
