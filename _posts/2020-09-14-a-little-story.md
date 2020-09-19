@@ -1,5 +1,5 @@
 ---
-title: 一个小故事
+ title: 一个小故事
 categories: [Life]
 tags: [life, dream]
 date: 2020-09-14
