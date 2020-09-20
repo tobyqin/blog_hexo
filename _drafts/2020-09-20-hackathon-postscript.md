@@ -1,7 +1,7 @@
 ---
 title: 黑客马拉松后记
-categories: [Thoughts]
-tags: []
+categories: [Tech]
+tags: [hackathon, tech, teamwork]
 date: 2020-09-20
 layout: post
 ---
