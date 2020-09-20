@@ -1,4 +1,10 @@
-今年已经参加了两次黑客马拉松，第一次没拿奖，第二次嘛，嗯。
+---
+title: 黑客马拉松后记
+categories: [Thoughts]
+tags: []
+date: 2020-09-20
+layout: post
+---
 
 ## 黑马流程
 
