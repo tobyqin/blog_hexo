@@ -1,3 +1,10 @@
+---
+title: 我并不想记命令参数
+categories: [Tech]
+tags: [tips]
+date: 2020-09-20
+layout: post
+---
 经常会用到很多Linux命令，但是我并不想记那些参数。我们先来做几个简单的测试。
 
 * 你知道`tar`命令的压缩和解压缩参数吗？
