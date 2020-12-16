@@ -32,14 +32,14 @@ $ sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it \
 
 This command publishes the following ports, which are needed for proper operation of the ELK stack:
 
-- 5601 (Kibana web interface).
-- 9200 (Elasticsearch JSON interface).
-- 5044 (Logstash Beats interface, receives logs from Beats such as Filebeat – see the *[Forwarding logs with Filebeat](https://elk-docker.readthedocs.io/#forwarding-logs-filebeat)* section).
+* 5601 (Kibana web interface).
+* 9200 (Elasticsearch JSON interface).
+* 5044 (Logstash Beats interface, receives logs from Beats such as Filebeat – see the *[Forwarding logs with Filebeat](https://elk-docker.readthedocs.io/#forwarding-logs-filebeat)* section).
 
 The image exposes (but does not publish):
 
-- Elasticsearch's transport interface on port 9300. Use the `-p 9300:9300` option with the `docker` command above to publish it. This transport interface is notably used by [Elasticsearch's Java client API](https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html), and to run Elasticsearch in a cluster.
-- [Logstash's monitoring API](https://www.elastic.co/guide/en/logstash/current/monitoring-logstash.html) on port 9600. Use the `-p 9600:9600` option with the `docker` command above to publish it.
+* Elasticsearch's transport interface on port 9300. Use the `-p 9300:9300` option with the `docker` command above to publish it. This transport interface is notably used by [Elasticsearch's Java client API](https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html), and to run Elasticsearch in a cluster.
+* [Logstash's monitoring API](https://www.elastic.co/guide/en/logstash/current/monitoring-logstash.html) on port 9600. Use the `-p 9600:9600` option with the `docker` command above to publish it.
 
 ## 相关文档
 
