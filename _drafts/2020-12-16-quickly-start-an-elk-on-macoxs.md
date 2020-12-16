@@ -1,4 +1,10 @@
-## 快速开始
+---
+title: MacOXS上快速启动一个ELK
+categories: [Thoughts]
+tags: []
+date: 2020-12-16
+layout: post
+---
 
 1. 确保你的Docker已经安装完毕。
 2. 配置一个docker的仓库镜像，任选其一或者自行搜索。
