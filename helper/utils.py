@@ -8,7 +8,7 @@ from datetime import datetime
 from os.path import dirname, abspath, join, exists
 
 app_id = '20181121000237296'
-sec_key = 'FpUUXfla5UuEcStx5tHk'
+sec_key = 'BAD_KEY'
 host = 'http://api.fanyi.baidu.com/api/trans/vip/translate?'
 
 current_dir = dirname(dirname(__file__))
